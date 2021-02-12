@@ -1,0 +1,51 @@
+{
+  "name": "muna-starter-website",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@blueprintjs/core": "^3.36.0",
+    "@blueprintjs/icons": "^3.23.0",
+    "@canvas-panel/core": "^0.2.0",
+    "@canvas-panel/full-page-plugin": "^0.2.0",
+    "@canvas-panel/patchwork-plugin": "^0.2.0",
+    "@chakra-ui/icons": "^1.0.2",
+    "@chakra-ui/react": "^1.1.2",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
+    "@sanity/block-content-to-react": "^2.0.7",
+    "@sanity/client": "1.149.2",
+    "@sanity/image-url": "^0.140.19",
+    "@svgr/webpack": "^5.5.0",
+    "@turf/bbox": "^6.0.1",
+    "classnames": "2.2.6",
+    "date-fns": "2.10.0",
+    "framer-motion": "^3.1.4",
+    "jsonld": "^3.2.0",
+    "mirador": "^3.0.0",
+    "mirador-image-tools": "^0.10.0",
+    "next": "^10.0.5",
+    "next-google-fonts": "^1.2.1",
+    "next-images": "^1.7.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-headroom": "^3.1.0",
+    "react-icons": "^4.1.0",
+    "react-instagram-embed": "^2.0.0",
+    "react-map-gl": "^5.2.9",
+    "react-player": "^2.8.2",
+    "react-twitter-embed": "^3.0.3"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.0",
+    "eslint": "^7.13.0",
+    "eslint-plugin-react": "^7.21.5",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "2.2.0",
+    "tailwindcss": "^1.9.6"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,6 @@
+{
+  "typesToIgnore": [],
+  "keysToIgnore": [
+    "icon"
+  ]
+}
