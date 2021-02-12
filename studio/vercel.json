@@ -3,8 +3,5 @@
   "routes": [
     { "handle": "filesystem" },
     { "src": "/.*", "dest": "/index.html" }
-  ],
-  "engines": {
-    "node": "12.x"
-  }
+  ]
 }

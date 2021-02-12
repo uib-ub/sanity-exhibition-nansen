@@ -3,6 +3,9 @@
   "name": "nansen-exhibition-studio",
   "description": "Nansen exhibition studio with a Muna schema.",
   "version": "0.0.0",
+  "engines": {
+    "node": "12.x"
+  },
   "main": "package.json",
   "author": "Tarje Sælen Lavik <tarje.lavik@uib.no>",
   "scripts": {
