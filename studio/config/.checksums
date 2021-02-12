@@ -6,5 +6,8 @@
   "sanity-plugin-graph-view": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
   "sanity-plugin-leaflet-input": "719f6bf672040fa5af3485f155f7da339033b564cc0978f1249c274ddd26a483",
   "@andre-brdoch/sanity-plugin-schema-inspector": "4feafffa155bc1fc8efc4f26e0e9c49c69938a03eb12e2c66c764afc82f02eea",
-  "sanity-plugin-media-library": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  "sanity-plugin-media-library": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "@sanity/form-builder": "b38478227ba5e22c91981da4b53436df22e48ff25238a55a973ed620be5068aa",
+  "graph-view": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "leaflet-input": "719f6bf672040fa5af3485f155f7da339033b564cc0978f1249c274ddd26a483"
 }
