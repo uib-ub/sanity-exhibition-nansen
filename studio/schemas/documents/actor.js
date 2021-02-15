@@ -11,8 +11,8 @@ import {
 import {timespanAsString} from '../helpers/helpers'
 
 export default {
+  name: 'Actor',
   title: 'Actor',
-  name: 'actor',
   type: 'document',
   initialValue: {
     editorialState: 'draft',
@@ -62,7 +62,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'actorType'}],
+          to: [{type: 'ActorType'}],
         },
       ],
     },
@@ -80,12 +80,12 @@ export default {
       descriptionEN: 'Add all known events this smuck did',
       type: 'array',
       of: [
-        {type: 'birth'},
-        {type: 'reference', to: [{type: 'activity'}]},
-        {type: 'move'},
-        {type: 'joining'},
-        {type: 'leaving'},
-        {type: 'death'},
+        {type: 'Birth'},
+        {type: 'reference', to: [{type: 'Activity'}]},
+        {type: 'Move'},
+        {type: 'Joining'},
+        {type: 'Leaving'},
+        {type: 'Death'},
       ],
       options: {
         editModal: 'fullscreen',

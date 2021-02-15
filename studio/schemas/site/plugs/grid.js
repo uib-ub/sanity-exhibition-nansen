@@ -4,8 +4,8 @@ import BlockContent from '@sanity/block-content-to-react'
 const Preview = ({value: {blocks}}) => <BlockContent blocks={blocks} />
 
 export default {
+  name: 'Grid',
   type: 'object',
-  name: 'grid',
   title: 'Rutenett',
   titleEN: 'Grid',
   preview: {

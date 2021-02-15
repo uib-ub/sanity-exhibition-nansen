@@ -17,21 +17,21 @@ const blog = S.listItem()
       .items([
         S.listItem()
           .title('Publiserte blogginnlegg')
-          .schemaType('post')
+          .schemaType('Post')
           .icon(BlogIcon)
           .child(
-            S.documentTypeList('post')
+            S.documentTypeList('Post')
               .title('Publiserte blogginnlegg')
-              .menuItems(S.documentTypeList('post').getMenuItems())
-              .filter('_type == "post" && publishedAt < now() && !(_id in path("drafts.**"))'),
+              .menuItems(S.documentTypeList('Post').getMenuItems())
+              .filter('_type == "Post" && publishedAt < now() && !(_id in path("drafts.**"))'),
             /* .child((documentId) =>
                 S.document()
                   .documentId(documentId)
-                  .schemaType('post')
+                  .schemaType('Post')
                   .views([S.view.form(), PreviewIFrame()])
               ) */
           ),
-        S.documentTypeListItem('post')
+        S.documentTypeListItem('Post')
           .title('Alle blogginnlegg')
           .icon(
             AllIcon,
@@ -42,16 +42,16 @@ const blog = S.listItem()
             S.documentTypeList('actor')
               .title('Post by author')
               .filter(
-                '_type == "actor" && count(*[_type=="post" && ^._id in authors[]->.actor._ref]) > 0'
+                '_type == "actor" && count(*[_type=="Post" && ^._id in authors[]->.actor._ref]) > 0'
               )
               .child(id =>
               // List out project documents where the _id for the selected
               // category appear as a _ref in the project’s categories array
                 S.documentList()
-                  .schemaType('post')
+                  .schemaType('Post')
                   .title('Blogs')
                   .filter(
-                    '_type == "post" && $id in authors[].actor._ref'
+                    '_type == "Post" && $id in authors[].actor._ref'
                   )
                   .params({id})
               )

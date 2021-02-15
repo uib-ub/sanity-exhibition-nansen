@@ -1,5 +1,5 @@
 export default {
-  name: 'toc',
+  name: 'Toc',
   type: 'document',
   title: 'Innholdsfortegnelse',
   titleEN: 'Table of Contents',
@@ -26,7 +26,7 @@ export default {
       title: 'Seksjoner',
       titleEN: 'Sections',
       type: 'array',
-      of: [{type: 'tocSection'}],
+      of: [{type: 'TocSection'}],
     },
   ],
   preview: {

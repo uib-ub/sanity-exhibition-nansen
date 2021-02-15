@@ -1,6 +1,6 @@
 export default {
+  name: 'PageHeader',
   type: 'object',
-  name: 'pageHeader',
   title: 'Sideoverskrift',
   titleEN: 'Page Header',
   fieldsets: [
@@ -34,7 +34,7 @@ export default {
       name: 'illustration',
       title: 'Illustrasjon',
       titleEN: 'Illustration',
-      type: 'illustration',
+      type: 'Illustration',
     },
   ],
   preview: {

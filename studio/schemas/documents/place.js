@@ -8,13 +8,12 @@ import {
   definedByGeoJSON,
 } from '../props'
 import {defaultFieldsets} from '../fieldsets'
-import {KulturnavInput} from '../components/kulturnavInput/KulturnavInput'
+// import {KulturnavInput} from '../components/kulturnavInput/KulturnavInput'
 
 export default {
-  title: 'Place',
-  name: 'place',
-  description: 'Should be fetched from KulturNav',
+  name: 'Place',
   type: 'document',
+  title: 'Sted',
   initialValue: {
     editorialState: 'published',
     accessState: 'open',
@@ -26,7 +25,7 @@ export default {
     accessState,
     label,
     identifiedBy,
-    /* {
+    {
       name: 'hasType',
       title: 'Klassifisert som',
       titleEN: 'Classified as',
@@ -34,18 +33,18 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'placeType'}],
+          to: [{type: 'PlaceType'}],
         },
       ],
-    }, */
-    {
+    },
+    /* {
       name: 'hasType',
       title: 'Klassifisert som',
       titleEN: 'Classified as',
       type: 'array',
       of: [{type: 'string'}],
       inputComponent: KulturnavInput,
-    },
+    }, */
     referredToBy,
     definedByGeoJSON,
   ],

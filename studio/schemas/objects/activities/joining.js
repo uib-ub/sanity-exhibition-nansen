@@ -3,10 +3,10 @@ import {timespan, referredToBy, tookPlaceAt} from '../../props'
 var capitalize = require('capitalize')
 
 export default {
-  name: 'joining',
+  name: 'Joining',
+  type: 'object',
   title: 'Innlemmelse',
   titleEN: 'Joining',
-  type: 'object',
   fieldsets: [
     {
       name: 'minimum',
@@ -23,7 +23,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'eventType'}],
+          to: [{type: 'EventType'}],
         },
       ],
     },
@@ -35,7 +35,15 @@ export default {
       titleEN: 'Joined',
       description: 'Actor(s) that joined this group',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'actor'}, {type: 'group'}]}],
+      of: [
+        {
+          type: 'reference', 
+          to: [
+            {type: 'Actor'}, 
+            {type: 'Group'}
+          ]
+        }
+      ],
     },
     referredToBy,
   ],

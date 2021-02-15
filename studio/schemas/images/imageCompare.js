@@ -1,13 +1,13 @@
 export default {
-  name: 'imageCompare',
-  title: 'Compare images',
+  name: 'ImageCompare',
   type: 'object',
+  title: 'Compare images',
   fields: [
     {
       name: 'label',
       title: 'Tittel',
       titleEN: 'Title',
-      type: 'localeString',
+      type: 'LocaleString',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -15,11 +15,11 @@ export default {
       title: 'Before',
       type: 'array',
       of: [{
-        type: 'digitalImageObject'}, 
+        type: 'DigitalImageObject'}, 
         {
           type: 'reference', 
           to: [{
-            type: 'madeObject'}
+            type: 'HumanMadeObject'}
           ]
       }],
       validation: (Rule) => Rule.required(),
@@ -29,11 +29,11 @@ export default {
       title: 'After',
       type: 'array',
       of: [{
-        type: 'digitalImageObject'}, 
+        type: 'DigitalImageObject'}, 
         {
           type: 'reference', 
           to: [{
-            type: 'madeObject'}
+            type: 'HumanMadeObject'}
           ]
       }],
       validation: (Rule) => Rule.required(),
@@ -42,7 +42,7 @@ export default {
       name: 'caption',
       title: 'Bildetekst',
       titleEN: 'Caption',
-      type: 'localeString',
+      type: 'LocaleString',
     },
   ],
   preview: {

@@ -10,10 +10,9 @@ import {
 } from '../props'
 
 export default {
-  title: 'Event',
-  name: 'event',
-  description: 'Should be fetched from KulturNav',
+  name: 'Event',
   type: 'document',
+  title: 'Event',
   initialValue: {
     editorialState: 'draft',
     accessState: 'secret',
@@ -65,7 +64,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'eventType'}],
+          to: [{type: 'EventType'}],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -74,15 +73,15 @@ export default {
       name: 'media',
       title: 'Media',
       titleEN: 'Media',
-      type: 'mediaObject',
+      type: 'MediaObject',
       fieldset: 'timelineMedium',
     },
     {
       name: 'location',
+      type: 'geopoint',
       title: 'Lokasjon',
       titleEN: 'Location',
       description: 'Where the hell did this happen?!',
-      type: 'geopoint',
     },
   ],
   preview: {

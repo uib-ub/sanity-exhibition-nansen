@@ -1,6 +1,6 @@
 export default {
+  name: 'Iframe',
   type: 'object',
-  name: 'iframe',
   title: 'iFrame',
   fields: [
     {

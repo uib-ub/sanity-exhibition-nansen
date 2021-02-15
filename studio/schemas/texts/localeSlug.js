@@ -1,9 +1,9 @@
 import {supportedLanguages} from '../vocabularies/defaultVocabularies'
 
 export default {
-  title: 'localeSlug',
-  name: 'localeSlug',
+  name: 'LocaleSlug',
   type: 'object',
+  title: 'localeSlug',
   fieldsets: [
     {
       title: 'Translations',

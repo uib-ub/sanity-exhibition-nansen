@@ -2,10 +2,10 @@ import {label, referredToBy} from '../props'
 import {defaultFieldsets} from '../fieldsets'
 
 export default {
-  name: 'geojson',
+  name: 'Geojson',
+  type: 'object',
   title: 'geoJSON',
   titleEN: 'geoJSON',
-  type: 'object',
   fieldsets: defaultFieldsets,
   fields: [
     label,

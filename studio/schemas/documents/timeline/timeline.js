@@ -3,7 +3,7 @@ import {editorialState, accessState} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 
 export default {
-  name: 'timeline',
+  name: 'Timeline',
   type: 'document',
   title: 'Timeline',
   initialValue: {
@@ -19,20 +19,23 @@ export default {
       name: 'headline', // path: title.text.heading
       title: 'Tittel',
       titleEN: 'Headline',
-      type: 'localeString',
+      type: 'LocaleString',
     },
     {
       name: 'text', // path: title.text.text
       title: 'Tekst',
       titleEN: 'Text',
-      type: 'localeBlock',
+      type: 'LocaleBlock',
     },
     {
       name: 'media',
       title: 'Media',
       titleEN: 'Media',
       type: 'array',
-      of: [{type: 'mediaObject'}, {type: 'externalMediaObject'}],
+      of: [
+        {type: 'MediaObject'}, 
+        {type: 'ExternalMediaObject'}
+      ],
       validation: (Rule) => Rule.length(1).error('You should only register one media object'),
     },
     {
@@ -56,7 +59,7 @@ export default {
       titleEN: 'Era',
       description: 'Eras is used to label a span of time on the timeline navigation component.',
       type: 'array',
-      of: [{type: 'era'}],
+      of: [{type: 'Era'}],
       preview: {
         select: {
           title: 'headline',
@@ -77,9 +80,9 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'event'}, {type: 'activity'}],
+          to: [{type: 'Event'}, {type: 'Activity'}],
         },
-        {type: 'timelineSlide'},
+        {type: 'TimelineSlide'},
       ],
     },
   ],

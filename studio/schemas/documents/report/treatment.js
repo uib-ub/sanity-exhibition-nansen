@@ -5,7 +5,7 @@ import {timespan, tookPlaceAt, referredToBy, carriedOutBy, usedGeneralTechnique,
 import {defaultFieldsets} from '../../fieldsets'
 
 export default {
-  name: 'treatment',
+  name: 'Treatment',
   title: 'Behandling',
   titleEN: 'Treatment',
   type: 'object',
@@ -40,7 +40,7 @@ export default {
         </span>
       ),
       type: 'array',
-      of: [{type: 'treatmentAssessment'}],
+      of: [{type: 'TreatmentAssessment'}],
     },
   ],
   preview: {

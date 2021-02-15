@@ -15,57 +15,57 @@ export default S.listItem()
       .items([
         S.documentListItem()
           .title('Frontpage')
-          .schemaType('page')
+          .schemaType('Page')
           .icon(FcHome)
-          .child(S.document().schemaType('page').documentId('frontpage')),
+          .child(S.document().schemaType('Page').documentId('frontpage')),
         S.listItem()
           .title('Sider')
           .icon(FcTemplate)
-          .schemaType('page')
+          .schemaType('Page')
           .child(
-            S.documentList('page')
+            S.documentList('Page')
               .title('Sider')
-              .menuItems(S.documentTypeList('page').getMenuItems())
+              .menuItems(S.documentTypeList('Page').getMenuItems())
               .filter('_type == "page" && !(_id match "**frontpage")'),
           ),
         S.listItem()
           .title('Navigasjonsmenyer')
           .icon(MdMenu)
-          .schemaType('navigationMenu')
-          .child(S.documentTypeList('navigationMenu').title('Navigasjonsmenyer')),
+          .schemaType('NavigationMenu')
+          .child(S.documentTypeList('NavigationMenu').title('Navigasjonsmenyer')),
         S.listItem()
           .title('Innholdsfortegnelser')
           .icon(RiSideBarFill)
-          .schemaType('toc')
+          .schemaType('Toc')
           .child(
-            S.documentTypeList('toc')
+            S.documentTypeList('Toc')
               .title('Innholdsfortegnelser')
               .child(
-                (documentId) => S.document().documentId(documentId).schemaType('toc'),
+                (documentId) => S.document().documentId(documentId).schemaType('Toc'),
                 // .views([S.view.form(), PreviewIFrame()])
               ),
           ),
         S.listItem()
           .title('Stier')
           .icon(FaRoute)
-          .schemaType('route')
+          .schemaType('Route')
           .child(
-            S.documentTypeList('route')
+            S.documentTypeList('Route')
               .title('Stier')
               .child(
-                (documentId) => S.document().documentId(documentId).schemaType('route'),
+                (documentId) => S.document().documentId(documentId).schemaType('Route'),
                 // .views([S.view.form(), PreviewIFrame()])
               ),
           ),
         S.listItem()
           .title('Varsler')
           .icon(AiFillAlert)
-          .schemaType('alert')
+          .schemaType('Alert')
           .child(
-            S.documentList('alert')
+            S.documentList('Alert')
               .title('Varsler')
-              .menuItems(S.documentTypeList('alert').getMenuItems())
-              .filter('_type == "alert"'),
+              .menuItems(S.documentTypeList('Alert').getMenuItems())
+              .filter('_type == "Alert"'),
           ),
       ]),
   )

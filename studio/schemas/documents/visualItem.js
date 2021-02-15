@@ -1,16 +1,16 @@
 import {FaImage} from 'react-icons/fa'
 
 export default {
-  title: 'Visual object',
-  name: 'visualItem',
+  name: 'VisualItem',
   type: 'document',
+  title: 'Visual object',
   icon: FaImage,
   fields: [
     {
       name: 'label',
       title: 'Tittel',
       titleEN: 'Title',
-      type: 'localeString',
+      type: 'LocaleString',
       validation: (Rule) => Rule.required(),
     },
     {
@@ -19,7 +19,7 @@ export default {
       titleEN: 'Activity stream',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'creation'}],
+      of: [{type: 'Creation'}],
     },
   ],
   preview: {

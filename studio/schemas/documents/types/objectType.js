@@ -4,8 +4,8 @@ import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers'
 
 export default {
+  name: 'ObjectType',
   title: 'Objekttype',
-  name: 'objectType',
   type: 'document',
   initialValue: {
     editorialState: 'published',
@@ -23,7 +23,7 @@ export default {
       title: 'Overordnet term',
       titleEN: 'Broader',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'objectType'}]}],
+      of: [{type: 'reference', to: [{type: 'ObjectType'}]}],
     },
     {
       name: 'activityStream',
@@ -31,7 +31,7 @@ export default {
       titleEN: 'Activity stream',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'creation'}],
+      of: [{type: 'Creation'}],
     },
   ],
   preview: {

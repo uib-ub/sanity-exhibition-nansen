@@ -4,17 +4,17 @@ import {BsFillQuestionCircleFill} from 'react-icons/bs'
 import {valueSlider} from '../props'
 
 export default {
-  name: 'conditionState',
+  name: 'ConditionState',
+  type: 'object',
   title: 'Tilstandsstatus',
   titleEN: 'Condition state',
-  type: 'object',
   fields: [
     {
       name: 'hasType',
       title: 'Klassifisert som',
       titleEN: 'Classified as',
       type: 'reference',
-      to: [{type: 'conditionType'}],
+      to: [{type: 'ConditionType'}],
       validation: (Rule) => Rule.required(),
     },
     valueSlider,
@@ -59,7 +59,7 @@ export default {
         </span>
       ),
       type: 'array',
-      of: [{type: 'digitalImageObject'}],
+      of: [{type: 'DigitalImageObject'}],
       options: {
         layout: 'grid',
       },

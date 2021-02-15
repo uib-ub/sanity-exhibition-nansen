@@ -17,8 +17,8 @@ const Tweet = ({value: {url}}) => {
 }
 
 export default {
+  name: 'Social',
   type: 'object',
-  name: 'social',
   title: 'Social',
   description: 'A big social. Centered',
   fields: [

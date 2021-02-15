@@ -2,10 +2,10 @@ import {referredToBy} from '../props'
 import {defaultFieldsets} from '../fieldsets'
 
 export default {
-  name: 'identifier',
+  name: 'Identifier',
+  type: 'object',
   title: 'Identifikator',
   titleEN: 'Identifier',
-  type: 'object',
   fieldsets: defaultFieldsets,
   fields: [
     {
@@ -19,7 +19,7 @@ export default {
       title: 'Klassifisert som',
       titleEN: 'Classified as',
       type: 'reference',
-      to: [{type: 'identifierType'}],
+      to: [{type: 'IdentifierType'}],
       validation: (Rule) => Rule.required(),
     },
     referredToBy,

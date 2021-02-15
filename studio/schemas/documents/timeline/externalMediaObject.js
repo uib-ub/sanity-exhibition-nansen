@@ -3,8 +3,8 @@
 */
 
 export default {
+  name: 'ExternalMediaObject',
   title: 'External media object',
-  name: 'externalMediaObject',
   type: 'object',
   options: {
     hotspot: true,

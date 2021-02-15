@@ -1,9 +1,9 @@
 import {timespan, tookPlaceAt, contributionAssignedBy} from '../../props'
 export default {
-  name: 'beginningOfExistence',
+  name: 'BeginningOfExistence',
+  type: 'object',
   title: 'Start på eksistens',
   titleEN: 'Beginning of existence',
-  type: 'object',
   fields: [
     contributionAssignedBy,
     timespan, 

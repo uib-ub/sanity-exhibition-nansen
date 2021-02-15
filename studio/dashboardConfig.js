@@ -10,7 +10,7 @@ export default {
         title: 'Recently edited',
         order: '_updatedAt desc',
         limit: 10,
-        types: ['madeObject'],
+        types: ['HumanMadeObject'],
       },
       layout: {width: 'small'},
     },

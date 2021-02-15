@@ -2,10 +2,10 @@ import {timespan, carriedOutBy, tookPlaceAt, referredToBy} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 
 export default {
-  name: 'transformation',
+  name: 'Transformation',
+  type: 'object',
   title: 'Transformasjon',
   titleEN: 'Transformation',
-  type: 'object',
   fieldsets: defaultFieldsets,
   fields: [
     {
@@ -16,7 +16,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'eventType'}],
+          to: [{type: 'EventType'}],
         },
       ],
     },
@@ -27,7 +27,7 @@ export default {
   ],
   preview: {
     select: {
-      date: 'productionDate',
+      date: 'timespan',
     },
     prepare(selection) {
       const {date} = selection

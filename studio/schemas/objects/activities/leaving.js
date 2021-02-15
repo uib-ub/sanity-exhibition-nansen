@@ -4,10 +4,10 @@ import {defaultFieldsets} from '../../fieldsets'
 var capitalize = require('capitalize')
 
 export default {
-  name: 'leaving',
+  name: 'Leaving',
+  type: 'object',
   title: 'Utmeldelse',
   titleEN: 'Leaving',
-  type: 'object',
   fieldsets: defaultFieldsets,
   fields: [
     {
@@ -18,7 +18,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'eventType'}],
+          to: [{type: 'EventType'}],
         },
       ],
     },
@@ -30,7 +30,15 @@ export default {
       titleEN: 'Left',
       description: 'Actor(s) that left this group',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'actor'}, {type: 'group'}]}],
+      of: [
+        {
+          type: 'reference', 
+          to: [
+            {type: 'Actor'}, 
+            {type: 'Group'}
+          ]
+        }
+      ],
     },
     referredToBy,
   ],

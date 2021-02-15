@@ -3,10 +3,9 @@ import {timespan, editorialState, accessState, label, referredToBy, tookPlaceAt}
 import {coalesceLabel} from '../helpers/helpers'
 
 export default {
-  title: 'Period',
-  name: 'period',
-  description: 'Should be fetched from KulturNav',
+  name: 'Period',
   type: 'document',
+  title: 'Period',
   initialValue: {
     editorialState: 'published',
     accessState: 'open',
@@ -54,7 +53,7 @@ export default {
       name: 'media',
       title: 'Media',
       titleEN: 'Media',
-      type: 'mediaObject',
+      type: 'MediaObject',
       fieldset: 'timelineMedium',
     },
     {
@@ -62,7 +61,15 @@ export default {
       title: 'Består av',
       titleEN: 'consistsOf',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'period'}, {type: 'event'}]}],
+      of: [
+        {
+          type: 'reference', 
+          to: [
+            {type: 'Period'}, 
+            {type: 'Event'}
+          ]
+        }
+      ],
       options: {
         editModal: 'fullscreen',
       },
@@ -71,7 +78,7 @@ export default {
       name: 'definingSTV',
       title: 'Definert av STV',
       titleEN: 'Defining STC',
-      type: 'spacetimeVolume',
+      type: 'SpacetimeVolume',
       options: {
         editModal: 'fullscreen',
       },
@@ -89,6 +96,7 @@ export default {
         title: coalesceLabel(title),
         subtitle: coalesceLabel(type),
       }
-    },
-  },
+    }
+  }
 }
+ 

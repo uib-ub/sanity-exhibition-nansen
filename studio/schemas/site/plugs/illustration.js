@@ -1,6 +1,6 @@
 export default {
+  name: 'Illustration',
   type: 'object',
-  name: 'illustration',
   title: 'Illustrasjon',
   titleEN: 'Illustration',
   fields: [
@@ -8,7 +8,7 @@ export default {
       name: 'image',
       title: 'Bilde',
       titleEN: 'Image',
-      type: 'digitalImageObject',
+      type: 'DigitalImageObject',
     },
   ],
   preview: {

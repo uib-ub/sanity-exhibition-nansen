@@ -1,8 +1,8 @@
 import { TextPreview } from "../../components/preview/TextPreview"
 
 export default {
+  name: 'SectionText',
   title: 'Text',
-  name: 'sectionText',
   type: 'object',
   fields: [
     {

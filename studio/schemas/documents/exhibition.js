@@ -12,9 +12,8 @@ import {defaultFieldsets} from '../fieldsets'
 import {coalesceLabel} from '../helpers/helpers'
 
 export default {
+  name: 'Exhibition',
   title: 'Exhibition',
-  name: 'exhibition',
-  description: 'Should be fetched from KulturNav',
   type: 'document',
   initialValue: {
     editorialState: 'draft',
@@ -37,7 +36,7 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'contributionAssignment',
+          type: 'ContributionAssignment',
         },
       ],
     },
@@ -47,7 +46,10 @@ export default {
       titleEN: 'Activity stream',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'creation'}, {type: 'move'}],
+      of: [
+        {type: 'Creation'}, 
+        {type: 'Move'}
+      ],
     },
     tookPlaceAt,
     referredToBy,

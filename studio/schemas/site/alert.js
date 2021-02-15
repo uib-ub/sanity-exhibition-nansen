@@ -1,8 +1,8 @@
 import {timespanAsString} from '../helpers/helpers'
 
 export default {
+  name: 'Alert',
   type: 'document',
-  name: 'alert',
   title: 'Varsel',
   titleEN: 'Alert',
   fieldsets: [

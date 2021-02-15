@@ -12,7 +12,7 @@ const management = S.listItem()
     S.list()
       .title('Samlingsadm.')
       .items([
-        S.documentTypeListItem('collection').title('Samlinger'),
+        S.documentTypeListItem('Collection').title('Samlinger'),
         S.listItem()
           .title('Akkvisisjoner')
           .icon(FaGifts)
@@ -25,30 +25,30 @@ const management = S.listItem()
                   .icon(FaGifts)
                   .child(
                     // List out all categories
-                    S.documentTypeList('acquisitionType')
+                    S.documentTypeList('AcquisitionType')
                       .title('Akkvisisjoner etter type')
-                      .filter('_type == "acquisitionType"')
+                      .filter('_type == "AcquisitionType"')
                       .child((catId) =>
                         // List out project documents where the _id for the selected
                         // category appear as a _ref in the project’s categories array
                         S.documentList()
-                          .schemaType('acquisition')
+                          .schemaType('Acquisition')
                           .title('Akkvisisjoner')
-                          .filter('_type == "acquisition" && $catId in hasType[]._ref')
+                          .filter('_type == "Acquisition" && $catId in hasType[]._ref')
                           .params({catId}),
                       ),
                   ),
                 S.listItem().title('Upubliserte akkvisisjoner').icon(FaGifts).child(
                   // List out all categories
-                  S.documentTypeList('acquisition')
+                  S.documentTypeList('Acquisition')
                     .title('Upubliserte akkvisisjoner')
-                    .filter('_type == "acquisition" && accessState == "secret"'),
+                    .filter('_type == "Acquisition" && accessState == "secret"'),
                 ),
                 S.listItem().title('Til gjennomgang').icon(FaGifts).child(
                   // List out all categories
-                  S.documentTypeList('acquisition')
+                  S.documentTypeList('Acquisition')
                     .title('Til gjennomgang')
-                    .filter('_type == "acquisition" && editorialState == "review"'),
+                    .filter('_type == "Acquisition" && editorialState == "review"'),
                 ),
                 S.listItem()
                   .title('Alle akkvisisjoner')
@@ -56,12 +56,12 @@ const management = S.listItem()
                   .child(
                     S.documentList()
                       .title('Alle akkvisisjoner')
-                      .schemaType('acquisition')
-                      .filter('_type == "acquisition"'),
+                      .schemaType('Acquisition')
+                      .filter('_type == "Acquisition"'),
                   ),
               ]),
           ),
-        S.documentTypeListItem('designOrProcedure').title('Design eller prosedyre'),
+        S.documentTypeListItem('DesignOrProcedure').title('Design eller prosedyre'),
         S.listItem()
           .title('Rapport')
           .icon(GiCrackedGlass)
@@ -74,30 +74,30 @@ const management = S.listItem()
                   .icon(GiCrackedGlass)
                   .child(
                     // List out all categories
-                    S.documentTypeList('reportType')
+                    S.documentTypeList('ReportType')
                       .title('Rapport etter type')
-                      .filter('_type == "reportType"')
+                      .filter('_type == "ReportType"')
                       .child((catId) =>
                         // List out project documents where the _id for the selected
                         // category appear as a _ref in the project’s categories array
                         S.documentList()
-                          .schemaType('report')
+                          .schemaType('Report')
                           .title('Rapport')
-                          .filter('_type == "report" && $catId in hasType[]._ref')
+                          .filter('_type == "Report" && $catId in hasType[]._ref')
                           .params({catId}),
                       ),
                   ),
                 S.listItem().title('Upubliserte rapporter').icon(GiCrackedGlass).child(
                   // List out all categories
-                  S.documentTypeList('report')
+                  S.documentTypeList('Report')
                     .title('Upubliserte rapporter')
-                    .filter('_type == "report" && accessState == "secret"'),
+                    .filter('_type == "Report" && accessState == "secret"'),
                 ),
                 S.listItem().title('Til gjennomgang').icon(GiCrackedGlass).child(
                   // List out all categories
-                  S.documentTypeList('report')
+                  S.documentTypeList('Report')
                     .title('Til gjennomgang')
-                    .filter('_type == "report" && editorialState == "review"'),
+                    .filter('_type == "Report" && editorialState == "review"'),
                 ),
                 S.listItem()
                   .title('Alle rapporter')
@@ -105,12 +105,12 @@ const management = S.listItem()
                   .child(
                     S.documentList()
                       .title('Alle rapporter')
-                      .schemaType('report')
-                      .filter('_type == "report"'),
+                      .schemaType('Report')
+                      .filter('_type == "Report"'),
                   ),
               ]),
           ),
-        S.documentTypeListItem('storage').title('Lagrinsenheter'),
+        S.documentTypeListItem('Storage').title('Lagrinsenheter'),
         S.listItem()
           .title('Prosjekter')
           .icon(FaProjectDiagram)
@@ -120,15 +120,15 @@ const management = S.listItem()
               .items([
                 S.listItem().title('Active projects').icon(FaProjectDiagram).child(
                   // List out all categories
-                  S.documentTypeList('project')
+                  S.documentTypeList('Project')
                     .title('Active projects')
-                    .filter('_type == "project" && active'),
+                    .filter('_type == "Project" && active'),
                 ),
                 S.listItem().title('Completed projects').icon(FaProjectDiagram).child(
                   // List out all categories
-                  S.documentTypeList('project')
+                  S.documentTypeList('Project')
                     .title('Completed projects')
-                    .filter('_type == "project" && !active'),
+                    .filter('_type == "Project" && !active'),
                 ),
                 S.listItem()
                   .title('Alle projects')
@@ -136,8 +136,8 @@ const management = S.listItem()
                   .child(
                     S.documentList()
                       .title('Alle projects')
-                      .schemaType('project')
-                      .filter('_type == "project"'),
+                      .schemaType('Project')
+                      .filter('_type == "Project"'),
                   ),
               ]),
           ),

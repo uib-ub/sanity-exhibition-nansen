@@ -1,8 +1,7 @@
-import jsonata from 'jsonata'
 import { QuotePreview } from '../../components/preview/QuotePreview'
 
 export default {
-  name: 'quote',
+  name: 'Quote',
   type: 'object',
   title: 'Quote',
   fields: [

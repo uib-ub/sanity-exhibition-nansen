@@ -9,7 +9,7 @@ import blog from './src/structure/blog'
 import pageBuilder from './src/structure/pageBuilder'
 import types from './src/structure/types'
 import management from './src/structure/management'
-import madeObject from './src/structure/madeObject'
+import humanMadeObject from './src/structure/humanMadeObject'
 import React, {Fragment} from 'react'
 import {Spinner, Container, Box} from '@sanity/ui'
 import Preview from 'part:@sanity/base/preview'
@@ -18,58 +18,58 @@ import schema from 'part:@sanity/base/schema';
 
 const hiddenDocTypes = (listItem) =>
   ![
-    'madeObject',
-    'collection',
-    'actor',
-    'group',
-    'period',
-    'event',
-    'activity',
-    'linguisticObject',
-    'report',
-    'acquisition',
-    'move',
-    'designOrProcedure',
-    'timeline',
-    'exhibition',
-    'project',
-    'siteSettings',
-    'place',
-    'systemCategory',
-    'concept',
-    'material',
-    'work',
-    'visualItem',
-    'language',
-    'objectType',
-    'placeType',
-    'eventType',
-    'exhibitionType',
-    'actorType',
-    'groupType',
-    'textType',
-    'workType',
-    'technique',
-    'storageType',
-    'sectionType',
-    'reportType',
-    'measurementUnit',
-    'identifierType',
-    'dimensionType',
-    'conditionType',
-    'activityType',
-    'acquisitionType',
-    'appelationType',
-    'role',
-    'navigationMenu',
+    'HumanMadeObject',
+    'Collection',
+    'Actor',
+    'Group',
+    'Period',
+    'Event',
+    'Activity',
+    'LinguisticObject',
+    'Report',
+    'Acquisition',
+    'Move',
+    'DesignOrProcedure',
+    'Timeline',
+    'Exhibition',
+    'Project',
+    'SiteSettings',
+    'Place',
+    'SystemCategory',
+    'Concept',
+    'Material',
+    'Work',
+    'VisualItem',
+    'Language',
+    'ObjectType',
+    'PlaceType',
+    'EventType',
+    'ExhibitionType',
+    'ActorType',
+    'GroupType',
+    'TextType',
+    'WorkType',
+    'Technique',
+    'StorageType',
+    'SectionType',
+    'ReportType',
+    'MeasurementUnit',
+    'IdentifierType',
+    'DimensionType',
+    'ConditionType',
+    'ActivityType',
+    'AcquisitionType',
+    'AppelationType',
+    'Role',
+    'NavigationMenu',
     'navigationItem',
-    'alert',
-    'page',
-    'post',
-    'route',
-    'toc',
-    'storage',
-    'writtenText',
+    'Alert',
+    'Page',
+    'Post',
+    'Route',
+    'Toc',
+    'Storage',
+    'LinguisticDocument',
     'media.tag',
   ].includes(listItem.getId())
 
@@ -118,7 +118,7 @@ export default () =>
     .items([
       pageBuilder,
       S.divider(),
-      madeObject,
+      humanMadeObject,
       S.listItem()
         .title('Utstillinger')
         .icon(FaGlasses)
@@ -131,35 +131,35 @@ export default () =>
                 .icon(FaGlasses)
                 .child(
                   // List out all categories
-                  S.documentTypeList('exhibitionType')
+                  S.documentTypeList('ExhibitionType')
                     .title('Utstillinger etter type')
-                    .filter('_type == "exhibitionType"')
+                    .filter('_type == "ExhibitionType"')
                     .child((catId) =>
                       // List out project documents where the _id for the selected
                       // category appear as a _ref in the project’s categories array
                       S.documentList()
-                        .schemaType('exhibition')
+                        .schemaType('Exhibition')
                         .title('Utstillinger')
-                        .filter('_type == "exhibition" && $catId in hasType[]._ref')
+                        .filter('_type == "Exhibition" && $catId in hasType[]._ref')
                         .params({catId}),
                     ),
                 ),
               S.listItem().title('Upubliserte utstillinger').icon(FaGlasses).child(
                 // List out all categories
-                S.documentTypeList('exhibition')
+                S.documentTypeList('Exhibition')
                   .title('Upubliserte utstillinger')
-                  .filter('_type == "exhibition" && accessState == "secret"'),
+                  .filter('_type == "Exhibition" && accessState == "secret"'),
               ),
               S.listItem().title('Til gjennomgang').icon(FaGlasses).child(
                 // List out all categories
-                S.documentTypeList('exhibition')
+                S.documentTypeList('Exhibition')
                   .title('Til gjennomgang')
-                  .filter('_type == "exhibition" && editorialState == "review"'),
+                  .filter('_type == "Exhibition" && editorialState == "review"'),
               ),
               S.listItem()
                 .title('Alle utstillinger')
                 .icon(FaGlasses)
-                .child(S.documentTypeList('exhibition').title('Alle utstillinger')),
+                .child(S.documentTypeList('Exhibition').title('Alle utstillinger')),
             ]),
         ),
       S.divider(),
@@ -175,35 +175,35 @@ export default () =>
                 .icon(TiUser)
                 .child(
                   // List out all categories
-                  S.documentTypeList('actorType')
+                  S.documentTypeList('ActorType')
                     .title('Aktører etter type')
-                    .filter('_type == "actorType"')
+                    .filter('_type == "ActorType"')
                     .child((catId) =>
                       // List out project documents where the _id for the selected
                       // category appear as a _ref in the project’s categories array
                       S.documentList()
-                        .schemaType('actor')
+                        .schemaType('Actor')
                         .title('Aktører')
-                        .filter('_type == "actor" && $catId in hasType[]._ref')
+                        .filter('_type == "Actor" && $catId in hasType[]._ref')
                         .params({catId}),
                     ),
                 ),
               S.listItem().title('Upubliserte poster').icon(TiUser).child(
                 // List out all categories
-                S.documentTypeList('actor')
+                S.documentTypeList('Actor')
                   .title('Upubliserte objekter')
-                  .filter('_type == "actor" && accessState == "secret"'),
+                  .filter('_type == "Actor" && accessState == "secret"'),
               ),
               S.listItem().title('Til gjennomgang').icon(TiUser).child(
                 // List out all categories
-                S.documentTypeList('actor')
+                S.documentTypeList('Actor')
                   .title('Til gjennomgang')
-                  .filter('_type == "actor" && editorialState == "review"'),
+                  .filter('_type == "Actor" && editorialState == "review"'),
               ),
               S.listItem()
                 .title('Alle Aktører')
                 .icon(TiUser)
-                .child(S.documentTypeList('actor').title('Alle Aktører')),
+                .child(S.documentTypeList('Actor').title('Alle Aktører')),
             ]),
         ),
       S.listItem()
@@ -218,35 +218,35 @@ export default () =>
                 .icon(TiGroup)
                 .child(
                   // List out all categories
-                  S.documentTypeList('groupType')
+                  S.documentTypeList('GroupType')
                     .title('Grupper etter type')
-                    .filter('_type == "groupType"')
+                    .filter('_type == "GroupType"')
                     .child((catId) =>
                       // List out project documents where the _id for the selected
                       // category appear as a _ref in the project’s categories array
                       S.documentList()
-                        .schemaType('group')
+                        .schemaType('Group')
                         .title('Grupper')
-                        .filter('_type == "group" && $catId in hasType[]._ref')
+                        .filter('_type == "Group" && $catId in hasType[]._ref')
                         .params({catId}),
                     ),
                 ),
-              S.listItem().title('Upubliserte poster').icon(TiGroup).child(
+              S.listItem().title('Upubliserte grupper').icon(TiGroup).child(
                 // List out all categories
-                S.documentTypeList('group')
-                  .title('Upubliserte objekter')
-                  .filter('_type == "group" && accessState == "secret"'),
+                S.documentTypeList('Group')
+                  .title('Upubliserte grupper')
+                  .filter('_type == "Group" && accessState == "secret"'),
               ),
               S.listItem().title('Til gjennomgang').icon(TiGroup).child(
                 // List out all categories
-                S.documentTypeList('group')
+                S.documentTypeList('Group')
                   .title('Til gjennomgang')
-                  .filter('_type == "group" && editorialState == "review"'),
+                  .filter('_type == "Group" && editorialState == "review"'),
               ),
               S.listItem()
                 .title('Alle grupper')
                 .icon(TiGroup)
-                .child(S.documentTypeList('group').title('Alle grupper')),
+                .child(S.documentTypeList('Group').title('Alle grupper')),
             ]),
         ),
       S.listItem()
@@ -261,28 +261,28 @@ export default () =>
                 .icon(FaMapMarkedAlt)
                 .child(
                   // List out all categories
-                  S.documentTypeList('placeType')
+                  S.documentTypeList('PlaceType')
                     .title('Steder etter type')
-                    .filter('_type == "placeType"')
+                    .filter('_type == "PlaceType"')
                     .child((catId) =>
                       // List out project documents where the _id for the selected
                       // category appear as a _ref in the project’s categories array
                       S.documentList()
-                        .schemaType('place')
+                        .schemaType('Place')
                         .title('Steder')
-                        .filter('_type == "place" && $catId in hasType[]._ref')
+                        .filter('_type == "Place" && $catId in hasType[]._ref')
                         .params({catId}),
                     ),
                 ),
               S.listItem()
                 .title('Alle steder')
                 .icon(FaMapMarkedAlt)
-                .child(S.documentTypeList('place').title('Alle steder')),
+                .child(S.documentTypeList('Place').title('Alle steder')),
             ]),
         ),
       S.divider(),
-      S.documentTypeListItem('work').title('Verk'),
-      S.documentTypeListItem('visualItem').title('Visuell ting'),
+      S.documentTypeListItem('Work').title('Verk'),
+      S.documentTypeListItem('VisualItem').title('Visuell ting'),
       S.listItem()
         .title('Tekster')
         .icon(BsFileRichtext)
@@ -295,41 +295,41 @@ export default () =>
                 .icon(FaGlasses)
                 .child(
                   // List out all categories
-                  S.documentTypeList('textType')
+                  S.documentTypeList('TextType')
                     .title('Tekster etter type')
-                    .filter('_type == "textType"')
+                    .filter('_type == "TextType"')
                     .child((catId) =>
                       // List out project documents where the _id for the selected
                       // category appear as a _ref in the project’s categories array
                       S.documentList()
-                        .schemaType('writtenText')
+                        .schemaType('LinguisticDocument')
                         .title('Tekster')
-                        .filter('_type == "writtenText" && $catId in hasType[]._ref')
+                        .filter('_type == "LinguisticDocument" && $catId in hasType[]._ref')
                         .params({catId}),
                     ),
                 ),
               S.listItem().title('Upubliserte tekster').icon(FaGlasses).child(
                 // List out all categories
-                S.documentTypeList('writtenText')
+                S.documentTypeList('LinguisticDocument')
                   .title('Upubliserte tekster')
-                  .filter('_type == "writtenText" && accessState == "secret"'),
+                  .filter('_type == "LinguisticDocument" && accessState == "secret"'),
               ),
               S.listItem().title('Til gjennomgang').icon(FaGlasses).child(
                 // List out all categories
-                S.documentTypeList('writtenText')
+                S.documentTypeList('LinguisticDocument')
                   .title('Til gjennomgang')
-                  .filter('_type == "writtenText" && editorialState == "review"'),
+                  .filter('_type == "LinguisticDocument" && editorialState == "review"'),
               ),
               S.listItem()
                 .title('Alle tekster')
                 .icon(FaGlasses)
-                .child(S.documentTypeList('writtenText').title('Alle tekster')),
+                .child(S.documentTypeList('LinguisticDocument').title('Alle tekster')),
             ]),
         ),
       S.divider(),
       // TYPE
       types,
-      S.documentTypeListItem('period').title('Perioder'),
+      S.documentTypeListItem('Period').title('Perioder'),
       S.listItem()
         .title('Hendelser')
         .icon(MdEvent)
@@ -342,23 +342,23 @@ export default () =>
                 .icon(MdEvent)
                 .child(
                   // List out all categories
-                  S.documentTypeList('eventType')
+                  S.documentTypeList('EventType')
                     .title('Hendelser etter type')
-                    .filter('_type == "eventType"')
+                    .filter('_type == "EventType"')
                     .child((catId) =>
                       // List out project documents where the _id for the selected
                       // category appear as a _ref in the project’s categories array
                       S.documentList()
-                        .schemaType('event')
+                        .schemaType('Event')
                         .title('Hendelser')
-                        .filter('_type == "event" && $catId in hasType[]._ref')
+                        .filter('_type == "Event" && $catId in hasType[]._ref')
                         .params({catId}),
                     ),
                 ),
               S.listItem()
                 .title('Alle hendelser')
                 .icon(MdEvent)
-                .child(S.documentTypeList('event').title('Alle hendelser')),
+                .child(S.documentTypeList('Event').title('Alle hendelser')),
             ]),
         ),
       // ACTIVITY
@@ -374,23 +374,23 @@ export default () =>
                 .icon(GiBoltSpellCast)
                 .child(
                   // List out all categories
-                  S.documentTypeList('activityType')
+                  S.documentTypeList('ActivityType')
                     .title('Aktiviteter etter type')
-                    .filter('_type == "activityType"')
+                    .filter('_type == "ActivityType"')
                     .child((catId) =>
                       // List out project documents where the _id for the selected
                       // category appear as a _ref in the project’s categories array
                       S.documentList()
-                        .schemaType('activity')
+                        .schemaType('Activity')
                         .title('Aktiviteter')
-                        .filter('_type == "activity" && $catId in hasType[]._ref')
+                        .filter('_type == "Activity" && $catId in hasType[]._ref')
                         .params({catId}),
                     ),
                 ),
               S.listItem()
                 .title('Alle aktiviteter')
                 .icon(GiBoltSpellCast)
-                .child(S.documentTypeList('activity').title('Alle aktiviteter')),
+                .child(S.documentTypeList('Activity').title('Alle aktiviteter')),
             ]),
         ),
       S.divider(),
@@ -408,20 +408,20 @@ export default () =>
             .items([
               S.listItem().title('Upubliserte tidslinjer').icon(FcTimeline).child(
                 // List out all categories
-                S.documentTypeList('timeline')
+                S.documentTypeList('Timeline')
                   .title('Upubliserte tidslinjer')
-                  .filter('_type == "timeline" && accessState == "secret"'),
+                  .filter('_type == "Timeline" && accessState == "secret"'),
               ),
               S.listItem().title('Til gjennomgang').icon(FcTimeline).child(
                 // List out all categories
-                S.documentTypeList('timeline')
+                S.documentTypeList('Timeline')
                   .title('Til gjennomgang')
-                  .filter('_type == "timeline" && editorialState == "review"'),
+                  .filter('_type == "Timeline" && editorialState == "review"'),
               ),
               S.listItem()
                 .title('Alle tidslinjer')
                 .icon(FcTimeline)
-                .child(S.documentTypeList('timeline').title('Alle tidslinjer')),
+                .child(S.documentTypeList('Timeline').title('Alle tidslinjer')),
             ]),
         ),
       management,
@@ -430,5 +430,5 @@ export default () =>
       S.listItem()
         .title('Nettsideinnstillinger')
         .icon(FaCog)
-        .child(S.editor().id('siteSettings').schemaType('siteSettings').documentId('siteSettings')),
+        .child(S.editor().id('siteSettings').schemaType('SiteSettings').documentId('siteSettings')),
     ])

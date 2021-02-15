@@ -16,13 +16,13 @@ export default function getDocument(item, types, assetID) {
     ? [
         ...item.subject.map((s) => {
           return {
-            _type: 'concept',
+            _type: 'Concept',
             _id: s.identifier,
             _rev: nanoid(),
             accessState: 'open',
             editorialState: 'published',
             label: {
-              _type: 'localeString',
+              _type: 'LocaleString',
               nor: Array.isArray(s.prefLabel) === false ? s.prefLabel : s.prefLabel[0],
             },
           }
@@ -34,7 +34,7 @@ export default function getDocument(item, types, assetID) {
     ? [
         ...item.maker.map((s) => {
           return {
-            _type: 'actor',
+            _type: 'Actor',
             _id: s.identifier,
             _rev: nanoid(),
             accessState: 'open',
@@ -49,7 +49,7 @@ export default function getDocument(item, types, assetID) {
     ? [
         ...item.depicts.map((s) => {
           return {
-            _type: 'actor',
+            _type: 'Actor',
             _id: s.identifier,
             _rev: nanoid(),
             accessState: 'open',
@@ -63,13 +63,13 @@ export default function getDocument(item, types, assetID) {
   const activityStream = [
     {
       _key: nanoid(),
-      _type: 'beginningOfExistence',
+      _type: 'BeginningOfExistence',
       ...(item.maker && {
         contributionAssignedBy: [
           ...item.maker.map((s) => {
             return {
               _key: nanoid(),
-              _type: 'contributionAssignment',
+              _type: 'ContributionAssignment',
               assignedActor: {
                 _ref: s.identifier,
                 _type: 'reference',
@@ -82,7 +82,7 @@ export default function getDocument(item, types, assetID) {
         timespan: [
           {
             _key: nanoid(),
-            _type: 'timespan',
+            _type: 'Timespan',
             ...(item.madeAfter?.value ? {beginOfTheBegin: parseDate(item.madeAfter?.value)} : ''),
             ...(item.madeBefore?.value ? {endOfTheEnd: parseDate(item.madeBefore?.value)} : ''),
             ...(item.created?.value ? {date: parseDate(item.created?.value)} : ''),
@@ -97,7 +97,7 @@ export default function getDocument(item, types, assetID) {
     ...maker,
     ...depicts,
     {
-      _type: 'madeObject',
+      _type: 'HumanMadeObject',
       _id: `${item.identifier}`,
       accessState: 'open',
       editorialState: 'published',
@@ -106,7 +106,7 @@ export default function getDocument(item, types, assetID) {
       subjectOfManifest: `https://marcus-manifest-api.vercel.app/api/iiif/manifest/${item.identifier}`,
       identifiedBy: [
         {
-          _type: 'identifier',
+          _type: 'Identifier',
           _key: nanoid(),
           content: item.identifier,
           hasType: {
@@ -118,7 +118,7 @@ export default function getDocument(item, types, assetID) {
       ],
       license: mapLicenses(item.license),
       image: {
-        _type: 'digitalImageObject',
+        _type: 'DigitalImageObject',
         asset: {
           _type: 'reference',
           _ref: assetID,
@@ -132,7 +132,7 @@ export default function getDocument(item, types, assetID) {
           referredToBy: [
             {
               _key: nanoid(),
-              _type: 'linguisticObject',
+              _type: 'LinguisticObject',
               accessState: 'open',
               editorialState: 'published',
               body: [
@@ -191,18 +191,18 @@ export default function getDocument(item, types, assetID) {
       hasCurrentOwner: mapOwner(item.identifier),
       ...(types.length > 0 && {hasType: types}),
       wasOutputOf: {
-        _type: 'dataTransferEvent',
+        _type: 'DataTransferEvent',
         _key: nanoid(),
         /* _id: nanoid(36), <- Insert if this is to be changed to a reference */
         transferred: {
-          _type: 'digitalObject',
+          _type: 'DigitalObject',
           _key: nanoid(),
           /* _id: item.id, */
           value: `"${JSON.stringify(item, null, 0)}"`,
         },
         timestamp: new Date(),
         hasSender: {
-          _type: 'digitalDevice',
+          _type: 'DigitalDevice',
           _key: nanoid(),
           /* _id: nanoid(36), */
           label: 'sparql.ub.uib.no',

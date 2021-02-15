@@ -3,9 +3,9 @@ import {editorialState, accessState, label, timespan, referredToBy, identifiedBy
 import {coalesceLabel} from '../helpers/helpers'
 
 export default {
-  title: 'Project',
-  name: 'project',
+  name: 'Project',
   type: 'document',
+  title: 'Project',
   icon: FaProjectDiagram,
   fieldsets: [
     {
@@ -56,7 +56,12 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'madeObject'}, {type: 'collection'}, {type: 'actor'}, {type: 'group'}],
+          to: [
+            {type: 'HumanMadeObject'}, 
+            {type: 'Collection'}, 
+            {type: 'Actor'}, 
+            {type: 'Group'}
+          ],
         },
       ],
     },
@@ -65,22 +70,17 @@ export default {
       title: 'Underprosjekt',
       titleEN: 'Sub projects',
       type: 'array',
-      of: [{type: 'project'}],
+      of: [{type: 'Project'}],
       options: {
         editModal: 'fullscreen',
       },
     },
     {
       name: 'documentedIn',
-      title: 'Dokumentert i',
-      titleEN: 'Documented in',
+      title: 'Documented in',
+      titleEN: 'Dokumentert i',
       type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{type: 'file'}],
-        },
-      ],
+      of: [{type: 'file'}],
     },
   ],
   preview: {

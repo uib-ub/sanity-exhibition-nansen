@@ -1,6 +1,6 @@
 export default {
   title: 'Gallery manifest',
-  name: 'miradorGalleryWindow',
+  name: 'MiradorGalleryWindow',
   type: 'object',
   fieldsets: [
     {
@@ -22,7 +22,7 @@ export default {
       title: 'Manifest',
       titleEN: 'Manifest',
       type: 'reference',
-      to: [{type: 'madeObject'}],
+      to: [{type: 'HumanMadeObject'}],
       fieldset: 'internal',
     },
     {

@@ -3,7 +3,6 @@ import {
   editorialState,
   accessState,
   timespan,
-  label,
   referredToBy,
   labelSingleton,
   identifiedBy,
@@ -12,11 +11,10 @@ import {
   transferredTitleFrom,
   transferredTitleTo,
 } from '../props'
-import {defaultFieldsets} from '../fieldsets'
 
 export default {
+  name: 'Acquisition',
   title: 'Acquisition',
-  name: 'acquisition',
   type: 'document',
   initialValue: {
     editorialState: 'draft',
@@ -65,7 +63,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'acquisitionType'}],
+          to: [{type: 'AcquisitionType'}],
         },
       ],
     },
@@ -88,7 +86,7 @@ export default {
       titleEN: 'Sub acquisition',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'acquisition'}],
+      of: [{type: 'Acquisition'}],
       options: {
         editModal: 'fullscreen',
       },

@@ -1,6 +1,6 @@
 export default {
   type: 'object',
-  name: 'textWithIllustration',
+  name: 'TextWithIllustration',
   title: 'Tekst med illustrasjon',
   titleEN: 'Text with illustration',
   fields: [
@@ -26,7 +26,7 @@ export default {
       name: 'illustration',
       title: 'Illustrasjonsbilde',
       titleEN: 'Illustration',
-      type: 'illustration',
+      type: 'Illustration',
     },
   ],
 }

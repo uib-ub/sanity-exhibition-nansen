@@ -1,6 +1,6 @@
 export default {
+  name: 'Hero',
   type: 'object',
-  name: 'hero',
   title: 'Hero',
   fields: [
     {
@@ -37,7 +37,7 @@ export default {
       titleEN: 'Illustration',
       description: 'Bakgrunnsbilde under teksten',
       descriptionEN: 'Illustration below the text',
-      type: 'illustration',
+      type: 'Illustration',
     },
   ],
   preview: {

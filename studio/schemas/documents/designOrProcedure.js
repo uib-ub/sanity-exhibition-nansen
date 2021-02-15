@@ -4,8 +4,8 @@ import {defaultFieldsets} from '../fieldsets'
 import {coalesceLabel} from '../helpers/helpers'
 
 export default {
+  name: 'DesignOrProcedure',
   title: 'Design or procedure',
-  name: 'designOrProcedure',
   type: 'document',
   initialValue: {
     editorialState: 'draft',
@@ -22,20 +22,15 @@ export default {
       name: 'body',
       title: 'Tekst',
       titleEN: 'Body',
-      type: 'localeBlock',
+      type: 'LocaleBlock',
     },
     referredToBy,
     {
       name: 'documentedIn',
-      title: 'Dokumentert i',
-      titleEN: 'Documented in',
+      title: 'Documented in',
+      titleEN: 'Dokumentert i',
       type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{type: 'file'}],
-        },
-      ],
+      of: [{type: 'file'}],
     },
   ],
   preview: {

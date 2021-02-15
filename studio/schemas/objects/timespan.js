@@ -1,10 +1,10 @@
 import {timespanAsString} from '../helpers/helpers'
 
 export default {
-  name: 'timespan',
+  name: 'Timespan',
+  type: 'object',
   title: 'Tidsspenn',
   titleEN: 'Timespan',
-  type: 'object',
   fieldsets: [
     {
       name: 'beginning',
@@ -86,7 +86,7 @@ export default {
       name: 'description',
       title: 'Beskrivelse',
       titleEN: 'Description',
-      type: 'localeBlock',
+      type: 'LocaleBlock',
     },
   ],
   preview: {

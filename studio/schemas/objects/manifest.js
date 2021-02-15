@@ -1,8 +1,8 @@
 export default {
-  name: 'manifest',
+  name: 'Manifest',
+  type: 'object',
   title: 'IIIF Manifest',
   titleEN: 'IIIF Manifest',
-  type: 'object',
   fields: [
     {
       name: 'url',

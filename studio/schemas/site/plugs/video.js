@@ -8,9 +8,9 @@ const Youtube = ({value: {url}}) => {
 } */
 
 export default {
-  name: 'video',
-  title: 'Video',
+  name: 'Video',
   type: 'object',
+  title: 'Video',
   description: 'Embed video',
   fields: [
     {

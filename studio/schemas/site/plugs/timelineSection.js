@@ -1,7 +1,7 @@
 import {coalesceLabel} from '../../helpers/helpers'
 
 export default {
-  name: 'timelineSection',
+  name: 'TimelineSection',
   title: 'Tidslinje',
   titleEN: 'Timeline',
   type: 'object',
@@ -17,7 +17,7 @@ export default {
       title: 'Objekt',
       titleEN: 'Item',
       type: 'reference',
-      to: [{type: 'timeline'}],
+      to: [{type: 'Timeline'}],
     },
     {
       name: 'title',

@@ -17,8 +17,8 @@ import {
 } from '../props'
 
 export default {
+  name: 'Activity',
   title: 'Activity',
-  name: 'activity',
   type: 'document',
   icon: MdLocalActivity,
   fieldsets: [
@@ -64,7 +64,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'activityType'}],
+          to: [{type: 'ActivityType'}],
         },
       ],
     },
@@ -75,7 +75,11 @@ export default {
       title: 'Mål',
       titleEN: 'Target',
       type: 'reference',
-      to: [{type: 'collection'}, {type: 'actor'}, {type: 'group'}],
+      to: [
+        {type: 'Collection'}, 
+        {type: 'Actor'}, 
+        {type: 'Group'}
+      ],
     },
     timespan,
     tookPlaceAt,
@@ -84,21 +88,21 @@ export default {
       title: 'Underaktiviteter',
       titleEN: 'Sub activities',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'activity'}]}],
+      of: [{type: 'reference', to: [{type: 'Activity'}]}],
     },
     {
       name: 'continued',
       title: 'Fortsatte',
       titleEN: 'Continued',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'activity'}]}],
+      of: [{type: 'reference', to: [{type: 'Activity'}]}],
     },
     {
       name: 'wasContinuedBy',
       title: 'Ble fortsatt av',
       titleEN: 'Was continued by',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'activity'}]}],
+      of: [{type: 'reference', to: [{type: 'Activity'}]}],
     },
     {
       name: 'influencedBy',
@@ -110,12 +114,12 @@ export default {
         {
           type: 'reference',
           to: [
-            {type: 'madeObject'},
-            {type: 'event'},
-            {type: 'place'},
-            {type: 'work'},
-            {type: 'actor'},
-            {type: 'group'},
+            {type: 'HumanMadeObject'},
+            {type: 'Event'},
+            {type: 'Place'},
+            {type: 'Work'},
+            {type: 'Actor'},
+            {type: 'Group'},
           ],
         },
       ],
@@ -146,7 +150,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'concept'}],
+          to: [{type: 'Concept'}],
         },
       ],
     },
@@ -161,12 +165,12 @@ export default {
         {
           type: 'reference',
           to: [
-            {type: 'designOrProcedure'},
-            {type: 'event'},
-            {type: 'report'},
-            {type: 'acquisition'},
-            {type: 'exhibition'},
-            {type: 'project'},
+            {type: 'DesignOrProcedure'},
+            {type: 'Event'},
+            {type: 'Report'},
+            {type: 'Acquisition'},
+            {type: 'Exhibition'},
+            {type: 'Project'},
           ],
         },
       ],
@@ -178,7 +182,7 @@ export default {
       description: '',
       fieldset: 'purpose',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'madeObject'}]}],
+      of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
     },
   ],
   preview: {

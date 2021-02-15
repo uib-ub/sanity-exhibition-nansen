@@ -5,21 +5,21 @@ import {timespanAsString} from '../../helpers/helpers'
 // See http://timeline.knightlab.com/docs/json-format.html#json-slide for more info
 
 export default {
+  name: 'TimelineSlide',
   title: 'Timeline slide',
-  name: 'timelineSlide',
   type: 'object',
   fields: [
     {
       name: 'headline', // path: title.text.heading
       title: 'Tittel',
       titleEN: 'Headline',
-      type: 'localeString',
+      type: 'LocaleString',
     },
     {
       name: 'text', // path: title.text.text
       title: 'Tekst',
       titleEN: 'Text',
-      type: 'localeBlock',
+      type: 'LocaleBlock',
     },
     {
       name: 'media',
@@ -29,10 +29,10 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'madeObject'}],
+          to: [{type: 'HumanMadeObject'}],
         },
-        {type: 'mediaObject'},
-        {type: 'externalMediaObject'},
+        {type: 'MediaObject'},
+        {type: 'ExternalMediaObject'},
       ],
       validation: (Rule) => Rule.length(1).error('You can only register one media object'),
     },
@@ -52,7 +52,7 @@ export default {
       name: 'background',
       title: 'Bakgrunn',
       titleEN: 'Background',
-      type: 'background',
+      type: 'Background',
     },
   ],
   preview: {

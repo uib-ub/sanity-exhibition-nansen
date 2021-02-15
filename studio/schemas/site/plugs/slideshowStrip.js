@@ -1,5 +1,5 @@
 export default {
-  name: 'slideshowStrip',
+  name: 'SlideshowStrip',
   type: 'object',
   title: 'Slideshow-stripe',
   titleEN: 'Slideshow strip',
@@ -15,7 +15,7 @@ export default {
       title: 'Vinduer',
       titleEN: 'Items',
       type: 'array',
-      of: [{type: 'madeObject'}],
+      of: [{type: 'HumanMadeObject'}],
     },
     {
       name: 'heading',

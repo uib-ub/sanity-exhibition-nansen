@@ -4,8 +4,8 @@ import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers.js'
 
 export default {
+  name: 'Material',
   title: 'Material',
-  name: 'material',
   type: 'document',
   icon: GiExplosiveMaterials,
   fieldsets: defaultFieldsets,

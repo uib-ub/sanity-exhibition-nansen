@@ -1,6 +1,6 @@
 export default {
+  name: 'Era',
   title: 'Era',
-  name: 'era',
   type: 'object',
   fields: [
     {
@@ -13,7 +13,7 @@ export default {
       name: 'text',
       text: 'Tekst',
       textEN: 'Text',
-      type: 'localeBlock',
+      type: 'LocaleBlock',
     },
     {
       name: 'startDate',

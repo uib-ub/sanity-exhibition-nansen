@@ -5,7 +5,7 @@ import {timespan, referredToBy, carriedOutBy, tookPlaceAt} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 
 export default {
-  name: 'treatmentAssessment',
+  name: 'TreatmentAssessment',
   title: 'Behandlingsvurdering',
   titleEN: 'Treatment assessment',
   type: 'object',
@@ -49,7 +49,7 @@ export default {
       ),
       fieldset: 'documentation',
       type: 'array',
-      of: [{type: 'digitalImageObject'}],
+      of: [{type: 'DigitalImageObject'}],
       options: {
         layout: 'grid',
       },

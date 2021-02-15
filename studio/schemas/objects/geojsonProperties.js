@@ -1,7 +1,7 @@
 export default {
-  name: 'geojsonProperties',
-  title: 'Properties',
+  name: 'GeojsonProperties',
   type: 'object',
+  title: 'Properties',
   fields: [
     {
       // WIP. Should use systemcategories

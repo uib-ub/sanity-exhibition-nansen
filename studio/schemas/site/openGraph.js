@@ -1,7 +1,7 @@
 export default {
-  title: 'Open Graph',
-  name: 'openGraph',
+  name: 'OpenGraph',
   type: 'object',
+  title: 'Open Graph',
   fields: [
     {
       name: 'title',
@@ -25,7 +25,7 @@ export default {
       titleEN: 'Image',
       description: 'Facebook anbefaler 1200x630 (størrelsen blir endret automatisk)',
       descriptionEN: 'Facebook recommends 1200x630 (will be auto resized)',
-      type: 'digitalImageObject',
+      type: 'DigitalImageObject',
     },
     /*
     // You can add videos to Open Graph tags too

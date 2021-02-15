@@ -4,8 +4,8 @@ import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers.js'
 
 export default {
+  name: 'Language',
   title: 'Language',
-  name: 'language',
   type: 'document',
   icon: FaLanguage,
   fieldsets: defaultFieldsets,

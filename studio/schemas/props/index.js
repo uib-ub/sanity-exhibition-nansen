@@ -58,7 +58,7 @@ export const image = {
       </Link>
     </span>
   ),
-  type: 'digitalImageObject',
+  type: 'DigitalImageObject',
 }
 
 export const digitallyShownBy = { 
@@ -70,7 +70,7 @@ export const digitallyShownBy = {
   fieldset: 'representation',
   type: 'array',
   of: [
-    {type: 'digitalImageObject'},
+    {type: 'DigitalImageObject'},
   ],
   options: {
     layout: 'grid'
@@ -98,24 +98,6 @@ export const subjectOfManifest = {
       </Link>
     </span>
   )
-}
-
-export const iiifStructures = {
-  title: 'IIIF structures',
-  name: 'structures',
-  type: 'array',
-  description: (
-    <span>
-      <strong>Eksperimentel:</strong> Legg til en IIIF struktur for dokument med flere sider.
-    </span>
-  ),
-  descriptionEN: (
-    <span>
-      <strong>Experimental:</strong> Add a IIIF structure for documents with multiple
-      pages/canvases.
-    </span>
-  ),
-  of: [{type: 'range'}],
 }
 
 export const preferredIdentifier = {
@@ -163,7 +145,7 @@ export const label = {
   titleEN: 'Title',
   // description: (<span>Tittel. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
   // descriptionEN: (<span>Title. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
-  type: 'localeString',
+  type: 'LocaleString',
   validation: (Rule) => Rule.required(),
 }
 
@@ -205,7 +187,10 @@ export const identifiedBy = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'name'}, {type: 'identifier'}],
+  of: [
+    {type: 'Name'}, 
+    {type: 'Identifier'}
+  ],
   options: {
     editModal: 'popup',
   },
@@ -261,7 +246,7 @@ export const subject = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'concept'}],
+      to: [{type: 'Concept'}],
     },
   ],
 }
@@ -288,7 +273,13 @@ export const referredToBy = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'linguisticObject'}, {type: 'reference', to: [{type: 'text'}]}],
+  of: [
+    {type: 'LinguisticObject'}, 
+    {
+      type: 'reference', 
+      to: [{type: 'LinguisticDocument'}]
+    }
+  ],
   options: {
     editModal: 'fullscreen',
   },
@@ -305,11 +296,11 @@ export const relation = {
     {
       type: 'reference',
       to: [
-        {type: 'madeObject'},
-        {type: 'actor'},
-        {type: 'group'},
-        {type: 'event'},
-        {type: 'activity'},
+        {type: 'HumanMadeObject'},
+        {type: 'Actor'},
+        {type: 'Group'},
+        {type: 'Event'},
+        {type: 'Activity'},
       ],
     },
   ],
@@ -339,7 +330,10 @@ export const presentAt = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'event'}, {type: 'activity'}],
+      to: [
+        {type: 'Event'}, 
+        {type: 'Activity'}
+      ],
     },
   ],
 }
@@ -368,7 +362,10 @@ export const motivatedBy = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'event'}, {type: 'activity'}],
+      to: [
+        {type: 'Event'}, 
+        {type: 'Activity'}
+      ],
     },
   ],
 }
@@ -397,7 +394,10 @@ export const hasCurrentOwner = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'actor'}, {type: 'group'}],
+      to: [
+        {type: 'Actor'}, 
+        {type: 'Group'}
+      ],
     },
   ],
 }
@@ -432,7 +432,10 @@ export const hasFormerOrCurrentOwner = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'actor'}, {type: 'group'}],
+      to: [
+        {type: 'Actor'}, 
+        {type: 'Group'}
+      ],
     },
   ],
 }
@@ -458,7 +461,14 @@ export const composedOf = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'madeObject'}]}],
+  of: [
+    {
+      type: 'reference', 
+      to: [
+       {type: 'HumanMadeObject'}
+      ]
+    }
+  ],
 }
 
 export const isSubjectOf = {
@@ -486,7 +496,7 @@ export const isSubjectOf = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'writtenText'}],
+      to: [{type: 'LinguisticDocument'}],
     },
   ],
 }
@@ -515,7 +525,12 @@ export const depicts = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'madeObject'}, {type: 'actor'}, {type: 'group'}, {type: 'concept'}],
+      to: [
+        {type: 'HumanMadeObject'}, 
+        {type: 'Actor'}, 
+        {type: 'Group'}, 
+        {type: 'Concept'}
+      ],
     },
   ],
 }
@@ -544,7 +559,12 @@ export const represents = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'madeObject'}, {type: 'actor'}, {type: 'group'}, {type: 'concept'}],
+      to: [
+        {type: 'HumanMadeObject'}, 
+        {type: 'Actor'}, 
+        {type: 'Group'}, 
+        {type: 'Concept'}
+      ],
     },
   ],
 }
@@ -570,7 +590,7 @@ export const showsVisualObject = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'visualObject'}],
+  of: [{type: 'VisualObject'}],
 }
 
 export const carries = {
@@ -594,7 +614,7 @@ export const carries = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'work'}]}],
+  of: [{type: 'reference', to: [{type: 'Work'}]}],
 }
 
 export const measuredBy = {
@@ -618,7 +638,7 @@ export const measuredBy = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'measurement'}],
+  of: [{type: 'Measurement'}],
 }
 
 export const hasDimension = {
@@ -642,7 +662,7 @@ export const hasDimension = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'dimension'}],
+  of: [{type: 'Dimension'}],
 }
 
 export const consistsOf = {
@@ -677,7 +697,7 @@ export const consistsOf = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'material'}],
+      to: [{type: 'Material'}],
     },
   ],
 }
@@ -720,7 +740,7 @@ export const usedGeneralTechnique = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'technique'}],
+      to: [{type: 'Technique'}],
     },
   ],
 }
@@ -760,7 +780,7 @@ export const usedSpecificTechnique = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'designOrProcedure'}]}],
+  of: [{type: 'reference', to: [{type: 'DesignOrProcedure'}]}],
 }
 
 export const usedObjectOfType = {
@@ -795,7 +815,7 @@ export const usedObjectOfType = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'objectType'}],
+      to: [{type: 'ObjectType'}],
     },
   ],
 }
@@ -835,7 +855,7 @@ export const usedSpecificObject = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'madeObject'}]}],
+  of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
 }
 
 export const timespan = {
@@ -843,7 +863,7 @@ export const timespan = {
   title: 'Tidsspenn',
   titleEN: 'Timespan',
   type: 'array',
-  of: [{type: 'timespan'}],
+  of: [{type: 'Timespan'}],
   options: {
     editModal: 'fullscreen',
   },
@@ -854,7 +874,7 @@ export const timespanSingleton = {
   name: 'timespan',
   title: 'Tidsspenn',
   titleEN: 'Timespan',
-  type: 'timespan',
+  type: 'Timespan',
   options: {
     editModal: 'fullscreen',
   },
@@ -866,7 +886,7 @@ export const contributionAssignedBy = {
   titleEN: 'Contribution assigned by',
   type: 'array',
   of: [
-    {type: 'contributionAssignment'}
+    {type: 'ContributionAssignment'}
   ],
 }
 
@@ -878,8 +898,8 @@ export const carriedOutBy = {
   of: [{
     type: 'reference', 
     to:[
-      {type: 'actor'}, 
-      {type: 'group'}
+      {type: 'Actor'}, 
+      {type: 'Group'}
     ]
   }],
 }
@@ -889,7 +909,7 @@ export const hadParticipant = {
   title: 'Hadde medvirkende',
   titleEN: 'Had participant',
   type: 'array',
-  of: [{type: 'contributionAssignment'}],
+  of: [{type: 'ContributionAssignment'}],
 }
 
 export const tookPlaceAt = {
@@ -913,7 +933,7 @@ export const tookPlaceAt = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'place'}]}],
+  of: [{type: 'reference', to: [{type: 'Place'}]}],
 }
 
 /**
@@ -923,7 +943,7 @@ export const altLabel = {
   name: 'altLabel',
   title: 'Alternativt navn',
   titleEN: 'Alternative label',
-  type: 'localeString',
+  type: 'LocaleString',
 }
 
 /**
@@ -934,7 +954,7 @@ export const hasIdentified = {
   title: 'Identifiserte tilstander',
   titleEN: 'Has identified condition states',
   type: 'array',
-  of: [{type: 'conditionState'}],
+  of: [{type: 'ConditionState'}],
 }
 
 export const valueSlider = {
@@ -954,7 +974,7 @@ export const language = {
   title: 'Språk',
   titleEN: 'Language',
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'language'}]}],
+  of: [{type: 'reference', to: [{type: 'Language'}]}],
 }
 
 export const memberOf = {
@@ -962,7 +982,7 @@ export const memberOf = {
   title: 'Medlem av',
   titleEN: 'Member of',
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'group'}]}],
+  of: [{type: 'reference', to: [{type: 'Group'}]}],
 }
 
 /**
@@ -974,36 +994,7 @@ export const hasMember = {
   title: 'Har deler',
   titleEN: 'Has member',
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'madeObject'}]}],
-}
-
-/**
- * broader
- * skos:broader
- */
-export const broader = {
-  name: 'broader',
-  title: 'Overordnet term',
-  titleEN: 'Broader',
-  type: 'array',
-  of: [{type: 'reference', to: [{type: 'typeClass'}]}],
-}
-
-export const narrower = {
-  name: 'narrower',
-  title: 'Underordnet term',
-  titleEN: 'Narrower',
-  description: 'Trenger vi narrower? Blir mye å registrere...',
-  type: 'array',
-  of: [{type: 'reference', to: [{type: 'typeClass'}]}],
-}
-
-export const domain = {
-  name: 'domain',
-  title: 'Domene',
-  titleEN: 'Domain',
-  type: 'array',
-  of: [{type: 'reference', to: [{type: 'typeClass'}]}],
+  of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
 }
 
 export const definedByGeoJSON = {
@@ -1012,7 +1003,10 @@ export const definedByGeoJSON = {
   titleEN: 'GeoJSON',
   description: 'Lag et GeoJSON objekt eller lim inn en hel GeoJSON fil.',
   type: 'array',
-  of: [{type: 'geojsonFeatureCollection'}, {type: 'geojson'}],
+  of: [
+    {type: 'GeojsonFeatureCollection'}, 
+    {type: 'Geojson'}
+  ],
 }
 
 export const transferredTitleTo = {
@@ -1021,7 +1015,15 @@ export const transferredTitleTo = {
   titleEN: 'Transferred title to',
   description: '',
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'group'}, {type: 'actor'}]}],
+  of: [
+    {
+      type: 'reference', 
+      to: [
+        {type: 'Group'}, 
+        {type: 'Actor'}
+      ]
+    }
+  ],
 }
 
 export const transferredTitleFrom = {
@@ -1030,7 +1032,15 @@ export const transferredTitleFrom = {
   titleEN: 'Transferred title from',
   description: '',
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'group'}, {type: 'actor'}]}],
+  of: [
+    {
+      type: 'reference', 
+      to: [
+        {type: 'Group'}, 
+        {type: 'Actor'}
+      ]
+    }
+  ],
 }
 
 export const transferredTitleOf = {
@@ -1042,7 +1052,10 @@ export const transferredTitleOf = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'madeObject'}, {type: 'collection'}],
+      to: [
+        {type: 'HumanMadeObject'}, 
+        {type: 'Collection'}
+      ],
     },
   ],
 }
@@ -1056,7 +1069,10 @@ export const concerned = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'madeObject'}, {type: 'collection'}],
+      to: [
+        {type: 'HumanMadeObject'}, 
+        {type: 'Collection'}
+      ],
     },
   ],
 }
@@ -1066,5 +1082,5 @@ export const motivated = {
   title: 'Motiverte',
   titleEN: 'Motivated',
   type: 'array',
-  of: [{type: 'treatment'}],
+  of: [{type: 'Treatment'}],
 }

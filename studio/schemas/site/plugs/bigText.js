@@ -1,8 +1,8 @@
 import { TextPreview } from "../../components/preview/TextPreview"
 
 export default {
+  name: 'BigText',
   type: 'object',
-  name: 'bigText',
   title: 'Stor tekst',
   titleEN: 'Big text',
   description: 'Stor tekst. Centered. Keep it short to max 2-3 paragraphs.',

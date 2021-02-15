@@ -5,10 +5,10 @@ import {timespanAsString} from '../../helpers/helpers'
 var capitalize = require('capitalize')
 
 export default {
-  name: 'birth',
+  name: 'Birth',
+  type: 'object',
   title: 'Fødsel',
   titleEN: 'Birth',
-  type: 'object',
   fieldsets: defaultFieldsets,
   fields: [carriedOutBy, timespan, tookPlaceAt, referredToBy],
   preview: {

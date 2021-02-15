@@ -6,10 +6,6 @@ import {
   editorialState,
   accessState,
   label,
-  usedGeneralTechnique,
-  usedSpecificTechnique,
-  usedObjectOfType,
-  usedSpecificObject,
   referredToBy,
   hasIdentified,
   concerned,
@@ -24,8 +20,8 @@ import {
  */
 
 export default {
+  name: 'Report',
   title: 'Rapport',
-  name: 'report',
   type: 'document',
   initialValue: {
     editorialState: 'draft',
@@ -105,7 +101,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'reportType'}],
+          to: [{type: 'ReportType'}],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -139,7 +135,10 @@ export default {
         </span>
       ),
       type: 'array',
-      of: [{type: 'measurement'}, {type: 'sampling'}],
+      of: [
+        {type: 'Measurement'}, 
+        {type: 'Sampling'}
+      ],
     },
     /* {
       ...usedGeneralTechnique,
@@ -185,7 +184,7 @@ export default {
       ),
       fieldset: 'documentation',
       type: 'array',
-      of: [{type: 'digitalImageObject'}],
+      of: [{type: 'DigitalImageObject'}],
       options: {
         layout: 'grid',
       },
@@ -243,7 +242,7 @@ export default {
         </span>
       ),
       type: 'array',
-      of: [{type: 'report'}],
+      of: [{type: 'Report'}],
       options: {
         editModal: 'fullscreen',
       },

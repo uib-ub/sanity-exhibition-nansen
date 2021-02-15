@@ -1,6 +1,6 @@
 export default {
+  name: 'TwoColumn',
   type: 'object',
-  name: 'twoColumn',
   title: 'To kolonner',
   titleEN: 'Two column',
   fields: [

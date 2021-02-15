@@ -1,16 +1,16 @@
 import {label, license} from '../props'
 
 export default {
-  name: 'digitalFile',
-  title: 'Fil',
+  name: 'DigitalFile',
   type: 'file',
+  title: 'Fil',
   fields: [
     label,
     {
       name: 'description',
       title: 'Beskrivelse',
       titleEN: 'Description',
-      type: 'localeBlockSimple',
+      type: 'LocaleBlockSimple',
     },
     license,
     {

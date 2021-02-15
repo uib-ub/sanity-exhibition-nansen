@@ -4,9 +4,9 @@ import {editorialState, accessState, label, language, labelSingleton, identified
 import {defaultFieldsets} from '../fieldsets'
 
 export default {
-  title: 'Text',
-  name: 'writtenText',
+  name: 'LinguisticDocument',
   type: 'document',
+  title: 'Text',
   initialValue: {
     editorialState: 'draft',
     accessState: 'secret',
@@ -38,7 +38,7 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'contributionAssignment',
+          type: 'ContributionAssignment',
         },
       ],
     },
@@ -51,7 +51,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'textType'}],
+          to: [{type: 'TextType'}],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -64,7 +64,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'concept'}],
+          to: [{type: 'Concept'}],
         },
       ],
     },
@@ -76,7 +76,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'writtenText'}],
+          to: [{type: 'LinguisticDocument'}],
         },
       ],
     },
@@ -102,22 +102,17 @@ export default {
       type: 'blockContent',
     },
     {
-      name: 'mainImage',
+      name: 'image',
       title: 'Hovedbilde',
       titleEN: 'Main image',
-      type: 'digitalImageObject',
+      type: 'DigitalImageObject',
     },
-
     {
       name: 'documentedIn',
-      title: 'Dokumentert i',
-      titleEN: 'Documented in',
+      title: 'Documented in',
+      titleEN: 'Dokumentert i',
       type: 'array',
-      of: [
-        {
-          type: 'file',
-        },
-      ],
+      of: [{type: 'file'}],
     },
   ],
   preview: {

@@ -1,10 +1,13 @@
 import InstagramPreview from '../previews/instagramPreview'
 
+/* TODO: move?
+ */
+
 export default {
-  name: 'instagramPost',
+  name: 'InstagramPost',
+  type: 'object',
   title: 'Instagram innlegg',
   titleEN: 'Instagram Post',
-  type: 'object',
   fields: [
     {
       name: 'url',

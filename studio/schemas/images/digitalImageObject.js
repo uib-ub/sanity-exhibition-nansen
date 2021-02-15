@@ -3,9 +3,9 @@
 */
 
 export default {
-  name: 'digitalImageObject',
-  title: 'Image',
+  name: 'DigitalImageObject',
   type: 'image',
+  title: 'Image',
   options: {
     hotspot: true,
     metadata: ['exif', 'location', 'lqip', 'palette'],
@@ -15,14 +15,14 @@ export default {
       name: 'caption',
       title: 'Bildetekst',
       titleEN: 'Caption',
-      type: 'localeString',
+      type: 'LocaleString',
     },
     {
       name: 'alt',
       title: 'Alternative tekst',
       titleEN: 'Alternative text',
       description: 'Important for SEO and accessiblity.',
-      type: 'localeString',
+      type: 'LocaleString',
       validation: (Rule) => Rule.warning('You should to fill out the alternative text.'),
       options: {
         isHighlighted: true,

@@ -1,8 +1,8 @@
 import {language} from '../props'
 
 export default {
+  name: 'NavigationMenu',
   type: 'document',
-  name: 'navigationMenu',
   title: 'Navigasjons meny',
   title: 'Navigation menu',
   fields: [
@@ -18,7 +18,7 @@ export default {
       name: 'items',
       title: 'Menypunkt',
       titleEN: 'Items',
-      of: [{type: 'navigationItem'}],
+      of: [{type: 'NavigationItem'}],
     },
   ],
 }

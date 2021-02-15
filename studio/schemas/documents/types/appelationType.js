@@ -4,9 +4,9 @@ import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers.js'
 
 export default {
+  name: 'AppelationType',
   title: 'Navnetype',
   titleEN: 'Appelation type',
-  name: 'appelationType',
   type: 'document',
   initialValue: {
     editorialState: 'published',
@@ -24,7 +24,7 @@ export default {
       title: 'Overordnet term',
       titleEN: 'Broader',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'appelationType'}]}],
+      of: [{type: 'reference', to: [{type: 'AppelationType'}]}],
     },
     {
       name: 'activityStream',
@@ -32,7 +32,7 @@ export default {
       titleEN: 'Activity stream',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'creation'}],
+      of: [{type: 'Creation'}],
     },
   ],
   preview: {

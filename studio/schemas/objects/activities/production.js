@@ -12,10 +12,10 @@ import {timespanAsString} from '../../helpers/helpers'
 var capitalize = require('capitalize')
 
 export default {
-  name: 'production',
+  name: 'Production',
+  type: 'object',
   title: 'Production',
   titleEN: 'Produksjon',
-  type: 'object',
   fieldsets: defaultFieldsets,
   fields: [
     {
@@ -23,7 +23,7 @@ export default {
       title: 'Underaktiviteter',
       titleEN: 'Sub activities',
       type: 'array',
-      of: [{type: 'production'}],
+      of: [{type: 'Production'}],
     },
     {
       name: 'hasType',
@@ -33,7 +33,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'activityType'}],
+          to: [{type: 'ActivityType'}],
         },
       ],
     },
@@ -47,7 +47,7 @@ export default {
       titleEN: 'Has modified',
       description: 'A production can modify an existing object',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'madeObject'}]}],
+      of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
     },
     usedGeneralTechnique,
     usedSpecificTechnique,
@@ -57,7 +57,7 @@ export default {
       titleEN: 'Employed',
       description: 'WIP, could be a API call to some source of authorities',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'material'}]}],
+      of: [{type: 'reference', to: [{type: 'Material'}]}],
     },
   ],
   preview: {

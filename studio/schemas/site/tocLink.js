@@ -1,5 +1,5 @@
 export default {
-  name: 'tocLink',
+  name: 'TocLink',
   type: 'object',
   title: 'Lenke',
   titleEN: 'Link',
@@ -19,7 +19,7 @@ export default {
       description: 'Uten målsti blir tittelen brukt som en undertittel',
       descriptionEN: 'No target route turns the item into a subheading',
       type: 'reference',
-      to: [{type: 'route'}],
+      to: [{type: 'Route'}],
     },
     {
       name: 'children',
@@ -28,7 +28,7 @@ export default {
       description: 'Det er mulig å nøste flere nivåer, men pass på, ikke bruk for mange!',
       descriptionEN: 'You could have sublevels, but use it sparingly!',
       type: 'array',
-      of: [{type: 'tocLink'}],
+      of: [{type: 'TocLink'}],
     },
   ],
   preview: {

@@ -1,19 +1,19 @@
 export default {
-  name: 'geojsonFeature',
-  title: 'Feature',
+  name: 'GeojsonFeature',
   type: 'object',
+  title: 'Feature',
   fields: [
     {
       name: 'geometry',
       title: 'Geometri',
       titleEN: 'Geometry',
-      type: 'geojsonPoint',
+      type: 'GeojsonPoint',
     },
     {
       name: 'properties',
       title: 'Egenskaper',
       titleEN: 'Propterties',
-      type: 'geojsonProperties',
+      type: 'GeojsonProperties',
     },
   ],
   preview: {

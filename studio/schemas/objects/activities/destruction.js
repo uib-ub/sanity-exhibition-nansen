@@ -1,10 +1,10 @@
 import {timespan, carriedOutBy, tookPlaceAt} from '../../props'
 
 export default {
-  name: 'destruction',
+  name: 'Destruction',
+  type: 'object',
   title: 'Ødeleggelse',
   titleEN: 'Destruction',
-  type: 'object',
   fields: [
     {
       name: 'hasType',
@@ -14,7 +14,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'eventType'}],
+          to: [{type: 'EventType'}],
         },
       ],
     },

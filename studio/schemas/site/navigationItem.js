@@ -1,7 +1,7 @@
 export default {
-  title: 'Navigation item',
-  name: 'navigationItem',
+  name: 'NavigationItem',
   type: 'object',
+  title: 'Navigation item',
   fieldsets: [
     {
       title: 'Lenke',
@@ -26,7 +26,7 @@ export default {
       descriptionEN: 'Rerefence to a route in the dataset',
       fieldset: 'link',
       type: 'reference',
-      to: [{type: 'route'}],
+      to: [{type: 'Route'}],
     },
     {
       name: 'route',

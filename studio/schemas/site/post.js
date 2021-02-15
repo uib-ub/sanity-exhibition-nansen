@@ -1,5 +1,5 @@
 export default {
-  name: 'post',
+  name: 'Post',
   type: 'document',
   title: 'Blogg innlegg',
   titleEN: 'Blog Post',
@@ -44,7 +44,7 @@ export default {
       name: 'image',
       title: 'Hovedbilde',
       titleEN: 'Main image',
-      type: 'digitalImageObject',
+      type: 'DigitalImageObject',
     },
     {
       name: 'body',
@@ -58,7 +58,7 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'contributionAssignment',
+          type: 'ContributionAssignment',
         },
       ],
     },
@@ -71,7 +71,7 @@ export default {
         {
           type: 'reference',
           to: {
-            type: 'concept',
+            type: 'Concept',
           },
         },
       ],

@@ -12,10 +12,10 @@ import {
 import {defaultFieldsets} from '../fieldsets'
 
 export default {
-  title: 'Storage',
-  name: 'storage',
-  description: 'Storage is a subclass of place.',
+  name: 'Storage',
   type: 'document',
+  title: 'Storage',
+  description: 'Storage is a subclass of place.',
   initialValue: {
     editorialState: 'published',
     accessState: 'secret',
@@ -33,7 +33,7 @@ export default {
       title: 'Klassifisert som',
       titleEN: 'Classified as',
       type: 'reference',
-      to: [{type: 'storageType'}],
+      to: [{type: 'StorageType'}],
       validation: (Rule) => Rule.required(),
     },
     referredToBy,
@@ -42,7 +42,6 @@ export default {
       name: 'location',
       title: 'Lokasjon',
       titleEN: 'Location',
-      description: 'Where the hell did this happen?!',
       type: 'geopoint',
     },
     tookPlaceAt,
@@ -54,7 +53,11 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'storage'}, {type: 'madeObject'}, {type: 'collection'}],
+          to: [
+            {type: 'Storage'}, 
+            {type: 'HumanMadeObject'}, 
+            {type: 'Collection'}
+          ],
         },
       ],
       options: {

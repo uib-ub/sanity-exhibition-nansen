@@ -1,18 +1,18 @@
 export default {
-  name: 'dataTransferEvent',
+  name: 'DataTransferEvent',
+  type: 'object',
   title: 'Dataoverføringshendelse',
   titleEN: 'Data transfer event',
-  type: 'object',
   fields: [
     {
       name: 'transferred',
       title: 'Transferred',
-      type: 'digitalObject',
+      type: 'DigitalObject',
     },
     {
       name: 'hasSender',
       title: 'Has sender',
-      type: 'digitalDevice',
+      type: 'DigitalDevice',
     },
     {
       name: 'timestamp',

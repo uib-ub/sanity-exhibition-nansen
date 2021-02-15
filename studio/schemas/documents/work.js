@@ -2,9 +2,9 @@ import {FaCrown} from 'react-icons/fa'
 import {editorialState, accessState, labelSingleton, identifiedBy} from '../props'
 
 export default {
-  title: 'Work',
-  name: 'work',
+  name: 'Work',
   type: 'document',
+  title: 'Work',
   icon: FaCrown,
   fieldsets: [
     {
@@ -26,7 +26,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'workType'}],
+          to: [{type: 'WorkType'}],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -39,7 +39,7 @@ export default {
       titleEN: 'Activity stream',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'creation'}],
+      of: [{type: 'Creation'}],
     },
   ],
   preview: {

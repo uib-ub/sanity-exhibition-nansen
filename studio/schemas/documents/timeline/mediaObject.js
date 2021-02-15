@@ -1,6 +1,6 @@
 export default {
+  name: 'MediaObject',
   title: 'Media object',
-  name: 'mediaObject',
   type: 'image',
   options: {
     hotspot: true,

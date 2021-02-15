@@ -20,7 +20,7 @@ export const chooseItem = async (item) => {
   const types = mapMediatypes(item.metadata.mediaTypes)
 
   const doc = {
-    _type: 'madeObject',
+    _type: 'HumanMadeObject',
     _id: `${item.id}`,
     accessState: 'open',
     editorialState: 'published',
@@ -32,7 +32,7 @@ export const chooseItem = async (item) => {
     preferredIdentifier: item.id,
     identifiedBy: [
       {
-        _type: 'identifier',
+        _type: 'Identifier',
         _key: nanoid(),
         content: item.id,
         hasType: {
@@ -52,18 +52,18 @@ export const chooseItem = async (item) => {
     subjectOfManifest: item._links.presentation.href,
     hasType: types,
     wasOutputOf: {
-      _type: 'dataTransferEvent',
+      _type: 'DataTransferEvent',
       _key: nanoid(),
       /* _ref: nanoid(36), <- uncomment if changed to a document in schema */
       transferred: {
-        _type: 'digitalObject',
+        _type: 'DigitalObject',
         _key: nanoid(),
         /* _ref: item.id, */
         value: `"${JSON.stringify(item, null, 0)}"`,
       },
       timestamp: new Date(),
       hasSender: {
-        _type: 'digitalDevice',
+        _type: 'DigitalDevice',
         _key: nanoid(),
         /* _ref: nanoid(36), */
         label: 'api.nb.no',
@@ -161,7 +161,7 @@ export const chooseItem = async (item) => {
       .patch(docID)
       .set({
         image: {
-          _type: 'digitalImageObject',
+          _type: 'DigitalImageObject',
           asset: {
             _type: 'reference',
             _ref: assetID,

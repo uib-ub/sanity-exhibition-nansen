@@ -1,5 +1,5 @@
 export default {
-  name: 'miradorGallery',
+  name: 'MiradorGallery',
   type: 'object',
   title: 'Mirador galleri',
   titleEN: 'Mirador gallery',
@@ -15,7 +15,7 @@ export default {
       title: 'Vinduer',
       titleEN: 'Items',
       type: 'array',
-      of: [{type: 'miradorGalleryWindow'}],
+      of: [{type: 'MiradorGalleryWindow'}],
     },
     {
       name: 'heading',

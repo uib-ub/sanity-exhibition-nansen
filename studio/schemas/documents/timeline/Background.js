@@ -1,8 +1,8 @@
 export default {
-  name: 'background',
+  name: 'Background',
+  type: 'object',
   title: 'Bakgrunn',
   titleEN: 'Background',
-  type: 'object',
   fields: [
     {
       name: 'url',

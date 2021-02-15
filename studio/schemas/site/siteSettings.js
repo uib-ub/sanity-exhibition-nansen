@@ -2,7 +2,7 @@ import bcp47 from 'bcp47'
 import {FaCog} from 'react-icons/fa'
 
 export default {
-  name: 'siteSettings',
+  name: 'SiteSettings',
   type: 'document',
   title: 'Nettsideinnstillinger',
   titleEN: 'Site Settings',
@@ -21,7 +21,7 @@ export default {
       titleEN: 'Frontpage',
       type: 'reference',
       to: [
-        {type: 'page'}
+        {type: 'Page'}
       ]
     },
     {
@@ -63,14 +63,14 @@ export default {
       title: 'Main navigation',
       description: 'Select main navigation for the top menu',
       type: 'reference',
-      to: [{type: 'navigationMenu'}],
+      to: [{type: 'NavigationMenu'}],
     },
     {
       name: 'footer',
       title: 'Footer page',
       description: 'Select page for the footer',
       type: 'reference',
-      to: [{type: 'page'}],
+      to: [{type: 'Page'}],
     },
     {
       name: 'openGraph',
@@ -78,7 +78,7 @@ export default {
       titleEN: 'Open graph',
       description: 'Disse vil bli brukt i "meta tags" på sider som ikke har egne verdier',
       descriptionEN: 'These will be the default meta tags on all pages that have not set their own',
-      type: 'openGraph',
+      type: 'OpenGraph',
     },
     {
       name: 'keywords',

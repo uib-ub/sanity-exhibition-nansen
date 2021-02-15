@@ -2,10 +2,10 @@ import {timespan, referredToBy} from '../props'
 import {defaultFieldsets} from '../fieldsets'
 
 export default {
-  name: 'name',
+  name: 'Name',
+  type: 'object',
   title: 'Navn',
   titleEN: 'Name',
-  type: 'object',
   fieldsets: defaultFieldsets,
   fields: [
     {
@@ -19,21 +19,21 @@ export default {
       title: 'Type',
       titleEN: 'Type',
       type: 'reference',
-      to: [{type: 'appelationType'}],
+      to: [{type: 'AppelationType'}],
     },
     {
       name: 'part',
       title: 'Deler',
       titleEN: 'Part',
       type: 'array',
-      of: [{type: 'name'}],
+      of: [{type: 'Name'}],
     },
     {
       name: 'language',
       title: 'Språk',
       titleEN: 'Language',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'language'}]}],
+      of: [{type: 'reference', to: [{type: 'Language'}]}],
     },
     timespan,
     referredToBy,

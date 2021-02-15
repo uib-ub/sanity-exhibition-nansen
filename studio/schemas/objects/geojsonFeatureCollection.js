@@ -1,11 +1,10 @@
-import {label} from '../props'
 import {defaultFieldsets} from '../fieldsets'
 import {coalesceLabel} from '../helpers/helpers'
 
 export default {
-  name: 'geojsonFeatureCollection',
-  title: 'Feature Collection',
+  name: 'GeojsonFeatureCollection',
   type: 'object',
+  title: 'Feature Collection',
   fieldsets: defaultFieldsets,
   fields: [
     // Foreign member not in the GeoJSON schema
@@ -16,14 +15,14 @@ export default {
       description: '',
       descriptionEN: '',
       fieldset: 'minimum',
-      type: 'localeString',
+      type: 'LocaleString',
     },
     {
       name: 'features',
       title: 'Features',
       titleEN: 'Features',
       type: 'array',
-      of: [{type: 'geojsonFeature'}],
+      of: [{type: 'GeojsonFeature'}],
     },
   ],
   preview: {

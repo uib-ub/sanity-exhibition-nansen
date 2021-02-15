@@ -3,10 +3,10 @@ import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers'
 
 export default {
-  name: 'measurement',
+  name: 'Measurement',
+  type: 'object',
   title: 'Måling',
   titleEN: 'Measurement',
-  type: 'object',
   fieldsets: defaultFieldsets,
   fields: [
     {
@@ -15,7 +15,7 @@ export default {
       titleEN: 'Dimension',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'dimension'}],
+      of: [{type: 'Dimension'}],
     },
     timespan,
     carriedOutBy,

@@ -4,7 +4,7 @@ import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers.js'
 
 export default {
-  name: 'groupType',
+  name: 'GroupType',
   title: 'Gruppetype',
   titleEN: 'Group type',
   type: 'document',
@@ -24,7 +24,7 @@ export default {
       title: 'Overordnet term',
       titleEN: 'Broader',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'groupType'}]}],
+      of: [{type: 'reference', to: [{type: 'GroupType'}]}],
     },
     {
       name: 'activityStream',
@@ -32,7 +32,7 @@ export default {
       titleEN: 'Activity stream',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'creation'}],
+      of: [{type: 'Creation'}],
     },
   ],
   preview: {

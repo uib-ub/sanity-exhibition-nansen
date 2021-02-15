@@ -30,11 +30,11 @@ import {
 import {coalesceLabel} from '../helpers/helpers'
 
 export default {
-  name: 'madeObject',
+  name: 'HumanMadeObject',
+  type: 'document',
   title: 'Objekt',
   titleEN: 'Made Object',
   description: 'Menneskapte objekt',
-  type: 'document',
   initialValue: {
     editorialState: 'draft',
     accessState: 'secret',
@@ -113,7 +113,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'objectType'}],
+          to: [{type: 'ObjectType'}],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -127,13 +127,13 @@ export default {
       fieldset: 'minimum',
       type: 'array',
       of: [
-        {type: 'beginningOfExistence'},
-        {type: 'production'},
-        {type: 'transformation'},
-        {type: 'reference', to: [{type: 'acquisition'}]},
-        {type: 'move'},
-        {type: 'activity'},
-        {type: 'destruction'},
+        {type: 'BeginningOfExistence'},
+        {type: 'Production'},
+        {type: 'Transformation'},
+        {type: 'reference', to: [{type: 'Acquisition'}]},
+        {type: 'Move'},
+        {type: 'Activity'},
+        {type: 'Destruction'},
       ],
     },
     {
@@ -203,7 +203,7 @@ export default {
     {
       name: 'wasOutputOf',
       title: 'Was output of',
-      type: 'dataTransferEvent',
+      type: 'DataTransferEvent',
       hidden: true,
     },
   ],

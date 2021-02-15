@@ -1,17 +1,17 @@
 import {coalesceLabel} from '../helpers/helpers'
 
 export default {
-  name: 'dimension',
+  name: 'Dimension',
+  type: 'object',
   title: 'Dimensjon',
   titleEN: 'Dimension',
-  type: 'object',
   fields: [
     {
       name: 'hasType',
       title: 'Klassifisert som',
       titleEN: 'Classified as',
       type: 'reference',
-      to: [{type: 'dimensionType'}],
+      to: [{type: 'DimensionType'}],
       validation: (Rule) => Rule.required(),
     },
     {
@@ -26,7 +26,7 @@ export default {
       titleEN: 'Measurement unit',
       description: 'WIP, should use API',
       type: 'reference',
-      to: [{type: 'measurementUnit'}],
+      to: [{type: 'MeasurementUnit'}],
       validation: (Rule) => Rule.required(),
     },
   ],

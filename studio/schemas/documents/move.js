@@ -14,8 +14,8 @@ import {defaultFieldsets} from '../fieldsets'
 var capitalize = require('capitalize')
 
 export default {
+  name: 'Move',
   title: 'Move',
-  name: 'move',
   type: 'document',
   initialValue: {
     editorialState: 'draft',
@@ -39,7 +39,12 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'madeObject'}, {type: 'exhibition'}, {type: 'group'}, {type: 'actor'}],
+          to: [
+            {type: 'HumanMadeObject'}, 
+            {type: 'Exhibition'}, 
+            {type: 'Group'}, 
+            {type: 'Actor'}
+          ],
         },
       ],
     },
@@ -48,14 +53,20 @@ export default {
       title: 'Flyttet fra',
       titleEN: 'Moved from',
       type: 'reference',
-      to: [{type: 'place'}, {type: 'storage'}],
+      to: [
+        {type: 'Place'}, 
+        {type: 'Storage'}
+      ],
     },
     {
       name: 'movedTo',
       title: 'Flyttet til',
       titleEN: 'Moved to',
       type: 'reference',
-      to: [{type: 'place'}, {type: 'storage'}],
+      to: [
+        {type: 'Place'}, 
+        {type: 'Storage'}
+      ],
     },
     motivatedBy,
   ],

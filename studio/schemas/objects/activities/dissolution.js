@@ -6,10 +6,10 @@ var capitalize = require('capitalize')
 // Implisit 'wasFormedBy' to parent group
 
 export default {
-  name: 'dissolution',
+  name: 'Dissolution',
+  type: 'object',
   title: 'Oppløsing',
   titleEN: 'Dissolution',
-  type: 'object',
   fieldsets: defaultFieldsets,
   fields: [
     {
@@ -20,7 +20,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'eventType'}],
+          to: [{type: 'EventType'}],
         },
       ],
     },

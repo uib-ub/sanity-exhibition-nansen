@@ -1,5 +1,5 @@
 export default {
-  name: 'socialCollection',
+  name: 'SocialCollection',
   type: 'object',
   title: 'Social collection',
   fields: [
@@ -15,7 +15,7 @@ export default {
       titleEN: 'Items',
       type: 'array',
       validation: (Rule) => Rule.unique(),
-      of: [{type: 'social'}],
+      of: [{type: 'Social'}],
     },
   ],
   preview: {

@@ -4,8 +4,8 @@ import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers'
 
 export default {
+  name: 'Concept',
   title: 'Concept',
-  name: 'concept',
   type: 'document',
   initialValue: {
     editorialState: 'published',
@@ -23,22 +23,13 @@ export default {
       title: 'Overordnet term',
       titleEN: 'Broader',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'concept'}]}],
+      of: [{type: 'reference', to: [{type: 'Concept'}]}],
     },
     /* {
       name: 'narrower',
       title: 'Underordnet term',
       titleEN: 'Narrower',
       description: 'Trenger vi narrower? Blir mye å registrere...',
-      type: 'array',
-      of: [
-        {type: 'reference', to: [{type: 'typeClass'}]}
-      ]
-    },
-    {
-      name: 'domain',
-      title: 'Domene',
-      titleEN: 'Domain',
       type: 'array',
       of: [
         {type: 'reference', to: [{type: 'typeClass'}]}
@@ -50,7 +41,7 @@ export default {
       titleEN: 'Activity stream',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'creation'}],
+      of: [{type: 'Creation'}],
     },
   ],
   preview: {

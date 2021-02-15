@@ -4,7 +4,7 @@ import {defaultFieldsets} from '../../fieldsets'
 // Se https://link.springer.com/article/10.1007/s00799-016-0199-x for eksempel på modellering
 
 export default {
-  name: 'sampling',
+  name: 'Sampling',
   title: 'Prøvetaking',
   titleEN: 'Sampling',
   type: 'object',
@@ -14,7 +14,6 @@ export default {
     timespan, 
     tookPlaceAt, 
     referredToBy,
-    
     usedGeneralTechnique,
     usedSpecificTechnique,
     usedObjectOfType,

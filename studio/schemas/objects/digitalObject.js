@@ -1,8 +1,8 @@
 export default {
-  name: 'digitalObject',
+  name: 'DigitalObject',
+  type: 'object',
   title: 'Digitalt objekt',
   titleEN: 'Digital object',
-  type: 'object',
   fields: [
     {
       name: 'value',

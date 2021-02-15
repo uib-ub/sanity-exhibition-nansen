@@ -2,10 +2,10 @@ import {editorialState, accessState} from '../props'
 import {defaultFieldsets} from '../fieldsets'
 
 export default {
-  name: 'linguisticObject',
+  name: 'LinguisticObject',
+  type: 'object',
   title: 'Tekst',
   titleEN: 'Text',
-  type: 'object',
   fieldsets: defaultFieldsets,
   fields: [
     editorialState,
@@ -18,7 +18,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'textType'}],
+          to: [{type: 'TextType'}],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -34,7 +34,7 @@ export default {
       title: 'Språk',
       titleEN: 'Language',
       type: 'reference',
-      to: [{type: 'language'}],
+      to: [{type: 'Language'}],
       validation: (Rule) => Rule.required(),
     },
     {
@@ -46,19 +46,7 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'contributionAssignment',
-        },
-      ],
-    },
-    {
-      name: 'categories',
-      title: 'Kategorier',
-      titleEN: 'Categories',
-      type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [{type: 'textType'}],
+          type: 'ContributionAssignment',
         },
       ],
     },
@@ -74,11 +62,7 @@ export default {
       title: 'Dokumentert i',
       titleEN: 'Documented in',
       type: 'array',
-      of: [
-        {
-          type: 'file',
-        },
-      ],
+      of: [{type: 'file'}],
     },
   ],
   preview: {

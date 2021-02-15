@@ -1,8 +1,8 @@
 export default {
-  name: 'contributionAssignment',
+  name: 'ContributionAssignment',
+  type: 'object',
   title: 'Bidragspåstand',
   titleEN: 'Contribution Assignment',
-  type: 'object',
   fields: [
     {
       name: 'assignedActor',
@@ -10,8 +10,8 @@ export default {
       titleEN: 'Actor',
       type: 'reference',
       to: [
-        {type: 'actor'},
-        {type: 'group'},
+        {type: 'Actor'},
+        {type: 'Group'},
       ],
     },
     {
@@ -22,7 +22,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'role'}],
+          to: [{type: 'Role'}],
         },
       ],
     },
@@ -32,7 +32,7 @@ export default {
       titleEN: 'Name',
       description: 'Brukes dersom objektet er signert under annet navn enn aktørens fulle navn.',
       descriptionEN: 'Used if the object is signed with another than the preferred name of the actor.',
-      type: 'name'
+      type: 'Name'
     },
   ],
   preview: {

@@ -1,14 +1,14 @@
 export default {
-  name: 'singleObject',
-  title: 'Single object',
+  name: 'SingleObject',
   type: 'object',
+  title: 'Single object',
   fields: [
     {
       name: 'item',
       title: 'Objekt',
       titleEN: 'Item',
       type: 'reference',
-      to: [{type: 'madeObject'}],
+      to: [{type: 'HumanMadeObject'}],
     },
     {
       name: 'title',

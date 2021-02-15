@@ -10,7 +10,7 @@ function myAsyncSlugifier(input) {
 }
 
 export default {
-  name: 'route',
+  name: 'Route',
   type: 'document',
   title: 'Sti',
   titleEN: 'Landing page routes',
@@ -35,7 +35,7 @@ export default {
       validation: (Rule) => Rule.required(),
       to: [
         {
-          type: 'page',
+          type: 'Page',
         },
       ],
     },
@@ -75,7 +75,7 @@ export default {
       titleEN: 'Open graph',
       description: 'Disse vil bli brukt i "meta tags"',
       descriptionEN: 'These values populate meta tags',
-      type: 'openGraph',
+      type: 'OpenGraph',
     },
     {
       name: 'includeInSitemap',

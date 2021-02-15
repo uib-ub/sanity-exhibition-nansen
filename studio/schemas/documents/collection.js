@@ -11,7 +11,7 @@ import {
 
 export default {
   title: 'Collection',
-  name: 'collection',
+  name: 'Collection',
   type: 'document',
   initialValue: {
     editorialState: 'published',
@@ -79,11 +79,11 @@ export default {
       description: 'Events and activities connected to this object',
       type: 'array',
       of: [
-        {type: 'production'},
-        {type: 'transformation'},
-        {type: 'acquisition'},
-        {type: 'move'},
-        {type: 'destruction'},
+        {type: 'Production'},
+        {type: 'Transformation'},
+        {type: 'Acquisition'},
+        {type: 'Move'},
+        {type: 'Destruction'},
       ],
       options: {
         editModal: 'fullscreen',
@@ -96,7 +96,7 @@ export default {
       description: 'Andre identifiserte undersamlinger som er en del av dette samlingen.',
       descriptionEN: 'Other identified subcollections this collection is composed of',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'collection'}]}],
+      of: [{type: 'reference', to: [{type: 'Collection'}]}],
     },
   ],
   preview: {

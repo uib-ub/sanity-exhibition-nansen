@@ -3,8 +3,8 @@ import {accessState, editorialState, referredToBy, labelSingleton, identifiedBy}
 import {coalesceLabel} from '../helpers/helpers'
 
 export default {
+  name: 'Group',
   title: 'Group',
-  name: 'group',
   type: 'document',
   initialValue: {
     editorialState: 'draft',
@@ -54,7 +54,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'groupType'}],
+          to: [{type: 'GroupType'}],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -66,11 +66,11 @@ export default {
       description: 'Events and activities connected to this object',
       type: 'array',
       of: [
-        {type: 'formation'},
-        {type: 'joining'},
-        {type: 'leaving'},
-        {type: 'move'},
-        {type: 'dissolution'},
+        {type: 'Formation'},
+        {type: 'Joining'},
+        {type: 'Leaving'},
+        {type: 'Move'},
+        {type: 'Dissolution'},
       ],
       options: {
         editModal: 'fullscreen',
