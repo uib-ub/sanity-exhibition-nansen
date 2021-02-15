@@ -1,4 +1,4 @@
-import InstagramPreview from '../previews/instagramPreview'
+import InstagramPreview from '../previews/InstagramPreview'
 
 /* TODO: move?
  */
