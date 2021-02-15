@@ -22,7 +22,7 @@ export default {
     {
       name: 'project-info',
       options: {
-        __experimental_before: [
+        /* __experimental_before: [
           {
             name: 'netlify',
             options: {
@@ -38,7 +38,7 @@ export default {
               ],
             },
           },
-        ],
+        ], */
         data: [
           {
             title: 'GitHub repo',
