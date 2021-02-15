@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {upperFirst} from 'lodash'
 import * as DocumentComponents from './Documents'
 
 function resolveDocument(document) {
-  const Document = DocumentComponents[upperFirst(document._type)]
+  const Document = DocumentComponents
 
   if (Document) {
     return Document

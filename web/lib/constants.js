@@ -1,1 +1,1 @@
-export const CMS_NAME = 'Kølle'
+export const CMS_NAME = 'Nansen'

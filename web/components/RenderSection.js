@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {upperFirst} from 'lodash'
 import * as SectionComponents from './Sections'
 
 function resolveSections(section) {
-  const Section = SectionComponents[upperFirst(section._type)]
+  const Section = SectionComponents
 
   if (Section) {
     return Section

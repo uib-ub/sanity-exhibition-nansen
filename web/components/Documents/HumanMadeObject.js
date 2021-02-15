@@ -29,7 +29,7 @@ import Description from '../Description'
 
 const MiradorWithNoSSR = dynamic(() => import('../Mirador'), {ssr: false})
 
-export default function MadeObject(item) {
+export default function HumanMadeObject(item) {
   const {isOpen, onOpen, onClose} = useDisclosure()
   const {hasCopied, onCopy} = useClipboard(JSON.stringify(item, null, 2))
 

@@ -1,7 +1,7 @@
 import client, {previewClient} from './sanity'
 const getClient = (preview) => (preview ? previewClient : client)
 
-const publicDocumentTypes = ['madeObject', 'actor', 'group', 'concept', 'objectType', 'place']
+const publicDocumentTypes = ['HumanMadeObject', 'Actor', 'Group', 'Concept', 'ObjectType', 'Place']
 
 const getUniqueDocuments = (items) => {
   const ids = new Set()
@@ -164,12 +164,12 @@ const groupFields = `
   referredToBy[] {
     ...
   },
-  "hasMember": *[_type in ["actor", "group"] && references(^._id)]{ 
+  "hasMember": *[_type in ["Actor", "Group"] && references(^._id)]{ 
     "id": _id,
     _type,
     label
   },
-  "mentionedIn": *[_type in ["madeObject"] && references(^._id)]{ 
+  "mentionedIn": *[_type in ["HumanMadeObject"] && references(^._id)]{ 
     "id": _id,
     _type,
     label,
@@ -194,14 +194,14 @@ export async function getFrontpage() {
           disabled != true => {
             ...
           },
-          _type == 'miradorGallery' && disabled != true => @{
+          _type == 'MiradorGallery' && disabled != true => @{
             ...,
             items[] {
               "manifest": coalesce(manifestRef->.subjectOfManifest, manifestUrl),
               canvasUrl,
             },
           },
-          _type == 'singleObject'  && disabled != true => @{
+          _type == 'SingleObject'  && disabled != true => @{
             ...,
 						item-> {
             "manifest": coalesce(subjectOfManifest, manifestUrl),
@@ -210,7 +210,7 @@ export async function getFrontpage() {
           }
         }
       },
-      "latest": *[ _type == "madeObject"][0..10] {
+      "latest": *[ _type == "MadeObject"][0..10] {
         "id": _id,
         label,
         hasType[]-> {
@@ -225,7 +225,7 @@ export async function getFrontpage() {
 
 export async function getRoutes() {
   const data = await getClient(true).fetch(
-    `*[ _type == "route" ] {
+    `*[ _type == "Route" ] {
       "id": _id,
       slug,
       _type
@@ -239,7 +239,7 @@ export async function getRouteBySlug(id) {
   const joinID = (typeof id === 'string') ? id : id.join('/')
 
   const data = await getClient(true).fetch(
-    `*[ _type == "route" && slug.current == $joinID ][0] {
+    `*[ _type == "Route" && slug.current == $joinID ][0] {
         "id": _id,
         ...,
         page->{
@@ -253,14 +253,14 @@ export async function getRouteBySlug(id) {
           },
           content[] {
             ...,
-            _type == 'miradorGallery' => @{
+            _type == 'MiradorGallery' => @{
               ...,
               items[] {
                 "manifest": coalesce(manifestRef->.subjectOfManifest, manifestUrl),
                 canvasUrl,
               },
             },
-            _type == 'singleObject' => @{
+            _type == 'SingleObject' => @{
               ...,
               item-> {
               "manifest": coalesce(subjectOfManifest, manifestUrl),
@@ -277,7 +277,7 @@ export async function getRouteBySlug(id) {
 
 export async function getPreviewMadeObjectByID(id) {
   const data = await getClient(true).fetch(
-    `*[_type == "madeObject" && _id == $id]{
+    `*[_type == "HumanMadeObject" && _id == $id]{
       ${madeObjectFields}
     }`,
     {id},
@@ -287,7 +287,7 @@ export async function getPreviewMadeObjectByID(id) {
 
 export async function getAllMadeObjects() {
   const data = await client.fetch(`{
-    "items": *[_type == "madeObject"]{ 
+    "items": *[_type == "HumanMadeObject"]{ 
       "id": _id,
       _type,
       label,
@@ -305,7 +305,7 @@ export async function getAllMadeObjects() {
 
 export async function getAllActors() {
   const data = await client.fetch(`{
-    "items": *[_type in ["actor", "group"]] | order(label, desc){ 
+    "items": *[_type in ["Actor", "Group"]] | order(label, desc){ 
       "id": _id,
       _type,
       label,
@@ -323,7 +323,7 @@ export async function getAllActors() {
 
 export async function getAllConcepts() {
   const data = await client.fetch(`{
-    "items": *[_type in ["concept", "objectType"]] | order(label.nor, desc){ 
+    "items": *[_type in ["Concept", "ObjectType"]] | order(label.nor, desc){ 
       "id": _id,
       _id,
       _type,
@@ -359,12 +359,12 @@ export async function getId(id, type, preview) {
   const results = await getClient(preview).fetch(
     `{
       "item": *[_id == $id][0] {
-        ${type[0].type === 'madeObject' ? madeObjectFields : ''}
-        ${type[0].type === 'actor' ? groupFields : ''}
-        ${type[0].type === 'group' ? groupFields : ''}
-        ${type[0].type === 'place' ? groupFields : ''}
-        ${type[0].type === 'concept' ? groupFields : ''}
-        ${type[0].type === 'objectType' ? groupFields : ''}
+        ${type[0].type === 'HumanMadeObject' ? madeObjectFields : ''}
+        ${type[0].type === 'Actor' ? groupFields : ''}
+        ${type[0].type === 'Group' ? groupFields : ''}
+        ${type[0].type === 'Place' ? groupFields : ''}
+        ${type[0].type === 'Concept' ? groupFields : ''}
+        ${type[0].type === 'ObjectType' ? groupFields : ''}
       },
       ${defaultNavMenu}
     }`,
