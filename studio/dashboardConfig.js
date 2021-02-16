@@ -2,7 +2,9 @@ export default {
   widgets: [
     {
       name: 'structure-menu',
-      layout: {width: 'medium'},
+      layout: {
+        width: 'medium'
+      },
     },
     {
       name: 'document-list',
@@ -16,9 +18,16 @@ export default {
     },
     {
       name: 'muna-docs-widget',
-      layout: {width: 'small'},
+      layout: {
+        width: 'small'
+      },
     },
-    {name: 'project-users', layout: {height: 'auto'}},
+    {
+      name: 'project-users', 
+      layout: {
+        height: 'auto'
+      }
+    },
     {
       name: 'vercel',
       options: {
@@ -26,7 +35,7 @@ export default {
         deployHook: process.env.SANITY_STUDIO_VERCEL_DEPLOY_HOOK, // optional
         forceSmallLayout: false, // optional
         projectId: process.env.SANITY_STUDIO_VERCEL_PROJECT_ID,
-        /* teamId: '%YOUR_PROJECT_ID%', */ // optional
+        // teamId: '%YOUR_PROJECT_ID%', // optional
         token: process.env.SANITY_STUDIO_VERCEL_TOKEN,
       },
       layout: {

@@ -3,9 +3,6 @@
   "name": "nansen-exhibition-studio",
   "description": "Nansen exhibition studio with a Muna schema.",
   "version": "0.0.0",
-  "engines": {
-    "node": "12.x"
-  },
   "main": "package.json",
   "author": "Tarje Sælen Lavik <tarje.lavik@uib.no>",
   "scripts": {
@@ -17,7 +14,7 @@
   "dependencies": {
     "@andre-brdoch/sanity-plugin-schema-inspector": "^1.1.0",
     "@appbaseio/reactivesearch": "^3.13.1",
-    "@sanity/base": "^2.3.6",
+    "@sanity/base": "^2.3.7",
     "@sanity/block-content-to-react": "^2.0.7",
     "@sanity/cli": "^2.2.6",
     "@sanity/code-input": "^2.2.6",
@@ -25,11 +22,10 @@
     "@sanity/components": "^2.2.6",
     "@sanity/core": "^2.3.3",
     "@sanity/dashboard": "^2.2.6",
-    "@sanity/default-layout": "^2.3.6",
+    "@sanity/default-layout": "^2.3.7",
     "@sanity/default-login": "^2.2.6",
-    "@sanity/desk-tool": "^2.3.6",
+    "@sanity/desk-tool": "^2.3.7",
     "@sanity/vision": "^2.2.6",
-    "@seidhr/react-muna-logo": "^1.0.0",
     "bcp47": "^1.1.2",
     "buffer": "^5.6.0",
     "capitalize": "^2.0.3",
@@ -47,14 +43,11 @@
     "react-paginate": "^6.5.0",
     "react-router-dom": "^5.2.0",
     "react-twitter-embed": "^3.0.3",
-    "sanity-plugin-asset-source-marcus": "^0.0.4",
-    "sanity-plugin-asset-source-nbiiif": "^0.0.7",
     "sanity-plugin-dashboard-widget-document-list": "^0.0.11",
     "sanity-plugin-dashboard-widget-vercel": "^0.1.5",
     "sanity-plugin-graph-view": "^1.0.4",
     "sanity-plugin-leaflet-input": "^1.0.0",
     "sanity-plugin-media": "^1.0.1",
-    "sanity-plugin-media-library": "^1.0.3",
     "swr": "^0.3.9"
   },
   "devDependencies": {
