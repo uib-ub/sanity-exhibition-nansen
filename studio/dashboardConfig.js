@@ -20,25 +20,22 @@ export default {
     },
     {name: 'project-users', layout: {height: 'auto'}},
     {
+      name: 'vercel',
+      options: {
+        deployLimit: 5,
+        deployHook: process.env.SANITY_STUDIO_VERCEL_DEPLOY_HOOK, // optional
+        forceSmallLayout: false, // optional
+        projectId: process.env.SANITY_STUDIO_VERCEL_PROJECT_ID,
+        /* teamId: '%YOUR_PROJECT_ID%', */ // optional
+        token: process.env.SANITY_STUDIO_VERCEL_TOKEN,
+      },
+      layout: {
+        width: 'large',
+      },
+    },
+    {
       name: 'project-info',
       options: {
-        /* __experimental_before: [
-          {
-            name: 'netlify',
-            options: {
-              description:
-                'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
-              sites: [
-                {
-                  buildHookId: '6026485110cae59250d4a2fa',
-                  title: 'Sanity Studio',
-                  name: 'sanity-exhibition-nansen-studio',
-                  apiId: 'be60672c-8e35-4f88-a947-eb80b4036d55',
-                },
-              ],
-            },
-          },
-        ], */
         data: [
           {
             title: 'GitHub repo',

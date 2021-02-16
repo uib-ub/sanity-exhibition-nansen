@@ -27,7 +27,8 @@
     "graph-view",
     "leaflet-input",
     "@andre-brdoch/sanity-plugin-schema-inspector",
-    "media"
+    "media",
+    "dashboard-widget-vercel"
   ],
   "env": {
     "development": {
