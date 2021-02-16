@@ -16,7 +16,7 @@ const getUniqueDocuments = (items) => {
 }
 
 const defaultNavMenu = `
-  "defaultNavMenu": *[_id == "0709e2aa-f6d6-41af-a3e0-ac23783cdaa4"][0] {
+  "defaultNavMenu": *[_id == "05ded800-23e4-453b-9b33-db08177480a9"][0] {
     ...,
     items[]{
       ...,
@@ -25,7 +25,7 @@ const defaultNavMenu = `
   }
 `
 
-const madeObjectFields = `
+const humanMadeObjectFields = `
   "id": _id,
   _id,
   _type,
@@ -210,7 +210,7 @@ export async function getFrontpage() {
           }
         }
       },
-      "latest": *[ _type == "MadeObject"][0..10] {
+      "latest": *[ _type == "HumanMadeObject"][0..10] {
         "id": _id,
         label,
         hasType[]-> {
@@ -278,7 +278,7 @@ export async function getRouteBySlug(id) {
 export async function getPreviewMadeObjectByID(id) {
   const data = await getClient(true).fetch(
     `*[_type == "HumanMadeObject" && _id == $id]{
-      ${madeObjectFields}
+      ${humanMadeObjectFields}
     }`,
     {id},
   )
@@ -337,7 +337,7 @@ export async function getAllConcepts() {
 
 export async function getType(id, preview) {
   const results = await getClient(preview).fetch(
-    `*[_id == $id] {
+    `*[_id == $id][0] {
       "type": _type
     }`,
     {id},
@@ -359,12 +359,12 @@ export async function getId(id, type, preview) {
   const results = await getClient(preview).fetch(
     `{
       "item": *[_id == $id][0] {
-        ${type[0].type === 'HumanMadeObject' ? madeObjectFields : ''}
-        ${type[0].type === 'Actor' ? groupFields : ''}
-        ${type[0].type === 'Group' ? groupFields : ''}
-        ${type[0].type === 'Place' ? groupFields : ''}
-        ${type[0].type === 'Concept' ? groupFields : ''}
-        ${type[0].type === 'ObjectType' ? groupFields : ''}
+        ${type.type === 'HumanMadeObject' ? humanMadeObjectFields : ''}
+        ${type.type === 'Actor' ? groupFields : ''}
+        ${type.type === 'Group' ? groupFields : ''}
+        ${type.type === 'Place' ? groupFields : ''}
+        ${type.type === 'Concept' ? groupFields : ''}
+        ${type.type === 'ObjectType' ? groupFields : ''}
       },
       ${defaultNavMenu}
     }`,
@@ -374,7 +374,7 @@ export async function getId(id, type, preview) {
 }
 
 export async function getAlert(preview) {
-  const results = await getClient(preview).fetch(`*[_type == "alert"][0] | order(_createdAt desc) {
+  const results = await getClient(preview).fetch(`*[_type == "Alert"][0] | order(_createdAt desc) {
       ...
     }`)
   return results

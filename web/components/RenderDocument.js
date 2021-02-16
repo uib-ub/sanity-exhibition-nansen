@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import * as DocumentComponents from './Documents'
 
 function resolveDocument(document) {
-  const Document = DocumentComponents
+  const Document = DocumentComponents[document._type]
 
   if (Document) {
     return Document

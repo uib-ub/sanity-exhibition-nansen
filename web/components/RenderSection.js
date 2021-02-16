@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import * as SectionComponents from './Sections'
 
 function resolveSections(section) {
-  const Section = SectionComponents
+  const Section = SectionComponents[section._type]
 
   if (Section) {
     return Section
