@@ -13,6 +13,10 @@ const MenuItem = ({children}) => (
 )
 
 export default function Header(props) {
+  if(!props) {
+    return null
+  }
+  
   const {colorMode, toggleColorMode} = useColorMode()
   const color = useColorModeValue('black', 'white')
 

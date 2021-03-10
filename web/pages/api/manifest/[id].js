@@ -1,5 +1,6 @@
-import client, {previewClient} from '../../../lib/sanity'
-const getClient = (preview) => (preview ? previewClient : client)
+import {sanityClient, previewClient} from '../../../lib/sanity.server'
+const getClient = (preview) => (preview ? previewClient : sanityClient)
+
 
 const fixIIIFUrl = i => {
   const url = new URL(i)

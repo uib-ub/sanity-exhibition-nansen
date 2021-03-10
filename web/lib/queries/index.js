@@ -100,7 +100,8 @@ export const frontpageQuery = `
         ...
       },
       image,	
-    }
+    },
+    ${siteSettings}
   }
 `
 

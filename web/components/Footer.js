@@ -9,6 +9,10 @@ const MenuItem = ({children}) => (
 )
 
 export default function Footer(props) {
+  if(!props) {
+    return null
+  }
+
   const {colorMode, toggleColorMode} = useColorMode()
   const bg = useColorModeValue('white', 'gray.700')
 
