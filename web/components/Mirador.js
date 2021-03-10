@@ -20,7 +20,7 @@ export default function Mirador(props) {
         {
           allowFullscreen: true,
           manifestId: data[0].manifest,
-          canvasId: data[0].canvasUrl,
+          ...(data[0].canvasUrl && {canvasId: data[0].canvasUrl}),
           maximized: true,
           allowClose: false,
           allowMaximize: false,
@@ -34,7 +34,7 @@ export default function Mirador(props) {
       const windows = data.map((window) => ({
         allowFullscreen: true,
         imageToolsEnabled: true,
-        manifestId: window,
+        manifestId: window.manifest,
       }))
       return windows
     }

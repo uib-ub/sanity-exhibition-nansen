@@ -40,13 +40,13 @@ export default {
   preview: {
     select: {
       title: 'title',
-      illustration: 'illustration',
+      media: 'illustration',
     },
-    prepare({title, illustration}) {
+    prepare({title, media}) {
       return {
         title: title,
         subtitle: 'Sideoverskrift',
-        media: illustration?.image,
+        media: media?.image,
       }
     },
   },
