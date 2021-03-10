@@ -1,12 +1,13 @@
 import {CMS_NAME} from '../../lib/constants'
-import {getAllConcepts} from '../../lib/api'
+import {getRegistry} from '../../lib/api'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import {Container, List, ListItem} from '@chakra-ui/react'
 import Link from '../../components/Link'
 
-export default function Concepts({data, preview}) {
+export default function Register({data, preview}) {
   return (
     <>
       <Layout preview={preview} site={data.siteSettings}>
@@ -21,7 +22,7 @@ export default function Concepts({data, preview}) {
                 .filter((item) => item.count > 0)
                 .map((item) => (
                   <ListItem key={item._id}>
-                    <Link href={`/id/${item._id}`}>{item.label.nor}</Link> <span>{item.count}</span>
+                    <Link href={`/id/${item._id}`}>{item.label.nor ?? item.label}</Link> <span>{item.count}</span>
                   </ListItem>
                 ))}
             </List>
@@ -33,7 +34,7 @@ export default function Concepts({data, preview}) {
 }
 
 export async function getStaticProps({preview = false}) {
-  const data = await getAllConcepts(preview)
+  const data = await getRegistry(preview)
   return {
     props: {data, preview},
   }

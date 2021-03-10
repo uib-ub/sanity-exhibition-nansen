@@ -1,47 +1,46 @@
-import {Grid, Box, Container, Heading, Text, useColorMode, useColorModeValue} from '@chakra-ui/react'
+import {Flex, Container, Button, Text, useColorMode, useColorModeValue, Spacer} from '@chakra-ui/react'
+import ActiveLink from './ActiveLink'
+import {MoonIcon, SunIcon} from '@chakra-ui/icons'
 
-export default function Footer() {
+const MenuItem = ({children}) => (
+  <Text mt="0" mr={6} mb="0" display="block">
+    {children}
+  </Text>
+)
+
+export default function Footer(props) {
   const {colorMode, toggleColorMode} = useColorMode()
+  const bg = useColorModeValue('white', 'gray.700')
 
-  const bg = useColorModeValue('gray.700', 'black')
+  const {navMenu} = props
 
   return (
     <Container 
       as="footer" 
+      gridArea="footer"
       maxW="full" 
-      marginTop="20"
+      py="2"
+      borderTopWidth="thin"
+      borderTopStyle="dashed"
+      borderTopColor="gray.400"
       bg={bg}
-      color="white"
-      centerContent
+      zIndex="100"
     >
-      <Grid
-        maxW="4xl"
-        my={5}
-        mt="10"
-        gridGap={10}
-        alignContent="center"
-        gridTemplateAreas={{md: '"about col1 col2"', base: '"about" "col1" "col2"'}}
-        gridTemplateColumns={{md: '2fr 1fr 1fr', base: '1fr'}}
-      >
-        <Box gridArea="about">
-          {/* <img src="http://marcus.uib.no/img/UiBmerke_grayscale.svg" /> */}
-          <Text>
-            Kølle-utstillingen er en del av MARCUS, som er Spesialsamlingene til Universitetsbiblioteket i Bergen sin portal til digitaliserte manuskript, fotografi, diplomer og mye mer. Oppkalt etter Marcus Selmer, Bergens første fotograf.
-          </Text>
-        </Box>
+      <Flex>
+        <Button variant="link" onClick={toggleColorMode}>
+          {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+        </Button>
 
-        <Box gridArea="col1">
-          <Heading size="sm">Manuskript- og librarsamlingen</Heading>
-        </Box>
-
-        <Box gridArea="col2">
-          <Heading size="sm">Billedsamlingen</Heading>
-        </Box>
-      </Grid>
-      
-      <Box maxW="4xl">
-        <Text>Mer tekst, rettigheter og sånt</Text>
-      </Box>
+        <Spacer />
+        
+        {navMenu?.items && navMenu.items.map((item) => (
+          <MenuItem key={item._key}>
+            <ActiveLink fontFamily="'Open Sans'" href={`/${item.route ?? ''}`} activeClassName="active">
+              <a>{item.label}</a>
+            </ActiveLink>
+          </MenuItem>
+        ))}
+      </Flex>
     </Container>
   )
 }

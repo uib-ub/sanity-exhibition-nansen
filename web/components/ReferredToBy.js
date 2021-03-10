@@ -7,7 +7,7 @@ export default function ReferredToBy(props) {
     return null
   }
 
-  props.array?.map((obj) => (obj.lang = obj.language.identifiedByISO6393))
+  props.array?.map((obj) => (obj.lang = obj.language._identifiedByISO6393))
   
   let sorted = []
   if (props.array) {

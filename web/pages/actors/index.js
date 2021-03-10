@@ -5,8 +5,6 @@ import Head from 'next/head'
 import Link from 'next/link'
 import {Grid, Avatar, Box, Heading, Flex, Badge, Container} from '@chakra-ui/react'
 import Layout from '../../components/Layout'
-import Header from '../../components/Header'
-import Card from '../../components/Card'
 import PortableTextBlock from '../../components/PortableTextBlock'
 
 export default function Actors({data, preview}) {
@@ -26,11 +24,10 @@ export default function Actors({data, preview}) {
   let result = Object.values(actors) */
 
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} site={data.siteSettings}>
       <Head>
         <title>{CMS_NAME}</title>
       </Head>
-      <Header menu={data.defaultNavMenu} />
 
       <Container maxW="xl">
         <Heading>Aktører</Heading>
@@ -41,7 +38,7 @@ export default function Actors({data, preview}) {
           data.items
             .filter((item) => item.count > 0)
             .map((item) => (
-              <Flex key={item.id}>
+              <Flex key={item._id}>
                 <Avatar
                   size="lg"
                   name={item.label}
@@ -49,7 +46,7 @@ export default function Actors({data, preview}) {
                 />
                 <Box p={2}>
                   <Heading size="md">
-                    <Link href={`/id/${item.id}`}>
+                    <Link href={`/id/${item._id}`}>
                       <a>{item.label}</a>
                     </Link>
                   </Heading>

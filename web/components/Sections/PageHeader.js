@@ -7,9 +7,9 @@ export default function PageHeader(props) {
   const {colorMode, toggleColorMode} = useColorMode()
 
   const color = useColorModeValue('black', 'white')
-  const bg = useColorModeValue('gray.100', 'gray.900')
+  const bg = useColorModeValue('gray.100', 'gray.800')
   const opacity = useColorModeValue('0.7', '0.4')
-  const height = '50vh'
+  const height = '60vh'
 
   if (!props) {
     return null
@@ -17,14 +17,24 @@ export default function PageHeader(props) {
   const image = props.illustration?.image
 
   return (
-    <Grid gridTemplateAreas='"hero"' w="100%" h={height} backgroundColor={bg}>
-      <Container gridArea="hero" color={color} maxW="3xl" alignSelf="center" zIndex="1">
+    <Grid
+      maxW="full"
+      gridTemplateAreas='"hero"' 
+      h={height} 
+      backgroundColor={bg}
+    >
+      <Container 
+        gridArea="hero" 
+        color={color} 
+        maxW="3xl" 
+        alignSelf="end" 
+        zIndex="1"
+        bg={bg}
+      >
         <Heading 
-          fontSize="6xl" 
+          fontSize="5xl" 
           w="100%" 
-          textTransform="uppercase" 
-          color="teal.400"
-          textShadow="1px 1px white"
+          textTransform="uppercase"
         >
           {props.title}
         </Heading>
@@ -36,16 +46,18 @@ export default function PageHeader(props) {
         )}
       </Container>
 
-      {image && (<Image
-        gridArea="hero"
-        objectFit="cover"
-        height="100%"
-        width="100%"
-        justifyContent="end"
-        overflow="hidden"
-        src={imageBuilder.image(image).width('1000').height('300').url()}
-        alt={''}
-      />)}
+      {image && (
+        <Image
+          gridArea="hero"
+          objectFit="cover"
+          height="100%"
+          width="100%"
+          justifyContent="end"
+          overflow="hidden"
+          src={imageBuilder.image(image).width('1000').height('300').url()}
+          alt={''}
+        />
+      )}
     </Grid>
   )
 }

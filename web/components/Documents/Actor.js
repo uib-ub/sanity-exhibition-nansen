@@ -7,7 +7,7 @@ import {imageBuilder} from '../../lib/sanity'
 export default function Actor(item) {
   return (
     <Container maxW="full" centerContent>
-      <Flex key={item.id}>
+      <Flex key={item._id}>
         <Avatar
           
           name={item.label}
@@ -15,7 +15,7 @@ export default function Actor(item) {
         />
         <Box p={5}>
           <Heading fontSize={{sm:"2xl", md:"4xl"}}>
-            <Link href={`/id/${item.id}`}>
+            <Link href={`/id/${item._id}`}>
               <a>{item.label}</a>
             </Link>
           </Heading>
@@ -42,7 +42,7 @@ export default function Actor(item) {
       </Box>
       {item.hasMember &&
         item.hasMember.map((member) => (
-          <Link href={member.id}>
+          <Link href={member._id}>
             <a>{member.label}</a>
           </Link>
         ))}

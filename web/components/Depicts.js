@@ -11,7 +11,7 @@ export default function Depicts({depicted}) {
       <Heading fontSize="md">Avbildet</Heading>
       <Flex gridGap={5}>
         {depicted.map((actor) => (
-          <Link key={actor.id} href={`/id/${actor.id}`}>
+          <Link key={actor._id} href={`/id/${actor._id}`}>
             <Avatar
               size="2xl"
               name={actor.label}

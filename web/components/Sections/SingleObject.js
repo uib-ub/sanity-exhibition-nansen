@@ -13,14 +13,14 @@ export default function SingleObject(props) {
   const ref = React.createRef();
 
   return (
-    <Container maxW="6xl" centerContent>
+    <Container maxW={["3xl", "3xl", "3xl", "6xl"]}>
       <Grid
-        w="full"
-        my={5}
+        maxW={["xl", "xl", "xl", "5xl"]}
+        my={10}
         gridGap={5}
         alignContent="start"
-        gridTemplateAreas={{xl: '"image image metadata"', base: '"image" "metadata"'}}
-        gridTemplateColumns={{xl: '6fr 6fr 2fr', base: '100%'}}
+        gridTemplateAreas={{base: '"image" "metadata"', lg: '"image image metadata"'}}
+        gridTemplateColumns={{base: '100%', lg: '6fr 6fr 4fr'}}
       >
         <Box fontFamily="Montserrat" gridArea="metadata">
           <Heading fontFamily="Montserrat" fontSize="sm" mb={1}>

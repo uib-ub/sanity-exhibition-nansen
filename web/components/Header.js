@@ -1,130 +1,112 @@
 import React from 'react'
 import Link from 'next/link'
-import {Flex, Box, Spacer, Button, Heading, Text, useColorMode, Icon} from '@chakra-ui/react'
-import {MoonIcon, SunIcon} from '@chakra-ui/icons'
-import {CMS_NAME} from '../lib/constants'
+import {Flex, Box, Divider, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Spacer, Button, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Container, Center} from '@chakra-ui/react'
 import ActiveLink from './ActiveLink'
 import {BsArrowUpLeft} from 'react-icons/bs'
 import Headroom from 'react-headroom'
+import { HamburgerIcon } from '@chakra-ui/icons'
 
-const MenuItems = ({children}) => (
+const MenuItem = ({children}) => (
   <Text mt={{base: 4, md: 0}} mr={6} mb="0" display="block">
     {children}
   </Text>
 )
 
-export default function Header({menu}) {
+export default function Header(props) {
   const {colorMode, toggleColorMode} = useColorMode()
-  const [show, setShow] = React.useState(false)
-  const handleToggle = () => setShow(!show)
+  const color = useColorModeValue('black', 'white')
+
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const {title, mainNavigation, footer} = props
 
   return (
-    <Headroom
-      style={{
-        zIndex:"9",
-      }}
+    <Flex 
+      as="header" 
+      gridArea="header"
+      position="sticky"
+      top="0"
+      align="center" 
+      w="full" 
+      p="5"
+      justify="space-between" 
+      wrap="wrap"
+      color={color}
+      bg="rgba(255,255,255,0.5)"
+      zIndex="2"
     >
-      <Flex 
-        as="header" 
-        align="center" 
-        w="full" 
-        justify="space-between" 
-        wrap="wrap" 
-        color="white"
-      >
-        
-        <Flex 
-          align="center" 
-          p="1.5rem"
-          color="white" 
-          /* bg="red.600" */
-          bg="black"
-          px="2" 
-          py="1"
-          w="full"
-          opacity="100%"
-        >
-          <Heading fontSize="sm" fontWeight="500">
-            <Link href="http://marcus.uib.no/">
-              <a><Icon as={BsArrowUpLeft} /> tilbake til Marcus</a>
-            </Link>
-          </Heading>
-        </Flex>
+      <Heading fontSize="xl">
+        <Link href="/">
+          <a>{title}</a>
+        </Link>
+      </Heading>
 
-        <Flex 
-          align="center" 
-          px="1em" 
-          pt="1em" 
-          color="white" 
-          bg="black" 
-          w="full"
-          opacity="0.8"
-        >
-          <Heading fontSize="xl">
-            <Link href="/">
-              <a>{CMS_NAME}</a>
-            </Link>
-          </Heading>
-        </Flex>
+      <Spacer />
 
-        <Box display={{sm: 'block', md: 'none'}} onClick={handleToggle}>
-          <svg fill="black" width="12px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </Box>
+      <Flex display={{ sm: "none", md: "flex" }}>
 
-        <Flex
-          as="nav"
-          px="1em"
-          pb="1em"
-          display={{base: show ? 'block' : 'none', sm: show ? 'block' : 'none', md: 'flex'}}
-          width={{base: 'auto', sm: 'full', md: 'full'}}
-          align="center"
-          color="white" 
-          bg="black" 
-          opacity="0.8"
-          flexGrow={1}
-          fontFamily="'Open Sans'"
-        >
-          <Flex
-            display={{base: show ? 'block' : 'none', sm: show ? 'block' : 'none', md: 'flex'}}
-            width={{base: 'auto', sm: 'full', md: 'full'}}
-            align="center"
-            flexGrow={1}
-            wrap={{sm: 'no-wrap', md: "wrap"}}
-          >
-            {menu?.items &&
-              menu.items.map((item) => (
-                <MenuItems key={item._key}>
-                  <ActiveLink fontFamily="'Open Sans'" href={`/${item.route}`} activeClassName="active">
-                    <a>{item.label}</a>
-                  </ActiveLink>
-                </MenuItems>
-              ))
-            }
-          </Flex>
-          <Spacer />
-          <MenuItems>
-            <ActiveLink href={`/actors`} activeClassName="active">
-              <a>Aktører</a>
-            </ActiveLink>
-          </MenuItems>
-          <MenuItems>
-            <ActiveLink href={`/items`} activeClassName="active">
-              <a>Ting</a>
-            </ActiveLink>
-          </MenuItems>
-          <MenuItems>
-            <ActiveLink href={`/concepts`} activeClassName="active">
-              <a>Register</a>
-            </ActiveLink>
-          </MenuItems>
-          <Button onClick={toggleColorMode}>
-            {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-          </Button>
-        </Flex>
+      {mainNavigation?.items && mainNavigation.items.map((item) => (
+        <MenuItem  key={item._key}>
+          <ActiveLink fontFamily="'Open Sans'" href={`/${item.route}`} activeClassName="active">
+            <a>{item.label}</a>
+          </ActiveLink>
+        </MenuItem>
+      ))}
       </Flex>
-    </Headroom>
+
+      <Button
+        variant="link"
+        onClick={() => onOpen()}
+      >
+        <Icon as={HamburgerIcon} />
+      </Button>
+
+      <Drawer placement="top" zIndex="9999999999999999999999999999999999999" onClose={onClose} isOpen={isOpen} size="full" onOverlayClick={onClose}>
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
+            {/* <DrawerHeader>Nav</DrawerHeader> */}
+            <DrawerBody>
+
+              <Center h="full" w="full">
+                <VStack>
+                  <Flex>
+                    {mainNavigation?.items && mainNavigation.items.map((item) => (
+                      <MenuItem key={item._key}>
+                        <ActiveLink href={`/${item.route}`} activeClassName="active">
+                          <a onClick={onClose}>{item.label}</a>
+                        </ActiveLink>
+                      </MenuItem>
+                    ))}
+                  </Flex>
+
+                  <Divider />
+                  
+                  <Flex>
+                    {footer.navMenu?.items && footer.navMenu.items.map((item) => (
+                      <MenuItem key={item._key}>
+                        <ActiveLink href={`/${item.route}`} activeClassName="active">
+                          <a onClick={onClose}>{item.label}</a>
+                        </ActiveLink>
+                      </MenuItem>
+                    ))}
+                  </Flex>
+
+                  <Divider />
+
+                  <Flex>
+                    <Heading fontSize="sm" fontWeight="500">
+                      <Link href="http://marcus.uib.no/">
+                        <a><Icon as={BsArrowUpLeft} /> tilbake til Marcus</a>
+                      </Link>
+                    </Heading>
+                  </Flex>
+                </VStack>
+              </Center>
+              
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
+    </Flex>
   )
 }

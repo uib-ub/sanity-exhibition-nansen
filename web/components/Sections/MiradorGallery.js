@@ -8,18 +8,18 @@ export default function MiradorGallery(props) {
   if (!props) {
     return null
   }
-
-  const manifests = props.items.map((item) => item.manifest)
+  
+  const {items} = props
 
   return (
-    <Container maxW="6xl" centerContent>
+    <Container maxW={["3xl", "3xl", "3xl", "6xl"]}>
       <Grid
-        w="full"
-        my={5}
+        maxW={["xl", "xl", "xl", "5xl"]}
+        my={10}
         gridGap={5}
         alignContent="start"
-        gridTemplateAreas={{xl: '"image image metadata"', base: '"image" "metadata"'}}
-        gridTemplateColumns={{xl: '6fr 6fr 2fr', base: '100%'}}
+        gridTemplateAreas={{base: '"image" "metadata"', lg: '"image image metadata"'}}
+        gridTemplateColumns={{base: '100%', lg: '6fr 6fr 4fr'}}
       >
         <Box fontFamily="Montserrat" gridArea="metadata">
           <Heading fontSize="sm" mb={1}>
@@ -33,9 +33,9 @@ export default function MiradorGallery(props) {
           )}
         </Box>
 
-        {manifests && (
+        {items && (
           <Box gridArea="image">
-            <MiradorWithNoSSR manifest={manifests} />
+            <MiradorWithNoSSR windows={items} />
           </Box>
         )}
       </Grid>

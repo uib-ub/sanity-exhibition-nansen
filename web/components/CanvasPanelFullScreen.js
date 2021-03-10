@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {Box} from '@chakra-ui/react'
 import { PatchworkPlugin } from '@canvas-panel/patchwork-plugin/umd/@canvas-panel/patchwork-plugin'
 import {
@@ -22,7 +22,7 @@ const CanvasPanelFullScreen = React.forwardRef(({manifest}, ref) => {
   }
 
   return (
-    <Box position="relative" maxh={700}>
+    <Box position="relative" maxh={600}>
     {/* <PatchworkPlugin 
         manifest={manifest[0]} 
         title="Testing title" 
@@ -34,7 +34,7 @@ const CanvasPanelFullScreen = React.forwardRef(({manifest}, ref) => {
           <Viewport maxWidth={1200}>
             <StaticImageViewport
               viewportController={true}
-              maxHeight={700}
+              maxHeight={600}
               maxWidth={1200}
             />
           </Viewport>

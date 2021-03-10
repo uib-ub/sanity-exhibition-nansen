@@ -29,7 +29,7 @@ function RenderDocument(props) {
       </div>
     )
   } else {
-    return <DocumentComponent {...document} key={document.id} />
+    return <DocumentComponent {...document} key={document._id} />
   }
 }
 

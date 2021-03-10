@@ -12,7 +12,7 @@ import * as jsonld from 'jsonld'
 export default function Document({data}) {
   const router = useRouter()
   console.log(data)
-  if (!router.isFallback && !data.id) {
+  if (!router.isFallback && !data._id) {
     return <ErrorPage statusCode={404} />
   }
   return (
@@ -34,7 +34,7 @@ export default function Document({data}) {
 }
 
 export async function getServerSideProps({params}) {
-  const res = await getObject(params.id)
+  const res = await getObject(params._id)
   const awaitData = await res.json()
   const awaitFramed = jsonld.frame(awaitData, frame);
   let framed = await awaitFramed

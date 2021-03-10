@@ -80,7 +80,7 @@ export default function HumanMadeObject(item) {
             borderColor={{xl: "gray.200"}}
           >
             <ItemImage 
-              id={item.id} 
+              id={item._id} 
               label={item.label}
               url={item.image} 
             />

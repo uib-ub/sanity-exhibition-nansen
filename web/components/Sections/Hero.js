@@ -6,7 +6,7 @@ import PortableTextBlock from '../PortableTextBlock'
 export default function Hero(props) {
   const {colorMode, toggleColorMode} = useColorMode()
 
-  const bg = useColorModeValue('green.800', 'green.300')
+  const bg = useColorModeValue('gray.800', 'gray.300')
   const color = useColorModeValue('white', 'gray.800')
   const height = '60vh'
 
@@ -18,7 +18,7 @@ export default function Hero(props) {
   return (
     <Grid 
       gridTemplateAreas={{md: '"hero"', base: '"hero" "text"'}}
-      w="full" 
+      maxW="full" 
       marginBottom="10"
       maxH={height}
     >
@@ -34,7 +34,7 @@ export default function Hero(props) {
         placeItems="center"
       >
         <Box
-          w={{base: "full", md: "6xl"}}
+          w={{base: "full", md: "xl"}}
           px={["3", "8"]}
           pt={["2", "4"]}
           backgroundColor={bg}

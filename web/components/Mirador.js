@@ -8,14 +8,19 @@ export default function Mirador(props) {
   if (!props) {
     return null
   }
+
+  const {windows} = props
+
   const ID = `mirador-${nanoid()}`
 
   const arrayToWindows = (data) => {
-    if (data.manifest.length === 1) {
+    console.log(data)
+    if (data.length === 1) {
       const res = [
         {
           allowFullscreen: true,
-          manifestId: data.manifest[0],
+          manifestId: data[0].manifest,
+          canvasId: data[0].canvasUrl,
           maximized: true,
           allowClose: false,
           allowMaximize: false,
@@ -25,8 +30,8 @@ export default function Mirador(props) {
       ]
       return res
     }
-    if (data.manifest.length > 1) {
-      const windows = data.manifest.map((window) => ({
+    if (data.length > 1) {
+      const windows = data.map((window) => ({
         allowFullscreen: true,
         imageToolsEnabled: true,
         manifestId: window,
@@ -37,7 +42,7 @@ export default function Mirador(props) {
   }
 
   useEffect(() => {
-    const manifests = arrayToWindows(props)
+    const manifests = arrayToWindows(windows)
 
     const plugins = [
       ...miradorImageToolsPlugin
@@ -50,7 +55,7 @@ export default function Mirador(props) {
       },
       manifests: {
         test: {
-          provider: 'Tarje Lavik',
+          provider: 'Universitetsbiblioteket i Bergen',
         },
       },
       window: {
@@ -119,7 +124,7 @@ export default function Mirador(props) {
   }, [])
 
   return (
-    <Box position="relative" h={700}>
+    <Box position="relative" h={640}>
       <Box h="100%" id={ID} />
     </Box>
   )

@@ -1,5 +1,7 @@
+import React from 'react'
 import {Link as NextLink} from 'next/link'
-import {Link, Text} from '@chakra-ui/react'
+import {Heading, Link, Text} from '@chakra-ui/react'
+import { BigText, Hero, Iframe, InstagramPost, PageHeader,Quote, MiradorGallery, SectionText, SingleObject, Social, TimelineSection, TwoColumn, Video } from './Sections'
 
 const BlockContent = require('@sanity/block-content-to-react')
 
@@ -14,8 +16,8 @@ export default function PortableTextBlock(props) {
     const {style = 'normal'} = props.node
 
     if (/^h\d/.test(style)) {
-      const level = style.replace(/[^\d]/g, '')
-      return React.createElement(style, {className: `heading-${level}`}, props.children)
+      const level = style
+      return(<Heading as={level} size={level === "h2" ? "lg" : "md"}>{props.children}</Heading>)
     }
 
     if (style === 'blockquote') {
@@ -63,7 +65,20 @@ export default function PortableTextBlock(props) {
         </pre>
       ),
       block: BlockRenderer,
-      place: (props) => (
+      BigText: (props) => (<BigText {...props.node} />),
+      Hero: (props) => (<Hero {...props.node} />),
+      Iframe: (props) => (<Iframe {...props.node} />),
+      InstagramPost: (props) => (<InstagramPost {...props.node} />),
+      MiradorGallery: (props) => (<MiradorGallery {...props.node} />),
+      PageHeader: (props) => (<PageHeader {...props.node} />),
+      Quote: (props) => (<Quote {...props.node} />),
+      SectionText: (props) => (<SectionText {...props.node} />),
+      SingleObject: (props) => (<SingleObject {...props.node} />),
+      Social: (props) => (<Social {...props.node} />),
+      TimelineSection: (props) => (<TimelineSection {...props.node} />),
+      TwoColumn: (props) => (<TwoColumn {...props.node} />),
+      Video: (props) => (<Video {...props.node} />),
+      Place: (props) => (
         <div>
           <h2>Demo: referanse til dokument i en Portable Text blokk</h2>
           <p>

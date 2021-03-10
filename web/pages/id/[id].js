@@ -1,22 +1,23 @@
 import {useRouter} from 'next/router'
 import ErrorPage from 'next/error'
-// import { Box, Container, Heading, Text } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import Header from '../../components/Header'
 import Layout from '../../components/Layout'
 import {getIdPaths, getId, getType} from '../../lib/api'
 import Head from 'next/head'
 import {CMS_NAME} from '../../lib/constants'
 import RenderDocument from '../../components/RenderDocument'
+import Footer from '../../components/Footer'
 
 export default function Document({data, preview}) {
   const router = useRouter()
-  if (!router.isFallback && !data.item.id) {
+  if (!router.isFallback && !data.item._id) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} site={data.siteSettings}>
       <Head>
-        <title>{`${data.item.label.nor || data.item.label}` + ' | ' + CMS_NAME}</title>
+        <title>{`${data.item?.label?.nor || data.item.label}` + ' | ' + CMS_NAME}</title>
         <script type="application/ld+json">
           {JSON.stringify(data.item, null, 2)}
         </script>
@@ -26,8 +27,9 @@ export default function Document({data, preview}) {
         'Loading…'
       ) : (
         <>
-          <Header menu={data.defaultNavMenu} />
-          <main>{data.item && <RenderDocument document={data.item} />}</main>
+          <Box as="main">
+            {data.item && <RenderDocument document={data.item} />}
+          </Box>
         </>
       )}
     </Layout>
@@ -51,7 +53,7 @@ export async function getStaticPaths() {
     paths:
       all?.map((item) => ({
         params: {
-          id: item.id,
+          id: item._id,
         },
       })) || [],
     fallback: false,
