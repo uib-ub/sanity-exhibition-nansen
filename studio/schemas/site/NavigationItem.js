@@ -35,7 +35,7 @@ export default {
       description: 'Referense til en "path" i frontend, som ikke er i Studioet',
       descriptionEN: 'Reference to a path in the frontend, not available in the Studio',
       fieldset: 'link',
-      description: 'Example: /search',
+      description: 'Example: search',
       type: 'string',
     },
     {

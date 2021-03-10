@@ -7,7 +7,7 @@ export default {
   title: 'Nettsideinnstillinger',
   titleEN: 'Site Settings',
   icon: FaCog,
-  __experimental_actions: ['update', /* 'create', 'delete', */ 'publish'],
+  //__experimental_actions: ['update', /* 'create', 'delete', */ 'publish'],
   fields: [
     {
       name: 'title',

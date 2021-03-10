@@ -1,16 +1,16 @@
 import S from '@sanity/desk-tool/structure-builder'
-import {FaCog, FaGlasses, FaMapMarkedAlt} from 'react-icons/fa'
+import {FaGlasses, FaMapMarkedAlt} from 'react-icons/fa'
 import {GiBoltSpellCast} from 'react-icons/gi'
 import {TiGroup, TiUser} from 'react-icons/ti'
 import {BsFileRichtext} from 'react-icons/bs'
 import {FcTimeline} from 'react-icons/fc'
 import {MdEvent} from 'react-icons/md'
-import blog from './src/structure/blog'
-import pageBuilder from './src/structure/pageBuilder'
-import types from './src/structure/types'
-import management from './src/structure/management'
-import humanMadeObject from './src/structure/humanMadeObject'
-import React, {Fragment} from 'react'
+import blog from './blog'
+import pageBuilder from './pageBuilder'
+import types from './types'
+import management from './management'
+import humanMadeObject from './humanMadeObject'
+import React from 'react'
 import {Spinner, Container, Box} from '@sanity/ui'
 import Preview from 'part:@sanity/base/preview'
 import QueryContainer from 'part:@sanity/base/query-container';
@@ -425,10 +425,4 @@ export default () =>
             ]),
         ),
       management,
-      S.divider(),
-      // SETTINGS SINGLETON
-      S.listItem()
-        .title('Nettsideinnstillinger')
-        .icon(FaCog)
-        .child(S.editor().id('siteSettings').schemaType('SiteSettings').documentId('siteSettings')),
     ])

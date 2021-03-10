@@ -17,7 +17,7 @@ export default {
       layout: {width: 'small'},
     },
     {
-      name: 'muna-docs-widget',
+      name: 'widget-muna-docs',
       layout: {
         width: 'small'
       },
@@ -50,6 +50,11 @@ export default {
             title: 'GitHub repo',
             value: 'https://github.com/tarjelavik/sanity-exhibition-nansen',
             category: 'Code',
+          },
+          {
+            title: 'Website',
+            value: 'https://exhibition-nansen.vercel.app',
+            category: 'Site',
           },
         ],
       },

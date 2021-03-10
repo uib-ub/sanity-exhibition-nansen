@@ -5,7 +5,12 @@ function myAsyncSlugifier(input) {
   const query = '*[_id == $id][0]'
   const params = {id: input._ref}
   return client.fetch(query, params).then((doc) => {
-    return doc.title.toLowerCase().replace(/\s+/g, '-').slice(0, 200)
+    if(doc.title) {
+      return doc.title.toLowerCase().replace(/\s+/g, '-').slice(0, 200)
+    }
+    if(doc.label) {
+      return doc.label.toLowerCase().replace(/\s+/g, '-').slice(0, 200)
+    }
   })
 }
 
@@ -22,23 +27,10 @@ export default {
     {
       title: 'Visibility',
       name: 'visibility',
+      options: { collapsible: true, collapsed: true}
     },
   ],
   fields: [
-    {
-      name: 'page',
-      title: 'Side',
-      titleEN: 'Page',
-      description: 'Siden du vil at skal vises på denne adressen. Siden må være publisert.',
-      descriptionEN: 'The page you want to appear at this path. Remember it needs to be published.',
-      type: 'reference',
-      validation: (Rule) => Rule.required(),
-      to: [
-        {
-          type: 'Page',
-        },
-      ],
-    },
     {
       name: 'slug',
       title: 'Sti',
@@ -58,6 +50,28 @@ export default {
         // Read more: https://www.sanity.io/docs/slug-type
         slugify: myAsyncSlugifier,
       },
+    },
+    {
+      name: 'language',
+      title: 'Språk',
+      titleEN: 'Language',
+      type: 'reference',
+      to: [
+        {type: 'Language'}
+      ]
+    },
+    {
+      name: 'page',
+      title: 'Side',
+      titleEN: 'Page',
+      description: 'Siden du vil at skal vises på denne adressen. Siden må være publisert.',
+      descriptionEN: 'The page you want to appear at this path. Remember it needs to be published.',
+      type: 'reference',
+      validation: (Rule) => Rule.required(),
+      to: [
+        {type: 'Page'},
+        {type: 'LinguisticDocument'},
+      ],
     },
     {
       name: 'useSiteTitle',
@@ -95,43 +109,17 @@ export default {
       fieldset: 'visibility',
       type: 'boolean',
     },
-    /*
-    // This can be used by a server-side rendered website. We plan to figure out proper JAMstack support
-    {
-      name: 'queries',
-      type: 'array',
-      description: 'Used to return personalized content based on paid search terms and remarketing',
-      of: [
-        {
-          type: 'string'
-        }
-      ],
-      options: {
-        layout: 'tags'
-      }
-    }, */
-    /* {
-      name: 'campaign',
-      type: 'string',
-      title: 'Campaign',
-      description: 'UTM for campaings',
-    }, */
-    /*
-    // This can be used by a server-side rendered website. We plan to figure out proper JAMstack support
-    {
-      name: 'experiment',
-      type: 'experiment',
-      description: 'Use this to A/B/n test this route towards different pages',
-    }, */
   ],
   preview: {
     select: {
       title: 'slug.current',
       subtitle: 'page.title',
+      language: 'language.identifiedByISO6393'
     },
-    prepare({title, subtitle}) {
+    prepare({title, subtitle, language}) {
+      const lang = language ? `${language}/` : ''
       return {
-        title: ['/', title].join(''),
+        title: ['/', lang, title].join(''),
         subtitle,
       }
     },
