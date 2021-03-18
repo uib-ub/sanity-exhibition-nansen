@@ -27,9 +27,7 @@ export default function Document({data, preview}) {
         'Loading…'
       ) : (
         <>
-          <Box as="main">
-            {data.item && <RenderDocument document={data.item} />}
-          </Box>
+          {data.item && <RenderDocument document={data.item} />}
         </>
       )}
     </Layout>

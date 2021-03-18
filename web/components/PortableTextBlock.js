@@ -10,14 +10,22 @@ export default function PortableTextBlock(props) {
     return null
   }
 
-  const {fontSize, fontWeight, my} = props
+  const {
+    fontSize = {base: "lg", sm: "lg", md: "xl", xl: "2xl"}, 
+    lineHeight=["1.3", "1.4"], 
+    fontWeight = "normal",
+    fontFamily,
+    color,
+    noOfLines,
+    my
+  } = props
 
   const BlockRenderer = (props) => {
     const {style = 'normal'} = props.node
 
     if (/^h\d/.test(style)) {
       const level = style
-      return(<Heading as={level} size={level === "h2" ? "lg" : "md"}>{props.children}</Heading>)
+      return(<Heading as={level} fontSize={fontSize}>{props.children}</Heading>)
     }
 
     if (style === 'blockquote') {
@@ -25,7 +33,7 @@ export default function PortableTextBlock(props) {
     }
 
     return (
-      <Text fontSize={fontSize} fontWeight={fontWeight} my={my}>
+      <Text fontSize={fontSize} color={color} noOfLines={noOfLines} fontWeight={fontWeight} fontFamily={fontFamily} lineHeight={lineHeight} my={my}>
         {props.children}
       </Text>
     )

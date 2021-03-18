@@ -1,22 +1,16 @@
-import {CMS_NAME} from '../../lib/constants'
 import {getAllHumanMadeObjects} from '../../lib/api'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
 import Cards from '../../components/Cards'
-import {Box, Container} from '@chakra-ui/react'
+import {Center, Heading} from '@chakra-ui/react'
 
 export default function Items({data, preview}) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
-      <Head>
-        <title>{CMS_NAME}</title>
-      </Head>
-  
-      <Box maxW="full">
-        <Cards items={data.items} />
-      </Box>
+      <Center py="10">
+        <Heading fontSize={["2xl", "4xl", "5xl", "6xl"]}>Ting</Heading>
+      </Center>
+      <Cards items={data.items} />
     </Layout>
   )
 }

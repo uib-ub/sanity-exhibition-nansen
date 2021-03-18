@@ -1,4 +1,4 @@
-import {Heading, Link, Tag} from '@chakra-ui/react'
+import {Box, Flex, Heading, Link, Wrap, WrapItem} from '@chakra-ui/react'
 
 export default function CurrentOwner({owners}) {
   if (!owners) {
@@ -6,15 +6,20 @@ export default function CurrentOwner({owners}) {
   }
 
   return (
-    <>
-      <Heading fontSize="md">Eier</Heading>
-      {owners.map((owner) => (
-        <Tag key={owner._id}>
-          <Link key={owner._id} href={`/id/${owner._id}`}>
-            {owner.label}
-          </Link>
-        </Tag>
-      ))}
-    </>
+    <Flex borderTop="solid 1px" borderColor="gray.200" pt="4">
+      <Box as="dt" w="20%">
+        <Heading as="h3" fontWeight="semibold" fontSize="sm">Eier</Heading>
+      </Box>
+      
+      <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
+        {owners.map((owner) => (
+          <WrapItem key={owner._id}>
+            <Link fontSize="sm" key={owner._id} href={`/id/${owner._id}`}>
+              {owner.label}
+            </Link>
+          </WrapItem>
+        ))}
+      </Wrap>
+    </Flex>
   )
 }

@@ -1,4 +1,4 @@
-import {Stack, Badge} from '@chakra-ui/react'
+import {Box, Flex, Heading, Link, Wrap, WrapItem, Tag} from '@chakra-ui/react'
 
 export default function HasType({types}) {
   if (!types) {
@@ -6,12 +6,23 @@ export default function HasType({types}) {
   }
 
   return (
-    <Stack fontFamily="Montserrat" direction="row" marginBottom={5}>
-      {types.map((type) => (
-        <Badge key={type._id} fontSize="md">
-          {type.label.nor}
-        </Badge>
-      ))}
-    </Stack>
+    <Flex borderTop="solid 1px" borderColor="gray.200" pt="4">
+      <Box as="dt" w="20%">
+        <Heading as="h3" fontWeight="semibold" fontSize="sm">Klassifisering</Heading>
+      </Box>
+      
+      <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
+        {types.map((type) => (
+          <WrapItem key={type._id}>
+            {/* <Link fontSize="sm" key={owner._id} href={`/id/${owner._id}`}>
+              {owner.label}
+            </Link> */}
+            <Tag key={type._id} size="sm">
+              {type.label.nor}
+            </Tag>
+          </WrapItem>
+        ))}
+      </Wrap>
+    </Flex>
   )
 }

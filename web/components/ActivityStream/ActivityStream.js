@@ -1,4 +1,4 @@
-import {Container, Heading, List} from '@chakra-ui/react'
+import {Box, Flex, Heading, Link, Wrap, WrapItem} from '@chakra-ui/react'
 import Activity from './Activity'
 
 export default function ActivityStream({stream}) {
@@ -7,13 +7,16 @@ export default function ActivityStream({stream}) {
   }
 
   return (
-    <Container maxW="md" marginTop={10}>
-      <Heading fontSize="lg">Historikk</Heading>
-      <List spacing={5}>
+    <Flex borderTop="solid 1px" borderColor="gray.200" pt="4">
+      <Box as="dt" w="20%">
+        <Heading as="h3" fontWeight="semibold" fontSize="sm">Hendelser</Heading>
+      </Box>
+
+      <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
         {stream.map((activity) => (
           <Activity key={activity._key} data={activity} />
         ))}
-      </List>
-    </Container>
+      </Wrap>
+    </Flex>
   )
 }

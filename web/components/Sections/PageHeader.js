@@ -32,7 +32,7 @@ export default function PageHeader(props) {
         bg={bg}
       >
         <Heading 
-          fontSize="5xl" 
+          fontSize={["2xl", "4xl", "5xl" ]}
           w="100%" 
           textTransform="uppercase"
         >
@@ -40,9 +40,7 @@ export default function PageHeader(props) {
         </Heading>
 
         {props?.subtitle && (
-          <Box size="xl">
-            <PortableTextBlock blocks={props.subtitle} />
-          </Box>
+          <PortableTextBlock blocks={props.subtitle} />
         )}
       </Container>
 

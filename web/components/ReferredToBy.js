@@ -18,10 +18,10 @@ export default function ReferredToBy(props) {
     <>
       {sorted?.map((ref) => (
         <Box key={ref._key ? ref._key : ref._id} maxW="xl" marginBottom={5}>
-          <Box>
+          {/* <Box>
             {ref.hasType[0].label.nor} - {ref.language.label.nor}
-          </Box>
-          <PortableTextBlock blocks={ref.body} />
+          </Box> */}
+          <PortableTextBlock fontFamily="Montserrat" fontWeight="light" blocks={ref.body} />
         </Box>
       ))}
       {props.description && (<PortableTextBlock description={props.description}/>)}

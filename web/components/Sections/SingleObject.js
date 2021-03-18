@@ -22,24 +22,22 @@ export default function SingleObject(props) {
         gridTemplateAreas={{base: '"image" "metadata"', lg: '"image image metadata"'}}
         gridTemplateColumns={{base: '100%', lg: '6fr 6fr 4fr'}}
       >
-        <Box fontFamily="Montserrat" gridArea="metadata">
-          <Heading fontFamily="Montserrat" fontSize="sm" mb={1}>
-            {props.title}
-          </Heading>
-
-          {props?.description && (
-            <Box fontSize="xs" fontWeight="200">
-              <PortableTextBlock blocks={props.description} />
-            </Box>
-          )}
-        </Box>
-
         {props?.item.manifest && (
           <Box gridArea="image">
             {/* <MiradorWithNoSSR manifest={[props.item.manifest]} /> */}
             <CanvasPanelFullScreedWithNoSSR ref={ref} manifest={[props.item.manifest]} />
           </Box>
         )}
+
+        <Box fontFamily="Montserrat" gridArea="metadata">
+          <Heading fontFamily="Montserrat" fontWeight="semibold" color="red.600" fontSize={{base: "sm", sm: "sm", md: "md", xl: "xl"}} mb={1}>
+            {props.title}
+          </Heading>
+
+          {props?.description && (
+            <PortableTextBlock fontSize={{base: "sm", sm: "sm", md: "md", xl: "md"}} fontWeight="200" blocks={props.description} />
+          )}
+        </Box>
       </Grid>
     </Container>
   )

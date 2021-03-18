@@ -19,6 +19,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
   Portal,
+  Wrap,
   Tag,
   TagLeftIcon,
   TagLabel,
@@ -35,126 +36,109 @@ export default function Activity({data}) {
     return null
   }
 
+  if(data._type === "BeginningOfExistence") {
+    data._type = "Skapt"
+  }
+  if(data._type === "Production") {
+    data._type = "Produksjon"
+  }
+
   return (
-    <Grid
-      boxShadow="xl"
-      borderColor="gray.200"
-      borderWidth={1}
-      borderRadius={3}
-      w="100%"
-      gridGap={5}
-      alignContent="start"
-      gridTemplateAreas={{xl: `"metadata map"`, base: `"metadata map"`}}
-      gridTemplateColumns={{xl: '2fr 1fr', base: '2fr 1fr'}}
-    >
-      <Box pt={3} pb={6} pl={6} gridArea="metadata">
-        <Heading>{data.label ? data.label : capitalize(data._type)}</Heading>
+    <Box>
+      <Heading fontSize="sm" fontWeight="normal">{data.label ? data.label : capitalize(data._type)}</Heading>
 
-        {data.label && !data.hasType && <Badge>{capitalize(data._type)}</Badge>}
+      {data.hasType?.length > 0 && <HasType types={data.hasType ?? data._type} />}
 
-        {data.hasType?.length > 0 && <HasType types={data.hasType} />}
+      {data.timespan && <Timespan timespan={data.timespan} />}
 
-        {data.timespan && <Timespan timespan={data.timespan} />}
+      {data.tookPlaceAt?.length > 0 && (
+        <HStack mt={2} mb={2}>
+          {data.tookPlaceAt.map((place) => (
+            <Tag key={place._id} size="lg" variant="subtle" colorScheme="cyan">
+              <TagLeftIcon boxSize="12px" as={SunIcon} />
+              <TagLabel>
+                <Link href={`/id/${place._id}`}>
+                  <a>{place.label.nor}</a>
+                </Link>
+              </TagLabel>
+            </Tag>
+          ))}
+        </HStack>
+      )}
 
-        {data.tookPlaceAt?.length > 0 && (
-          <HStack mt={2} mb={2}>
-            {data.tookPlaceAt.map((place) => (
-              <Tag key={place._id} size="lg" variant="subtle" colorScheme="cyan">
-                <TagLeftIcon boxSize="12px" as={SunIcon} />
-                <TagLabel>
-                  <Link href={`/id/${place._id}`}>
-                    <a>{place.label.nor}</a>
-                  </Link>
-                </TagLabel>
+      {data.description && <PortableTextBlock blocks={data.description} />}
+
+      <HStack>
+        {data.contributionAssignedBy?.length > 0 && (
+          <Wrap size="sm">
+            {data.contributionAssignedBy.map((inRole) => (
+              <Tag key={inRole.assignedActor._id} size="lg" colorScheme="blackAlpha">
+                <Avatar
+                  size="xs"
+                  ml={-1}
+                  mr={2}
+                  name={inRole.assignedActor.label}
+                  src={imageBuilder
+                    .image(inRole.assignedActor.image)
+                    .height(300)
+                    .width(300)
+                    .url()}
+                />
+                <TagLabel>{inRole.assignedActor.label}</TagLabel>
               </Tag>
             ))}
-          </HStack>
+          </Wrap>
         )}
 
-        {data.description && <PortableTextBlock blocks={data.description} />}
-
-        <HStack>
-          {data.carriedOutBy?.length > 0 && (
-            <AvatarGroup size="md">
-              {data.carriedOutBy.map((inRole) => (
-                <Popover key={inRole.actor._id}>
-                  <PopoverTrigger>
-                    <Avatar
-                      name={inRole.actor.label}
-                      src={imageBuilder
-                        .image(inRole.actor.image)
-                        .height('300')
-                        .width('300')
-                        .url()}
-                    />
-                  </PopoverTrigger>
-                  <Portal>
-                    <PopoverContent>
-                      <PopoverArrow />
-                      <PopoverHeader>Utført av</PopoverHeader>
-                      <PopoverCloseButton />
-                      <PopoverBody>
-                        <Link href={`/id/${inRole.actor._id}`}>
-                          <a>{inRole.actor.label}</a>
-                        </Link>
-                      </PopoverBody>
-                    </PopoverContent>
-                  </Portal>
-                </Popover>
-              ))}
-            </AvatarGroup>
-          )}
-
-          {data.target && (
-            <>
-              <ArrowForwardIcon />
-              <Popover>
-                <PopoverTrigger>
-                  <Avatar
-                    name={data.target.label}
-                    src={imageBuilder
-                      .image(data.target.image)
-                      .height('300')
-                      .width('300')
-                      .url()}
-                  />
-                </PopoverTrigger>
-                <Portal>
-                  <PopoverContent>
-                    <PopoverArrow />
-                    <PopoverHeader>Mål for handling</PopoverHeader>
-                    <PopoverCloseButton />
-                    <PopoverBody>
-                      <Link key={data.target._id} href={`/id/${data.target._id}`}>
-                        <a>{data.target.label}</a>
-                      </Link>
-                    </PopoverBody>
-                  </PopoverContent>
-                </Portal>
-              </Popover>
-            </>
-          )}
-        </HStack>
-
-        {data.movedTo && (
-          <p>
-            <span>
-              ➡️
-              <a href={`/id/${data.movedTo._id}`}>{data.movedTo.label.nor}</a>
-            </span>
-          </p>
+        {data.target && (
+          <>
+            <ArrowForwardIcon />
+            <Popover>
+              <PopoverTrigger>
+                <Avatar
+                  name={data.target.label}
+                  src={imageBuilder
+                    .image(data.target.image)
+                    .height('300')
+                    .width('300')
+                    .url()}
+                />
+              </PopoverTrigger>
+              <Portal>
+                <PopoverContent>
+                  <PopoverArrow />
+                  <PopoverHeader>Mål for handling</PopoverHeader>
+                  <PopoverCloseButton />
+                  <PopoverBody>
+                    <Link key={data.target._id} href={`/id/${data.target._id}`}>
+                      <a>{data.target.label}</a>
+                    </Link>
+                  </PopoverBody>
+                </PopoverContent>
+              </Portal>
+            </Popover>
+          </>
         )}
+      </HStack>
 
-        {data.observedDimension?.length > 0 &&
-          data.observedDimension.map((dimension) => (
-            <span>
-              <strong>{dimension.hasType}:</strong>
-              {dimension.value} {dimension.hasUnit}
-            </span>
-          ))}
-      </Box>
+      {data.movedTo && (
+        <p>
+          <span>
+            ➡️
+            <a href={`/id/${data.movedTo._id}`}>{data.movedTo.label.nor}</a>
+          </span>
+        </p>
+      )}
 
-      <Box gridArea="map">
+      {data.observedDimension?.length > 0 &&
+        data.observedDimension.map((dimension) => (
+          <span>
+            <strong>{dimension.hasType}:</strong>
+            {dimension.value} {dimension.hasUnit}
+          </span>
+        ))}
+    
+      <Box>
         {/* TODO: FIX */}
         {data.tookPlaceAt?.length > 0 &&
           data.tookPlaceAt.map((place) => (
@@ -174,6 +158,7 @@ export default function Activity({data}) {
           </div>
         )}
       </Box>
-    </Grid>
+    </Box>
+
   )
 }

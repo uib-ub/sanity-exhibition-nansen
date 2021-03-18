@@ -16,7 +16,7 @@ export default function Palette({colors}) {
   return (
     <Grid templateColumns="repeat(6, 1fr)" gap={0}>
       {palette.map((color, index) => (
-        <Box key={index} bg={color.background} w="full" h="20px"></Box>
+        <Box key={index} bg={color.background} w="full" h="2px"></Box>
       ))}
     </Grid>
   )

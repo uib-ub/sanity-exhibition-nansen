@@ -26,13 +26,12 @@ export default function Header(props) {
   return (
     <Flex 
       as="header" 
-      gridArea="header"
-      position="sticky"
-      top="0"
-      align="center" 
+      gridArea={{base: "header", md: "nav"}}
+      direction="column"
+      align="start" 
       w="full" 
       p="5"
-      justify="space-between" 
+      justify="flex-start"
       wrap="wrap"
       color={color}
       bg="rgba(255,255,255,0.5)"
@@ -44,73 +43,15 @@ export default function Header(props) {
         </Link>
       </Heading>
 
-      <Spacer />
-
-      <Flex display={{ sm: "none", md: "flex" }}>
-
-      {mainNavigation?.items && mainNavigation.items.map((item) => (
-        <MenuItem  key={item._key}>
-          <ActiveLink fontFamily="'Open Sans'" href={`/${item.route}`} activeClassName="active">
-            <a>{item.label}</a>
-          </ActiveLink>
-        </MenuItem>
-      ))}
+      <Flex display={{ base: "none", md: "flex" }} direction="column">
+        {mainNavigation?.items && mainNavigation.items.map((item) => (
+          <MenuItem  key={item._key}>
+            <ActiveLink fontFamily="'Open Sans'" href={`/${item.route}`} activeClassName="active">
+              <a>{item.label}</a>
+            </ActiveLink>
+          </MenuItem>
+        ))}
       </Flex>
-
-      <Button
-        variant="link"
-        onClick={() => onOpen()}
-      >
-        <Icon as={HamburgerIcon} />
-      </Button>
-
-      <Drawer placement="top" zIndex="9999999999999999999999999999999999999" onClose={onClose} isOpen={isOpen} size="full" onOverlayClick={onClose}>
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerCloseButton />
-            {/* <DrawerHeader>Nav</DrawerHeader> */}
-            <DrawerBody>
-
-              <Center h="full" w="full">
-                <VStack>
-                  <Flex>
-                    {mainNavigation?.items && mainNavigation.items.map((item) => (
-                      <MenuItem key={item._key}>
-                        <ActiveLink href={`/${item.route}`} activeClassName="active">
-                          <a onClick={onClose}>{item.label}</a>
-                        </ActiveLink>
-                      </MenuItem>
-                    ))}
-                  </Flex>
-
-                  <Divider />
-                  
-                  <Flex>
-                    {footer.navMenu?.items && footer.navMenu.items.map((item) => (
-                      <MenuItem key={item._key}>
-                        <ActiveLink href={`/${item.route}`} activeClassName="active">
-                          <a onClick={onClose}>{item.label}</a>
-                        </ActiveLink>
-                      </MenuItem>
-                    ))}
-                  </Flex>
-
-                  <Divider />
-
-                  <Flex>
-                    <Heading fontSize="sm" fontWeight="500">
-                      <Link href="http://marcus.uib.no/">
-                        <a><Icon as={BsArrowUpLeft} /> tilbake til Marcus</a>
-                      </Link>
-                    </Heading>
-                  </Flex>
-                </VStack>
-              </Center>
-              
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
     </Flex>
   )
 }

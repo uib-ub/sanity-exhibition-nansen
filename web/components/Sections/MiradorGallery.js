@@ -21,23 +21,22 @@ export default function MiradorGallery(props) {
         gridTemplateAreas={{base: '"image" "metadata"', lg: '"image image metadata"'}}
         gridTemplateColumns={{base: '100%', lg: '6fr 6fr 4fr'}}
       >
-        <Box fontFamily="Montserrat" gridArea="metadata">
-          <Heading fontSize="sm" mb={1}>
-            {props.heading}
-          </Heading>
-
-          {props?.description && (
-            <Box fontSize="xs" fontWeight="200">
-              <PortableTextBlock blocks={props.description} />
-            </Box>
-          )}
-        </Box>
 
         {items && (
           <Box gridArea="image">
             <MiradorWithNoSSR windows={items} />
           </Box>
         )}
+       
+        <Box fontFamily="Montserrat" gridArea="metadata">
+          <Heading fontFamily="Montserrat" fontWeight="semibold" color="red.600" fontSize={{base: "sm", sm: "sm", md: "md", xl: "xl"}} mb={1}>
+            {props.title}
+          </Heading>
+
+          {props?.description && (
+            <PortableTextBlock fontSize={{base: "sm", sm: "sm", md: "md", xl: "md"}} fontWeight="200" blocks={props.description} />
+          )}
+        </Box>
       </Grid>
     </Container>
   )

@@ -1,3 +1,7 @@
+#__next {
+  overflow: hidden;
+}
+
 .active {
   border-bottom: salmon solid 2px;
 }

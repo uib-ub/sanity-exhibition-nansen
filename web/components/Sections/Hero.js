@@ -21,6 +21,7 @@ export default function Hero(props) {
       maxW="full" 
       marginBottom="10"
       maxH={height}
+      boxSizing="border-box"
     >
       <Box
         gridArea={{md: 'hero', base: 'text'}}
@@ -35,7 +36,7 @@ export default function Hero(props) {
       >
         <Box
           w={{base: "full", md: "xl"}}
-          px={["3", "8"]}
+          px={["2", "4"]}
           pt={["2", "4"]}
           backgroundColor={bg}
         >
@@ -47,7 +48,7 @@ export default function Hero(props) {
           </Badge>
 
           <Heading 
-            fontSize={["md", "6xl"]} 
+            fontSize={["xl", "4xl", "4xl", "6xl"]} 
           >
             {props.title}
           </Heading>

@@ -9,6 +9,7 @@ import {Heading} from '@chakra-ui/react'
 import PortableTextBlock from '../components/PortableTextBlock'
 
 export default function Page({data, preview}) {
+  const {content, body} = data.route.page
   return (
     <>
       <Layout preview={preview} site={data.siteSettings}>
@@ -17,10 +18,10 @@ export default function Page({data, preview}) {
         </Head>
 
         {/* A Page  */}
-        {data.route.page.content && <Sections sections={data.route.page.content} />}
+        {content && <Sections sections={content} />}
 
         {/* If LinguisticDocument the content is in the body field */}
-        <PortableTextBlock blocks={data.route.page.body}/>
+        {body && <PortableTextBlock blocks={body}/>}
       </Layout>
     </>
   )

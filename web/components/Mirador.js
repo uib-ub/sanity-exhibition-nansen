@@ -1,20 +1,21 @@
 import React, {useEffect} from 'react'
 import mirador from 'mirador'
 import miradorImageToolsPlugin from 'mirador-image-tools/es/plugins/miradorImageToolsPlugin'
-import {Box} from '@chakra-ui/react'
+import {Box, useColorMode, useColorModeValue} from '@chakra-ui/react'
 import {nanoid} from 'nanoid'
 
 export default function Mirador(props) {
   if (!props) {
     return null
   }
+  const {windows, palette} = props
 
-  const {windows} = props
+  const {colorMode, toggleColorMode} = useColorMode()
+  const mode = useColorModeValue('light', 'dark')
 
   const ID = `mirador-${nanoid()}`
 
   const arrayToWindows = (data) => {
-    console.log(data)
     if (data.length === 1) {
       const res = [
         {
@@ -65,7 +66,7 @@ export default function Mirador(props) {
       workspace: {
         showZoomControls: false,
       },
-      selectedTheme: 'dark',
+      selectedTheme: palette ?? mode ,
       themes: {
         dark: {
           palette: {
@@ -86,6 +87,12 @@ export default function Mirador(props) {
         light: {
           palette: {
             type: 'light',
+            primary: {
+              main: '#789a5b',
+            },
+            secondary: {
+              main: '#789a5b',
+            }
           },
         },
       },

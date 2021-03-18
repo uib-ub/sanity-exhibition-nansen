@@ -3,7 +3,7 @@ import ActiveLink from './ActiveLink'
 import {MoonIcon, SunIcon} from '@chakra-ui/icons'
 
 const MenuItem = ({children}) => (
-  <Text mt="0" mr={6} mb="0" display="block">
+  <Text fontSize={{base: "md", sm: "md", md: "xl", xl: "xl"}} mt="0" mr={6} mb="0" display="block">
     {children}
   </Text>
 )

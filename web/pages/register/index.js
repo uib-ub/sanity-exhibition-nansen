@@ -2,9 +2,7 @@ import {CMS_NAME} from '../../lib/constants'
 import {getRegistry} from '../../lib/api'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
-import {Container, List, ListItem} from '@chakra-ui/react'
+import {Heading, Container, List, ListItem} from '@chakra-ui/react'
 import Link from '../../components/Link'
 
 export default function Register({data, preview}) {
@@ -15,7 +13,9 @@ export default function Register({data, preview}) {
           <title>{CMS_NAME}</title>
         </Head>
 
-        <Container maxW="xl">
+        <Container maxW="xl" py="10" centerContent>
+          <Heading fontSize={["2xl", "4xl", "5xl", "6xl"]}>Register</Heading>
+          
           {data.items && (
             <List fontSize="xl">
               {data.items

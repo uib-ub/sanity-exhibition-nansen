@@ -20,7 +20,7 @@ export default function Timespan({timespan}) {
 
           {time.endOfTheBegin && formatDate(time.endOfTheBegin)}
 
-          {time.beginOfTheBegin && time.endOfTheEnd && <span>&nbsp;-</span>}
+          {time.beginOfTheBegin && time.endOfTheEnd && <span>&nbsp;~&nbsp;</span>}
 
           {time.beginOfTheEnd && formatDate(time.beginOfTheEnd)}
 

@@ -144,8 +144,8 @@ export const routeQuery = `
           _type == 'SingleObject' => @{
             ...,
             item-> {
-            "manifest": coalesce(subjectOfManifest, manifestUrl),
-            canvasUrl,
+              "manifest": coalesce(subjectOfManifest, manifestUrl),
+              canvasUrl,
             }
           }
         }
@@ -166,6 +166,22 @@ export const humanMadeObjectsQuery = `{
       label
     },
     image,
+    "description": referredToBy[]{
+      ...
+    },
+    hasCurrentOwner[0]->{
+      _id,
+      label
+    },
+    "creation": activityStream[]{
+      _type in ["Production", "BeginningOfExistence"] => @{
+        "creators": contributionAssignedBy[]{
+          "name": assignedActor->.label,
+        	"_id": assignedActor->._id
+        },
+				timespan
+      }
+    },
     "aspectRatio": image.asset->.metadata.dimensions.aspectRatio,
   },
   ${siteSettings}
@@ -217,9 +233,9 @@ export const humanMadeObjectFields = `
   activityStream[]{
     _type == 'reference' => @->{
       ...,
-      carriedOutBy[]{
+      contributionAssignedBy[]{
         ...,
-        actor->{
+        assignedActor->{
           _id,
           label,
           image{
@@ -243,9 +259,9 @@ export const humanMadeObjectFields = `
       label,
       geoJSON
     },
-    carriedOutBy[]{
+    contributionAssignedBy[]{
       _type == 'reference' => @->{
-        'actor': {
+        'assignedActor': {
           _id,
           label,
           image{
@@ -254,7 +270,7 @@ export const humanMadeObjectFields = `
         }
       },
       ...,
-      actor->{
+      assignedActor->{
         _id,
         label,
         image{
@@ -324,7 +340,29 @@ export const groupFields = `
     _id,
     _type,
     label,
-    image
+    preferredIdentifier,
+    hasType[]-> {
+      _id,
+      label
+    },
+    image,
+    "description": referredToBy[]{
+      ...
+    },
+    hasCurrentOwner[0]->{
+      _id,
+      label
+    },
+    "creation": activityStream[]{
+      _type in ["Production", "BeginningOfExistence"] => @{
+        "creators": contributionAssignedBy[]{
+          "name": assignedActor->.label,
+        	"_id": assignedActor->._id
+        },
+				timespan
+      }
+    },
+    "aspectRatio": image.asset->.metadata.dimensions.aspectRatio,
   }
 `
 
