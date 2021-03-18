@@ -18,7 +18,7 @@ export default {
       of: [{type: 'MiradorGalleryWindow'}],
     },
     {
-      name: 'heading',
+      name: 'title',
       title: 'Tittel',
       titleEN: 'Heading',
       type: 'string',
@@ -32,7 +32,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'heading',
+      title: 'title',
     },
     prepare: ({title}) => ({
       title: title,
