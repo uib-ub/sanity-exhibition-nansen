@@ -39,7 +39,7 @@ export default function getDocument(item, types, assetID) {
             _rev: nanoid(),
             accessState: 'open',
             editorialState: 'published',
-            label: Array.isArray(s.name) === false ? s.name : s.name[0],s
+            label: Array.isArray(s.name) === false ? s.name : s.name[0],
           }
         }),
       ]
