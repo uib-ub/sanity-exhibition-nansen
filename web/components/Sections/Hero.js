@@ -8,7 +8,7 @@ export default function Hero(props) {
 
   const bg = useColorModeValue('gray.800', 'gray.300')
   const color = useColorModeValue('white', 'gray.800')
-  const height = '60vh'
+  const height = '50vh'
 
   if (!props.illustration) {
     return null
@@ -20,7 +20,7 @@ export default function Hero(props) {
       gridTemplateAreas={{md: '"hero"', base: '"hero" "text"'}}
       maxW="full" 
       marginBottom="10"
-      maxH={height}
+      h={height}
       boxSizing="border-box"
     >
       <Box
@@ -66,11 +66,11 @@ export default function Hero(props) {
         objectFit="cover"
         objectPosition="0% 100%"
         /* h="100%" */
-        maxH={height}
+        h={height}
         width="100%"
         justifyContent="flex-end"
         overflow="hidden"
-        src={imageBuilder.image(image).url()}
+        src={imageBuilder.image(image).height(500).width(1000).url()}
         alt={''}
       />
     </Grid>

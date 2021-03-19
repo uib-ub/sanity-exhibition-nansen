@@ -8,7 +8,7 @@ export default function Mirador(props) {
   if (!props) {
     return null
   }
-  const {windows, palette} = props
+  const {windows, palette, hideWindowTitle = "false"} = props
 
   const {colorMode, toggleColorMode} = useColorMode()
   const mode = useColorModeValue('light', 'dark')
@@ -19,14 +19,18 @@ export default function Mirador(props) {
     if (data.length === 1) {
       const res = [
         {
-          allowFullscreen: true,
           manifestId: data[0].manifest,
           ...(data[0].canvasUrl && {canvasId: data[0].canvasUrl}),
           maximized: true,
+          allowFullscreen: true,
           allowClose: false,
           allowMaximize: false,
           allowWindowSideBar: false,
           allowTopMenuButton: false,
+          hideWindowTitle: hideWindowTitle,
+          views: [
+            { key: 'single', behaviors: ['individuals'] }
+          ]
         },
       ]
       return res
@@ -45,9 +49,7 @@ export default function Mirador(props) {
   useEffect(() => {
     const manifests = arrayToWindows(windows)
 
-    const plugins = [
-      ...miradorImageToolsPlugin
-    ]
+    const plugins = []
 
     let config = {
       id: ID,

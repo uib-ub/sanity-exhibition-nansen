@@ -71,7 +71,7 @@ export default function Card(props) {
         )}
 
         <Box px="4" pt="2" pb="2">
-          <Heading mt="1" fontWeight="semibold" as="h4" color="gray.600" fontSize={['sm', 'sm', 'md', 'md']} lineHeight="tight" >
+          <Heading mt="1" fontFamily="Montserrat" fontWeight="semibold" as="h4" color="gray.600" fontSize={['sm', 'sm', 'md', 'md']} lineHeight="tight" >
             <NextLink href={`/id/${encodeURIComponent(_id)}`} passHref>
               <LinkOverlay><a>{label}</a></LinkOverlay>
             </NextLink>

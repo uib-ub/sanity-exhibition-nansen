@@ -12,7 +12,7 @@ export default function ActivityStream({stream}) {
         <Heading as="h3" fontWeight="semibold" fontSize="sm">Hendelser</Heading>
       </Box>
 
-      <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
+      <Wrap as="dd" w="80%" fontFamily="Montserrat" mab={4}>
         {stream.map((activity) => (
           <Activity key={activity._key} data={activity} />
         ))}

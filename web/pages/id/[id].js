@@ -1,13 +1,10 @@
 import {useRouter} from 'next/router'
 import ErrorPage from 'next/error'
-import { Box } from '@chakra-ui/react'
-import Header from '../../components/Header'
 import Layout from '../../components/Layout'
 import {getIdPaths, getId, getType} from '../../lib/api'
 import Head from 'next/head'
-import {CMS_NAME} from '../../lib/constants'
 import RenderDocument from '../../components/RenderDocument'
-import Footer from '../../components/Footer'
+
 
 export default function Document({data, preview}) {
   const router = useRouter()
@@ -17,7 +14,7 @@ export default function Document({data, preview}) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
       <Head>
-        <title>{`${data.item?.label?.nor || data.item.label}` + ' | ' + CMS_NAME}</title>
+        <title>{`${data.item?.label?.nor || data.item.label}`}</title>
         <script type="application/ld+json">
           {JSON.stringify(data.item, null, 2)}
         </script>

@@ -13,9 +13,9 @@ export default function Depicts({depicted}) {
           <Heading as="h3" fontWeight="semibold" fontSize="sm">Avbilder</Heading>
         </Box>
         
-        <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
+        <Wrap as="dd" fontFamily="Montserrat" mb={4}>
           {depicted.map((actor) => (
-            <Tag key={actor._id} size="lg" colorScheme="blackAlpha">
+            <Tag key={actor._id} size="sm" colorScheme="">
               <Avatar
                 size="xs"
                 ml={-1}
@@ -27,7 +27,9 @@ export default function Depicts({depicted}) {
                   .width(300)
                   .url()}
               />
-              <TagLabel><Link href={`/id/${actor._id}`}>{actor.label}</Link></TagLabel>
+              <TagLabel>
+                <Link href={`/id/${actor._id}`}>{actor.label}</Link>
+              </TagLabel>
             </Tag>
           ))}
         </Wrap>

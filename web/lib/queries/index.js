@@ -134,6 +134,18 @@ export const routeQuery = `
         },
         content[] {
           ...,
+          _type == 'PageHeader' => @{
+            ...,
+            "palette": illustration.image.asset->.metadata.palette{
+              darkMuted,
+              darkVibrant,
+              dominant,
+              lightMuted,
+              vibrantMuted,
+              muted,
+              vibrant
+            }
+          },
           _type == 'MiradorGallery' => @{
             ...,
             items[] {

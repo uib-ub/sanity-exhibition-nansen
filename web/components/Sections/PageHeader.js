@@ -1,23 +1,25 @@
 import {imageBuilder} from '../../lib/sanity'
-import {Center, Container, Grid, Box, Heading, Image} from '@chakra-ui/react'
+import {Center, Container, Grid, Box, Heading, Image, Text} from '@chakra-ui/react'
 import {useColorMode, useColorModeValue} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function PageHeader(props) {
   const {colorMode, toggleColorMode} = useColorMode()
 
-  const color = useColorModeValue('black', 'white')
-  const bg = useColorModeValue('gray.100', 'gray.800')
+  const color = useColorModeValue(props.palette.darkVibrant.foreground, props.palette.darkMuted.foreground)
+  const bg = useColorModeValue(props.palette.darkVibrant.background, props.palette.darkMuted.background)
   const opacity = useColorModeValue('0.7', '0.4')
-  const height = '60vh'
+  const height = '90vh'
 
   if (!props) {
     return null
   }
+  
   const image = props.illustration?.image
 
   return (
     <Grid
+      mb="10"
       maxW="full"
       gridTemplateAreas='"hero"' 
       h={height} 
@@ -32,7 +34,7 @@ export default function PageHeader(props) {
         bg={bg}
       >
         <Heading 
-          fontSize={["2xl", "4xl", "5xl" ]}
+          fontSize={["2xl", "4xl", "5xl", "6xl" ]}
           w="100%" 
           textTransform="uppercase"
         >
@@ -52,7 +54,7 @@ export default function PageHeader(props) {
           width="100%"
           justifyContent="end"
           overflow="hidden"
-          src={imageBuilder.image(image).width('1000').height('300').url()}
+          src={imageBuilder.image(image).width('1000').height('1000').url()}
           alt={''}
         />
       )}

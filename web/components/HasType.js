@@ -11,7 +11,7 @@ export default function HasType({types}) {
         <Heading as="h3" fontWeight="semibold" fontSize="sm">Klassifisering</Heading>
       </Box>
       
-      <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
+      <Wrap as="dd" fontFamily="Montserrat" mb={4}>
         {types.map((type) => (
           <WrapItem key={type._id}>
             {/* <Link fontSize="sm" key={owner._id} href={`/id/${owner._id}`}>

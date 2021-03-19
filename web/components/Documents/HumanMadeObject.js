@@ -35,7 +35,6 @@ export default function HumanMadeObject(item) {
   return (
     <Grid
       w="100%"
-      h="100%"
       p={5}
       gridGap={{xl: 5, base: 0}}
       alignContent="start"
@@ -87,13 +86,13 @@ export default function HumanMadeObject(item) {
 
       {item.subjectOfManifest && (
         <Box gridArea="image">
-          <MiradorWithNoSSR palette="light" windows={[{manifest: item.subjectOfManifest}]} />
+          <MiradorWithNoSSR palette="light" hideWindowTitle="true" windows={[{manifest: item.subjectOfManifest}]} />
         </Box>
       )}
 
       {item.manifest && !item.subjectOfManifest && (
         <Box gridArea="image">
-          <MiradorWithNoSSR palette="light" windows={[{manifest: item.manifest}]} />
+          <MiradorWithNoSSR palette="light" hideWindowTitle="true" windows={[{manifest: item.manifest}]} />
         </Box>
       )}
       <Modal isOpen={isOpen} size="xl" onClose={onClose} scrollBehavior="inside">

@@ -1,11 +1,6 @@
-import {CMS_NAME} from '../lib/constants'
 import {getRoute, getRoutes} from '../lib/api'
-import Head from 'next/head'
 import Layout from '../components/Layout'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 import Sections from '../components/Sections/Sections'
-import {Heading} from '@chakra-ui/react'
 import PortableTextBlock from '../components/PortableTextBlock'
 
 export default function Page({data, preview}) {
@@ -13,9 +8,6 @@ export default function Page({data, preview}) {
   return (
     <>
       <Layout preview={preview} site={data.siteSettings}>
-        <Head>
-          <title>{CMS_NAME}</title>
-        </Head>
 
         {/* A Page  */}
         {content && <Sections sections={content} />}

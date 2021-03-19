@@ -3,7 +3,7 @@ import {extendTheme} from '@chakra-ui/react'
 const theme = extendTheme({
   fonts: {
     body: 'EB Garamond, sans-serif',
-    heading: 'Montserrat, serif',
+    heading: 'EB Garamond, sans-serif',
     mono: 'Menlo, monospace',
   },
   fontSizes: {

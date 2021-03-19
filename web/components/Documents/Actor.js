@@ -6,15 +6,19 @@ import {imageBuilder} from '../../lib/sanity'
 
 export default function Actor(item) {
   return (
-    <Container maxW="full" centerContent>
-      <Flex key={item._id}>
+    <Container 
+      maxW="full" 
+      py="10" 
+      centerContent
+    >
+      <Flex pb="10">
         <Avatar
-          
+          size="xl"
           name={item.label}
           src={imageBuilder.image(item.image).height('200').width('200').url()}
         />
         <Box p={5}>
-          <Heading fontSize={{sm:"2xl", md:"4xl"}}>
+          <Heading fontSize={["2xl", "4xl", "5xl", "6xl"]}>
             <Link href={`/id/${item._id}`}>
               <a>{item.label}</a>
             </Link>
@@ -35,17 +39,18 @@ export default function Actor(item) {
         </Box>
       </Flex>
 
-      <Box maxW="lg">
+      <Container maxW="lg">
         {item?.referredToBy?.map((ref) => (
           <PortableTextBlock key={ref._key} blocks={ref.body} />
         ))}
-      </Box>
-      {item.hasMember &&
-        item.hasMember.map((member) => (
-          <Link href={member._id}>
-            <a>{member.label}</a>
-          </Link>
-        ))}
+      </Container>
+      
+      {item.hasMember && item.hasMember.map((member) => (
+        <Link href={member._id}>
+          <a>{member.label}</a>
+        </Link>
+      ))}
+
       {item.mentionedIn && <Cards items={item.mentionedIn} />}
     </Container>
   )

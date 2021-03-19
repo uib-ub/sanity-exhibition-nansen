@@ -1,8 +1,5 @@
-import {CMS_NAME} from '../../lib/constants'
 import {getAllConcepts} from '../../lib/api'
-import Head from 'next/head'
 import Layout from '../../components/Layout'
-import Header from '../../components/Header'
 import {Container, List, ListItem} from '@chakra-ui/react'
 import Link from '../../components/Link'
 
@@ -10,10 +7,6 @@ export default function Concepts({data, preview}) {
   return (
     <>
       <Layout preview={preview} site={data.siteSettings}>
-        <Head>
-          <title>{CMS_NAME}</title>
-        </Head>
-
         <Container maxW="xl">
           {data.items && (
             <List fontSize="xl">

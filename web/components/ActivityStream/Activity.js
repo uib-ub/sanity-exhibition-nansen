@@ -45,7 +45,17 @@ export default function Activity({data}) {
 
   return (
     <Box>
-      <Heading fontSize="sm" fontWeight="normal">{data.label ? data.label : capitalize(data._type)}</Heading>
+      <Heading 
+        as="h4" 
+        fontSize="sm" 
+        fontWeight="normal"
+        pb="1"
+        mb="2"
+        borderBottom="solid 1px"
+        borderColor="gray.200"
+      >
+        {data.label ? data.label : capitalize(data._type)}
+      </Heading>
 
       {data.hasType?.length > 0 && <HasType types={data.hasType ?? data._type} />}
 
@@ -70,9 +80,9 @@ export default function Activity({data}) {
 
       <HStack>
         {data.contributionAssignedBy?.length > 0 && (
-          <Wrap size="sm">
+          <Wrap>
             {data.contributionAssignedBy.map((inRole) => (
-              <Tag key={inRole.assignedActor._id} size="lg" colorScheme="blackAlpha">
+              <Tag key={inRole.assignedActor._id} size="sm" colorScheme="">
                 <Avatar
                   size="xs"
                   ml={-1}
@@ -84,7 +94,9 @@ export default function Activity({data}) {
                     .width(300)
                     .url()}
                 />
-                <TagLabel>{inRole.assignedActor.label}</TagLabel>
+                <TagLabel>
+                  <Link href={`/id/${inRole.assignedActor._id}`}>{inRole.assignedActor.label}</Link>
+                </TagLabel>
               </Tag>
             ))}
           </Wrap>

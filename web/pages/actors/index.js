@@ -1,7 +1,5 @@
 import {imageBuilder} from '../../lib/sanity'
-import {CMS_NAME} from '../../lib/constants'
 import {getAllActors} from '../../lib/api'
-import Head from 'next/head'
 import Link from 'next/link'
 import {Grid, Avatar, Box, Heading, Flex, Badge, Container} from '@chakra-ui/react'
 import Layout from '../../components/Layout'
@@ -25,10 +23,6 @@ export default function Actors({data, preview}) {
 
   return (
     <Layout preview={preview} site={data.siteSettings}>
-      <Head>
-        <title>{CMS_NAME}</title>
-      </Head>
-
       <Container maxW="xl">
         <Heading>Aktører</Heading>
       </Container>

@@ -7,11 +7,13 @@ export default function Cards({items}) {
   }
 
   return (
-    <Grid 
-      p="5"
+    <Grid
       w="full"
-      gap={5} 
+      px="5"
+      gap={5}
       templateColumns="repeat(auto-fill, minmax(160px,1fr))"
+      autoRows="md"
+      autoFlow="dense"
       /* templateColumns={{base:"repeat(1, 1fr)", md:"repeat(6, 1fr)", xl:"repeat(8, 1fr)"}} */
     >
       {items.map((item, index) => (

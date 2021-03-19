@@ -24,23 +24,23 @@ export default function Layout({alert, preview, children, site}) {
         h="100vh"
         gridTemplateAreas={{xl: '"header header" "main nav" "footer footer"', base: '"header header" "main nav" "footer footer"'}}
         gridTemplateColumns={{base: "8fr 0px", md: "7fr 2fr"}}
-        
+        autoRows="max-content"
         overflowY="scroll"
+        templateRows="auto 1fr auto"
       >
         <Meta />
         <Alert preview={(alert, preview)} />
         
         <Button
             position="fixed"
-            top="3"
-            right="3"
+            top="5"
+            right="5"
             zIndex="101"
             px="2"
-            variant="solid"
-            colorScheme="blackAlpha"
+            variant="link"
             onClick={() => onOpen()}
           >
-            <Icon color="white" w={8} h={8} as={HamburgerIcon} />
+            <Icon color="gray.500" w={8} h={8} as={HamburgerIcon} />
         </Button>
 
         <Header {...site} />

@@ -4,8 +4,12 @@ import Cards from '../Cards'
 
 export default function Concept(item) {
   return (
-    <Container h="100vh" maxW="full" py="10" centerContent>
-      <Heading fontSize={["2xl", "4xl", "5xl", "6xl"]}>{item.label.nor}</Heading>
+    <Container 
+      maxW="full" 
+      py="10" 
+      centerContent
+    >
+      <Heading pb="10" fontSize={["2xl", "4xl", "5xl", "6xl"]}>{item.label.nor}</Heading>
       
       <Box maxW="2xl">
         {item?.referredToBy?.map((ref) => (
