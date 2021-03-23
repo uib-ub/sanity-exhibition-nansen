@@ -8,12 +8,12 @@ import {
 } from '@sanity/ui'
 
 export const TextPreview = ({value: {title, content, type}}) => {
-  const text = content
+  const text = content.length
     ? content
       .filter((child) => child.children[0]._type === 'span')
       .map((span, index) => (
         <p key={index}>
-          { span.style == "normal" ? (span.children[0].text.slice(0,125) + ` ...`) : (<strong>{span.children[0].text}</strong>)}
+          { span.style == "normal" ? (span.children[0].text.slice(0,125) + ` ...`) : <strong>{span.children[0].text}</strong>}
         </p>
       ))
     : ''
