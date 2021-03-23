@@ -29,6 +29,7 @@ export default {
       type: 'array',
       of: [
         {type: 'PageHeader'},
+        {type: 'SvgTitle'},
         {type: 'Hero'},
         {type: 'SectionText'},
         {type: 'BigText'},
