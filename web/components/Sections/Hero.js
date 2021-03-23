@@ -4,22 +4,23 @@ import {useColorMode, useColorModeValue} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function Hero(props) {
-  const {colorMode, toggleColorMode} = useColorMode()
+  if(props.disabled === true) {
+    return null
+  }
 
+  const {colorMode, toggleColorMode} = useColorMode()
   const bg = useColorModeValue('gray.800', 'gray.300')
   const color = useColorModeValue('white', 'gray.800')
   const height = '50vh'
 
-  if (!props.illustration) {
-    return null
-  }
   const image = props.illustration.image
 
   return (
     <Grid 
-      gridTemplateAreas={{md: '"hero"', base: '"hero" "text"'}}
+      templateAreas={{md: '"hero"', base: '"hero" "text"'}}
+      templateRows={{md: 'auto', base: 'auto auto'}}
       maxW="full" 
-      marginBottom="10"
+      mb="10"
       h={height}
       boxSizing="border-box"
     >
@@ -27,18 +28,19 @@ export default function Hero(props) {
         gridArea={{md: 'hero', base: 'text'}}
         d="flex"
         color={color}
-        p={["0", "5"]}
+        p={["0", "0"]}
         zIndex="1"
-        selfalign="center"
-        justifyContent="center"
+        /* selfalign="center"
+        justifyContent="center" */
         alignItems="flex-end"
-        placeItems="center"
+        placeItems="flex-end"
       >
         <Box
-          w={{base: "full", md: "xl"}}
+          w={{base: "full", md: "md"}}
           px={["2", "4"]}
           pt={["2", "4"]}
-          backgroundColor={bg}
+          /* backgroundColor={bg} */
+          sx={{backdropFilter: "invert(.2) blur(16px)" }}
         >
           <Badge 
             backgroundColor={bg} 
@@ -65,8 +67,7 @@ export default function Hero(props) {
         gridArea="hero"
         objectFit="cover"
         objectPosition="0% 100%"
-        /* h="100%" */
-        h={height}
+        h="100%"
         width="100%"
         justifyContent="flex-end"
         overflow="hidden"

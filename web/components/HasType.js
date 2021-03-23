@@ -6,12 +6,9 @@ export default function HasType({types}) {
   }
 
   return (
-    <Flex borderTop="solid 1px" borderColor="gray.200" pt="4">
-      <Box as="dt" w="20%">
-        <Heading as="h3" fontWeight="semibold" fontSize="sm">Klassifisering</Heading>
-      </Box>
-      
-      <Wrap as="dd" fontFamily="Montserrat" mb={4}>
+    <> 
+      <Heading as="dt" fontFamily="Montserrat" fontWeight="semibold" fontSize="sm" pb="2">Klassifisering</Heading>
+      <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
         {types.map((type) => (
           <WrapItem key={type._id}>
             {/* <Link fontSize="sm" key={owner._id} href={`/id/${owner._id}`}>
@@ -23,6 +20,6 @@ export default function HasType({types}) {
           </WrapItem>
         ))}
       </Wrap>
-    </Flex>
+    </>
   )
 }

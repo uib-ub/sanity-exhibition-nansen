@@ -4,7 +4,8 @@ import Sections from '../components/Sections/Sections'
 import PortableTextBlock from '../components/PortableTextBlock'
 
 export default function Page({data, preview}) {
-  const {content, body} = data.route.page
+  const {content, body, title} = data.route.page
+
   return (
     <>
       <Layout preview={preview} site={data.siteSettings}>

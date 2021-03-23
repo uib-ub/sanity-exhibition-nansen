@@ -1,5 +1,5 @@
 import {Flex, Container, Button, Text, useColorMode, useColorModeValue, Spacer} from '@chakra-ui/react'
-import ActiveLink from './ActiveLink'
+import ActiveLink from '../Link/ActiveLink'
 import {MoonIcon, SunIcon} from '@chakra-ui/icons'
 
 const MenuItem = ({children}) => (

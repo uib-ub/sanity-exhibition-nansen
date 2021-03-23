@@ -173,6 +173,7 @@ export const humanMadeObjectsQuery = `{
     _type,
     label,
     preferredIdentifier,
+    homepage,
     hasType[]-> {
       _id,
       label
@@ -218,6 +219,7 @@ export const humanMadeObjectFields = `
   hasType[]-> {
     ...
   },
+  homepage,
   subjectOfManifest,
   image{
     ...,

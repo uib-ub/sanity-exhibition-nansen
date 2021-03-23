@@ -1,5 +1,7 @@
 import NextLink from 'next/link'
-import {Heading, HStack, Icon, IconButton, Flex, Text, GridItem, Box, Tag, Tooltip, Button, 
+import {
+  Code,
+  Heading, HStack, Icon, IconButton, Flex, Text, GridItem, Box, Tag, Tooltip, Button, 
   Menu,
   MenuButton,
   MenuList,
@@ -26,7 +28,7 @@ export default function Card(props) {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const {_id, preferredIdentifier, label, description, image, hasType, aspectRatio, creation} = props.item
+  const {_id, preferredIdentifier, label, description, image, homepage, hasType, aspectRatio, creation} = props.item
 
   const span = (a) => {
     const spans = {
@@ -83,7 +85,7 @@ export default function Card(props) {
             {creation && creation[0].creators && creation[0].creators
               .filter(c => c.name != 'Ukjent')
               .map((c, index) => (
-                <span>{index === 0 ? '': ', '}{c.name}</span>
+                <span key={c._id}>{index === 0 ? '': ', '}{c.name}</span>
               )
             )}
           </Text>
@@ -129,9 +131,13 @@ export default function Card(props) {
               <MenuItem onClick={onOpen} icon={<Icon w={[2,4,5,5]} h={[2,4,5,5]} as={VscJson} />}>
                 Data
               </MenuItem>
-              <MenuItem icon={<Icon w={[2,4,5,5]} h={[2,4,5,5]} as={FiExternalLink} />}>
-                Åpne i Marcus
-              </MenuItem>
+              {homepage && (
+                <NextLink href={homepage} passHref>
+                  <MenuItem as={Link} isExternal icon={<Icon w={[2,4,5,5]} h={[2,4,5,5]} as={FiExternalLink} />}>
+                    Åpne hjemmeside
+                  </MenuItem>
+                </NextLink>
+              )}
             </MenuList>
           </Menu>
           
@@ -139,9 +145,11 @@ export default function Card(props) {
             <ModalOverlay />
             <ModalContent>
               <ModalBody overflowY="scroll">
-                <pre>
-                  {JSON.stringify(props.item, null, 2)}
-                </pre>
+                <Code w="full" fontSize="xs" p="2">
+                  <pre>
+                    {JSON.stringify(props.item, null, 2)}
+                  </pre>
+                </Code>
               </ModalBody>
             </ModalContent>
           </Modal>

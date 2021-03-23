@@ -7,16 +7,13 @@ export default function ActivityStream({stream}) {
   }
 
   return (
-    <Flex borderTop="solid 1px" borderColor="gray.200" pt="4">
-      <Box as="dt" w="20%">
-        <Heading as="h3" fontWeight="semibold" fontSize="sm">Hendelser</Heading>
-      </Box>
-
-      <Wrap as="dd" w="80%" fontFamily="Montserrat" mab={4}>
+    <> 
+      <Heading as="dt" fontFamily="Montserrat" fontWeight="semibold" fontSize="sm" pb="2">Hendelser</Heading>
+      <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
         {stream.map((activity) => (
           <Activity key={activity._key} data={activity} />
         ))}
       </Wrap>
-    </Flex>
+    </>
   )
 }

@@ -15,6 +15,7 @@ import {
   ModalCloseButton,
   useDisclosure,
   useClipboard,
+  Code,
 } from '@chakra-ui/react'
 import {BiDotsVerticalRounded} from 'react-icons/bi'
 import ReferredToBy from '../ReferredToBy'
@@ -22,6 +23,7 @@ import Palette from '../Palette'
 import Depicts from '../Depicts'
 import ActivityStream from '../ActivityStream'
 import HasType from '../HasType'
+import Homepage from '../Homepage'
 import Subject from '../Subject'
 import CurrentOwner from '../CurrentOwner'
 import Description from '../Description'
@@ -63,25 +65,31 @@ export default function HumanMadeObject(item) {
           </Box>
         )}
 
-        {item.hasType && 
-          <HasType types={item.hasType} />
-        }
+        <Grid borderTop="solid 1px" borderColor="gray.200" pt="4" templateColumns={["2fr", "2fr", "160px auto"]}>
+          {item.hasType && 
+            <HasType types={item.hasType} />
+          }
 
-        {item.subject && 
-          <Subject subjects={item.subject} />
-        }
+          {item.subject && 
+            <Subject subjects={item.subject} />
+          }
 
-        {item.hasCurrentOwner && 
-          <CurrentOwner owners={item.hasCurrentOwner} />
-        }
+          {item.depicts && 
+            <Depicts depicted={item.depicts} />
+          }
 
-        {item.depicts && 
-          <Depicts depicted={item.depicts} />
-        }
+          {item.activityStream && 
+            <ActivityStream stream={item.activityStream} />
+          }
 
-        {item.activityStream && 
-          <ActivityStream stream={item.activityStream} />
-        }
+          {item.homepage && 
+            <Homepage homepage={item.homepage} />
+          }
+
+          {item.hasCurrentOwner && 
+            <CurrentOwner owners={item.hasCurrentOwner} />
+          }
+        </Grid>
       </Container>
 
       {item.subjectOfManifest && (
@@ -95,13 +103,17 @@ export default function HumanMadeObject(item) {
           <MiradorWithNoSSR palette="light" hideWindowTitle="true" windows={[{manifest: item.manifest}]} />
         </Box>
       )}
-      <Modal isOpen={isOpen} size="xl" onClose={onClose} scrollBehavior="inside">
+      <Modal isOpen={isOpen} size="4xl" onClose={onClose} scrollBehavior="inside">
         <ModalOverlay>
           <ModalContent>
             <ModalHeader>JSON</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              <pre>{JSON.stringify(item, null, 2)}</pre>
+              <Code w="full" fontSize="xs" p="2">
+                <pre>
+                  {JSON.stringify(item, null, 2)}
+                </pre>
+              </Code>
             </ModalBody>
 
             <ModalFooter>

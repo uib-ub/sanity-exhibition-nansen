@@ -6,11 +6,8 @@ export default function CurrentOwner({owners}) {
   }
 
   return (
-    <Flex borderTop="solid 1px" borderColor="gray.200" pt="4">
-      <Box as="dt" w="20%">
-        <Heading as="h3" fontWeight="semibold" fontSize="sm">Eier</Heading>
-      </Box>
-      
+    <> 
+      <Heading as="dt" fontFamily="Montserrat" fontWeight="semibold" fontSize="sm" pb="2">Eier</Heading>
       <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
         {owners.map((owner) => (
           <WrapItem key={owner._id}>
@@ -20,6 +17,6 @@ export default function CurrentOwner({owners}) {
           </WrapItem>
         ))}
       </Wrap>
-    </Flex>
+    </>
   )
 }

@@ -14,12 +14,12 @@ export default function MiradorGallery(props) {
   return (
     <Container maxW={["3xl", "3xl", "3xl", "6xl"]}>
       <Grid
-        maxW={["xl", "xl", "xl", "5xl"]}
+        maxW={["xl", "xl", "xl", "6xl"]}
         my={10}
         gridGap={5}
         alignContent="start"
-        gridTemplateAreas={{base: '"image" "metadata"', lg: '"image image metadata"'}}
-        gridTemplateColumns={{base: '100%', lg: '6fr 6fr 4fr'}}
+        gridTemplateAreas={{base: '"image" "metadata"', lg: '"image metadata"'}}
+        gridTemplateColumns={{base: '100%', lg: '10fr 4fr'}}
       >
 
         {items && (
@@ -28,7 +28,7 @@ export default function MiradorGallery(props) {
           </Box>
         )}
        
-        <Box fontFamily="Montserrat" gridArea="metadata">
+        <Box fontFamily="Montserrat" gridArea="metadata" pr="10">
           <Heading fontFamily="Montserrat" fontWeight="semibold" color="red.600" fontSize={{base: "sm", sm: "sm", md: "md", xl: "xl"}} mb={1}>
             {props.title}
           </Heading>

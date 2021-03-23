@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import SvgEye from './selmer-eye.svg'
 
-export default function SelmerEye() {
+export default function SelmerEye(props) {
 /*   const eye = document.querySelector('#pupil');
   
   window.addEventListener('mousemove', (evt) => {
@@ -10,8 +10,10 @@ export default function SelmerEye() {
     eye.style.transform = `translateY(${y}px) translateX(${x}px)`;
   });   */
   
+  const {w} = props
+
   return (
-    <Box w="40px">
+    <Box w={w}>
       <SvgEye />
     </Box>
   )
