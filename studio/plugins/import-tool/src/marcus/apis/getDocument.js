@@ -103,6 +103,7 @@ export default function getDocument(item, types, assetID) {
       editorialState: 'published',
       label: item.title,
       preferredIdentifier: item.identifier,
+      homepage: item.homepage,
       subjectOfManifest: `https://marcus-manifest-api.vercel.app/api/iiif/manifest/${item.identifier}`,
       identifiedBy: [
         {

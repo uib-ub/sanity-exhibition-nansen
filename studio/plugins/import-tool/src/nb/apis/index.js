@@ -30,6 +30,7 @@ export const chooseItem = async (item) => {
         : 'https://rightsstatements.org/vocab/CNE/1.0/',
     label: item.metadata.title,
     preferredIdentifier: item.id,
+    homepage: `https://urn.nb.no/${item.metadata.identifiers.urn}`,
     identifiedBy: [
       {
         _type: 'Identifier',
@@ -86,7 +87,7 @@ export const chooseItem = async (item) => {
     creditLine: 'From nb.no',
   }
 
-  const getImageBlob = async (url) => {
+ const getImageBlob = async (url) => {
     // eslint-disable-next-line no-undef
     const response = fetch(url)
       .then((response) => response.body)
@@ -149,14 +150,14 @@ export const chooseItem = async (item) => {
   }
 
   const createDoc = async (doc) => {
-    const res = client.createIfNotExists(doc).then((result) => {
+    const res = client.createOrReplace(doc).then((result) => {
       console.log(`${result._id} was imported!`)
       return result
     })
     return res
   }
 
-  const setAssetRef = async (docID, assetID) => {
+ const setAssetRef = async (docID, assetID) => {
     await client
       .patch(docID)
       .set({
