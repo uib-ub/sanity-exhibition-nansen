@@ -18,7 +18,7 @@ import {
   hasFormerOrCurrentOwner,
   composedOf,
   identifiedBy,
-  isSubjectOf,
+  subjectOf,
   depicts,
   showsVisualObject,
   carries,
@@ -26,6 +26,7 @@ import {
   consistsOf,
   labelSingleton,
   presentAt,
+  homepage,
 } from '../props'
 import {coalesceLabel} from '../helpers/helpers'
 
@@ -87,6 +88,7 @@ export default {
     accessState,
     preferredIdentifier,
     labelSingleton,
+    homepage,
     {
       ...identifiedBy,
       fieldset: 'minimum',
@@ -141,7 +143,7 @@ export default {
       fieldset: 'minimum',
     },
     {
-      ...isSubjectOf,
+      ...subjectOf,
       fieldset: 'minimum',
     },
     {

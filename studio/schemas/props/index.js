@@ -471,8 +471,17 @@ export const composedOf = {
   ],
 }
 
-export const isSubjectOf = {
-  name: 'isSubjectOf',
+export const homepage = {
+  name: 'homepage',
+  title: 'Hjemmeside',
+  titleEN: 'Homepage',
+  description: 'Hjemmeside til ressursen',
+  descriptionEN: 'Main homepage for the resource',
+  type: 'url',
+}
+
+export const subjectOf = {
+  name: 'subjectOf',
   title: 'Omhandlet i',
   titleEN: 'Subject of',
   description: (

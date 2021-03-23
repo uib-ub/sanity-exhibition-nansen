@@ -6,7 +6,7 @@ import {
   referredToBy,
   labelSingleton,
   identifiedBy,
-  isSubjectOf,
+  subjectOf,
   transferredTitleOf,
   transferredTitleFrom,
   transferredTitleTo,
@@ -51,7 +51,7 @@ export default {
       fieldset: 'minimum',
     },
     {
-      ...isSubjectOf,
+      ...subjectOf,
       fieldset: 'minimum',
     },
     {

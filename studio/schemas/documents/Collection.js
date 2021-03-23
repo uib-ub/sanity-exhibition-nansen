@@ -6,7 +6,7 @@ import {
   preferredIdentifier,
   labelSingleton,
   identifiedBy,
-  isSubjectOf,
+  subjectOf,
 } from '../props'
 
 export default {
@@ -69,7 +69,7 @@ export default {
       fieldset: 'minimum',
     },
     {
-      ...isSubjectOf,
+      ...subjectOf,
       fieldset: 'minimum',
     },
     {
