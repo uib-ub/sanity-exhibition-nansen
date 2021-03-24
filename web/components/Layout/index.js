@@ -23,12 +23,14 @@ export default function Layout({alert, preview, children, site}) {
         <Meta />
         <Alert preview={(alert, preview)} />
 
-          
         <Header 
           isOpen={isOpen}
           gridArea={{base: "header", md: "nav"}}
-          display={{base: "flex", md: isOpen ? "flex": "none"}}
-          {...site} 
+          ml={{base: "0", md: isOpen ? "0" : "-400px"}}
+          visibility={{base: "visible", md:isOpen ? "visible" : "hidden"}}
+          opacity={{base: "1", md:isOpen ? "1" : "0"}}
+          transition="opacity 0.5s 0.5s, margin-left 0.5s 0s"
+          data={{...site}}
         />
 
         <Flex
@@ -38,13 +40,14 @@ export default function Layout({alert, preview, children, site}) {
           sx={{boxShadow: "5px 0 10px -10px #444"}}
         >
           <Button
-            fontSize="4xl"
+            /* placeSelf="flex-end" */
+            fontSize="3xl"
             variant="link"
             onClick={onToggle}
             outline="none"
-            _hover={{ textDecoration:"none"}}
+            _hover={{ textDecoration:"none" }}
+            _focus={{ boxShadow:"none" }}
           >
-            {/* {JSON.stringify(isOpen)} */}
             ⋮
           </Button>
         </Flex>

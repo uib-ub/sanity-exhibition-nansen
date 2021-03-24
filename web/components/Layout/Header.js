@@ -23,13 +23,13 @@ export default function Header(props) {
   const color = useColorModeValue('black', 'white')
   const { isOpen, onOpen, onClose } = useDisclosure()
   
-  const {title, logo, mainNavigation, footer, gridArea, display} = props
+  const {data, ...rest} = props
+  const {title, logo, mainNavigation, footer} = data
 
   return (
     <Flex 
       overflowX="scroll"
       as="header"
-      gridArea={gridArea}
       direction={{base: "row", md: "column"}}
       align="start" 
       w="full"
@@ -45,7 +45,7 @@ export default function Header(props) {
       boxShadow={{base: "xl", md: "none"}}
       zIndex="2"
       justifyContent="center"
-      display={display}
+      {...rest}
     >
 
       <Image
