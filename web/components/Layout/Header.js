@@ -49,10 +49,10 @@ export default function Header(props) {
     >
 
       <Image
-        src={imageBuilder.image(logo).width(200).height(200).flipHorizontal().url()} 
+        src={imageBuilder.image(logo).height(200).flipHorizontal().url()} 
         alt="site logo" 
         mb={{base: "0", md: "10"}} 
-        h={{base: "25px", md: "170px"}} 
+        h={{base: "25px", md: "200"}} 
         display={{base: "none", md: "inherit"}} 
       />
 
