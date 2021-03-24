@@ -7,32 +7,28 @@ export default function Depicts({depicted}) {
   }
 
   return (
-
-        <Flex borderTop="solid 1px" borderColor="gray.200" pt="4">
-        <Box as="dt" w="20%">
-          <Heading as="h3" fontWeight="semibold" fontSize="sm">Avbilder</Heading>
-        </Box>
-        
-        <Wrap as="dd" fontFamily="Montserrat" mb={4}>
-          {depicted.map((actor) => (
-            <Tag key={actor._id} size="sm" colorScheme="">
-              <Avatar
-                size="xs"
-                ml={-1}
-                mr={2}
-                name={actor.label}
-                src={imageBuilder
-                  .image(actor.image)
-                  .height(300)
-                  .width(300)
-                  .url()}
-              />
-              <TagLabel>
-                <Link href={`/id/${actor._id}`}>{actor.label}</Link>
-              </TagLabel>
-            </Tag>
-          ))}
-        </Wrap>
-      </Flex>
+    <> 
+      <Heading as="dt" fontFamily="Montserrat" fontWeight="semibold" fontSize="sm" pb="2">Avbilder</Heading>
+      <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
+        {depicted.map((actor) => (
+          <Tag key={actor._id} size="sm" colorScheme="">
+            <Avatar
+              size="xs"
+              ml={-1}
+              mr={2}
+              name={actor.label}
+              src={imageBuilder
+                .image(actor.image)
+                .height(300)
+                .width(300)
+                .url()}
+            />
+            <TagLabel>
+              <Link href={`/id/${actor._id}`}>{actor.label}</Link>
+            </TagLabel>
+          </Tag>
+        ))}
+      </Wrap>
+    </>
   )
 }
