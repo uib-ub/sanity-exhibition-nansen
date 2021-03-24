@@ -34,6 +34,7 @@ export default {
         {type: 'SectionText'},
         {type: 'BigText'},
         {type: 'Quote'},
+        {type: 'SubStory'},
         {type: 'SingleObject'},
         {type: 'MiradorGallery'},
         {type: 'TimelineSection'},
