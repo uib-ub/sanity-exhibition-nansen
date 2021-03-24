@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import {Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Container, Center, Spacer} from '@chakra-ui/react'
-import {MoonIcon, SunIcon} from '@chakra-ui/icons'
+import {Portal, Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Container, Center, Spacer, DrawerFooter} from '@chakra-ui/react'
+import {CloseIcon, MoonIcon, SunIcon} from '@chakra-ui/icons'
 import ActiveLink from '../Link/ActiveLink'
 import {BsArrowUpLeft} from 'react-icons/bs'
 import Headroom from 'react-headroom'
@@ -22,153 +22,189 @@ export default function Header(props) {
   const {colorMode, toggleColorMode} = useColorMode()
   const color = useColorModeValue('black', 'white')
   const { isOpen, onOpen, onClose } = useDisclosure()
-
-  const {title, logo, mainNavigation, footer} = props
+  
+  const {title, logo, mainNavigation, footer, gridArea, display} = props
 
   return (
-    <Flex
+    <Flex 
+      overflowX="scroll"
       as="header"
+      gridArea={gridArea}
+      direction={{base: "row", md: "column"}}
+      align="start" 
       w="full"
       h="full"
-      overflowX="scroll"
-      gridArea={{base: "header", md: "nav"}}
-      color="gray.600"
-      boxShadow={{base: "dark-lg", md: "lg"}}
-      zIndex="1"
+      pl={["0", "2", "10", "10"]}
+      py={["0", "2", "5", "5"]}
+      justify="flex-start"
+      wrap="wrap"
+      color={color}
+      bg="rgba(255,255,255,0.5)"
+      borderBottom={{base: "1px solid", md: "none"}}
+      borderColor="gray.200"
+      boxShadow={{base: "xl", md: "none"}}
+      zIndex="2"
+      justifyContent="center"
+      display={display}
     >
-      <Flex 
-        direction={{base: "row", md: "column"}}
-        align="start" 
-        w="full"
-        h="full"
-        pl={["0", "2", "10", "10"]}
-        py={["0", "2", "5", "5"]}
-        justify="flex-start"
-        wrap="wrap"
-        color={color}
-        bg="rgba(255,255,255,0.5)"
-        zIndex="2"
-        justifyContent="center"
+
+      <Image
+        src={imageBuilder.image(logo).width(200).height(200).flipHorizontal().url()} 
+        alt="site logo" 
+        mb={{base: "0", md: "10"}} 
+        h={{base: "25px", md: "170px"}} 
+        display={{base: "none", md: "inherit"}} 
+      />
+
+      <Heading 
+        fontSize={["lg", "xl", "2xl", "3xl"]} 
+        fontWeight={{base: "normal", md: "semibold"}} 
+        fontFamily="EB Garamond"
+        px={{base: "5", md: "0"}}
       >
+        <Link href="/">
+          <a>{title}</a>
+        </Link>
+      </Heading>
+      
+      <Button
+        position="fixed"
+        bottom="5"
+        right="5"
+        w="12"
+        h="12"
+        display={{base: 'block', md:'none'}}
+        borderRadius="full"
+        colorScheme="red"
+        boxShadow="dark-lg"
+        alignSelf="flex-start"
+        onClick={() => onOpen()}
+        leftIcon={<Icon color="white" h="12" w="8" ml="-2" as={HamburgerIcon} />}
+      />
 
-        <Image
-          src={imageBuilder.image(logo).width(200).height(200).flipHorizontal().url()} 
-          alt="site logo" 
-          mb={{base: "0", md: "10"}} 
-          h={{base: "35px", md: "170px"}} 
-        />
-
-        <Heading fontSize={["xl", "2xl", "2xl", "3xl"]} fontFamily="EB Garamond">
-          <Link href="/">
-            <a>{title}</a>
-          </Link>
-        </Heading>
-        
-        <Spacer display={{base: 'inherit', md:'none'}} />
-
-        <Button
-          display={{base: 'inherit', md:'none'}}
-          px="2"
-          alignSelf="flex-start"
-          variant="link"
-          onClick={() => onOpen()}
-        >
-          <Icon color="gray.500" w={8} h={8} as={HamburgerIcon} />
-        </Button>
-
-        <Flex display={{ base: "none", md: "flex" }} direction="column">
-          <List styleType="lower-roman" spacing="1" fontSize={["md", "md", "md", "lg"]}>
-            {mainNavigation?.items && mainNavigation.items.map((item) => (
-              <ListItem key={item._key}>
-                <ActiveLink fontFamily="'Open Sans'" href={`/${item.route}`} activeClassName="active">
-                  <a>{item.label}</a>
-                </ActiveLink>
-              </ListItem>
-            ))}
-          </List>
-        </Flex>
-
-        <Flex mt="5" display={{ base: "none", md: "flex" }} direction="column">
-          <List styleType="upper-latin" spacing="1" fontSize={["md", "md", "md", "lg"]}>
-          {footer.navMenu?.items && footer.navMenu.items.map((item) => (
-              <ListItem key={item._key}>
-                <ActiveLink fontFamily="'Open Sans'" href={`/${item.route ?? ''}`} activeClassName="active">
-                  <a>{item.label}</a>
-                </ActiveLink>
-              </ListItem>
-            ))}
-          </List>
-        </Flex>
-
-        <Button 
-          display={{base: 'none', md:'inherit'}}
-          mt="5" 
-          h="8" 
-          w="4" 
-          onClick={toggleColorMode}
-        >
-          {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-        </Button>
-
-        <Drawer 
-          placement="top" 
-          onClose={onClose} 
-          isOpen={isOpen} 
-          size="full" 
-          onOverlayClick={onClose}
-          motionPreset="scale"
-        >
-          <DrawerOverlay>
-            <DrawerContent>
-              <DrawerCloseButton />
-              {/* <DrawerHeader>Nav</DrawerHeader> */}
-              <DrawerBody>
-
-                <Center h="full" w="full">
-                  <VStack align="stretch">
-                    <Flex wrap="wrap" justifyContent="center" direction={{ base: "column", md: "row" }}>
-                      {mainNavigation?.items && mainNavigation.items.map((item) => (
-                        <MenuItem key={item._key}>
-                          <ActiveLink passHref href={`/${item.route}`} activeClassName="active">
-                            <a onClick={onClose}>{item.label}</a>
-                          </ActiveLink>
-                        </MenuItem>
-                      ))}
-                    </Flex>
-
-                    <Spacer />
-                    
-                    <Flex wrap="wrap" justifyContent="center" direction={{ base: "column", md: "row" }}>
-                      {footer.navMenu?.items && footer.navMenu.items.map((item) => (
-                        <MenuItem key={item._key}>
-                          <ActiveLink passHref href={`/${item.route}`} activeClassName="active">
-                            <a onClick={onClose}>{item.label}</a>
-                          </ActiveLink>
-                        </MenuItem>
-                      ))}
-                    </Flex>
-
-                    <Spacer />
-
-                    <Flex justifyContent="center">
-                      <Heading fontSize="sm" fontWeight="500">
-                        <Link href="http://marcus.uib.no/">
-                          <a><Icon as={BsArrowUpLeft} /> tilbake til Marcus</a>
-                        </Link>
-                      </Heading>
-                    </Flex>
-                  </VStack>
-                </Center>
-                
-              </DrawerBody>
-            </DrawerContent>
-          </DrawerOverlay>
-        </Drawer>
-
+      <Flex display={{ base: "none", md: "flex" }} direction="column">
+        <List styleType="lower-roman" spacing="1" fontSize={["md", "md", "md", "lg"]}>
+          {mainNavigation?.items && mainNavigation.items.map((item) => (
+            <ListItem key={item._key}>
+              <ActiveLink href={`/${item.route}`} activeClassName="active">
+                <a>{item.label}</a>
+              </ActiveLink>
+            </ListItem>
+          ))}
+        </List>
       </Flex>
-      <Button display={{base: 'none', md:'inherit'}} variant="link" alignSelf="center" fontSize="5xl">
-        ⟨
+
+      <Flex mt="5" display={{ base: "none", md: "flex" }} direction="column">
+        <List styleType="upper-latin" spacing="1" fontSize={["md", "md", "md", "lg"]}>
+        {footer.navMenu?.items && footer.navMenu.items.map((item) => (
+            <ListItem key={item._key}>
+              <ActiveLink href={`/${item.route ?? ''}`} activeClassName="active">
+                <a>{item.label}</a>
+              </ActiveLink>
+            </ListItem>
+          ))}
+        </List>
+      </Flex>
+
+      <Button 
+        display={{base: 'none', md:'inherit'}}
+        mt="5" 
+        h="8" 
+        w="4" 
+        onClick={toggleColorMode}
+      >
+        {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
       </Button>
+
+      <Drawer 
+        placement="bottom" 
+        onClose={onClose} 
+        isOpen={isOpen} 
+        size="full" 
+        onOverlayClick={onClose}
+        motionPreset="scale"
+      >
+        <DrawerOverlay>
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerBody>
+              <Center h="full" w="full">
+                <VStack align="stretch">
+                <Flex direction="column">
+                  <List styleType="lower-roman" spacing="1" fontSize={["lg", "xl"]}>
+                    {mainNavigation?.items && mainNavigation.items.map((item) => (
+                      <ListItem key={item._key}>
+                        <ActiveLink href={`/${item.route}`} activeClassName="active">
+                          <a onClick={onClose}>{item.label}</a>
+                        </ActiveLink>
+                      </ListItem>
+                    ))}
+                  </List>
+                </Flex>
+
+                <Flex mt="5" direction="column">
+                  <List styleType="upper-latin" spacing="1" fontSize={["lg", "xl"]}>
+                  {footer.navMenu?.items && footer.navMenu.items.map((item) => (
+                      <ListItem key={item._key}>
+                        <ActiveLink href={`/${item.route ?? ''}`} activeClassName="active">
+                          <a onClick={onClose}>{item.label}</a>
+                        </ActiveLink>
+                      </ListItem>
+                    ))}
+                  </List>
+                </Flex>
+                  {/* <Flex wrap="wrap" justifyContent="center" direction={{ base: "column", md: "row" }}>
+                    {mainNavigation?.items && mainNavigation.items.map((item) => (
+                      <MenuItem key={item._key}>
+                        <ActiveLink passHref href={`/${item.route}`} activeClassName="active">
+                          <a onClick={onClose}>{item.label}</a>
+                        </ActiveLink>
+                      </MenuItem>
+                    ))}
+                  </Flex>
+
+                  <Spacer />
+                  
+                  <Flex wrap="wrap" justifyContent="center" direction={{ base: "column", md: "row" }}>
+                    {footer.navMenu?.items && footer.navMenu.items.map((item) => (
+                      <MenuItem key={item._key}>
+                        <ActiveLink passHref href={`/${item.route}`} activeClassName="active">
+                          <a onClick={onClose}>{item.label}</a>
+                        </ActiveLink>
+                      </MenuItem>
+                    ))}
+                  </Flex>
+
+                  <Spacer />
+
+                  <Flex justifyContent="center">
+                    <Heading fontSize="sm" fontWeight="500">
+                      <Link href="http://marcus.uib.no/">
+                        <a><Icon as={BsArrowUpLeft} /> tilbake til Marcus</a>
+                      </Link>
+                    </Heading>
+                  </Flex> */}
+                </VStack>
+              </Center>
+              
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+        <Button
+          position="fixed"
+          bottom="5"
+          right="5"
+          w="12"
+          h="12"
+          display="block"
+          borderRadius="full"
+          colorScheme="red"
+          boxShadow="dark-lg"
+          onClick={() => onClose()}
+          zIndex="2000"
+          leftIcon={<Icon color="white" h="5" w="6" ml="-1" as={CloseIcon} />}
+        />
+      </Drawer>
     </Flex>
   )
 }

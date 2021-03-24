@@ -1,4 +1,4 @@
-import { Box, Grid} from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, useDisclosure} from '@chakra-ui/react'
 import Alert from '../Alert'
 import Footer from './Footer'
 import Header from './Header'
@@ -6,6 +6,7 @@ import Meta from './Meta'
 
 
 export default function Layout({alert, preview, children, site}) {
+  const { isOpen, onToggle } = useDisclosure({defaultIsOpen: true})
   const {footer} = site
   
   return (
@@ -13,8 +14,8 @@ export default function Layout({alert, preview, children, site}) {
       <Grid
         w="100vw"
         h="100vh"
-        gridTemplateAreas={{xl: '"header header" "nav main"', base: '"header header" "nav main"'}}
-        gridTemplateColumns={{base: "0px 8fr", md: "auto 1fr", xl: "auto 1fr"}}
+        gridTemplateAreas={{base: '"header header header" "nav toggle main"', xl: '"header header header" "nav toggle main"'}}
+        gridTemplateColumns={{base: "0px 0px 8fr", md: "auto auto 1fr", xl: "auto auto 1fr"}}
         autoRows="max-content"
         overflowY="scroll"
         templateRows="auto 1fr"
@@ -22,7 +23,31 @@ export default function Layout({alert, preview, children, site}) {
         <Meta />
         <Alert preview={(alert, preview)} />
 
-        <Header {...site} />
+          
+        <Header 
+          isOpen={isOpen}
+          gridArea={{base: "header", md: "nav"}}
+          display={{base: "flex", md: isOpen ? "flex": "none"}}
+          {...site} 
+        />
+
+        <Flex
+          gridArea="toggle"
+          overflowY="hidden"
+          zIndex="1"
+          sx={{boxShadow: "5px 0 10px -10px #444"}}
+        >
+          <Button
+            fontSize="4xl"
+            variant="link"
+            onClick={onToggle}
+            outline="none"
+            _hover={{ textDecoration:"none"}}
+          >
+            {/* {JSON.stringify(isOpen)} */}
+            ⋮
+          </Button>
+        </Flex>
         
         <Box
           w="full"
