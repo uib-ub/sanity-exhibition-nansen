@@ -1,24 +1,16 @@
 import NextLink from 'next/link'
 import {
   Code,
-  Heading, HStack, Icon, IconButton, Flex, Text, GridItem, Box, Tag, Tooltip, Button, 
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton, Link, LinkBox, LinkOverlay, Spacer, useDisclosure} from '@chakra-ui/react'
+  Heading, HStack, Icon, IconButton, Flex, Text, GridItem, Box, Tag, 
+  Menu, MenuButton, MenuList, MenuItem,
+  Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, 
+  Link, LinkBox, LinkOverlay, Spacer, useDisclosure
+} from '@chakra-ui/react'
 import CardImage from './CardImage'
 import {BiDotsVerticalRounded} from 'react-icons/bi'
 import {FiExternalLink} from 'react-icons/fi'
 import {VscJson} from 'react-icons/vsc'
 import PortableTextBlock from '../PortableTextBlock'
-import Date from '../Date'
 import Timespan from '../Timespan'
 
 export default function Card(props) {
@@ -32,24 +24,27 @@ export default function Card(props) {
 
   const span = (a) => {
     const spans = {
-      rowSpan: [1,1,2,2],
-      colSpan: [1,1,2,2],
+      rowSpan: [1,2,1,1,1],
+      colSpan: [1,1,1,1,1],
       /* aspectRatio: "1 / 1" */
     }
     
-    if(a >= 1.3) {
+    /* Landscape */
+    if(a >= 1.4) {
+      spans.colSpan = [1,2,2,2] 
       spans.rowSpan = [1,1,1,1]
-      spans.colSpan = [1,1,2,2] 
       /* spans.aspectRatio = "1 / 2" */
     }
+    /* Extreme Landscape */
     if(a >= 1.9) {
-      spans.rowSpan = [1,1,2,2]
-      spans.colSpan = [1,1,4,4] 
+      spans.colSpan = [1,2,2,3] 
+      spans.rowSpan = [1,1,1,1]
       /* spans.aspectRatio = "1 / 2" */
     }
-    if(a <= 0.7) {
-      spans.rowSpan = [1,1,3,3]
-      spans.colSpan = [1,1,2,2]
+    /* Portrait */
+    if(a <= 0.6) {
+      spans.colSpan = [1,1,1,1]
+      spans.rowSpan = [1,1,2,2]
       /* spans.aspectRatio = "2 / 1" */
     }
     return spans
@@ -63,6 +58,7 @@ export default function Card(props) {
       borderWidth="1px" 
       borderRadius="md" 
       boxShadow="sm"
+      bgColor="white"
       {...a}
     >
       <LinkBox>
@@ -75,7 +71,7 @@ export default function Card(props) {
         <Box px="4" pt="2" pb="2">
           <Heading mt="1" fontFamily="Montserrat" fontWeight="semibold" as="h4" color="gray.600" fontSize={['sm', 'sm', 'md', 'md']} lineHeight="tight" >
             <NextLink href={`/id/${encodeURIComponent(_id)}`} passHref>
-              <LinkOverlay><a>{label}</a></LinkOverlay>
+              <LinkOverlay>{label}</LinkOverlay>
             </NextLink>
           </Heading>
 
@@ -91,11 +87,8 @@ export default function Card(props) {
           </Text>
 
           {creation && creation[0].timespan && (
-            <Box>
-              <Text position="relative" fontSize="sm" mt="4" mb="0">
-                <Timespan timespan={creation[0].timespan} />
-                {/* {creation[0].timespan && (<Date dateString={creation[0].timespan[0].date} />)} */}
-              </Text>
+            <Box fontFamily="Montserrat"  fontSize={['sm', 'sm', 'lg', 'lg']}>
+              <Timespan timespan={creation[0].timespan} />
             </Box>
           )}
         </Box>
@@ -113,7 +106,7 @@ export default function Card(props) {
               </HStack>
             )}
             
-            {/* <Text alignSelf="center" fontSize="sm">{preferredIdentifier}</Text> */}
+            {/* <Text alignSelf="center" fontSize="sm">{aspectRatio}</Text> */}
           </Box>
 
           <Spacer />
@@ -144,6 +137,8 @@ export default function Card(props) {
           <Modal size="4xl" isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
+              <ModalCloseButton />
+              <ModalHeader>JSON</ModalHeader>
               <ModalBody overflowY="scroll">
                 <Code w="full" fontSize="xs" p="2">
                   <pre>

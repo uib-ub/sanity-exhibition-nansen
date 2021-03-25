@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import {Portal, Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Container, Center, Spacer, DrawerFooter} from '@chakra-ui/react'
+import {Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Container, Center, Spacer, DrawerFooter} from '@chakra-ui/react'
 import {CloseIcon, MoonIcon, SunIcon} from '@chakra-ui/icons'
 import ActiveLink from '../Link/ActiveLink'
 import {BsArrowUpLeft} from 'react-icons/bs'
@@ -35,8 +35,8 @@ export default function Header(props) {
         align="start" 
         w="full"
         h="full"
-        pl={["0", "2", "10", "10"]}
-        py={["0", "2", "5", "5"]}
+        pl={["2", "2", "10", "10"]}
+        py={["2", "2", "5", "5"]}
         justify="flex-start"
         wrap="wrap"
         color={color}
@@ -108,6 +108,7 @@ export default function Header(props) {
         position="fixed"
         bottom="5"
         right="5"
+        zIndex="1000"
       >
         <Button
           w="12"
@@ -200,13 +201,12 @@ export default function Header(props) {
             right="5"
             w="12"
             h="12"
-            display="block"
             borderRadius="full"
             colorScheme="red"
             boxShadow="dark-lg"
             onClick={() => onClose()}
-            zIndex="2000"
-            leftIcon={<Icon color="white" h="5" w="6" ml="-1" as={CloseIcon} />}
+            zIndex="20000"
+            leftIcon={<Icon color="white" h="5" w="6" ml="2" as={CloseIcon} />}
           />
         </Drawer>
       </Box>

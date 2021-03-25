@@ -5,13 +5,14 @@ const formatDate = (date) => {
   return new Date(date).toLocaleDateString()
 }
 
-export default function Timespan({timespan}) {
-  if (!timespan) {
+export default function Timespan(props) {
+  if (!props && props.timespan) {
     return null
   }
+  const {timespan, ...rest} = props
 
   return (
-    <Box fontFamily="Montserrat">
+    <Box {...rest}>
       {timespan.map((time) => (
         <Box key={time._key}>
           {time.date && formatDate(time.date)}

@@ -75,6 +75,7 @@ export default function SubStory(props) {
                 />
                 <PortableTextBlock fontSize={["md", "xl"]} blocks={props.content} />
                 <Button 
+                  my="16"
                   colorScheme="teal"
                   variant="link"
                   onClick={onClose}

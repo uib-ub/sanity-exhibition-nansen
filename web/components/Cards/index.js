@@ -1,20 +1,27 @@
 import {Grid} from '@chakra-ui/react'
 import Card from './Card'
 
-export default function Cards({items}) {
-  if (!items) {
+export default function Cards(props) {
+  if (!props && props.items) {
     return null
   }
 
+  const {items} = props
+
   return (
     <Grid
-      w="full"
-      px="5"
+      maxW="full"
+      px="4"
+      boxSizing="border-box"
+      overflowX="hidden"
       gap={5}
-      templateColumns="repeat(auto-fill, minmax(160px,1fr))"
-      autoRows="md"
+      templateColumns={{
+        base: "repeat(auto-fill, 1fr)",
+        md: "repeat(auto-fill, minmax(220px, 1fr))", 
+        lg: "repeat(auto-fill, 1fr)", 
+        xl: "repeat(auto-fill, minmax(300px,1fr))"
+      }}
       autoFlow="dense"
-      /* templateColumns={{base:"repeat(1, 1fr)", md:"repeat(6, 1fr)", xl:"repeat(8, 1fr)"}} */
     >
       {items.map((item, index) => (
         <Card key={index} item={item} />  

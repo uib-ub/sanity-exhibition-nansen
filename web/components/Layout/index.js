@@ -17,14 +17,13 @@ export default function Layout({alert, preview, children, site}) {
         gridTemplateAreas={{base: '"header header header" "nav toggle main"', xl: '"header header header" "nav toggle main"'}}
         gridTemplateColumns={{base: "0px 0px 8fr", md: "auto auto 1fr", xl: "auto auto 1fr"}}
         autoRows="max-content"
-        overflowY="scroll"
+        overflowX="hidden"
         templateRows="auto 1fr"
       >
         <Meta />
         <Alert preview={(alert, preview)} />
 
         <Header 
-          isOpen={isOpen}
           gridArea={{base: "header", md: "nav"}}
           ml={{base: "0", md: isOpen ? "0" : "-400px"}}
           visibility={{base: "visible", md:isOpen ? "visible" : "hidden"}}
@@ -53,11 +52,12 @@ export default function Layout({alert, preview, children, site}) {
         </Flex>
         
         <Box
-          w="full"
           as="main" 
           gridArea="main" 
+          w="full"
           pb="10"
           overflowY="scroll"
+          /* overflowX="hidden" */
         >
           {children}
         </Box>
