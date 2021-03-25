@@ -67,21 +67,23 @@ export default function Header(props) {
         </Link>
       </Heading>
       
-      <Button
+      <Box
         position="fixed"
         bottom="5"
         right="5"
-        w="12"
-        h="12"
-        display={{base: 'block', md:'none'}}
-        borderRadius="full"
-        colorScheme="red"
-        boxShadow="dark-lg"
-        alignSelf="flex-start"
-        onClick={() => onOpen()}
-        leftIcon={<Icon color="white" h="12" w="8" ml="-2" as={HamburgerIcon} />}
-      />
-
+      >
+        <Button
+          w="12"
+          h="12"
+          display={{base: 'block', md:'none'}}
+          borderRadius="full"
+          colorScheme="red"
+          boxShadow="dark-lg"
+          alignSelf="flex-start"
+          onClick={() => onOpen()}
+          leftIcon={<Icon color="white" h="12" w="8" ml="-2" as={HamburgerIcon} />}
+        />
+      </Box>
       <Flex display={{ base: "none", md: "flex" }} direction="column">
         <List styleType="lower-roman" spacing="1" fontSize={["md", "md", "md", "lg"]}>
           {mainNavigation?.items && mainNavigation.items.map((item) => (
