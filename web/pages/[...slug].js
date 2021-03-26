@@ -22,6 +22,7 @@ export default function Page({data, preview}) {
 
 export async function getStaticProps({params, preview = false}) {
   const data = await getRoute(preview, params.slug)
+  console.log(data)
   return {
     props: {data, preview},
   }

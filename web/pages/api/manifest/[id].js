@@ -13,13 +13,18 @@ const fixIIIFUrl = i => {
   Construct a IIIF Presentation v3 manifest json
 */
 const constructManifest = async (object) => {
+  if(!object) {
+    throw new Error('No input')
+  }
+
   const iiified = {
     ...object,
-    images: object.image.images.map(i => ({
+    images: object.images.map(i => ({
       ...i,
       url: fixIIIFUrl(i.url)
     }))
   }
+
 
   const manifest = {
     "@context": "http://iiif.io/api/presentation/3/context.json",
@@ -137,26 +142,28 @@ export default async function handler(req, res) {
       `*[_id == $id] {
         _id,
         label,
-        image {
-          "images": [
-            asset-> {
-              url, 
-              "height": metadata.dimensions.height,
-              "width": metadata.dimensions.width
-            }
-          ]
-        }
+        "images": coalesce(
+          digitallyShownBy[].asset-> {
+            url, 
+            "height": metadata.dimensions.height,
+            "width": metadata.dimensions.width
+          }, 
+          image.asset-> {
+            url, 
+            "height": metadata.dimensions.height,
+            "width": metadata.dimensions.width
+          }
+        )
       }`,
       {id},
     )
     return results
   }
-
+  
   switch (method) {
     case 'GET':
       const results = getObject(id, preview)
       const object = await results
-
       const constructedManifest = constructManifest(object[0])
       const manifest = await constructedManifest
 

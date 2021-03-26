@@ -149,14 +149,22 @@ export const routeQuery = `
           _type == 'MiradorGallery' => @{
             ...,
             items[] {
-              "manifest": coalesce(manifestRef->.subjectOfManifest, manifestUrl),
+              "manifest": coalesce(
+                manifestRef->.subjectOfManifest, 
+                manifestUrl,
+                "/api/manifest/" + manifestRef->._id
+              ),
               canvasUrl,
             },
           },
           _type == 'SingleObject' => @{
             ...,
             item-> {
-              "manifest": coalesce(subjectOfManifest, manifestUrl),
+              "manifest": coalesce(
+                subjectOfManifest, 
+                manifestUrl,
+                "/api/manifest/" + _id
+              ),
               canvasUrl,
             }
           }
@@ -220,11 +228,10 @@ export const humanMadeObjectFields = `
     ...
   },
   homepage,
-  subjectOfManifest,
   image{
     ...,
     "palette": asset->.metadata.palette{
-    	darkMuted,
+      darkMuted,
       darkVibrant,
       dominant,
       lightMuted,
@@ -233,7 +240,11 @@ export const humanMadeObjectFields = `
       vibrant
     }
   },
-  "manifest": coalesce(subjectOfManifest, "/api/manifest/" + _id),
+  subjectOfManifest,
+  "manifest": coalesce(
+    subjectOfManifest, 
+    "/api/manifest/" + _id
+  ),
   preferredIdentifier,
   identifiedBy[] {
     ...,
