@@ -92,17 +92,25 @@ export default function Card(props) {
             />
           )}
 
-          <Text fontSize={['xs', 'sm', 'lg', 'lg']} color="gray.500" fontFamily="Montserrat" mb="1">
+          <Text 
+            fontSize={['xs', 'sm', 'md', 'lg']} 
+            color="gray.500" 
+            fontFamily="Montserrat" 
+            mb="1"
+          >
             {creation && creation[0].creators && creation[0].creators
-              .filter(c => c.name != 'Ukjent')
-              .map((c, index) => (
-                <span key={c._id}>{index === 0 ? '': ', '}{c.name}</span>
+              .filter(creator => creator.name != 'Ukjent')
+              .map((creator, index) => (
+                <span key={creator._id}>{index === 0 ? '': ', '}{creator.name}</span>
               )
             )}
           </Text>
 
           {creation && creation[0].timespan && (
-            <Box fontFamily="Montserrat"  fontSize={['sm', 'sm', 'lg', 'lg']}>
+            <Box 
+              fontFamily="Montserrat"
+              fontSize={['sm', 'sm', 'sm', 'lg']}
+            >
               <Timespan timespan={creation[0].timespan} />
             </Box>
           )}
@@ -110,19 +118,22 @@ export default function Card(props) {
 
         
         <Flex borderTop="dashed 1px"  borderColor="gray.200" px="4" pt="2">
-          <Box>
-            {hasType && (
-              <HStack spacing={4} mb="2">
-                {hasType.map((type) => (
-                  <Tag fontFamily="Montserrat" key={type._id} fontSize={['xs', 'xs', 'xs', 'xs']} colorScheme="blackAlpha">
-                    {type.label?.nor}
-                  </Tag>
-                ))}
-              </HStack>
-            )}
+          {hasType && (
+            <HStack spacing={4} mb="2">
+              {hasType.map((type) => (
+                <Tag 
+                  key={type._id} 
+                  fontFamily="Montserrat" 
+                  fontSize={['xs', 'xs', 'xs', 'xs']} 
+                  colorScheme="blackAlpha"
+                >
+                  {type.label?.nor}
+                </Tag>
+              ))}
+            </HStack>
+          )}
             
-            {/* <Text alignSelf="center" fontSize="sm">{aspectRatio}</Text> */}
-          </Box>
+          {/* <Text alignSelf="center" fontSize="sm">{aspectRatio}</Text> */}
 
           <Spacer />
           
