@@ -69,7 +69,12 @@ export default function Header(props) {
           </Link>
         </Heading>
         
-        <Flex display={{ base: "none", md: "flex" }} direction="column">
+        <Flex 
+          as="nav"
+          display={{ base: "none", md: "flex" }} 
+          direction="column"
+          flexWrap="nowrap" 
+        >
           <List styleType="lower-roman" spacing="1" fontSize={["md", "md", "md", "lg"]}>
             {mainNavigation?.items && mainNavigation.items.map((item) => (
               <ListItem key={item._key}>
@@ -79,10 +84,8 @@ export default function Header(props) {
               </ListItem>
             ))}
           </List>
-        </Flex>
 
-        <Flex flexWrap="nowrap" mt="5" display={{ base: "none", md: "flex" }} direction="column">
-          <List styleType="upper-latin" spacing="1" fontSize={["md", "md", "md", "lg"]}>
+          <List mt="5" styleType="upper-latin" spacing="1" fontSize={["md", "md", "md", "lg"]}>
           {footer.navMenu?.items && footer.navMenu.items.map((item) => (
               <ListItem key={item._key}>
                 <ActiveLink href={`/${item.route ?? ''}`} activeClassName="active">
