@@ -84,7 +84,7 @@ export default function Card(props) {
             </NextLink>
           </Heading>
 
-          {description && (
+          {description && description.length && (
             <PortableTextBlock 
               noOfLines="2" 
               color="gray.600" 
