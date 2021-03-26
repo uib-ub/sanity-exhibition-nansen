@@ -22,7 +22,8 @@ export default function Card(props) {
 
   const {_id, preferredIdentifier, label, description, image, homepage, hasType, aspectRatio, creation} = props.item
 
-  const span = (a) => {
+  const calculateSpans = (ratio) => {
+    /* Dafault */
     const spans = {
       rowSpan: [1,2,1,1,1],
       colSpan: [1,1,1,1,1],
@@ -30,27 +31,27 @@ export default function Card(props) {
     }
     
     /* Landscape */
-    if(a >= 1.4) {
-      spans.colSpan = [1,2,2,2] 
-      spans.rowSpan = [1,1,1,1]
+    if(ratio >= 1.4) {
+      spans.colSpan = [1,2,2,2,2] 
+      spans.rowSpan = [1,1,1,1,1]
       /* spans.aspectRatio = "1 / 2" */
     }
     /* Extreme Landscape */
-    if(a >= 1.9) {
-      spans.colSpan = [1,2,2,3] 
-      spans.rowSpan = [1,1,1,1]
+    if(ratio >= 1.9) {
+      spans.colSpan = [1,2,2,2,3] 
+      spans.rowSpan = [1,1,1,1,1]
       /* spans.aspectRatio = "1 / 2" */
     }
     /* Portrait */
-    if(a <= 0.6) {
-      spans.colSpan = [1,1,1,1]
-      spans.rowSpan = [1,1,2,2]
+    if(ratio <= 0.6) {
+      spans.colSpan = [1,1,1,1,1]
+      spans.rowSpan = [1,1,1,2,2]
       /* spans.aspectRatio = "2 / 1" */
     }
     return spans
   }
 
-  const a = span(aspectRatio)
+  const spanObj = calculateSpans(aspectRatio)
 
   return (
     <GridItem 
@@ -59,7 +60,7 @@ export default function Card(props) {
       borderRadius="md" 
       boxShadow="sm"
       bgColor="white"
-      {...a}
+      {...spanObj}
     >
       <LinkBox>
         {image && (
@@ -69,15 +70,29 @@ export default function Card(props) {
         )}
 
         <Box px="4" pt="2" pb="2">
-          <Heading mt="1" fontFamily="Montserrat" fontWeight="semibold" as="h4" color="gray.600" fontSize={['sm', 'sm', 'md', 'md']} lineHeight="tight" >
+          <Heading 
+            mt="1" 
+            fontFamily="Montserrat" 
+            fontWeight="semibold" 
+            as="h4" 
+            color="gray.600" 
+            fontSize={['xs', 'sm', 'md', 'md']} 
+            lineHeight="tight" >
             <NextLink href={`/id/${encodeURIComponent(_id)}`} passHref>
               <LinkOverlay>{label}</LinkOverlay>
             </NextLink>
           </Heading>
 
-          {description && (<PortableTextBlock noOfLines="2" color="gray.600" fontSize={['md', 'md', 'lg', 'lg']}  blocks={description[0].body} />)}
+          {description && (
+            <PortableTextBlock 
+              noOfLines="2" 
+              color="gray.600" 
+              fontSize={['sm', 'sm', 'lg', 'lg']} 
+              blocks={description[0].body} 
+            />
+          )}
 
-          <Text fontSize={['md', 'md', 'lg', 'lg']} color="gray.500" fontFamily="Montserrat" mb="1">
+          <Text fontSize={['xs', 'sm', 'lg', 'lg']} color="gray.500" fontFamily="Montserrat" mb="1">
             {creation && creation[0].creators && creation[0].creators
               .filter(c => c.name != 'Ukjent')
               .map((c, index) => (
