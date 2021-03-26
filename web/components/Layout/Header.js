@@ -28,7 +28,8 @@ export default function Header(props) {
 
   return (
     <>
-      <Flex 
+      <Flex
+        flexWrap="nowrap"
         overflowX="scroll"
         as="header"
         direction={{base: "row", md: "column"}}
@@ -80,7 +81,7 @@ export default function Header(props) {
           </List>
         </Flex>
 
-        <Flex mt="5" display={{ base: "none", md: "flex" }} direction="column">
+        <Flex flexWrap="nowrap" mt="5" display={{ base: "none", md: "flex" }} direction="column">
           <List styleType="upper-latin" spacing="1" fontSize={["md", "md", "md", "lg"]}>
           {footer.navMenu?.items && footer.navMenu.items.map((item) => (
               <ListItem key={item._key}>
@@ -135,7 +136,7 @@ export default function Header(props) {
               <DrawerBody>
                 <Center h="full" w="full">
                   <VStack align="stretch">
-                  <Flex direction="column">
+                  <Flex flexWrap="nowrap" direction="column">
                     <List styleType="lower-roman" spacing="1" fontSize={["lg", "xl"]}>
                       {mainNavigation?.items && mainNavigation.items.map((item) => (
                         <ListItem key={item._key}>
