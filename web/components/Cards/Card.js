@@ -54,7 +54,8 @@ export default function Card(props) {
   const spanObj = calculateSpans(aspectRatio)
 
   return (
-    <GridItem 
+    <GridItem
+      as="article"
       alignSelf="flex-start"
       borderWidth="1px" 
       borderRadius="md" 

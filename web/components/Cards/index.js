@@ -10,6 +10,7 @@ export default function Cards(props) {
 
   return (
     <Grid
+      as="section"
       maxW="full"
       px="4"
       boxSizing="border-box"
