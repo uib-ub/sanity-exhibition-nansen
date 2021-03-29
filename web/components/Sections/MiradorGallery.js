@@ -9,7 +9,7 @@ export default function MiradorGallery(props) {
     return null
   }
   
-  const {items} = props
+  const {items, h} = props
 
   return (
     <Container maxW={["3xl", "3xl", "3xl", "6xl"]}>
@@ -24,7 +24,7 @@ export default function MiradorGallery(props) {
 
         {items && (
           <Box gridArea="image">
-            <MiradorWithNoSSR windows={items} />
+            <MiradorWithNoSSR windows={items} h={h} />
           </Box>
         )}
        
@@ -34,7 +34,7 @@ export default function MiradorGallery(props) {
           </Heading>
 
           {props?.description && (
-            <PortableTextBlock fontSize={{base: "sm", sm: "sm", md: "md", xl: "md"}} fontWeight="200" blocks={props.description} />
+            <PortableTextBlock fontSize={{base: "sm", sm: "sm", md: "sm", xl: "md"}} fontWeight="200" blocks={props.description} />
           )}
         </Box>
       </Grid>

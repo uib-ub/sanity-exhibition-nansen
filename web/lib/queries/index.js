@@ -149,6 +149,12 @@ export const routeQuery = `
           _type == 'MiradorGallery' => @{
             ...,
             items[] {
+              _id,
+              label,
+              "owner": hasCurrentOwner[]->{
+                _id,
+                label
+              },
               "manifest": coalesce(
                 manifestRef->.subjectOfManifest, 
                 manifestUrl,
@@ -160,6 +166,12 @@ export const routeQuery = `
           _type == 'SingleObject' => @{
             ...,
             item-> {
+              _id,
+              label,
+              "owner": hasCurrentOwner[]-> {
+                _id,
+                label
+              },
               "manifest": coalesce(
                 subjectOfManifest, 
                 manifestUrl,
@@ -192,7 +204,8 @@ export const humanMadeObjectsQuery = `{
     },
     hasCurrentOwner[0]->{
       _id,
-      label
+      label,
+      image
     },
     "creation": activityStream[]{
       _type in ["Production", "BeginningOfExistence"] => @{

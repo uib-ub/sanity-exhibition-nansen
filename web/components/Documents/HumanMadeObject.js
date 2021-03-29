@@ -94,13 +94,13 @@ export default function HumanMadeObject(item) {
 
       {item.subjectOfManifest && (
         <Box gridArea="image">
-          <MiradorWithNoSSR palette="light" hideWindowTitle="true" windows={[{manifest: item.subjectOfManifest}]} />
+          <MiradorWithNoSSR palette="light" hideWindowTitle="true" h="70vh" windows={[{manifest: item.subjectOfManifest}]} />
         </Box>
       )}
 
       {item.manifest && !item.subjectOfManifest && (
         <Box gridArea="image">
-          <MiradorWithNoSSR palette="light" hideWindowTitle="true" windows={[{manifest: item.manifest}]} />
+          <MiradorWithNoSSR palette="light" hideWindowTitle="true" h="70vh" windows={[{manifest: item.manifest}]} />
         </Box>
       )}
       <Modal isOpen={isOpen} size="4xl" onClose={onClose} scrollBehavior="inside">

@@ -1,6 +1,7 @@
 import React from 'react'
 import dynamic from 'next/dynamic'
-import {Grid, Container, Box, Center, Heading, Text} from '@chakra-ui/react'
+import {Grid, Container, Box, Flex, Link, Heading, Spacer} from '@chakra-ui/react'
+import Source from './Source'
 import PortableTextBlock from '../PortableTextBlock'
 
 /* const MiradorWithNoSSR = dynamic(() => import('../Mirador'), {ssr: false}) */
@@ -10,7 +11,7 @@ export default function SingleObject(props) {
   if (!props && !props.item) {
     return null
   }
-  
+
   const {title, description, item} = props
 
   const ref = React.createRef();
@@ -26,13 +27,13 @@ export default function SingleObject(props) {
         gridTemplateColumns={{base: '100%', lg: '10fr 4fr'}}
       >
         {item.manifest && (
-          <Box gridArea="image">
+          <Box gridArea="image" bgColor="gray.100">
             {/* <MiradorWithNoSSR manifest={[props.item.manifest]} /> */}
             <CanvasPanelFullScreedWithNoSSR ref={ref} manifest={[item.manifest]} />
           </Box>
         )}
 
-        <Box fontFamily="Montserrat" gridArea="metadata" pr="10">
+        <Flex flexDirection="column" fontFamily="Montserrat" gridArea="metadata" pr="10">
           <Heading 
             fontFamily="Montserrat" 
             fontWeight="semibold" 
@@ -45,12 +46,15 @@ export default function SingleObject(props) {
 
           {description && (
             <PortableTextBlock 
-              fontSize={{base: "sm", sm: "sm", md: "md", xl: "md"}} 
+              fontSize={{base: "sm", sm: "sm", md: "sm", xl: "md"}} 
               fontWeight="200" 
               blocks={description} 
             />
           )}
-        </Box>
+          <Spacer />
+          <Source {...item} />
+          
+        </Flex>
       </Grid>
     </Container>
   )

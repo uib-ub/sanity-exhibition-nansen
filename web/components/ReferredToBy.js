@@ -21,7 +21,12 @@ export default function ReferredToBy(props) {
           {/* <Box>
             {ref.hasType[0].label.nor} - {ref.language.label.nor}
           </Box> */}
-          <PortableTextBlock fontFamily="Montserrat" fontWeight="light" blocks={ref.body} />
+          <PortableTextBlock 
+            blocks={ref.body} 
+            fontFamily="Montserrat" 
+            fontWeight="light" 
+            fontSize={{base: "md", sm: "lg", md: "lg", xl: "xl"}}
+          />
         </Box>
       ))}
       {props.description && (<PortableTextBlock description={props.description}/>)}

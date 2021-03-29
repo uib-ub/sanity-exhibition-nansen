@@ -8,7 +8,7 @@ export default function Mirador(props) {
   if (!props) {
     return null
   }
-  const {windows, palette, hideWindowTitle = "false"} = props
+  const {windows, palette, hideWindowTitle = "false", h = "50vh"} = props
 
   const {colorMode, toggleColorMode} = useColorMode()
   const mode = useColorModeValue('light', 'dark')
@@ -25,7 +25,7 @@ export default function Mirador(props) {
           allowFullscreen: true,
           allowClose: false,
           allowMaximize: false,
-          allowWindowSideBar: false,
+          allowWindowSideBar: true,
           allowTopMenuButton: false,
           hideWindowTitle: hideWindowTitle,
           views: [
@@ -133,7 +133,7 @@ export default function Mirador(props) {
   }, [])
 
   return (
-    <Box position="relative" h={640}>
+    <Box position="relative" h={h}>
       <Box h="100%" id={ID} />
     </Box>
   )

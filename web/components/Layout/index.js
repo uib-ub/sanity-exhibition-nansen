@@ -79,7 +79,7 @@ export default function Layout({alert, preview, children, site}) {
           w="full"
           pb="10"
           overflowY="scroll"
-          /* overflowX="hidden" */
+          overflowX="hidden"
         >
           {loading ? (
             <h1>Loading...</h1>

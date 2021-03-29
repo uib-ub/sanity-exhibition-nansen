@@ -11,7 +11,7 @@ export default function PortableTextBlock(props) {
   }
 
   const {
-    fontSize = {base: "lg", sm: "lg", md: "xl", xl: "2xl"}, 
+    fontSize = {base: "lg", sm: "xl", md: "xl", xl: "2xl"}, 
     lineHeight=["1.3", "1.4"], 
     fontWeight = "normal",
     fontFamily,

@@ -3,10 +3,10 @@ import PortableTextBlock from '../PortableTextBlock'
 
 export default function SectionText(props) {
   return (
-    <Container maxW="3xl" marginTop="10">
-      <Box color="gray.500" maxW="xl">
+    <Container maxW="3xl" my="10">
+      <Box maxW={["lg",null, null, null, "2xl"]}>
         <PortableTextBlock
-          fontSize="2xl"
+          fontSize={{base: "lg", sm: "2xl", md: "2xl", xl: "3xl"}}
           fontWeight="500"
           blocks={props.content}
           
