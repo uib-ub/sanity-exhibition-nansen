@@ -4,9 +4,10 @@ import {
   Heading, HStack, Icon, IconButton, Flex, Text, GridItem, Box, Tag, 
   Menu, MenuButton, MenuList, MenuItem,
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, 
-  Link, LinkBox, LinkOverlay, Spacer, useDisclosure
+  Link, LinkBox, LinkOverlay, Spacer, useDisclosure, Image, Tooltip
 } from '@chakra-ui/react'
 import CardImage from './CardImage'
+import {imageBuilder} from '../../lib/sanity'
 import {BiDotsVerticalRounded} from 'react-icons/bi'
 import {FiExternalLink} from 'react-icons/fi'
 import {VscJson} from 'react-icons/vsc'
@@ -20,7 +21,7 @@ export default function Card(props) {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const {_id, preferredIdentifier, label, description, image, homepage, hasType, aspectRatio, creation} = props.item
+  const {_id, preferredIdentifier, label, description, image, homepage, hasType, aspectRatio, creation, hasCurrentOwner} = props.item
 
   const calculateSpans = (ratio) => {
     /* Dafault */
@@ -120,7 +121,7 @@ export default function Card(props) {
         
         <Flex borderTop="dashed 1px"  borderColor="gray.200" px="4" pt="2">
           {hasType && (
-            <HStack spacing={4} mb="2">
+            <HStack spacing={4} mb="2" mr="2">
               {hasType.map((type) => (
                 <Tag 
                   key={type._id} 
@@ -137,6 +138,14 @@ export default function Card(props) {
           {/* <Text alignSelf="center" fontSize="sm">{aspectRatio}</Text> */}
 
           <Spacer />
+          
+          {hasCurrentOwner && (
+            <Image
+              display="inline-block"
+              boxSize="5"
+              src={imageBuilder.image(hasCurrentOwner.image).height(20).width(20).url()}
+            />
+          )}
           
           <Menu>
             <MenuButton 
