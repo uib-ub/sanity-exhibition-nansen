@@ -1,5 +1,5 @@
 import {FaUsers} from 'react-icons/fa'
-import {accessState, editorialState, referredToBy, labelSingleton, identifiedBy} from '../props'
+import {accessState, editorialState, referredToBy, labelSingleton, identifiedBy, image} from '../props'
 import {coalesceLabel} from '../helpers/helpers'
 
 export default {
@@ -42,6 +42,10 @@ export default {
       fieldset: 'minimum',
     },
     {
+      ...image,
+      fieldset: 'representation',
+    },
+    {
       ...referredToBy,
       fieldset: 'minimum',
     },
@@ -81,13 +85,15 @@ export default {
     select: {
       title: 'label',
       type: 'hasType.0.label',
+      media: 'image'
     },
     prepare(selection) {
-      const {title, type} = selection
+      const {title, type, media} = selection
 
       return {
         title: title,
         subtitle: coalesceLabel(type),
+        media: media
       }
     },
   },
