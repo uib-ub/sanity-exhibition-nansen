@@ -37,8 +37,9 @@ export default {
         {type: 'SubStory'},
         {type: 'SingleObject'},
         {type: 'MiradorGallery'},
+        {type: 'IllustrationWithCaption'},
         {type: 'TimelineSection'},
-        {type: 'Illustration'},
+        /* {type: 'Illustration'}, */
         {type: 'TwoColumn'},
         {type: 'Video'},
         {type: 'Social'},
