@@ -92,6 +92,20 @@ export default {
         layout: 'tags',
       },
     },
+    {
+      name: 'publisher',
+      title: 'Utgiver',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'Actor'},
+            {type: 'Group'}
+          ]
+        }
+      ]
+    }
     /* {
       type: 'color',
       name: 'primaryColor',
