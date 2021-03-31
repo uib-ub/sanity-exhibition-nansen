@@ -33,7 +33,7 @@ export default {
       name: 'title',
       title: 'Tittel',
       titleEN: 'Title',
-      type: 'text',
+      type: 'string',
     },
     {
       name: 'subtitle',
@@ -73,6 +73,15 @@ export default {
         {
           name: 'item',
           type: 'object',
+          fieldsets: [
+            {
+              title: 'Lenke',
+              titleEN: 'Link',
+              name: 'link',
+              description: 'Bare den første av disse tre verdiene vil bli brukt',
+              descriptionEN: 'Only the first value of these will be used',
+            },
+          ],
           fields: [
             {
               name: 'title',
@@ -81,6 +90,41 @@ export default {
             {
               name: 'content',
               type: 'blockContent',
+            },
+            {
+              name: 'illustration',
+              title: 'Illustrasjonsbilde',
+              titleEN: 'Illustration',
+              type: 'Illustration',
+            },
+            {
+              name: 'landingPageRoute',
+              title: 'Nettside',
+              titleEN: 'Landing page',
+              description: 'Referanse til en "route" i datasettet',
+              descriptionEN: 'Rerefence to a route in the dataset',
+              fieldset: 'link',
+              type: 'reference',
+              to: [{type: 'Route'}],
+            },
+            {
+              name: 'route',
+              title: 'Sti',
+              titleEN: 'Path',
+              description: 'Referense til en "path" i frontend, som ikke er i Studioet',
+              descriptionEN: 'Reference to a path in the frontend, not available in the Studio',
+              fieldset: 'link',
+              description: 'Example: search',
+              type: 'string',
+            },
+            {
+              name: 'link',
+              title: 'Ekstern lenke',
+              titleEN: 'External link',
+              description: 'Example: https://www.uib.no/ub',
+              descriptionEN: 'Example: https://www.sanity.io',
+              fieldset: 'link',
+              type: 'string',
             },
           ],
         },
@@ -95,7 +139,7 @@ export default {
       type: 'string',
     },
   ],
-  /* preview: {
+  preview: {
     select: {
       title: 'title'
     },
@@ -105,5 +149,5 @@ export default {
         subtitle: 'Grid'
       }
     }
-  } */
+  }
 }

@@ -41,6 +41,7 @@ export default {
         {type: 'TimelineSection'},
         /* {type: 'Illustration'}, */
         {type: 'TwoColumn'},
+        {type: 'Grid'},
         {type: 'Video'},
         {type: 'Social'},
         {type: 'InstagramPost'},
