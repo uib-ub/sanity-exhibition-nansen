@@ -1,10 +1,8 @@
 import React from 'react'
 import Link from 'next/link'
-import {Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Container, Center, Spacer, DrawerFooter} from '@chakra-ui/react'
+import {Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Center, Spacer, DrawerFooter, Tag, Avatar, TagLabel} from '@chakra-ui/react'
 import {CloseIcon, MoonIcon, SunIcon} from '@chakra-ui/icons'
 import ActiveLink from '../Link/ActiveLink'
-import {BsArrowUpLeft} from 'react-icons/bs'
-import Headroom from 'react-headroom'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import {imageBuilder} from '../../lib/sanity'
 
@@ -24,14 +22,14 @@ export default function Header(props) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   
   const {data, ...rest} = props
-  const {title, logo, mainNavigation, footer} = data
-
+  const {title, logo, mainNavigation, footer, publisher} = data
+  console.log(footer)
   return (
     <>
       <Flex
+        as="header"
         flexWrap="nowrap"
         overflowX="scroll"
-        as="header"
         direction={{base: "row", md: "column"}}
         align="start" 
         w="full"
@@ -41,21 +39,21 @@ export default function Header(props) {
         justify="flex-start"
         wrap="wrap"
         color={color}
-        bg="rgba(255,255,255,0.5)"
+        /* bg="rgba(255,255,255,0.5)" */
         borderBottom={{base: "1px solid", md: "none"}}
         borderColor="gray.200"
-        boxShadow={{base: "xl", md: "none"}}
+        boxShadow={{base: "md", md: "none"}}
         zIndex="2"
         justifyContent="center"
         {...rest}
       >
-
+        <Spacer />
         <Image
           src={imageBuilder.image(logo).height(200).flipHorizontal().url()} 
           alt="site logo" 
           mb={{base: "0", md: "10"}} 
           h={{base: "25px", md: "200"}} 
-          display={{base: "none", md: "inherit"}} 
+          display={{base: "none", md: "inherit"}}
         />
 
         <Heading 
@@ -88,14 +86,12 @@ export default function Header(props) {
           <List mt="5" styleType="upper-latin" spacing="1" fontSize={["md", "md", "md", "lg"]}>
           {footer.navMenu?.items && footer.navMenu.items.map((item) => (
               <ListItem key={item._key}>
-                <ActiveLink href={`/${item.route ?? ''}`} activeClassName="active">
+                <ActiveLink href={`/${item.route}`} activeClassName="active">
                   <a>{item.label}</a>
                 </ActiveLink>
               </ListItem>
             ))}
           </List>
-        </Flex>
-
         <Button 
           display={{base: 'none', md:'inherit'}}
           mt="5" 
@@ -106,7 +102,33 @@ export default function Header(props) {
           {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
         </Button>
 
-        
+        </Flex>
+
+        <Spacer />
+
+        <Text fontSize="xs">
+          {publisher && publisher.map(p =>
+            <Tag key={p._id} size="md" colorScheme="white">
+              <Avatar
+                name={p.label}
+                size="md"
+                ml={-1}
+                mr={2}
+                colorScheme="white"
+                bg="white"
+                src={imageBuilder
+                  .image(p.image)
+                  .height(300)
+                  .width(300)
+                  .url()}
+              />
+              {/* <TagLabel>
+                <Link href={`/id/${p._id}`}>{p.label}</Link>
+              </TagLabel> */}
+            </Tag>
+          )}
+        </Text>
+
       </Flex>
       <Box
         position="fixed"
@@ -155,7 +177,7 @@ export default function Header(props) {
                     <List styleType="upper-latin" spacing="1" fontSize={["lg", "xl"]}>
                     {footer.navMenu?.items && footer.navMenu.items.map((item) => (
                         <ListItem key={item._key}>
-                          <ActiveLink href={`/${item.route ?? ''}`} activeClassName="active">
+                          <ActiveLink href={`/${item.route}`} activeClassName="active">
                             <a onClick={onClose}>{item.label}</a>
                           </ActiveLink>
                         </ListItem>

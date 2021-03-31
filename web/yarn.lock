@@ -6629,6 +6629,11 @@ react-rnd@^10.1:
     react-draggable "4.4.3"
     tslib "2.0.3"
 
+react-roman@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-roman/-/react-roman-2.0.0.tgz#f8e3f32eb95bcaa5d26ff6fa972529d7ff31185b"
+  integrity sha512-ho7CmD3lOjJ32t3jlOY+WPNb9q27cHYU0grdI/Wn/k3ib9xA+8Z2B27gLoNgk7w8eBaFb15c/Jy0cmF7j+02oQ==
+
 react-sizeme@^2.6.7:
   version "2.6.12"
   resolved "https://registry.yarnpkg.com/react-sizeme/-/react-sizeme-2.6.12.tgz#ed207be5476f4a85bf364e92042520499455453e"

@@ -24,7 +24,7 @@ export default function MiradorGallery(props) {
 
         {items && (
           <Box gridArea="image">
-            <MiradorWithNoSSR windows={items} h={h} />
+            <MiradorWithNoSSR windows={items} h={h} workspaceControlPanel={true} />
           </Box>
         )}
        

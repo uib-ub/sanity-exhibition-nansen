@@ -85,7 +85,7 @@ export default function Card(props) {
             </NextLink>
           </Heading>
 
-          {description && description.length && (
+          {description && description.length > 0 && (
             <PortableTextBlock 
               noOfLines="2" 
               color="gray.600" 
@@ -94,24 +94,26 @@ export default function Card(props) {
             />
           )}
 
-          <Text 
-            fontSize={['xs', 'sm', 'md', 'lg']} 
-            color="gray.500" 
-            fontFamily="Montserrat" 
-            mb="1"
-          >
-            {creation && creation[0].creators && creation[0].creators
-              .filter(creator => creator.name != 'Ukjent')
-              .map((creator, index) => (
-                <span key={creator._id}>{index === 0 ? '': ', '}{creator.name}</span>
-              )
-            )}
-          </Text>
+          {creation && creation[0].creators && 
+            (<Text 
+              fontSize={['xs', 'sm', 'md', 'md']} 
+              color="gray.500" 
+              fontFamily="Montserrat" 
+              mb="1"
+            >
+              {creation[0].creators
+                .filter(creator => creator.name != 'Ukjent')
+                .map((creator, index) => (
+                  <span key={creator._id}>{index === 0 ? '': ', '}{creator.name}</span>
+                )
+              )}
+            </Text>
+          )}
 
           {creation && creation[0].timespan && (
             <Box 
               fontFamily="Montserrat"
-              fontSize={['sm', 'sm', 'sm', 'lg']}
+              fontSize={['sm', 'sm', 'sm', 'md']}
             >
               <Timespan timespan={creation[0].timespan} />
             </Box>

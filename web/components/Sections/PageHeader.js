@@ -4,14 +4,14 @@ import {useColorMode, useColorModeValue} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function PageHeader(props) {
-  if(props.disabled === true) {
+  if(!props || props.disabled === true) {
     return null
   }
 
   const {colorMode, toggleColorMode} = useColorMode()
 
-  const color = useColorModeValue(props.palette.darkVibrant.foreground, props.palette.darkMuted.foreground)
-  const bg = useColorModeValue(props.palette.darkVibrant.background, props.palette.darkMuted.background)
+  const color = useColorModeValue(props.palette?.darkVibrant?.foreground ?? 'white', props.palette?.darkMuted?.foreground ?? 'black')
+  const bg = useColorModeValue(props.palette?.darkVibrant?.background ?? 'black', props.palette?.darkMuted?.background ?? 'white')
   const opacity = useColorModeValue('0.7', '0.4')
   const height = '50vh'
 

@@ -90,6 +90,13 @@ export const frontpageQuery = `
           "manifest": coalesce(subjectOfManifest, manifestUrl),
             canvasUrl,
           }
+        },
+        _type == 'Grid' => @{
+          ...,
+          items[] {
+            ...,
+            "route": landingPageRoute->.slug.current
+          }
         }
       }
     },
@@ -349,7 +356,8 @@ export const humanMadeObjectFields = `
   },
   hasCurrentOwner[]-> {
     _id,
-    label
+    label,
+    image
   },
   subject[]-> {
     ...
@@ -389,7 +397,8 @@ export const groupFields = `
     },
     hasCurrentOwner[0]->{
       _id,
-      label
+      label,
+      image
     },
     "creation": activityStream[]{
       _type in ["Production", "BeginningOfExistence"] => @{
@@ -425,8 +434,15 @@ export const pageFields = `
     _type == 'SingleObject' => @{
       ...,
       item-> {
-      "manifest": coalesce(subjectOfManifest, manifestUrl),
+        "manifest": coalesce(subjectOfManifest, manifestUrl),
         canvasUrl,
+      }
+    }
+    _type == 'Grid' => @{
+      ...,
+      items[] {
+        ...,
+        "route": landingPageRoute->.slug.current
       }
     }
   }

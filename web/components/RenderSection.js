@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as SectionComponents from './Sections'
+import { Alert, AlertIcon, AlertDescription, AlertTitle, Code } from '@chakra-ui/react'
 
 function resolveSections(section) {
   const Section = SectionComponents[section._type]
@@ -28,7 +29,13 @@ function RenderSections(props) {
       {filteredSections.map((section) => {
         const SectionComponent = resolveSections(section)
         if (!SectionComponent) {
-          return <div>Missing section {section._type}</div>
+          return (
+            <Alert status="error">
+              <AlertIcon />
+              <AlertTitle mr={2}>Missing section!</AlertTitle>
+              <AlertDescription>Add new section called <Code>{section._type}</Code>.</AlertDescription>
+            </Alert>
+          )
         }
         return <SectionComponent {...section} key={section._key} />
       })}

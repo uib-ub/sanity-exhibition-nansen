@@ -1,6 +1,11 @@
 export const siteSettings = `
   "siteSettings": *[_id == "site-settings"][0] {
     ...,
+    publisher[]->{
+      _id,
+      label,
+      image
+    },
     mainNavigation->{
       items[]{
         ...,
@@ -9,7 +14,12 @@ export const siteSettings = `
     },
     footer->{
       ...,
-      navMenu->
+      navMenu->{
+        items[]{
+          ...,
+          "route": landingPageRoute->.slug.current
+        }
+      }
     }
   }
 `

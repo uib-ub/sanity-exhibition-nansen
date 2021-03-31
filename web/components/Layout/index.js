@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Grid, useDisclosure} from '@chakra-ui/react'
+import { Box, Button, Flex, Grid, Text, useDisclosure} from '@chakra-ui/react'
 import Alert from '../Alert'
 import Footer from './Footer'
 import Header from './Header'
@@ -14,11 +14,11 @@ export default function Layout({alert, preview, children, site}) {
 
   useEffect(() => {
     const start = () => {
-      console.log("start");
+      /* console.log("start"); */
       setLoading(true);
     };
     const end = () => {
-      console.log("findished");
+      /* console.log("findished"); */
       setLoading(false);
     };
     Router.events.on("routeChangeStart", start);
@@ -58,19 +58,36 @@ export default function Layout({alert, preview, children, site}) {
           gridArea="toggle"
           overflowY="hidden"
           zIndex="1"
+          direction="column"
+          justifyContent="center"
           sx={{boxShadow: "5px 0 10px -10px #444"}}
+          onClick={onToggle}
         >
+          <Text 
+            opacity={{base: "0", md:isOpen ? "0" : "1"}}
+            transition="opacity 0.5s 0.5s" 
+            sx={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}
+          >
+            Nansen
+          </Text>
           <Button
-            /* placeSelf="flex-end" */
             fontSize="3xl"
             variant="link"
             onClick={onToggle}
             outline="none"
+            my="5"
             _hover={{ textDecoration:"none" }}
             _focus={{ boxShadow:"none" }}
           >
             ⋮
           </Button>
+          <Text 
+            opacity={{base: "0", md:isOpen ? "0" : "1"}}
+            transition="opacity 0.5s 0.5s" 
+            sx={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}
+          >
+            Innholdsfortegnelse
+          </Text>
         </Flex>
         
         <Box
@@ -81,9 +98,9 @@ export default function Layout({alert, preview, children, site}) {
           overflowY="scroll"
           overflowX="hidden"
         >
-          {loading ? (
+          {/* {loading ? (
             <h1>Loading...</h1>
-          ) : null}
+          ) : null} */}
           {children}
         </Box>
 

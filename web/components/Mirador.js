@@ -8,7 +8,7 @@ export default function Mirador(props) {
   if (!props) {
     return null
   }
-  const {windows, palette, hideWindowTitle = "false", h = "50vh"} = props
+  const {windows, palette, hideWindowTitle = "false", h = "50vh", workspaceControlPanel = true} = props
 
   const {colorMode, toggleColorMode} = useColorMode()
   const mode = useColorModeValue('light', 'dark')
@@ -16,6 +16,7 @@ export default function Mirador(props) {
   const ID = `mirador-${nanoid()}`
 
   const arrayToWindows = (data) => {
+
     if (data.length === 1) {
       const res = [
         {
@@ -67,6 +68,9 @@ export default function Mirador(props) {
       windows: manifests,
       workspace: {
         showZoomControls: false,
+      },
+      workspaceControlPanel: {
+        enabled: workspaceControlPanel,
       },
       selectedTheme: palette ?? mode ,
       themes: {

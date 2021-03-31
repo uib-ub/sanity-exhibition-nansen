@@ -6,21 +6,21 @@ import { BigText, Hero, Iframe, InstagramPost, PageHeader,Quote, MiradorGallery,
 const BlockContent = require('@sanity/block-content-to-react')
 
 export default function PortableTextBlock(props) {
-  if (!props.blocks) {
+  if (!props.blocks || !Array.isArray(props.blocks) || !props.blocks.length) {
     return null
   }
 
   const {
+    blocks,
     fontSize = {base: "lg", sm: "xl", md: "xl", xl: "2xl"}, 
     lineHeight=["1.3", "1.4"], 
     fontWeight = "normal",
     fontFamily,
-    color,
-    noOfLines,
-    my
+    ...rest
   } = props
 
   const BlockRenderer = (props) => {
+    if(!props) {return null}
     const {style = 'normal'} = props.node
 
     if (/^h\d/.test(style)) {
@@ -33,7 +33,13 @@ export default function PortableTextBlock(props) {
     }
 
     return (
-      <Text fontSize={fontSize} color={color} noOfLines={noOfLines} fontWeight={fontWeight} fontFamily={fontFamily} lineHeight={lineHeight} my={my}>
+      <Text 
+        fontSize={fontSize} 
+        lineHeight={lineHeight} 
+        fontWeight={fontWeight} 
+        fontFamily={fontFamily} 
+        {...rest}
+      >
         {props.children}
       </Text>
     )
@@ -97,5 +103,5 @@ export default function PortableTextBlock(props) {
     },
   }
 
-  return <BlockContent blocks={props.blocks} serializers={serializers} />
+  return <BlockContent blocks={blocks} serializers={serializers} />
 }
