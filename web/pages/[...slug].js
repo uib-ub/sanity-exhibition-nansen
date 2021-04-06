@@ -1,22 +1,27 @@
 import {getRoute, getRoutes} from '../lib/api'
+import {Container, Text} from '@chakra-ui/react'
+import Date from '../components/Date'
 import Layout from '../components/Layout'
 import Sections from '../components/Sections/Sections'
 import PortableTextBlock from '../components/PortableTextBlock'
 
 export default function Page({data, preview}) {
-  const {content, body, title} = data.route.page
+  const {content, body, title, _updatedAt} = data.route.page
 
   return (
-    <>
-      <Layout preview={preview} site={data.siteSettings}>
+    <Layout preview={preview} site={data.siteSettings}>
 
-        {/* A Page  */}
-        {content && <Sections sections={content} />}
+      {/* A Page  */}
+      {content && <Sections sections={content} />}
 
-        {/* If LinguisticDocument the content is in the body field */}
-        {body && <PortableTextBlock blocks={body}/>}
-      </Layout>
-    </>
+      {/* If LinguisticDocument the content is in the body field */}
+      {body && <PortableTextBlock blocks={body}/>}
+
+      <Container maxW="3xl" borderTop="1px dashed" mt="16" pt="10" color="gray.500" fontSize="sm">
+        <Text>Oppdatert: <Date>{_updatedAt}</Date></Text>
+      </Container>
+      
+    </Layout>
   )
 }
 

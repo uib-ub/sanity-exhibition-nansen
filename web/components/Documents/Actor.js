@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import {Avatar, Badge, Box, Container, Flex, Heading} from '@chakra-ui/react'
+import {Image, Badge, Box, Container, Flex, Heading} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 import Cards from '../Cards'
 import {imageBuilder} from '../../lib/sanity'
@@ -12,8 +12,8 @@ export default function Actor(item) {
       centerContent
     >
       <Flex pb="10">
-        <Avatar
-          size="xl"
+        <Image
+          boxSize="100"
           name={item.label}
           src={imageBuilder.image(item.image).height('200').width('200').url()}
         />

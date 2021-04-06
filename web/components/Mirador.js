@@ -72,7 +72,7 @@ export default function Mirador(props) {
       workspaceControlPanel: {
         enabled: workspaceControlPanel,
       },
-      selectedTheme: palette ?? mode ,
+      selectedTheme: mode ,
       themes: {
         dark: {
           palette: {

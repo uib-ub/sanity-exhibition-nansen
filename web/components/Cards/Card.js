@@ -1,17 +1,17 @@
 import NextLink from 'next/link'
 import {
   Code,
-  Heading, HStack, Icon, IconButton, Flex, Text, GridItem, Box, Tag, 
+  Heading, HStack, Icon, IconButton, Image, Flex, Text, GridItem, Box, Tag, 
   Menu, MenuButton, MenuList, MenuItem,
   Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, 
-  Link, LinkBox, LinkOverlay, Spacer, useDisclosure, Image, Tooltip
+  Link, LinkBox, LinkOverlay, Spacer, useDisclosure, useColorMode, useColorModeValue
 } from '@chakra-ui/react'
-import CardImage from './CardImage'
 import {imageBuilder} from '../../lib/sanity'
 import {BiDotsVerticalRounded} from 'react-icons/bi'
 import {FiExternalLink} from 'react-icons/fi'
 import {VscJson} from 'react-icons/vsc'
 import PortableTextBlock from '../PortableTextBlock'
+import CardImage from './CardImage'
 import Timespan from '../Timespan'
 
 export default function Card(props) {
@@ -19,6 +19,11 @@ export default function Card(props) {
     return null
   }
 
+  const {colorMode, toggleColorMode} = useColorMode()
+  const bg = useColorModeValue('white', 'transparent')
+  const color = useColorModeValue('gray.600', 'gray.200')
+  const borderColor = useColorModeValue('gray.200', 'gray.700')
+  const tagColor = useColorModeValue('blackAlpha', 'red')
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const {_id, preferredIdentifier, label, description, image, homepage, hasType, aspectRatio, creation, hasCurrentOwner} = props.item
@@ -58,10 +63,11 @@ export default function Card(props) {
     <GridItem
       as="article"
       alignSelf="flex-start"
+      borderColor={borderColor}
       borderWidth="1px" 
-      borderRadius="md" 
+      borderRadius="md"
       boxShadow="sm"
-      bgColor="white"
+      bgColor={bg}
       {...spanObj}
     >
       <LinkBox>
@@ -77,7 +83,7 @@ export default function Card(props) {
             fontFamily="Montserrat" 
             fontWeight="semibold" 
             as="h4" 
-            color="gray.600" 
+            color={color}
             fontSize={['xs', 'sm', 'md', 'md']} 
             lineHeight="tight" >
             <NextLink href={`/id/${encodeURIComponent(_id)}`} passHref>
@@ -88,15 +94,15 @@ export default function Card(props) {
           {description && description.length > 0 && (
             <PortableTextBlock 
               noOfLines="2" 
-              color="gray.600" 
-              fontSize={['sm', 'sm', 'lg', 'lg']} 
+              color={color}
+              fontSize={['md', 'md', 'lg', 'lg']} 
               blocks={description[0].body} 
             />
           )}
 
           {creation && creation[0].creators && 
             (<Text 
-              fontSize={['xs', 'sm', 'md', 'md']} 
+              fontSize={['xs', 'sm', 'sm', 'sm']} 
               color="gray.500" 
               fontFamily="Montserrat" 
               mb="1"
@@ -113,7 +119,8 @@ export default function Card(props) {
           {creation && creation[0].timespan && (
             <Box 
               fontFamily="Montserrat"
-              fontSize={['sm', 'sm', 'sm', 'md']}
+              fontSize={['xs', 'sm', 'sm', 'sm']}
+              color="gray.500"
             >
               <Timespan timespan={creation[0].timespan} />
             </Box>
@@ -121,7 +128,7 @@ export default function Card(props) {
         </Box>
 
         
-        <Flex borderTop="dashed 1px"  borderColor="gray.200" px="4" pt="2">
+        <Flex borderTop="dashed 1px"  borderColor={borderColor} px="4" pt="2">
           {hasType && (
             <HStack spacing={4} mb="2" mr="2">
               {hasType.map((type) => (
@@ -129,7 +136,7 @@ export default function Card(props) {
                   key={type._id} 
                   fontFamily="Montserrat" 
                   fontSize={['xs', 'xs', 'xs', 'xs']} 
-                  colorScheme="blackAlpha"
+                  colorScheme={tagColor}
                 >
                   {type.label?.nor}
                 </Tag>

@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import {Box, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Center, Spacer, DrawerFooter, Tag, Avatar, TagLabel} from '@chakra-ui/react'
+import {Box, Button, Drawer, Container, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Center, Spacer, DrawerFooter, Tag, Avatar, TagLabel} from '@chakra-ui/react'
 import {CloseIcon, MoonIcon, SunIcon} from '@chakra-ui/icons'
 import ActiveLink from '../Link/ActiveLink'
 import { HamburgerIcon } from '@chakra-ui/icons'
@@ -19,11 +19,12 @@ export default function Header(props) {
   
   const {colorMode, toggleColorMode} = useColorMode()
   const color = useColorModeValue('black', 'white')
+  const inverse = useColorModeValue('invert(0%)', 'invert(100%)')
   const { isOpen, onOpen, onClose } = useDisclosure()
   
   const {data, ...rest} = props
   const {title, logo, mainNavigation, footer, publisher} = data
-  console.log(footer)
+
   return (
     <>
       <Flex
@@ -54,10 +55,11 @@ export default function Header(props) {
           mb={{base: "0", md: "10"}} 
           h={{base: "25px", md: "200"}} 
           display={{base: "none", md: "inherit"}}
+          filter={inverse}
         />
 
         <Heading 
-          fontSize={["lg", "xl", "2xl", "3xl"]} 
+          fontSize={["lg", "xl", "3xl", "3xl"]} 
           fontWeight={{base: "normal", md: "semibold"}} 
           fontFamily="EB Garamond"
           px={{base: "5", md: "0"}}
@@ -73,7 +75,7 @@ export default function Header(props) {
           direction="column"
           flexWrap="nowrap" 
         >
-          <List styleType="lower-roman" spacing="1" fontSize={["md", "md", "md", "lg"]}>
+          <List styleType="lower-roman" spacing="1" fontSize={["md", "md", "lg", "lg"]}>
             {mainNavigation?.items && mainNavigation.items.map((item) => (
               <ListItem key={item._key}>
                 <ActiveLink href={`/${item.route}`} activeClassName="active">
@@ -83,7 +85,7 @@ export default function Header(props) {
             ))}
           </List>
 
-          <List mt="5" styleType="upper-latin" spacing="1" fontSize={["md", "md", "md", "lg"]}>
+          <List mt="5" styleType="upper-latin" spacing="1" fontSize={["md", "md", "lg", "lg"]}>
           {footer.navMenu?.items && footer.navMenu.items.map((item) => (
               <ListItem key={item._key}>
                 <ActiveLink href={`/${item.route}`} activeClassName="active">
@@ -94,40 +96,35 @@ export default function Header(props) {
           </List>
         <Button 
           display={{base: 'none', md:'inherit'}}
-          mt="5" 
-          h="8" 
-          w="4" 
+          mt="2"
+          p="0" 
+          h="5" 
+          w="1" 
           onClick={toggleColorMode}
         >
-          {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+          {colorMode === 'light' ? <MoonIcon w={3} h={3} /> : <SunIcon w={3} h={3} />}
         </Button>
 
         </Flex>
 
         <Spacer />
 
-        <Text fontSize="xs">
+        <Box ml="-5" display={{base: "none", md: "inherit"}}>
           {publisher && publisher.map(p =>
-            <Tag key={p._id} size="md" colorScheme="white">
-              <Avatar
-                name={p.label}
-                size="md"
-                ml={-1}
-                mr={2}
-                colorScheme="white"
-                bg="white"
+            <Container key={p._id} fontSize="xs" p="0" centerContent>
+              <Image
+                boxSize="50px"
+                filter={inverse}
                 src={imageBuilder
                   .image(p.image)
-                  .height(300)
-                  .width(300)
+                  .height(50)
+                  .width(50)
                   .url()}
               />
-              {/* <TagLabel>
                 <Link href={`/id/${p._id}`}>{p.label}</Link>
-              </TagLabel> */}
-            </Tag>
+            </Container>
           )}
-        </Text>
+        </Box>
 
       </Flex>
       <Box

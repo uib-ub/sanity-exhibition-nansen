@@ -195,7 +195,7 @@ export const routeQuery = `
 `
 
 export const humanMadeObjectsQuery = `{
-  "items": *[_type == "HumanMadeObject"] | order(preferredIdentifier){ 
+  "items": *[_type == "HumanMadeObject"] | order(label){ 
     _id,
     _type,
     label,

@@ -20,7 +20,9 @@ export default function SingleObject(props) {
     <Container maxW={["3xl", "3xl", "3xl", "6xl"]}>
       <Grid
         maxW={["xl", "xl", "xl", "6xl"]}
-        my={10}
+        my={{base: 5, md: 8, xl: 16}}
+        borderBottom={{base: "solid 1px", md: "none"}}
+        borderColor="gray.300"
         gridGap={5}
         alignContent="start"
         gridTemplateAreas={{base: '"image" "metadata"', lg: '"image metadata"'}}
@@ -33,7 +35,12 @@ export default function SingleObject(props) {
           </Box>
         )}
 
-        <Flex flexDirection="column" fontFamily="Montserrat" gridArea="metadata" pr="10">
+        <Flex 
+          flexDirection="column" 
+          fontFamily="Montserrat" 
+          gridArea="metadata" 
+          pr={{base: 0, md: 10}}
+        >
           <Heading 
             fontFamily="Montserrat" 
             fontWeight="semibold" 
@@ -47,7 +54,7 @@ export default function SingleObject(props) {
           {description && (
             <PortableTextBlock 
               fontSize={{base: "sm", sm: "sm", md: "sm", xl: "md"}} 
-              fontWeight="200" 
+              fontWeight="200"
               blocks={description} 
             />
           )}
