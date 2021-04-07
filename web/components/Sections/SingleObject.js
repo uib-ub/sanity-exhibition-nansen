@@ -4,8 +4,8 @@ import {Grid, Container, Box, Flex, Link, Heading, Spacer} from '@chakra-ui/reac
 import Source from './Source'
 import PortableTextBlock from '../PortableTextBlock'
 
-/* const MiradorWithNoSSR = dynamic(() => import('../Mirador'), {ssr: false}) */
-const CanvasPanelFullScreedWithNoSSR = dynamic(() => import('../CanvasPanelFullScreen'), {ssr: false})
+const MiradorWithNoSSR = dynamic(() => import('../Mirador'), {ssr: false})
+/* const CanvasPanelFullScreedWithNoSSR = dynamic(() => import('../CanvasPanelFullScreen'), {ssr: false}) */
 
 export default function SingleObject(props) {
   if (!props && !props.item) {
@@ -30,8 +30,9 @@ export default function SingleObject(props) {
       >
         {item.manifest && (
           <Box gridArea="image" bgColor="gray.100">
-            {/* <MiradorWithNoSSR manifest={[props.item.manifest]} /> */}
-            <CanvasPanelFullScreedWithNoSSR ref={ref} manifest={[item.manifest]} />
+            
+            <MiradorWithNoSSR palette="light" hideWindowTitle="true" h="70vh" windows={[{manifest: props.item.manifest}]} />
+            {/* <CanvasPanelFullScreedWithNoSSR ref={ref} manifest={[item.manifest]} /> */}
           </Box>
         )}
 

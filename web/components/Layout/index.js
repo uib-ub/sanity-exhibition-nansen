@@ -63,11 +63,12 @@ export default function Layout({alert, preview, children, site}) {
           sx={{boxShadow: "5px 0 10px -10px #444"}}
           onClick={onToggle}
         >
-          <Text 
+          <Text
+            m="0"
             opacity={{base: "0", md:isOpen ? "0" : "1"}}
             transition="opacity 0.5s 0.5s" 
             sx={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}
-          >
+            >
             Nansen
           </Text>
           <Button
@@ -78,10 +79,11 @@ export default function Layout({alert, preview, children, site}) {
             my="5"
             _hover={{ textDecoration:"none" }}
             _focus={{ boxShadow:"none" }}
-          >
+            >
             ⋮
           </Button>
           <Text 
+            m="0"
             opacity={{base: "0", md:isOpen ? "0" : "1"}}
             transition="opacity 0.5s 0.5s" 
             sx={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}

@@ -1,10 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import {Box, Button, Drawer, Container, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Center, Spacer, DrawerFooter, Tag, Avatar, TagLabel} from '@chakra-ui/react'
+import {Box, Button, Drawer, Container, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Center, Spacer, DrawerFooter, Tag, Avatar, TagLabel, HStack} from '@chakra-ui/react'
 import {CloseIcon, MoonIcon, SunIcon} from '@chakra-ui/icons'
 import ActiveLink from '../Link/ActiveLink'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import {imageBuilder} from '../../lib/sanity'
+import License from '../License'
 
 const MenuItem = ({children}) => (
   <Text mt={{base: 4, md: 0}} mr={6} mb="0" display="block">
@@ -23,7 +24,7 @@ export default function Header(props) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   
   const {data, ...rest} = props
-  const {title, logo, mainNavigation, footer, publisher} = data
+  const {title, logo, mainNavigation, footer, publisher, license} = data
 
   return (
     <>
@@ -125,8 +126,12 @@ export default function Header(props) {
             </Container>
           )}
         </Box>
+        <HStack ml="-5" display={{base: "none", md: "inherit"}}>
+          <License license={license} />
+        </HStack>
 
       </Flex>
+
       <Box
         position="fixed"
         bottom="5"
