@@ -1,5 +1,6 @@
 import bcp47 from 'bcp47'
 import {FaCog} from 'react-icons/fa'
+import { license } from '../props'
 
 export default {
   name: 'SiteSettings',
@@ -105,7 +106,8 @@ export default {
           ]
         }
       ]
-    }
+    },
+    license
     /* {
       type: 'color',
       name: 'primaryColor',
