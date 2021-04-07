@@ -1,22 +1,24 @@
 import React, {useEffect} from 'react'
 import mirador from 'mirador'
-import miradorImageToolsPlugin from 'mirador-image-tools/es/plugins/miradorImageToolsPlugin'
-import {Box, useColorMode, useColorModeValue} from '@chakra-ui/react'
+import {Box, useColorModeValue} from '@chakra-ui/react'
 import {nanoid} from 'nanoid'
+import NavgationButtonsPlugin from './plugins/NavgationButtonsPlugin'
+import RemoveNavPlugin from './plugins/RemoveNavPlugin'
+import ThumbnailCustomizationPlugin from './plugins/ThumbnailCustomizationPlugin'
+import ZoomButtonsPlugin from './plugins/ZoomButtonsPlugin'
+import RemoveViewerInfoPlugin from './plugins/RemoveViewerInfoPlugin'
 
 export default function Mirador(props) {
   if (!props) {
     return null
   }
-  const {windows, palette, hideWindowTitle = "false", h = "50vh", workspaceControlPanel = true} = props
+  const {windows, palette, hideWindowTitle = 'false', h = '50vh', workspaceControlPanel = false} = props
 
-  const {colorMode, toggleColorMode} = useColorMode()
   const mode = useColorModeValue('light', 'dark')
 
   const ID = `mirador-${nanoid()}`
 
   const arrayToWindows = (data) => {
-
     if (data.length === 1) {
       const res = [
         {
@@ -39,8 +41,10 @@ export default function Mirador(props) {
     if (data.length > 1) {
       const windows = data.map((window) => ({
         allowFullscreen: true,
-        imageToolsEnabled: true,
         manifestId: window.manifest,
+        views: [
+          { key: 'book', behaviors: ['paged'] }
+        ]
       }))
       return windows
     }
@@ -50,7 +54,13 @@ export default function Mirador(props) {
   useEffect(() => {
     const manifests = arrayToWindows(windows)
 
-    const plugins = []
+    const plugins = [
+      RemoveNavPlugin, 
+      ThumbnailCustomizationPlugin, 
+      NavgationButtonsPlugin,
+      ZoomButtonsPlugin,
+      /* RemoveViewerInfoPlugin */
+    ]
 
     let config = {
       id: ID,
@@ -72,7 +82,7 @@ export default function Mirador(props) {
       workspaceControlPanel: {
         enabled: workspaceControlPanel,
       },
-      selectedTheme: mode ,
+      selectedTheme: mode,
       themes: {
         dark: {
           palette: {
@@ -89,6 +99,18 @@ export default function Mirador(props) {
               light: '#616161',
             },
           },
+          overrides: {
+            MuiToolbar: {
+              root: {
+                display: 'none',
+              },
+            },
+            MuiTypography: {
+              root: {
+                display: 'none',
+              },
+            },
+          },
         },
         light: {
           palette: {
@@ -99,6 +121,18 @@ export default function Mirador(props) {
             secondary: {
               main: '#789a5b',
             }
+          },
+          overrides: {
+            MuiToolbar: {
+              root: {
+                display: 'none',
+              },
+            },
+            MuiTypography: {
+              root: {
+                display: 'none',
+              },
+            },
           },
         },
       },

@@ -1,7 +1,9 @@
 import {sanityClient, previewClient} from '../../../lib/sanity.server'
 const getClient = (preview) => (preview ? previewClient : sanityClient)
 
-
+/* 
+  Construct IIIF Image uri
+*/
 const fixIIIFUrl = i => {
   const url = new URL(i)
   const p = url.pathname.split('/')
@@ -24,7 +26,6 @@ const constructManifest = async (object) => {
       url: fixIIIFUrl(i.url)
     }))
   }
-
 
   const manifest = {
     "@context": "http://iiif.io/api/presentation/3/context.json",
