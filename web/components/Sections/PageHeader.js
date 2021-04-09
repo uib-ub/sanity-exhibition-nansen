@@ -17,8 +17,12 @@ export default function PageHeader(props) {
   return (
     <Container maxW="3xl" mt="5">
       <Heading 
-        fontSize={["2xl", "4xl", "5xl", "6xl" ]}
-        w="100%" 
+        py="5"
+        mb="5"
+        borderBottom="solid 1px"
+        color="gray.700"
+        borderColor="gray.300"
+        fontSize={["2xl", "3xl", "4xl", "5xl"]}
         textTransform="uppercase"
       >
         {props.title}
