@@ -1,6 +1,6 @@
 import {imageBuilder} from '../../lib/sanity'
 import {Center, Container, Grid, Box, Heading, Image, Text} from '@chakra-ui/react'
-import {useColorMode, useColorModeValue} from '@chakra-ui/react'
+import {useColorModeValue} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function PageHeader(props) {
@@ -8,21 +8,30 @@ export default function PageHeader(props) {
     return null
   }
 
-  const {colorMode, toggleColorMode} = useColorMode()
-
   const color = useColorModeValue(props.palette?.darkVibrant?.foreground ?? 'white', props.palette?.darkMuted?.foreground ?? 'black')
   const bg = useColorModeValue(props.palette?.darkVibrant?.background ?? 'black', props.palette?.darkMuted?.background ?? 'white')
-  const opacity = useColorModeValue('0.7', '0.4')
   const height = '50vh'
 
-  if (!props) {
-    return null
-  }
-  
   const image = props.illustration?.image
 
   return (
-    <Grid
+    <Container maxW="3xl" mt="5">
+      <Heading 
+        fontSize={["2xl", "4xl", "5xl", "6xl" ]}
+        w="100%" 
+        textTransform="uppercase"
+      >
+        {props.title}
+      </Heading>
+      
+      {props?.subtitle && (
+        <PortableTextBlock blocks={props.subtitle} />
+      )}
+    </Container>
+  )
+}
+
+    {/* <Grid
       mb="10"
       maxW="6xl"
       gridTemplateAreas='"hero"' 
@@ -62,6 +71,4 @@ export default function PageHeader(props) {
           alt={''}
         />
       )}
-    </Grid>
-  )
-}
+    </Grid> */}
