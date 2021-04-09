@@ -1,11 +1,9 @@
-import React from 'react'
 import dynamic from 'next/dynamic'
 import {Grid, Container, Box, Flex, Link, Heading, Spacer} from '@chakra-ui/react'
 import Source from './Source'
 import PortableTextBlock from '../PortableTextBlock'
 
 const MiradorWithNoSSR = dynamic(() => import('../Mirador'), {ssr: false})
-/* const CanvasPanelFullScreedWithNoSSR = dynamic(() => import('../CanvasPanelFullScreen'), {ssr: false}) */
 
 export default function SingleObject(props) {
   if (!props && !props.item) {
@@ -13,8 +11,6 @@ export default function SingleObject(props) {
   }
 
   const {title, description, item} = props
-
-  const ref = React.createRef();
 
   return (
     <Container maxW={["3xl", "3xl", "3xl", "6xl"]}>
@@ -25,16 +21,16 @@ export default function SingleObject(props) {
         borderColor="gray.300"
         gridGap={5}
         alignContent="start"
-        gridTemplateAreas={{base: '"image" "metadata"', lg: '"image metadata"'}}
-        gridTemplateColumns={{base: '100%', lg: '10fr 4fr'}}
+        gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
+        gridTemplateColumns={{base: '3xl', xl: '10fr 4fr'}}
       >
-        {item.manifest && (
-          <Box gridArea="image" bgColor="gray.100">
-            
-            <MiradorWithNoSSR palette="light" hideWindowTitle="true" h="70vh" windows={[{manifest: props.item.manifest}]} />
-            {/* <CanvasPanelFullScreedWithNoSSR ref={ref} manifest={[item.manifest]} /> */}
-          </Box>
-        )}
+   
+        <MiradorWithNoSSR
+          gridArea="image"
+          variant="basic"
+          h="50vh" 
+          manifests={[{manifest: props.item.manifest}]} 
+        />
 
         <Flex 
           flexDirection="column" 

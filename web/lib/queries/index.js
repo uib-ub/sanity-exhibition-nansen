@@ -158,7 +158,8 @@ export const routeQuery = `
             items[] {
               _id,
               label,
-              "owner": hasCurrentOwner[]->{
+              view,
+              "owner": manifestRef->.hasCurrentOwner[]->{
                 _id,
                 label
               },
@@ -172,6 +173,7 @@ export const routeQuery = `
           },
           _type == 'SingleObject' => @{
             ...,
+            view,
             item-> {
               _id,
               label,

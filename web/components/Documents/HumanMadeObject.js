@@ -38,15 +38,12 @@ export default function HumanMadeObject(item) {
     <Grid
       w="100%"
       p={5}
-      gridGap={{xl: 5, base: 0}}
+      gridGap={{base: 0}}
       alignContent="start"
-      gridTemplateAreas={{xl: `"image" "metadata"`, base: `"image" "metadata"`}}
-      gridTemplateColumns={{xl: '1fr', base: '1fr'}}
+      gridTemplateAreas={{base: `"image" "metadata"`}}
+      gridTemplateColumns={{base: '1fr'}}
     >
       <Container maxW="full" gridArea="metadata" p="0">
-        
-        {item.image?.palette && <Palette colors={item.image.palette} />}
-
         <Heading fontFamily="EB Garamond" fontWeight="thin" mt={5} mb={5}>
           {item.label}
 
@@ -65,7 +62,9 @@ export default function HumanMadeObject(item) {
           </Box>
         )}
 
-        <Grid borderTop="solid 1px" borderColor="gray.200" pt="4" templateColumns={["2fr", "2fr", "160px auto"]}>
+        {item.image?.palette && <Palette colors={item.image.palette} />}
+
+        <Grid pt="4" templateColumns={["2fr", "2fr", "160px auto"]}>
           {item.hasType && 
             <HasType types={item.hasType} />
           }
@@ -94,7 +93,10 @@ export default function HumanMadeObject(item) {
 
       {item.subjectOfManifest && (
         <Box gridArea="image">
-          <MiradorWithNoSSR palette="light" hideWindowTitle="true" h="70vh" windows={[{manifest: item.subjectOfManifest}]} />
+          <MiradorWithNoSSR 
+            h="70vh" 
+            manifests={[{manifest: item.subjectOfManifest}]} 
+          />
         </Box>
       )}
 

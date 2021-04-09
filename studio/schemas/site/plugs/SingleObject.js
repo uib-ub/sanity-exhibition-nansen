@@ -4,6 +4,20 @@ export default {
   title: 'Single object',
   fields: [
     {
+      name: 'view',
+      title: 'Visningsvalg',
+      titleEN: 'View choice',
+      description: 'Velg enkeltside-visning eller galleri med alle objektets bilder. Bokvisning er standard.',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Book', value: 'book'},
+          {title: 'Single', value: 'single'},
+          {title: 'Gallery', value: 'gallery'},
+        ],
+      },
+    },
+    {
       name: 'item',
       title: 'Objekt',
       titleEN: 'Item',

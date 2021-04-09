@@ -16,7 +16,24 @@ export default {
       options: {collapsible: true, collapsed: true},
     },
   ],
+  /* initialValue: {
+    view: 'book'
+  }, */
   fields: [
+    {
+      name: 'view',
+      title: 'Visningsvalg',
+      titleEN: 'View choice',
+      description: 'Velg enkeltside-visning eller galleri med alle objektets bilder. Bokvisning er standard.',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Book', value: 'book'},
+          {title: 'Single', value: 'single'},
+          {title: 'Gallery', value: 'gallery'},
+        ],
+      },
+    },
     {
       name: 'manifestRef',
       title: 'Manifest',

@@ -5,7 +5,7 @@ import PortableTextBlock from '../PortableTextBlock'
 const MiradorWithNoSSR = dynamic(() => import('../Mirador'), {ssr: false})
 
 export default function MiradorGallery(props) {
-  if (!props) {
+  if (!props && !props.items) {
     return null
   }
   
@@ -18,15 +18,16 @@ export default function MiradorGallery(props) {
         my={{base: 5, md: 8, xl: 16}}
         gridGap={5}
         alignContent="start"
-        gridTemplateAreas={{base: '"image" "metadata"', lg: '"image metadata"'}}
-        gridTemplateColumns={{base: '100%', lg: '10fr 4fr'}}
+        gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
+        gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
       >
 
-        {items && (
-          <Box gridArea="image">
-            <MiradorWithNoSSR windows={items} h={h} workspaceControlPanel={true} />
-          </Box>
-        )}
+        <MiradorWithNoSSR
+          gridArea="image"
+          variant="standard"
+          manifests={items} 
+          h={h} 
+        />
        
         <Box fontFamily="Montserrat" gridArea="metadata" pr="10">
           <Heading fontFamily="Montserrat" fontWeight="semibold" color="red.600" fontSize={{base: "sm", sm: "sm", md: "md", xl: "xl"}} mb={1}>

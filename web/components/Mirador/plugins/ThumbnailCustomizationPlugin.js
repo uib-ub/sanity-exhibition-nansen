@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+/* import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   insideLabel: {
     background: 'none',
   },
-});
+}); */
 
 class ThumbnailPlugin extends Component {
   render() {
@@ -21,7 +21,7 @@ class ThumbnailPlugin extends Component {
 }
 
 export default {
-  component: withStyles(styles)(ThumbnailPlugin),
+  component: ThumbnailPlugin,
   target: 'IIIFThumbnail',
   mode: 'wrap',
 };
