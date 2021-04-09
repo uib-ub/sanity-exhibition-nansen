@@ -5236,10 +5236,10 @@ mirador-image-tools@^0.10.0:
   resolved "https://registry.yarnpkg.com/mirador-image-tools/-/mirador-image-tools-0.10.0.tgz#d3d25e1b7ef7349847da5b7fda640a10c1cd4d30"
   integrity sha512-jvMJYwgWTGmiGt8ZdmwdVlC3+TqtsvrWberAqqZvGQxdSzSCSkW7CmjnyYBW4x43B09ZVihwwZmzdt/7sddn7g==
 
-mirador@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/mirador/-/mirador-3.0.0.tgz#27f6f24f0438b99499ff59484848678f30c5bb69"
-  integrity sha512-RSXaJ5tSkpaTB7Gej58O5CRwyCss+Ha1hpKYErLexHcR3uro6jDev7NuUQhAWU2IvLOsebmUeg+2gDH+FgVxOg==
+mirador@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/mirador/-/mirador-3.1.1.tgz#53d2c3a4c6f2686ffc0214c5f3d626d673db1d28"
+  integrity sha512-CHNzlfiS7Zag+JpXLjRmfq1nAu5+EGZFxRS4I2HP1i7BQ1W6B5zzw/wLVGuZYconCjuR1PwRK3LsSllnuvOh1Q==
   dependencies:
     "@material-ui/core" "^4.11.0"
     "@material-ui/icons" "^4.9.1"
