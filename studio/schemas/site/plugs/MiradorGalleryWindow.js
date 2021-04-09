@@ -56,12 +56,12 @@ export default {
       type: 'url',
       fieldset: 'external',
     },
-    {
+    /* {
       name: 'canvasNumber',
       title: 'Canvas nummer',
       titleEN: 'Canvas number',
       type: 'number',
-    },
+    }, */
   ],
   preview: {
     select: {

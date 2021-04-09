@@ -10,7 +10,7 @@ export default function SingleObject(props) {
     return null
   }
 
-  const {title, description, item} = props
+  const {title, description, item, canvasUrl} = props
 
   return (
     <Container maxW={["3xl", "3xl", "3xl", "6xl"]}>
@@ -29,7 +29,10 @@ export default function SingleObject(props) {
           gridArea="image"
           variant="basic"
           h="50vh" 
-          manifests={[{manifest: props.item.manifest}]} 
+          manifests={[{
+            manifest: item.manifest,
+            ...(canvasUrl && {canvasUrl: canvasUrl})
+          }]} 
         />
 
         <Flex 

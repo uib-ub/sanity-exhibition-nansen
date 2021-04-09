@@ -64,6 +64,7 @@ const getVariant = (variant) => {
   }
   
 const mergeManifestAndVariant = (arr, settings) => {
+  console.log(arr)
   let windows = []
   if (arr.length === 1) {
     windows = [{
@@ -77,6 +78,7 @@ const mergeManifestAndVariant = (arr, settings) => {
   if (arr.length > 1) {
     windows = arr.map(arr => ({
       manifestId: arr.manifest,
+      ...(arr.canvasUrl && {canvasId: arr.canvasUrl}),
       ...settings,
       view: arr.view,
       maximized: false,
@@ -90,6 +92,7 @@ export default function Mirador(props) {
 
   const mode = useColorModeValue('light', 'dark')
   const ID = `mirador-${nanoid()}`
+
   const {
     variant, 
     manifests, 
@@ -100,7 +103,6 @@ export default function Mirador(props) {
   
   const {variantSettings, plugins} = getVariant(variant)
   const windows = mergeManifestAndVariant(manifests, variantSettings)
-  console.log(windows)
   
   let config = {
     id: ID,

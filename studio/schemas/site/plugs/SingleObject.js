@@ -36,6 +36,12 @@ export default {
       titleEN: 'Description',
       type: 'simpleBlockContent',
     },
+    {
+      name: 'canvasUrl',
+      title: 'Canvas URL',
+      titleEN: 'Canvas URL',
+      type: 'url',
+    },
   ],
   preview: {
     select: {
