@@ -15,7 +15,7 @@ export default function MiradorGallery(props) {
     <Container maxW={["3xl", "3xl", "3xl", "6xl"]}>
       <Grid
         maxW={["xl", "xl", "xl", "6xl"]}
-        my={{base: 5, md: 8, xl: 16}}
+        my={{base: "6", md: "16", xl: "28"}}
         gridGap={5}
         alignContent="start"
         gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
