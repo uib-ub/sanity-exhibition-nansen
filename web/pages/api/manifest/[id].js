@@ -168,7 +168,7 @@ export default async function handler(req, res) {
       const constructedManifest = constructManifest(object[0])
       const manifest = await constructedManifest
 
-      console.log('Manfest served: ' + object[0]._id)
+      /* console.log('Manfest served: ' + object[0]._id) */
       res.status(200).json(manifest)
       break
     default:

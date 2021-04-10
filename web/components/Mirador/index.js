@@ -64,7 +64,6 @@ const getVariant = (variant) => {
   }
   
 const mergeManifestAndVariant = (arr, settings) => {
-  console.log(arr)
   let windows = []
   if (arr.length === 1) {
     windows = [{

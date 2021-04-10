@@ -8,7 +8,6 @@ import { sanityConfig } from './config'
 
 export function overlayDrafts(docs) {
   const documents = docs || []
-  console.log(documents)
   const overlayed = documents.reduce((map, doc) => {
     if (!doc._id) {
       throw new Error('Ensure that `_id` is included in query projection')
