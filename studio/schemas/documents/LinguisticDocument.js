@@ -18,7 +18,7 @@ export default {
     accessState,
     labelSingleton,
     identifiedBy,
-    {
+    /* {
       name: 'slug',
       title: 'Slug',
       titleEN: 'Slug',
@@ -28,7 +28,7 @@ export default {
         source: 'label',
         maxLength: 96,
       },
-    },
+    }, */
     {
       name: 'creator',
       title: 'Skaper',
@@ -68,7 +68,7 @@ export default {
         },
       ],
     },
-    {
+    /* {
       name: 'hasTranslation',
       title: 'Oversettelser',
       titleEN: 'Has translation',
@@ -79,7 +79,7 @@ export default {
           to: [{type: 'LinguisticDocument'}],
         },
       ],
-    },
+    }, */
     {
       name: 'publishedAt',
       title: 'Publikasjonsdato',

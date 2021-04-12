@@ -54,7 +54,6 @@ export default {
       title: 'Canvas URL',
       titleEN: 'Canvas URL',
       type: 'url',
-      fieldset: 'external',
     },
     /* {
       name: 'canvasNumber',
