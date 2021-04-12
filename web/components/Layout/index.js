@@ -33,83 +33,72 @@ export default function Layout({alert, preview, children, site}) {
   
   return (
     <>
-      <Grid
-        w="100vw"
+      <Meta />
+      <Alert preview={(alert, preview)} />
+
+      <Header 
+        gridArea={{base: "header", md: "nav"}}
+        ml={{base: "0", md: isOpen ? "0" : "-400px"}}
+        visibility={{base: "visible", md:isOpen ? "visible" : "hidden"}}
+        opacity={{base: "1", md:isOpen ? "1" : "0"}}
+        transition="opacity 0.5s 0.5s, margin-left 0.5s 0s"
+        data={{...site}}
+      />
+
+      <Flex
+        gridArea="toggle"
         h="100vh"
-        gridTemplateAreas={{base: '"header header header" "nav toggle main"', xl: '"header header header" "nav toggle main"'}}
-        gridTemplateColumns={{base: "0px 0px 8fr", md: "auto auto 1fr", xl: "auto auto 1fr"}}
-        autoRows="max-content"
-        overflowX="hidden"
-        templateRows="auto 1fr"
+        overflowY="hidden"
+        zIndex="1"
+        direction="column"
+        justifyContent="center"
+        sx={{boxShadow: "5px 0 10px -10px #444"}}
+        onClick={onToggle}
       >
-        <Meta />
-        <Alert preview={(alert, preview)} />
-
-        <Header 
-          gridArea={{base: "header", md: "nav"}}
-          ml={{base: "0", md: isOpen ? "0" : "-400px"}}
-          visibility={{base: "visible", md:isOpen ? "visible" : "hidden"}}
-          opacity={{base: "1", md:isOpen ? "1" : "0"}}
-          transition="opacity 0.5s 0.5s, margin-left 0.5s 0s"
-          data={{...site}}
-        />
-
-        <Flex
-          gridArea="toggle"
-          overflowY="hidden"
-          zIndex="1"
-          direction="column"
-          justifyContent="center"
-          sx={{boxShadow: "5px 0 10px -10px #444"}}
-          onClick={onToggle}
-        >
-          <Text
-            m="0"
-            opacity={{base: "0", md:isOpen ? "0" : "1"}}
-            transition="opacity 0.5s 0.5s" 
-            sx={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}
-            >
-            Nansen
-          </Text>
-          <Button
-            fontSize="3xl"
-            variant="link"
-            onClick={onToggle}
-            outline="none"
-            my="5"
-            _hover={{ textDecoration:"none" }}
-            _focus={{ boxShadow:"none" }}
-            >
-            ⋮
-          </Button>
-          <Text 
-            m="0"
-            opacity={{base: "0", md:isOpen ? "0" : "1"}}
-            transition="opacity 0.5s 0.5s" 
-            sx={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}
+        <Text
+          m="0"
+          opacity={{base: "0", md:isOpen ? "0" : "1"}}
+          transition="opacity 0.5s 0.5s" 
+          sx={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}
           >
-            Innholdsfortegnelse
-          </Text>
-        </Flex>
-        
-        <Box
-          as="main" 
-          gridArea="main" 
-          w="full"
-          pb="10"
-          overflowY="scroll"
-          overflowX="hidden"
+          Nansen
+        </Text>
+        <Button
+          fontSize="3xl"
+          variant="link"
+          onClick={onToggle}
+          outline="none"
+          my="5"
+          _hover={{ textDecoration:"none" }}
+          _focus={{ boxShadow:"none" }}
+          >
+          ⋮
+        </Button>
+        <Text 
+          m="0"
+          opacity={{base: "0", md:isOpen ? "0" : "1"}}
+          transition="opacity 0.5s 0.5s" 
+          sx={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}
         >
-          {/* {loading ? (
-            <h1>Loading...</h1>
-          ) : null} */}
-          {children}
-        </Box>
+          Innholdsfortegnelse
+        </Text>
+      </Flex>
+      
+      <Box
+        as="main" 
+        gridArea="main" 
+        w="full"
+        pb="10"
+      >
+        {/* {loading ? (
+          <h1>Loading...</h1>
+        ) : null} */}
+        {children}
+      </Box>
 
-        {/* <Footer 
-          {...footer} 
-        /> */}
-      </Grid>
+      {/* <Footer 
+        {...footer} 
+      /> */}
     </>
   )
 }

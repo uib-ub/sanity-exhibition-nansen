@@ -17,9 +17,9 @@ export default function SubStory(props) {
   const image = props.illustration.image
 
   return (
-    <Container maxW="3xl">
+    <Container maxW="6xl" p="0">
       <Flex 
-        maxW="xl"
+        maxW="2xl"
         p="6"
         my="10"
         borderY="1px solid"
@@ -49,7 +49,7 @@ export default function SubStory(props) {
           colorScheme="teal"
           variant="link"
           onClick={onOpen}
-          rightIcon={<ArrowForwardIcon color="red.400" w="20" h="20" />}
+          rightIcon={<ArrowForwardIcon color="red.400" w={["10", null, "20", null]} h={["10", null, "20", null]} />}
           alignSelf="center"
         />
         

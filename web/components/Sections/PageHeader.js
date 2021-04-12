@@ -15,7 +15,7 @@ export default function PageHeader(props) {
   const image = props.illustration?.image
 
   return (
-    <Container maxW="3xl" mt="5">
+    <Container maxW="6xl" mt="5">
       <Heading 
         py="5"
         mb="5"

@@ -1,15 +1,7 @@
 html, body {
   margin: 0;
-  height: 100%;
-  overflow: hidden;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-#__next {
   height: 100vh;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .active {

@@ -139,6 +139,57 @@ export const routeQuery = `
             "route": landingPageRoute->.slug.current
           }
         },
+        body[] {
+          ...,
+          _type == 'PageHeader' => @{
+            ...,
+            "palette": illustration.image.asset->.metadata.palette{
+              darkMuted,
+              darkVibrant,
+              dominant,
+              lightMuted,
+              vibrantMuted,
+              muted,
+              vibrant
+            }
+          },
+          _type == 'MiradorGallery' => @{
+            ...,
+            items[] {
+              _id,
+              label,
+              view,
+              "owner": manifestRef->.hasCurrentOwner[]->{
+                _id,
+                label
+              },
+              "manifest": coalesce(
+                manifestRef->.subjectOfManifest, 
+                manifestUrl,
+                "/api/manifest/" + manifestRef->._id
+              ),
+              canvasUrl,
+            },
+          },
+          _type == 'SingleObject' => @{
+            ...,
+            view,
+            item-> {
+              _id,
+              label,
+              "owner": hasCurrentOwner[]-> {
+                _id,
+                label
+              },
+              "manifest": coalesce(
+                subjectOfManifest, 
+                manifestUrl,
+                "/api/manifest/" + _id
+              ),
+              canvasUrl,
+            }
+          }
+        },
         content[] {
           ...,
           _type == 'PageHeader' => @{

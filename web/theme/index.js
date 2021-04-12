@@ -27,6 +27,14 @@ const theme = extendTheme({
       blockquote: {
         color: 'red.300',
       },
+      "#__next": {
+        display: 'grid',
+        w:"100vw",
+        h:"100vh",
+        gridTemplateAreas:{base: '"header header header" "nav toggle main"', xl: '"header header header" "nav toggle main"'},
+        gridTemplateColumns:{base: "0px 0px 8fr", md: "auto auto 1fr", xl: "auto auto 1fr"},
+        autoRows:"max-content",
+      }
     },
   },
 })

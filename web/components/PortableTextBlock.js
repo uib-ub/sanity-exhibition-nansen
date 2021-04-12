@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link as NextLink} from 'next/link'
 import {Heading, Link, Text} from '@chakra-ui/react'
-import { BigText, Hero, Iframe, InstagramPost, PageHeader,Quote, MiradorGallery, SectionText, SingleObject, Social, TimelineSection, TwoColumn, Video } from './Sections'
+import { BigText, Hero, Iframe, InstagramPost, PageHeader,Quote, MiradorGallery, SectionText, SingleObject, Social, SubStory, TimelineSection, TwoColumn, Video, IllustrationWithCaption } from './Sections'
 
 const BlockContent = require('@sanity/block-content-to-react')
 
@@ -34,6 +34,7 @@ export default function PortableTextBlock(props) {
 
     return (
       <Text 
+        maxWidth={["lg", null, "2xl", null ]}
         fontSize={fontSize} 
         lineHeight={lineHeight} 
         fontWeight={fontWeight} 
@@ -82,6 +83,7 @@ export default function PortableTextBlock(props) {
       BigText: (props) => (<BigText {...props.node} />),
       Hero: (props) => (<Hero {...props.node} />),
       Iframe: (props) => (<Iframe {...props.node} />),
+      IllustrationWithCaption: (props) => (<IllustrationWithCaption {...props.node} />),
       InstagramPost: (props) => (<InstagramPost {...props.node} />),
       MiradorGallery: (props) => (<MiradorGallery {...props.node} />),
       PageHeader: (props) => (<PageHeader {...props.node} />),
@@ -89,6 +91,7 @@ export default function PortableTextBlock(props) {
       SectionText: (props) => (<SectionText {...props.node} />),
       SingleObject: (props) => (<SingleObject {...props.node} />),
       Social: (props) => (<Social {...props.node} />),
+      SubStory: (props) => (<SubStory {...props.node} />),
       TimelineSection: (props) => (<TimelineSection {...props.node} />),
       TwoColumn: (props) => (<TwoColumn {...props.node} />),
       Video: (props) => (<Video {...props.node} />),

@@ -30,18 +30,21 @@ export default function Header(props) {
     <>
       <Flex
         as="header"
+        position="sticky"
+        top="0"
         flexWrap="nowrap"
-        overflowX="scroll"
+        position="sticky"
+        top="0"
         direction={{base: "row", md: "column"}}
         align="start" 
         w="full"
-        h="full"
+        h="100vh"
         pl={["2", "2", "10", "10"]}
         py={["2", "2", "5", "5"]}
         justify="flex-start"
         wrap="wrap"
         color={color}
-        /* bg="rgba(255,255,255,0.5)" */
+        /* bgColor="white" */
         borderBottom={{base: "1px solid", md: "none"}}
         borderColor="gray.200"
         boxShadow={{base: "md", md: "none"}}
@@ -136,7 +139,7 @@ export default function Header(props) {
         position="fixed"
         bottom="5"
         right="5"
-        zIndex="1000"
+        zIndex="2000"
       >
         <Button
           w="12"

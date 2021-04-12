@@ -102,9 +102,14 @@ export default function HumanMadeObject(item) {
 
       {item.manifest && !item.subjectOfManifest && (
         <Box gridArea="image">
-          <MiradorWithNoSSR palette="light" hideWindowTitle="true" h="70vh" windows={[{manifest: item.manifest}]} />
+          <MiradorWithNoSSR 
+            hideWindowTitle="true" 
+            h="70vh" 
+            manifests={[{manifest: item.manifest}]} 
+          />
         </Box>
       )}
+
       <Modal isOpen={isOpen} size="4xl" onClose={onClose} scrollBehavior="inside">
         <ModalOverlay>
           <ModalContent>

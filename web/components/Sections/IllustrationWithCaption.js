@@ -11,7 +11,7 @@ export default function IllustrationWithCaption(props) {
   const {title, content, illustration} = props
 
   return (
-    <Container maxW={["3xl", "3xl", "3xl", "6xl"]}>
+    <Container maxW={["3xl", "3xl", "3xl", "6xl"]} p="0">
       <Grid
         maxW={["xl", "xl", "xl", "6xl"]}
         my={10}

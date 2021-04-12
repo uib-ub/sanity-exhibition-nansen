@@ -11,14 +11,14 @@ export default function Page({data, preview}) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
 
-      {/* A Page  */}
-      {content && <Sections sections={content} />}
+      <Container p="5" maxWidth="6xl">
+        {/* A Page  */} 
+        {content && <Sections sections={content} /> }
 
-      {/* If LinguisticDocument the content is in the body field */}
-      {body && <PortableTextBlock blocks={body}/>}
-
-      <Container maxW="3xl" borderTop="1px dashed" mt="16" pt="10" color="gray.500" fontSize="sm">
-        <Text>Oppdatert: <Date>{_updatedAt}</Date></Text>
+        {/* If LinguisticDocument the content is in the body field */}
+        {body && <PortableTextBlock blocks={body}/> }
+        
+        <Text mt="16" pt="10" color="gray.500" fontSize="sm">Oppdatert: <Date>{_updatedAt}</Date></Text>
       </Container>
       
     </Layout>
