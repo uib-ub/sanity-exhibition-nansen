@@ -20,6 +20,7 @@ export default function Header(props) {
   
   const {colorMode, toggleColorMode} = useColorMode()
   const color = useColorModeValue('black', 'white')
+  const bgcolor = useColorModeValue('white', 'black')
   const inverse = useColorModeValue('invert(0%)', 'invert(100%)')
   const { isOpen, onOpen, onClose } = useDisclosure()
   
@@ -38,13 +39,13 @@ export default function Header(props) {
         direction={{base: "row", md: "column"}}
         align="start" 
         w="full"
-        h="100vh"
+        h={{base: "auto", md:"100vh"}}
         pl={["2", "2", "10", "10"]}
         py={["2", "2", "5", "5"]}
         justify="flex-start"
         wrap="wrap"
         color={color}
-        /* bgColor="white" */
+        bgColor={bgcolor}
         borderBottom={{base: "1px solid", md: "none"}}
         borderColor="gray.200"
         boxShadow={{base: "md", md: "none"}}
