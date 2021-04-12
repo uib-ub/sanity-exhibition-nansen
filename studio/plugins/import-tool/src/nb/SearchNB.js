@@ -32,6 +32,7 @@ const SearchNB = () => {
           page: state.page,
           size: state.limit,
           digitalAccessibleOnly: true,
+          filter: "contentClasses%3Ajp2"
         }),
     )
       .then((response) => response.json())
@@ -95,6 +96,7 @@ const SearchNB = () => {
           page: 0,
           size: state.limit,
           digitalAccessibleOnly: true,
+          filter: "contentClasses%3Ajp2"
         }),
     )
       .then((response) => response.json())

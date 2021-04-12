@@ -36,6 +36,9 @@ const Card = ({item}) => {
         }}
       />
       <ResultCard.Description>
+        {item.description && (
+          <p>{item.description}</p>
+        )}
         <DefaultBadge style={{marginBottom: '0.5em'}}>{item.type}</DefaultBadge>
         <br />
         {item.hasThumbnail && (
