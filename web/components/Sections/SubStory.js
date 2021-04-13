@@ -17,43 +17,40 @@ export default function SubStory(props) {
   const image = props.illustration.image
 
   return (
-    <Container maxW="6xl" p="0">
-      <Flex 
-        maxW="2xl"
-        p="6"
-        my="10"
-        borderY="1px solid"
-        borderColor="red.200"
-      >
-        <Box>
-          <Badge 
-            backgroundColor={bg} 
-            color={color}
-          >
-            {props.label}
-          </Badge>
-          <Heading 
-            fontSize={["xl", "2xl", "2xl", "4xl"]} 
-          >
-            {props.title}
-          </Heading>
+    <Flex 
+      maxW="2xl"
+      p="6"
+      my="10"
+      borderY="1px solid"
+      borderColor="red.200"
+    >
+      <Box>
+        <Badge 
+          backgroundColor={bg} 
+          color={color}
+        >
+          {props.label}
+        </Badge>
+        <Heading 
+          fontSize={["xl", "2xl", "2xl", "4xl"]} 
+        >
+          {props.title}
+        </Heading>
 
-          {props?.tagline && (
-            <Box>
-              <PortableTextBlock fontSize={["md", "xl"]} blocks={props.tagline} />
-            </Box>
-          )}
-        </Box>
+        {props?.tagline && (
+          <Box>
+            <PortableTextBlock fontSize={["md", "xl"]} blocks={props.tagline} />
+          </Box>
+        )}
+      </Box>
 
-        <Button 
-          colorScheme="teal"
-          variant="link"
-          onClick={onOpen}
-          rightIcon={<ArrowForwardIcon color="red.400" w={["10", null, "20", null]} h={["10", null, "20", null]} />}
-          alignSelf="center"
-        />
-        
-      </Flex>
+      <Button 
+        colorScheme="teal"
+        variant="link"
+        onClick={onOpen}
+        rightIcon={<ArrowForwardIcon color="red.400" w={["10", null, "20", null]} h={["10", null, "20", null]} />}
+        alignSelf="center"
+      />
       
       <Drawer
         size="full"
@@ -89,6 +86,6 @@ export default function SubStory(props) {
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-    </Container>
+    </Flex>
   )
 }

@@ -25,7 +25,6 @@ export default function Hero(props) {
       boxSizing="border-box"
       m="auto"
       gap="10"
-      p="10"
     >
 
       {items && items.map((item, index) => (

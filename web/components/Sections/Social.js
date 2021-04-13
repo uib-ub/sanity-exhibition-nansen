@@ -5,7 +5,7 @@ export default function Social(props) {
   const getId = (thePath) => thePath.substring(thePath.lastIndexOf('/') + 1)
 
   return (
-    <Container maxW="4xl" marginTop="10" centerContent>
+    <Container maxW="4xl" marginTop="10" centerContent p="0">
       <Heading size="xl">{props.title}</Heading>
       <Center>
         <Box w={['sm', 'md', 'xl']}>

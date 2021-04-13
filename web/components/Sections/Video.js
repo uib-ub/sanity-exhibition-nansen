@@ -1,8 +1,8 @@
-import {AspectRatio, Container, Heading} from '@chakra-ui/react'
+import {AspectRatio, Heading} from '@chakra-ui/react'
 
 export default function Video(props) {
   return (
-    <Container maxW="3xl" marginTop="10" centerContent>
+    <>
       <Heading fontSize="xl">{props.title}</Heading>
       <Container maxW="2xl" position="relative">
         {/* <ReactPlayer
@@ -17,6 +17,6 @@ export default function Video(props) {
           />
         </AspectRatio>
       </Container>
-    </Container>
+    </>
   )
 }
