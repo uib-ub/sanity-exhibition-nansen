@@ -29,7 +29,7 @@ const theme = extendTheme({
         mb: '3',
       },
       blockquote: {
-        color: 'red.300',
+        color: 'red.600',
       },
       "#__next": {
         display: 'grid',
@@ -40,7 +40,7 @@ const theme = extendTheme({
       },
       ".active": {
         borderBottom: 'solid 2px',
-        borderColor: 'salmon',
+        borderColor: 'red.300',
       }
     },
   },
