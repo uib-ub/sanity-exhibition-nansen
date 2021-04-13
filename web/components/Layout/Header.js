@@ -34,8 +34,6 @@ export default function Header(props) {
         position="sticky"
         top="0"
         flexWrap="nowrap"
-        position="sticky"
-        top="0"
         direction={{base: "row", md: "column"}}
         align="start" 
         w="full"
@@ -45,11 +43,11 @@ export default function Header(props) {
         justify="flex-start"
         wrap="wrap"
         color={color}
-        bgColor={bgcolor}
+        bgColor={"white"}
         borderBottom={{base: "1px solid", md: "none"}}
         borderColor="gray.200"
         boxShadow={{base: "md", md: "none"}}
-        zIndex="2"
+        zIndex="1001"
         justifyContent="center"
         {...rest}
       >

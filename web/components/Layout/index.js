@@ -46,12 +46,18 @@ export default function Layout({alert, preview, children, site}) {
       />
 
       <Flex
+        position="sticky"
+        top="0"
         gridArea="toggle"
         h="100vh"
+        pr={!isOpen ? {md:"2"} : {}}
+        transition="padding-right 0.3s" 
         overflowY="hidden"
         zIndex="1"
         direction="column"
         justifyContent="center"
+        borderRight="thin solid"
+        borderColor="gray.300"
         sx={{boxShadow: "5px 0 10px -10px #444"}}
         onClick={onToggle}
       >
@@ -88,7 +94,6 @@ export default function Layout({alert, preview, children, site}) {
         as="main" 
         gridArea="main" 
         w="full"
-        pb="10"
       >
         {/* {loading ? (
           <h1>Loading...</h1>
