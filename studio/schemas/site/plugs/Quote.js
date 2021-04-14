@@ -22,15 +22,15 @@ export default {
   ],
   preview: {
     select: {
-      title: 'title',
       content: 'content',
+      credit: 'credit',
       disabled: 'disabled',
     },
-    prepare({title, content}) {
+    prepare({content, credit}) {
       return {
-        title: title ? title : '',
         content: content ? content : '',
-        type: 'Text'
+        credit: credit ? credit : '',
+        type: 'Quote'
       }
     },
     component: QuotePreview,
