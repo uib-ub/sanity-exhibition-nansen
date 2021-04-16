@@ -61,7 +61,7 @@
     },
     {
       "implements": "part:@sanity/base/absolutes",
-      "path": "./bundleChecker.js"
+      "path": "./src/parts/bundleChecker.js"
     }
   ]
 }
