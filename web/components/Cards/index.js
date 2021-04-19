@@ -12,7 +12,6 @@ export default function Cards(props) {
     <Grid
       as="section"
       maxW="full"
-      px="4"
       boxSizing="border-box"
       overflowX="hidden"
       gap={5}

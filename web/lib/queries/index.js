@@ -113,7 +113,7 @@ export const frontpageQuery = `
 `
 
 export const idsQuery = `
-  *[_type in [...$publicDocumentTypes]] {
+  *[_type in $publicDocumentTypes] {
     _id
   }
 `
@@ -287,6 +287,72 @@ export const typeQuery = `
   }
 `
 
+export const eventsQuery = `{
+  "items": *[_type in ["Activity", "Event"]]{
+    ...,
+    _id,
+    label,
+    hasType[]->{
+      _id,
+      label
+    },
+    timespan[]{
+      ...,
+      "orderDate": coalesce(date, beginOfTheBegin)
+    },
+    tookPlaceAt[]->{
+      _id,
+      label
+    },
+  },
+  "objects": *[defined(activityStream) && _type != "HumanMadeObject"]{
+    activityStream[]{
+      ...,
+      timespan[]{
+        ...,
+        "orderDate": coalesce(date, beginOfTheBegin)
+      },
+      tookPlaceAt[]->{
+        _id,
+        label
+      },
+      _type == "Birth" => {
+        "broughtIntoLife": ^{
+          _id,
+          label,
+        },
+			},
+      _type == "Death" => {
+        "deathOf": ^{
+          _id,
+          label,
+        },
+			},
+      _type == "Joining" => {
+        "joined": ^{
+          _id,
+          label,
+        },
+        joinedWith->{
+          _id,
+          label
+        }
+			},
+      _type == "Leaving" => {
+        "separated": ^{
+          _id,
+          label
+        },
+        separatedFrom->{
+          _id,
+          label
+        }
+			}
+    }
+  },
+  ${siteSettings}
+}`
+
 // Fields
 export const humanMadeObjectFields = `
   _id,
@@ -308,7 +374,7 @@ export const humanMadeObjectFields = `
       darkVibrant,
       dominant,
       lightMuted,
-      vibrantMuted,
+      lightVibrant,
       muted,
       vibrant
     }
@@ -421,7 +487,7 @@ export const groupFields = `
   _id,
   _type,
   label,
-  hasType[]-> {
+  hasType[]->{
     ...
   },
   image {
@@ -440,7 +506,7 @@ export const groupFields = `
     _type,
     label,
     preferredIdentifier,
-    hasType[]-> {
+    hasType[]->{
       _id,
       label
     },
@@ -454,7 +520,7 @@ export const groupFields = `
       image
     },
     "creation": activityStream[]{
-      _type in ["Production", "BeginningOfExistence"] => @{
+      _type in ["Production", "BeginningOfExistence"] => ^{
         "creators": contributionAssignedBy[]{
           "name": assignedActor->.label,
         	"_id": assignedActor->._id

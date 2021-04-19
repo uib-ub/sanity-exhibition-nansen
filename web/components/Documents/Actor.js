@@ -5,23 +5,27 @@ import Cards from '../Cards'
 import {imageBuilder} from '../../lib/sanity'
 
 export default function Actor(item) {
+  if(!item) return null
+
   return (
     <Container 
-      maxW="full" 
-      py="10" 
-      centerContent
+      maxW="full"
+      mt="5"
     >
       <Flex pb="10">
-        <Image
-          boxSize="100"
-          name={item.label}
-          src={imageBuilder.image(item.image).height('200').width('200').url()}
-        />
-        <Box p={5}>
+
+        {item.image && (
+          <Image
+            boxSize="100"
+            name={item.label}
+            mr="5"
+            src={imageBuilder.image(item.image).height('200').width('200').url()}
+          />
+        )}
+
+        <Box pt="2">
           <Heading fontSize={["2xl", "4xl", "5xl", "6xl"]}>
-            <Link href={`/id/${item._id}`}>
-              <a>{item.label}</a>
-            </Link>
+            <a>{item.label}</a>
           </Heading>
           <Box d="flex" alignItems="baseline">
             {item.hasType &&
@@ -39,12 +43,17 @@ export default function Actor(item) {
         </Box>
       </Flex>
 
-      <Container maxW="lg">
+      <Box maxW="2xl" mb="10">
         {item?.referredToBy?.map((ref) => (
           <PortableTextBlock key={ref._key} blocks={ref.body} />
         ))}
-      </Container>
+      </Box>
       
+
+      <Heading as="h3" mb="3">
+        Relasjoner (WIP)
+      </Heading>
+
       {item.hasMember && item.hasMember.map((member) => (
         <Link href={member._id}>
           <a>{member.label}</a>

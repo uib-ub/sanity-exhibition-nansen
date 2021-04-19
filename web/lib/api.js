@@ -8,6 +8,7 @@ import {
   idsQuery,
   routeQuery, 
   routesQuery,
+  eventsQuery,
   humanMadeObjectsQuery,
   typeQuery,
   humanMadeObjectFields, 
@@ -15,6 +16,7 @@ import {
   pageFields,
   publicDocumentTypes } from './queries'
 import {siteSettings} from './queries/defaults'
+import {flatten} from 'lodash'
 const getClient = (preview) => (preview ? previewClient : sanityClient)
 
 
@@ -49,6 +51,20 @@ export async function getRoute(preview, id) {
     {joinID},
   )
   return data
+}
+
+export async function getEvents(preview) {
+  const data = await getClient(preview).fetch(
+    eventsQuery
+  )
+  const {items, objects, siteSettings} = data  
+  const mergedActivityStream = flatten(objects.map(o => { return o.activityStream}))
+
+  const result = {
+    items: [...items, ...mergedActivityStream],
+    siteSettings
+  }
+  return result
 }
 
 export async function getPreviewHumanMadeObjectByID(id) {

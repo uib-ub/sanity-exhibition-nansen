@@ -62,7 +62,7 @@ export default function HumanMadeObject(item) {
           </Box>
         )}
 
-        {item.image?.palette && <Palette colors={item.image.palette} />}
+        {item.image?.palette && <Palette colors={item.image?.palette} />}
 
         <Grid pt="4" templateColumns={["2fr", "2fr", "160px auto"]}>
           {item.hasType && 

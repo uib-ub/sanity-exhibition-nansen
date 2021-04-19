@@ -9,7 +9,7 @@ export const siteSettings = `
     mainNavigation->{
       items[]{
         ...,
-        "route": landingPageRoute->.slug.current
+        "route": coalesce(landingPageRoute->.slug.current, route)      
       }
     },
     footer->{
@@ -17,7 +17,7 @@ export const siteSettings = `
       navMenu->{
         items[]{
           ...,
-          "route": landingPageRoute->.slug.current
+          "route": coalesce(landingPageRoute->.slug.current, route)
         }
       }
     }
