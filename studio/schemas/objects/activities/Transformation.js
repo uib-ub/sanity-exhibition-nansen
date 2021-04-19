@@ -1,4 +1,4 @@
-import {timespan, carriedOutBy, tookPlaceAt, referredToBy} from '../../props'
+import {timespan, carriedOutBy, tookPlaceAt, referredToBy, featured} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 
 export default {
@@ -8,6 +8,7 @@ export default {
   titleEN: 'Transformation',
   fieldsets: defaultFieldsets,
   fields: [
+    featured,
     {
       name: 'hasType',
       title: 'Klassifisert som',

@@ -1,4 +1,4 @@
-import {timespan, referredToBy, tookPlaceAt} from '../../props'
+import {timespan, referredToBy, tookPlaceAt, featured} from '../../props'
 
 var capitalize = require('capitalize')
 
@@ -15,6 +15,7 @@ export default {
     },
   ],
   fields: [
+    featured,
     {
       name: 'hasType',
       title: 'Klassifisert som',
@@ -30,8 +31,18 @@ export default {
     timespan,
     tookPlaceAt,
     {
-      name: 'joinedBy',
-      title: 'Innlemmet',
+      name: 'joinedWith',
+      title: 'Innlemmet i gruppe',
+      titleEN: 'Joined with',
+      description: 'Group that actor(s) joined with',
+      type: 'reference', 
+      to: [
+        {type: 'Group'}
+      ]
+    },
+    {
+      name: 'joined',
+      title: 'Innlemmet aktør(er)',
       titleEN: 'Joined',
       description: 'Actor(s) that joined this group',
       type: 'array',

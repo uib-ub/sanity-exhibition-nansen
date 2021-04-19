@@ -258,7 +258,7 @@ export const referredToBy = {
   description: (
     <span>
       Objektet kan ha mange beskrivelser, korte og/eller lange. Tekstene kan types for ulike
-      brukeformål.{' '}
+      bruksformål.{' '}
       <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#description'}>
         <BsFillQuestionCircleFill />
       </Link>
@@ -1092,4 +1092,11 @@ export const motivated = {
   titleEN: 'Motivated',
   type: 'array',
   of: [{type: 'Treatment'}],
+}
+
+export const featured = {
+  name: 'featured',
+  title: 'Fremhevet?',
+  titleEN: 'Featured?',
+  type: 'boolean',
 }

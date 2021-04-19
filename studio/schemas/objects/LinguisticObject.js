@@ -1,5 +1,6 @@
 import {editorialState, accessState} from '../props'
 import {defaultFieldsets} from '../fieldsets'
+import { coalesceLabel } from '../helpers/helpers'
 
 export default {
   name: 'LinguisticObject',
@@ -21,7 +22,7 @@ export default {
           to: [{type: 'TextType'}],
         },
       ],
-      validation: (Rule) => Rule.required(),
+      /* validation: (Rule) => Rule.required(), */
     },
     {
       name: 'body',
@@ -67,22 +68,21 @@ export default {
   ],
   preview: {
     select: {
-      title: 'hasType.0.label.nor',
+      title: 'hasType.0.label',
       blocks: 'body',
       lang: 'language.label.nor',
     },
     prepare(selection) {
       const {title, blocks, lang} = selection
-      const block = blocks[0]
-
+      
       return {
-        title: block
-          ? block.children
+        title: blocks?.length
+          ? blocks[0].children
               .filter((child) => child._type === 'span')
               .map((span) => span.text)
               .join('')
-          : 'No description',
-        subtitle: `${title} ${lang ? 'på ' + lang : ''}`,
+          : 'No content',
+        subtitle: `${coalesceLabel(title)} ${lang ? 'på ' + lang : ''}`,
       }
     },
   },

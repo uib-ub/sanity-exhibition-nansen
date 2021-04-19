@@ -1,4 +1,4 @@
-import {timespan, carriedOutBy, tookPlaceAt, referredToBy} from '../../props'
+import {timespan, carriedOutBy, tookPlaceAt, referredToBy, featured} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 import {timespanAsString} from '../../helpers/helpers'
 
@@ -10,7 +10,7 @@ export default {
   title: 'Fødsel',
   titleEN: 'Birth',
   fieldsets: defaultFieldsets,
-  fields: [carriedOutBy, timespan, tookPlaceAt, referredToBy],
+  fields: [featured, carriedOutBy, timespan, tookPlaceAt, referredToBy],
   preview: {
     select: {
       bb: 'timespan.0.beginOfTheBegin',

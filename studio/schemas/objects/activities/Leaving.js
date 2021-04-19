@@ -1,4 +1,4 @@
-import {timespan, tookPlaceAt, referredToBy} from '../../props'
+import {timespan, tookPlaceAt, referredToBy, featured} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 
 var capitalize = require('capitalize')
@@ -10,6 +10,7 @@ export default {
   titleEN: 'Leaving',
   fieldsets: defaultFieldsets,
   fields: [
+    featured,
     {
       name: 'hasType',
       title: 'Klassifisert som',
@@ -25,7 +26,17 @@ export default {
     timespan,
     tookPlaceAt,
     {
-      name: 'leftBy',
+      name: 'separatedFrom',
+      title: 'Forlot',
+      titleEN: 'Left',
+      description: 'Actor(s) that left this group',
+      type: 'reference', 
+      to: [
+        {type: 'Group'}
+      ]
+    },
+    {
+      name: 'separated',
       title: 'Forlot',
       titleEN: 'Left',
       description: 'Actor(s) that left this group',

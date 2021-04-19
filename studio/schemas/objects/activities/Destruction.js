@@ -1,4 +1,4 @@
-import {timespan, carriedOutBy, tookPlaceAt} from '../../props'
+import {timespan, carriedOutBy, tookPlaceAt, featured} from '../../props'
 
 export default {
   name: 'Destruction',
@@ -6,6 +6,7 @@ export default {
   title: 'Ødeleggelse',
   titleEN: 'Destruction',
   fields: [
+    featured,
     {
       name: 'hasType',
       title: 'Klassifisert som',

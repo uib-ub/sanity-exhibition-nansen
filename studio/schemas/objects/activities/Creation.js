@@ -1,10 +1,11 @@
-import {timespan, contributionAssignedBy, tookPlaceAt} from '../../props'
+import {timespan, contributionAssignedBy, tookPlaceAt, featured} from '../../props'
 export default {
   name: 'Creation',
   type: 'object',
   title: 'Skapelse',
   titleEN: 'Creation',
   fields: [
+    featured,
     contributionAssignedBy, 
     timespan, 
     tookPlaceAt

@@ -1,4 +1,4 @@
-import {timespan, referredToBy, tookPlaceAt, carriedOutBy} from '../../props'
+import {timespan, referredToBy, tookPlaceAt, carriedOutBy, featured} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers'
 
@@ -9,6 +9,7 @@ export default {
   titleEN: 'Measurement',
   fieldsets: defaultFieldsets,
   fields: [
+    featured,
     {
       name: 'observedDimension',
       title: 'Dimensjon',

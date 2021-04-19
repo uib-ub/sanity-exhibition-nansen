@@ -1,4 +1,4 @@
-import {timespan, tookPlaceAt, referredToBy, motivatedBy} from '../../props'
+import {timespan, tookPlaceAt, referredToBy, motivatedBy, featured} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 
 var capitalize = require('capitalize')
@@ -12,6 +12,7 @@ export default {
   titleEN: 'Formation',
   fieldsets: defaultFieldsets,
   fields: [
+    featured,
     {
       name: 'hasType',
       title: 'Klassifisert som',
