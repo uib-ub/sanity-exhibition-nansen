@@ -1,5 +1,6 @@
 export {default as HumanMadeObject} from './HumanMadeObject'
 export {default as Actor} from './Actor'
+export {default as Event} from './Actor'
 export {default as Group} from './Actor'
 export {default as Concept} from './Concept'
 export {default as ObjectType} from './Concept'

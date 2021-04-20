@@ -12,7 +12,7 @@ export default function PortableTextBlock(props) {
 
   const {
     blocks,
-    fontSize = {base: "lg", sm: "xl", md: "xl", xl: "2xl"}, 
+    fontSize = {base: "lg", sm: "xl", md: "xl", xl: "xl"}, 
     lineHeight=["1.3", "1.4"], 
     fontWeight = "normal",
     fontFamily,
@@ -44,7 +44,7 @@ export default function PortableTextBlock(props) {
 
     return (
       <Text 
-        maxWidth={["lg", null, "2xl", null ]}
+        maxWidth={["lg", null, "xl", null ]}
         fontSize={fontSize} 
         lineHeight={lineHeight} 
         fontWeight={fontWeight} 

@@ -21,14 +21,14 @@ import {BiDotsVerticalRounded} from 'react-icons/bi'
 import ReferredToBy from '../ReferredToBy'
 import Palette from '../Palette'
 import Depicts from '../Depicts'
-import ActivityStream from '../ActivityStream'
+import ActivityStream from '../ActivityStream/HumanMadeObjectActivityStream'
 import HasType from '../HasType'
 import Homepage from '../Homepage'
 import Subject from '../Subject'
 import CurrentOwner from '../CurrentOwner'
 import Description from '../Description'
 
-const MiradorWithNoSSR = dynamic(() => import('../Mirador'), {ssr: false})
+const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), {ssr: false})
 
 export default function HumanMadeObject(item) {
   const {isOpen, onOpen, onClose} = useDisclosure()

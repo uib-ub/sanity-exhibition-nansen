@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import {Image, Badge, Box, Container, Flex, Heading} from '@chakra-ui/react'
+import {Image, Badge, Box, Container, Flex, Heading, SimpleGrid} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 import Cards from '../Cards'
 import {imageBuilder} from '../../lib/sanity'
+import RenderMergedActivityStreamList from '../ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'
 
 export default function Actor(item) {
   if(!item) return null
@@ -10,10 +11,9 @@ export default function Actor(item) {
   return (
     <Container 
       maxW="full"
-      mt="5"
+      my="5"
     >
       <Flex pb="10">
-
         {item.image && (
           <Image
             boxSize="100"
@@ -43,16 +43,32 @@ export default function Actor(item) {
         </Box>
       </Flex>
 
-      <Box maxW="2xl" mb="10">
-        {item?.referredToBy?.map((ref) => (
-          <PortableTextBlock key={ref._key} blocks={ref.body} />
-        ))}
-      </Box>
-      
+      {item.referredToBy && (
+        <Box maxW="2xl" mb="10">
+          {item.referredToBy?.map((ref) => (
+            <PortableTextBlock key={ref._key} blocks={ref.body} />
+          ))}
+        </Box>
+      )}
 
-      <Heading as="h3" mb="3">
-        Relasjoner (WIP)
-      </Heading>
+      {item.activityStream && 
+        <>
+          <Heading as="h2" mb="3">Hendelser</Heading>
+          
+          <SimpleGrid
+            w="full" 
+            mb="5"
+            columnGap="5"
+            templateColumns={{
+              base: "1fr",
+              md: "auto 1fr"
+            }}
+          >
+            <RenderMergedActivityStreamList stream={item.activityStream} />
+          </SimpleGrid>
+        </>
+      }
+
 
       {item.hasMember && item.hasMember.map((member) => (
         <Link href={member._id}>
@@ -60,7 +76,12 @@ export default function Actor(item) {
         </Link>
       ))}
 
-      {item.mentionedIn && <Cards items={item.mentionedIn} />}
+      {item.mentionedIn && 
+        <>
+          <Heading as="h2" mb="3">Koblet til...</Heading>
+          <Cards items={item.mentionedIn} />
+        </>
+      }
     </Container>
   )
 }

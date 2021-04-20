@@ -1,9 +1,9 @@
 import {orderBy} from 'lodash'
 import {getEvents} from '../../lib/api'
 import Layout from '../../components/Layout'
-import {Badge, Container, Heading, Box, List, ListItem, useColorModeValue} from '@chakra-ui/react'
+import {Badge, Container, Heading, Box, List, ListItem, useColorModeValue, SimpleGrid} from '@chakra-ui/react'
 import Link from '../../components/Link'
-import RenderActivityStreamObject from '../../components/RenderActivityStreamObject'
+import RenderMergedActivityStreamList from '../../components/ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'
 
 export default function Register({data, preview}) {
   const tagColor = useColorModeValue('blackAlpha', 'red')
@@ -22,7 +22,18 @@ export default function Register({data, preview}) {
           Hendelser
         </Heading>
         
-        {data.items && <RenderActivityStreamObject sections={data.items} />}
+        {data.items &&
+          <SimpleGrid 
+            w="full"
+            columnGap="5"
+            templateColumns={{
+              base: "1fr",
+              md: "auto 1fr"
+            }}
+          >
+            <RenderMergedActivityStreamList stream={data.items} />
+          </SimpleGrid>
+        }
 
       </Container>
     </Layout>

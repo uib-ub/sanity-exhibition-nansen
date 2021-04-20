@@ -125,11 +125,19 @@ export async function getId(id, type, preview) {
         ${type._type === 'Place' ? groupFields : ''}
         ${type._type === 'Concept' ? groupFields : ''}
         ${type._type === 'ObjectType' ? groupFields : ''}
+        ${type._type === 'Event' ? groupFields : ''}
         ${type._type === 'Page' ? pageFields : ''}
       },
       ${siteSettings}
     }`,
     {id},
+  )
+  return results
+}
+
+export async function getSiteSettings(preview) {
+  const results = await getClient(preview).fetch(
+    `{${siteSettings}}`
   )
   return results
 }

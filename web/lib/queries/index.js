@@ -1,4 +1,4 @@
-import {siteSettings} from './defaults'
+import {siteSettings, activityStreamFields} from './defaults'
 
 /**
  * Enum of Classes that should generate pages
@@ -12,6 +12,7 @@ export const publicDocumentTypes = [
   'Concept',
   'ObjectType',
   'Place',
+  'Event'
 ]
 
 export const actorsQuery = `
@@ -306,49 +307,8 @@ export const eventsQuery = `{
     },
   },
   "objects": *[defined(activityStream) && _type != "HumanMadeObject"]{
-    activityStream[]{
-      ...,
-      timespan[]{
-        ...,
-        "orderDate": coalesce(date, beginOfTheBegin)
-      },
-      tookPlaceAt[]->{
-        _id,
-        label
-      },
-      _type == "Birth" => {
-        "broughtIntoLife": ^{
-          _id,
-          label,
-        },
-			},
-      _type == "Death" => {
-        "deathOf": ^{
-          _id,
-          label,
-        },
-			},
-      _type == "Joining" => {
-        "joined": ^{
-          _id,
-          label,
-        },
-        joinedWith->{
-          _id,
-          label
-        }
-			},
-      _type == "Leaving" => {
-        "separated": ^{
-          _id,
-          label
-        },
-        separatedFrom->{
-          _id,
-          label
-        }
-			}
-    }
+    activityStream[featured == true]
+      ${activityStreamFields}
   },
   ${siteSettings}
 }`
@@ -496,6 +456,8 @@ export const groupFields = `
   referredToBy[] {
     ...
   },
+  activityStream[]
+    ${activityStreamFields},
   "hasMember": *[_type in ["Actor", "Group"] && references(^._id)]{ 
     _id,
     _type,

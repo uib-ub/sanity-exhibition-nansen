@@ -43,6 +43,17 @@ const getVariant = (variant) => {
           ZoomButtonsPlugin
         ]
       }
+    case('catalog') :
+      return {
+        variantSettings: {
+          maximized: false,
+          allowClose: true,
+          allowTopMenuButton: true,
+          allowFullscreen: true,
+        },
+        plugins: [
+        ]
+      }
       default :
         return {
           variantSettings: {
@@ -86,26 +97,26 @@ const mergeManifestAndVariant = (arr, settings) => {
   return windows
 }
 
-export default function Mirador(props) {
-  if (!props) return null
-
+export default function MiradorViewer(props) {
   const mode = useColorModeValue('light', 'dark')
   const ID = `mirador-${nanoid()}`
 
   const {
     variant, 
-    manifests, 
+    manifests,
     workspaceControlPanel = false,
     gridArea,
+    catalog,
     h = '50vh',
   } = props
   
   const {variantSettings, plugins} = getVariant(variant)
-  const windows = mergeManifestAndVariant(manifests, variantSettings)
+  const windows = manifests ? mergeManifestAndVariant(manifests, variantSettings) : null
   
   let config = {
     id: ID,
-    windows: windows,
+    windows: windows ?? null,
+    catalog: catalog ? [{manifestId: catalog}] : null,
     createGenerateClassNameOptions: {
       productionPrefix: ID,
     },

@@ -3,7 +3,7 @@ import ErrorPage from 'next/error'
 import Layout from '../../components/Layout'
 import {getIdPaths, getId, getType} from '../../lib/api'
 import Head from 'next/head'
-import RenderDocument from '../../components/RenderDocument'
+import RenderDocument from '../../components/Documents/RenderDocument'
 
 
 export default function Document({data, preview}) {
