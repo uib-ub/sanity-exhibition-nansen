@@ -1,6 +1,6 @@
 import {getFrontpage} from '../lib/api'
 import Layout from '../components/Layout'
-import RenderSections from '../components/RenderSection'
+import RenderSections from '../components/Sections/RenderSection'
 import { Container } from '@chakra-ui/react'
 
 export default function Index({data, preview}) {
