@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import {imageBuilder} from '../../lib/sanity'
+import {imageBuilder} from '../../../lib/sanity'
 import {
   Avatar,
   AvatarGroup,
@@ -25,11 +25,11 @@ import {
   TagLabel,
 } from '@chakra-ui/react'
 import {SunIcon, ArrowForwardIcon} from '@chakra-ui/icons'
-import Timespan from '../Timespan'
-import PortableTextBlock from '../PortableTextBlock'
-import Map from '../Map'
-import HasType from '../HasType'
-import {capitalize} from '../../lib/utils'
+import Timespan from '../../Timespan'
+import PortableTextBlock from '../../PortableTextBlock'
+import Map from '../../Map'
+import HasType from '../../HasType'
+import {capitalize} from '../../../lib/utils'
 
 export default function Activity({data}) {
   if (!data) {

@@ -1,4 +1,4 @@
-import RenderSections from '../RenderSection'
+import RenderSections from './RenderSection'
 
 export default function Sections({sections}) {
   return (

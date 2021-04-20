@@ -4,8 +4,8 @@ import PortableTextBlock from '../PortableTextBlock'
 
 export default function Quote(props) {
   return (
-    <Box maxW="xl" m="10">
-      <PortableTextBlockQuote fontSize="2xl" blocks={props.content} />
+    <Box maxW="lg" m="10">
+      <PortableTextBlockQuote fontSize="xl" blocks={props.content} />
       
       {props.credit && (
         <PortableTextBlock textAlign="right" blocks={props.credit} />

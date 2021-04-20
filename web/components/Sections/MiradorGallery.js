@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic'
 import {Grid, Box, Heading} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
-const MiradorWithNoSSR = dynamic(() => import('../Mirador'), {ssr: false})
+const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), {ssr: false})
 
 export default function MiradorGallery(props) {
   if (!props && !props.items) {

@@ -3,7 +3,7 @@ import {Grid, Flex, Heading, Spacer} from '@chakra-ui/react'
 import Source from './Source'
 import PortableTextBlock from '../PortableTextBlock'
 
-const MiradorWithNoSSR = dynamic(() => import('../Mirador'), {ssr: false})
+const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), {ssr: false})
 
 export default function SingleObject(props) {
   if (!props && !props.item) {
