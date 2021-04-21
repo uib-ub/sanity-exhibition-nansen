@@ -23,16 +23,13 @@ export default async function handler(req, res) {
   } = req
   const preview = false
 
-  /* 
-    Change the query to fit you data :-)
-  */
   async function getObject(preview = false) {
-    const results = await getClient(id, preview).fetch(
-      `*[_id == $id][0] {
+    const results = await getClient(id, preview).fetch(`
+      *[_id == $id][0] {
         "id": "http://localhost:3000/api/collection/" + _id,
         "type": "Collection",
         label,
-        "items":*[_type == "HumanMadeObject" && references(^._id)] {
+        "items":*[_type == "HumanMadeObject" && ^._id in hasCurrentOwner[]._ref] {
           "id": coalesce(subjectOfManifest, "http://localhost:3000/api/manifest/" + _id),
           "type": "Manifest",
           label

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import * as ObjectComponents from '.'
+import * as ObjectComponents from './MergedActivityStreamList'
 import { Alert, AlertIcon, AlertDescription, AlertTitle, Code } from '@chakra-ui/react'
 
 function resolveEvents(event) {

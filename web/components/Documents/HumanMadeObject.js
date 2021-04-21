@@ -64,7 +64,7 @@ export default function HumanMadeObject(item) {
 
         {item.image?.palette && <Palette colors={item.image?.palette} />}
 
-        <Grid pt="4" templateColumns={["2fr", "2fr", "160px auto"]}>
+        <Grid as="dl" pt="4" templateColumns={["2fr", "2fr", "160px auto"]}>
           {item.hasType && 
             <HasType types={item.hasType} />
           }
@@ -77,9 +77,6 @@ export default function HumanMadeObject(item) {
             <Depicts depicted={item.depicts} />
           }
 
-          {item.activityStream && 
-            <ActivityStream stream={item.activityStream} />
-          }
 
           {item.homepage && 
             <Homepage homepage={item.homepage} />
@@ -89,6 +86,10 @@ export default function HumanMadeObject(item) {
             <CurrentOwner owners={item.hasCurrentOwner} />
           }
         </Grid>
+        
+        {item.activityStream && 
+          <ActivityStream stream={item.activityStream} />
+        }
       </Container>
 
       {item.subjectOfManifest && (

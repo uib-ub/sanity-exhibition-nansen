@@ -1,4 +1,5 @@
 import {sanityClient, previewClient} from './sanity.server'
+import {flatten} from 'lodash'
 import {
   actorsQuery,
   alertQuery,
@@ -11,14 +12,14 @@ import {
   eventsQuery,
   humanMadeObjectsQuery,
   typeQuery,
+  publicDocumentTypes } from './queries'
+import {
   humanMadeObjectFields, 
   groupFields, 
   pageFields,
-  publicDocumentTypes } from './queries'
-import {siteSettings} from './queries/defaults'
-import {flatten} from 'lodash'
-const getClient = (preview) => (preview ? previewClient : sanityClient)
+  siteSettings } from './queries/fragments'
 
+const getClient = (preview) => (preview ? previewClient : sanityClient)
 
 const getUniqueDocuments = (items) => {
   const ids = new Set()

@@ -3,7 +3,7 @@ import {getEvents} from '../../lib/api'
 import Layout from '../../components/Layout'
 import {Badge, Container, Heading, Box, List, ListItem, useColorModeValue, SimpleGrid} from '@chakra-ui/react'
 import Link from '../../components/Link'
-import RenderMergedActivityStreamList from '../../components/ActivityStream/HumanMadeObjectActivityStream/RenderHumanMadeObjectActivityStream'
+import RenderMergedActivityStreamList from '../../components/ActivityStream/MergedActivityStreamList/RenderHumanMadeObjectActivityStream'
 
 export default function Register({data, preview}) {
   const tagColor = useColorModeValue('blackAlpha', 'red')

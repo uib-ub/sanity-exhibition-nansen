@@ -1,28 +1,3 @@
-export const siteSettings = `
-  "siteSettings": *[_id == "site-settings"][0] {
-    ...,
-    publisher[]->{
-      _id,
-      label,
-      image
-    },
-    mainNavigation->{
-      items[]{
-        ...,
-        "route": coalesce(landingPageRoute->.slug.current, route)      
-      }
-    },
-    footer->{
-      ...,
-      navMenu->{
-        items[]{
-          ...,
-          "route": coalesce(landingPageRoute->.slug.current, route)
-        }
-      }
-    }
-  }
-`
 export const activityStreamFields = `
 {
   ...,
@@ -33,6 +8,9 @@ export const activityStreamFields = `
   tookPlaceAt[]->{
     _id,
     label
+  },
+  _type == "reference" => @->{
+    ...
   },
   _type == "Birth" => {
     "broughtIntoLife": ^{

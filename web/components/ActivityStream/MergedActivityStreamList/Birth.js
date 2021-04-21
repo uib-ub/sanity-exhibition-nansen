@@ -3,7 +3,7 @@ import Link from '../../Link'
 import PortableTextBlock from '../../PortableTextBlock'
 import Timespan from '../../Timespan'
 
-export default function Birth(props) {
+export default function BeginningOfExistence(props) {
   const {_id, _key, broughtIntoLife, timespan, tookplaceAt} = props
   const id = _id ?? _key
   
