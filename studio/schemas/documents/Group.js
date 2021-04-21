@@ -71,6 +71,7 @@ export default {
       type: 'array',
       of: [
         {type: 'Formation'},
+        {type: 'reference', to: [{type: 'Activity'}, {type: 'Event'}]},
         {type: 'Joining'},
         {type: 'Leaving'},
         {type: 'Move'},

@@ -81,7 +81,7 @@ export default {
       type: 'array',
       of: [
         {type: 'Birth'},
-        {type: 'reference', to: [{type: 'Activity'}]},
+        {type: 'reference', to: [{type: 'Activity'}, {type: 'Event'}]},
         {type: 'Move'},
         {type: 'Joining'},
         {type: 'Leaving'},
