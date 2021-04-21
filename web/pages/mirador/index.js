@@ -12,11 +12,15 @@ export default function Mirador({data, preview}) {
 
   return (
     <Layout preview={preview} site={data.siteSettings}>
-      <Container m="0" p="0" maxWidth="full">
+      <Container
+        h="100vh"
+        m="0" 
+        p="0" 
+        maxWidth="full"
+      >
         <MiradorWithNoSSR 
           variant="catalog"
           workspaceControlPanel="true"
-          h="100vh"
           catalog="http://localhost:3000/api/collection"
         />
       </Container>
