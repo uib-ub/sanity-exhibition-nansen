@@ -1,3 +1,4 @@
+import { timespanAsString } from '../../helpers/helpers'
 import {timespan, referredToBy, tookPlaceAt, featured} from '../../props'
 
 var capitalize = require('capitalize')
@@ -61,12 +62,19 @@ export default {
   preview: {
     select: {
       type: '_type',
+      joinedWith: 'joinedWith.label',
+      bb: 'timespan.0.beginOfTheBegin',
+      eb: 'timespan.0.endOfTheBegin',
       date: 'timespan.0.date',
+      be: 'timespan.0.beginOfTheEnd',
+      ee: 'timespan.0.endOfTheEnd',
     },
     prepare(selection) {
-      const {type, date} = selection
+      const {type, joinedWith, bb, eb, date, be, ee} = selection
+      const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       return {
-        title: `${capitalize(type)}${date ? ' at ' + date : ''}`,
+        title: `${capitalize(type)} ${joinedWith ? joinedWith : ''}`,
+        subtitle: `${timespan ? timespan : ''}`,
       }
     },
   },

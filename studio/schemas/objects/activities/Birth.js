@@ -25,8 +25,8 @@ export default {
       const {type, bb, eb, date, be, ee} = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       return {
-        title: timespan,
-        subtitle: `${capitalize(type)}`,
+        title: `${capitalize(type)}`,
+        subtitle: timespan,
       }
     },
   },
