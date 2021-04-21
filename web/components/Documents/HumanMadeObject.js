@@ -86,26 +86,24 @@ export default function HumanMadeObject(item) {
             <CurrentOwner owners={item.hasCurrentOwner} />
           }
         </Grid>
-        
+
         {item.activityStream && 
           <ActivityStream stream={item.activityStream} />
         }
       </Container>
 
       {item.subjectOfManifest && (
-        <Box gridArea="image">
+        <Box h="70vh" gridArea="image">
           <MiradorWithNoSSR 
-            h="70vh" 
             manifests={[{manifest: item.subjectOfManifest}]} 
           />
         </Box>
       )}
 
       {item.manifest && !item.subjectOfManifest && (
-        <Box gridArea="image">
+        <Box h="70vh" gridArea="image">
           <MiradorWithNoSSR 
             hideWindowTitle="true" 
-            h="70vh" 
             manifests={[{manifest: item.manifest}]} 
           />
         </Box>

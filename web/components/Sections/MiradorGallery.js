@@ -9,14 +9,14 @@ export default function MiradorGallery(props) {
     return null
   }
   
-  const {items, h} = props
-
+  const {items} = props
+  
   return (
     <Grid
+      h="50vh"
       maxW={["xl", "xl", "xl", "6xl"]}
       my={{base: "6", md: "16", xl: "28"}}
       gridGap={5}
-      alignContent="start"
       gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
       gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
     >
@@ -25,7 +25,6 @@ export default function MiradorGallery(props) {
         gridArea="image"
         variant="standard"
         manifests={items} 
-        h={h} 
       />
       
       <Box fontFamily="Montserrat" gridArea="metadata" pr="10">

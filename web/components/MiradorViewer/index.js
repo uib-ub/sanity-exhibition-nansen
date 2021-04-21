@@ -106,8 +106,7 @@ export default function MiradorViewer(props) {
     manifests,
     workspaceControlPanel = false,
     gridArea,
-    catalog,
-    h = '50vh',
+    catalog
   } = props
   
   const {variantSettings, plugins} = getVariant(variant)
@@ -178,9 +177,10 @@ export default function MiradorViewer(props) {
 
   return (
     <Box 
+      h="100%"
       position="relative"
       gridArea={gridArea}
-      h={h}
+      bgGradient="linear(to-t, blue.100, white)" 
     >
       <Box h="100%" id={ID} />
     </Box>
