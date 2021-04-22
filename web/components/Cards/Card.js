@@ -77,7 +77,7 @@ export default function Card(props) {
           </Box>
         )}
 
-        <Box px="4" pt="2" pb="2">
+        <Box px={4} pt="2" pb="2">
           <Heading 
             mt="1" 
             fontFamily="Montserrat" 
