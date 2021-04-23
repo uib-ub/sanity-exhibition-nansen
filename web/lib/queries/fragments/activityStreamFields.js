@@ -1,4 +1,6 @@
-export const activityStreamFields = `
+import groq from "groq";
+
+export const activityStreamFields = groq`
 {
   ...,
   timespan[]{
@@ -10,7 +12,10 @@ export const activityStreamFields = `
     label
   },
   _type == "reference" => @->{
-    ...
+    ...,
+    timespan[]{
+      ...
+    }
   },
   _type == "Birth" => {
     "broughtIntoLife": ^{

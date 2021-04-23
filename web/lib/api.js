@@ -58,11 +58,18 @@ export async function getEvents(preview) {
   const data = await getClient(preview).fetch(
     eventsQuery
   )
+
   const {items, objects, siteSettings} = data  
   const mergedActivityStream = flatten(objects.map(o => { return o.activityStream}))
+  const seen = new Set();
+  const filteredArr = [...items, ...mergedActivityStream].filter(el => {
+    const duplicate = seen.has(el._id ?? el._key);
+    seen.add(el._id ?? el._key);
+    return !duplicate;
+  });
 
   const result = {
-    items: [...items, ...mergedActivityStream],
+    items: [...filteredArr],
     siteSettings
   }
   return result

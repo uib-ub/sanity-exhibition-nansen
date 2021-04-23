@@ -19,7 +19,7 @@ export default function BeginningOfExistence(props) {
       >
         {label ? label : "Skapt"}
       </Heading>
-      <Timespan display="inline-block" fontWeight="bolder" timespan={timespan} />
+      {timespan && (<Timespan display="inline-block" fontWeight="bolder" timespan={timespan} />)}
     </Box>
   )
 }

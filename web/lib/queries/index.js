@@ -1,3 +1,4 @@
+import { groq } from 'next-sanity';
 import {
   activityStreamFields, siteSettings
 } from './fragments'
@@ -17,7 +18,7 @@ export const publicDocumentTypes = [
   'Event'
 ]
 
-export const actorsQuery = `
+export const actorsQuery = groq`
   {
     "items": *[_type in ["Actor", "Group"]] | order(label, desc){ 
       _id,
@@ -34,13 +35,13 @@ export const actorsQuery = `
   }
 `
 
-export const alertQuery = `
+export const alertQuery = groq`
   *[_type == "Alert"][0] | order(_createdAt desc) {
     ...
   }
 `
 
-export const conceptsQuery = `
+export const conceptsQuery = groq`
   {
     "items": *[_type in ["Concept", "ObjectType"]] | order(label.nor desc){ 
       _id,
@@ -52,7 +53,7 @@ export const conceptsQuery = `
   }
 `
 
-export const registryQuery = `
+export const registryQuery = groq`
   {
     "items": *[_type in ["Concept", "ObjectType", "Actor", "Group"]] | order(label, label.nor){ 
       _id,
@@ -64,7 +65,7 @@ export const registryQuery = `
   }
 `
 
-export const frontpageQuery = `
+export const frontpageQuery = groq`
   {
     "frontpage": *[ _id == "frontpage" ][0] {
       _id,
@@ -115,13 +116,13 @@ export const frontpageQuery = `
   }
 `
 
-export const idsQuery = `
+export const idsQuery = groq`
   *[_type in $publicDocumentTypes] {
     _id
   }
 `
 
-export const routesQuery = `
+export const routesQuery = groq`
   *[ _type == "Route" ] {
     _id,
     _type,
@@ -129,7 +130,7 @@ export const routesQuery = `
   }
 `
 
-export const routeQuery = `
+export const routeQuery = groq`
   {
     "route": *[ _type == "Route" && slug.current == $joinID ][0] {
       ...,
@@ -250,7 +251,7 @@ export const routeQuery = `
   }
 `
 
-export const humanMadeObjectsQuery = `{
+export const humanMadeObjectsQuery = groq`{
   "items": *[_type == "HumanMadeObject"] | order(label){ 
     _id,
     _type,
@@ -284,13 +285,13 @@ export const humanMadeObjectsQuery = `{
   ${siteSettings}
 }`
 
-export const typeQuery = `
+export const typeQuery = groq`
   *[_id == $id][0] {
     _type
   }
 `
 
-export const eventsQuery = `{
+export const eventsQuery = groq`{
   "items": *[_type in ["Activity", "Event"]]{
     ...,
     _id,
