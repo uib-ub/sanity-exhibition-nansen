@@ -13,7 +13,7 @@
     "@blueprintjs/core": "^3.36.0",
     "@blueprintjs/icons": "^3.23.0",
     "@chakra-ui/icons": "^1.0.11",
-    "@chakra-ui/react": "^1.5.2",
+    "@chakra-ui/react": "^1.6.0",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.3.0",
     "@sanity/block-content-to-react": "^2.0.7",
