@@ -92,11 +92,11 @@ export default function getDocument(item, types, assetID) {
     },
   ]
 
-  const doc = [
-    ...subject,
-    ...maker,
-    ...depicts,
-    {
+  const doc = {
+    subject,
+    maker,
+    depicts,
+    doc: {
       _type: 'HumanMadeObject',
       _id: `${item.identifier}`,
       accessState: 'open',
@@ -210,7 +210,7 @@ export default function getDocument(item, types, assetID) {
         },
       },
     },
-  ]
+  }
 
-  return doc.filter(Boolean)
+  return doc
 }

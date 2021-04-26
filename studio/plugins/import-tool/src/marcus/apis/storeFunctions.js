@@ -1,4 +1,6 @@
-import client from 'part:@sanity/base/client'
+import sanityClient from 'part:@sanity/base/client'
+
+const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
 
 export const getImageBlob = async (url) => {
   // eslint-disable-next-line no-undef
@@ -62,11 +64,15 @@ export const patchAssetMeta = async (id, meta) => {
     })
 }
 
-export const createDoc = async (doc) => {
+export const createDoc = async (docs) => {
   const transaction = client.transaction()
+  const {doc, depicts, subject, maker} = docs
 
-  doc.forEach((o) => {
-    transaction.createOrReplace(o)
+  transaction.createOrReplace(doc)
+  
+  const rest = [...depicts, ...subject, ...maker]
+  rest.forEach((arr) => {
+    transaction.createIfNotExists(arr)
   })
 
   transaction
