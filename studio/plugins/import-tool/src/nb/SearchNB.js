@@ -62,6 +62,7 @@ const SearchNB = () => {
           page: page,
           size: state.limit,
           digitalAccessibleOnly: true,
+          filter: "contentClasses%3Ajp2"
         }),
     )
       .then((response) => response.json())
