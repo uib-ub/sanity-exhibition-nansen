@@ -21,13 +21,13 @@ import {
 
 const getClient = (preview) => (preview ? previewClient : sanityClient)
 
-const getUniqueDocuments = (items) => {
+const getUniques = (items) => {
   const ids = new Set()
   return items.filter((item) => {
-    if (ids.has(item._id)) {
+    if (ids.has(item._id ?? item._key)) {
       return false
     } else {
-      ids.add(item._id)
+      ids.add(item._id ?? item._key)
       return true
     }
   })
@@ -60,16 +60,10 @@ export async function getEvents(preview) {
   )
 
   const {items, objects, siteSettings} = data  
-  const mergedActivityStream = flatten(objects.map(o => { return o.activityStream}))
-  const seen = new Set();
-  const filteredArr = [...items, ...mergedActivityStream].filter(el => {
-    const duplicate = seen.has(el._id ?? el._key);
-    seen.add(el._id ?? el._key);
-    return !duplicate;
-  });
+  const mergedFlatActivityStream = getUniques([...items, ...flatten(objects.map(o => { return o.activityStream}))]) 
 
   const result = {
-    items: [...filteredArr],
+    items: [...mergedFlatActivityStream],
     siteSettings
   }
   return result
@@ -115,13 +109,13 @@ export async function getIdPaths(preview) {
     return results
   }
   
-  export async function getType(id, preview) {
-    const results = await getClient(preview).fetch(
-      typeQuery,
-      {id},
-    )
-    return results
-  }
+export async function getType(id, preview) {
+  const results = await getClient(preview).fetch(
+    typeQuery,
+    {id},
+  )
+  return results
+}
   
 export async function getId(id, type, preview) {
   const results = await getClient(preview).fetch(
