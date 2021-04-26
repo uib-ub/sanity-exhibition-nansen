@@ -1,7 +1,6 @@
 import groq from "groq";
 
 export const activityStreamFields = groq`
-{
   ...,
   timespan[]{
     ...,
@@ -49,5 +48,4 @@ export const activityStreamFields = groq`
       label
     }
   }
-}
 `

@@ -1,5 +1,4 @@
 import {sanityClient, previewClient} from './sanity.server'
-import {flatten} from 'lodash'
 import {
   actorsQuery,
   alertQuery,
@@ -60,10 +59,8 @@ export async function getEvents(preview) {
   )
 
   const {items, objects, siteSettings} = data  
-  const mergedFlatActivityStream = getUniques([...items, ...flatten(objects.map(o => { return o.activityStream}))]) 
-
   const result = {
-    items: [...mergedFlatActivityStream],
+    items: getUniques([...items, ...objects]),
     siteSettings
   }
   return result

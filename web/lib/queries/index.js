@@ -309,9 +309,8 @@ export const eventsQuery = groq`{
       label
     },
   },
-  "objects": *[defined(activityStream) && _type != "HumanMadeObject"]{
-    activityStream[featured == true]
-      ${activityStreamFields}
+  "objects": *[defined(activityStream) && _type != "HumanMadeObject"].activityStream[featured == true]{
+    ${activityStreamFields}
   },
   ${siteSettings}
 }`

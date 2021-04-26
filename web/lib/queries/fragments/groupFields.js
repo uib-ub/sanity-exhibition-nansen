@@ -13,8 +13,9 @@ export const groupFields = `
   referredToBy[] {
     ...
   },
-  activityStream[]
-    ${activityStreamFields},
+  activityStream[]{
+    ${activityStreamFields}
+  },
   "hasMember": *[_type in ["Actor", "Group"] && references(^._id)]{ 
     _id,
     _type,
