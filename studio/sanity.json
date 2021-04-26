@@ -22,7 +22,6 @@
     "import-tool",
     "graph-view",
     "leaflet-input",
-    "@andre-brdoch/sanity-plugin-schema-inspector",
     "media",
     "dashboard-widget-vercel",
     "@seidhr/sanity-plugin-dashboard-widget-muna-docs"
