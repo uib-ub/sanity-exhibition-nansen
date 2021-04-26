@@ -1,38 +1,18 @@
 import React from 'react'
 import {ReactiveList, SelectedFilters} from '@appbaseio/reactivesearch'
-import styled from 'styled-components'
 import Card from './Card'
-
-const container = styled.div`
-  background: white;
-  border: 1px solid #e8e8e8;
-  padding: 20px;
-  @media (max-width: 576px) {
-    padding: 10px;
-  }
-  a {
-    height: auto;
-    box-shadow: none;
-    border-radius: 0;
-    border: 1px solid #e8e8e8;
-    &:hover {
-      box-shadow: none;
-    }
-    @media (max-width: 420px) {
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  }
-`
+import {
+  Container,
+  Grid,
+} from '@sanity/ui'
 
 const Results = () => {
   return (
-    <div className={container}>
-      <SelectedFilters />
+    <Container>
       <ReactiveList
+        componentId="results"
         pagination
         paginationAt="both"
-        componentId="results"
         react={{
           and: ['search', 'digitized', 'zoom', 'types', 'makers'],
         }}
@@ -47,18 +27,18 @@ const Results = () => {
           }
           if (data.length) {
             return (
-              <ReactiveList.ResultCardsWrapper>
+              <Grid columns={[2, 3, 3, 3]} gap={[1, 1, 2, 3]}>
                 {data.map((item) => (
-                  <Card key={item._id} item={item} />
+                  <Card item={item} />
                 ))}
-              </ReactiveList.ResultCardsWrapper>
+              </Grid>
             )
           } else {
             return <p>No Results Found</p>
           }
         }}
       </ReactiveList>
-    </div>
+    </Container>
   )
 }
 

@@ -7,6 +7,7 @@ import Search from './components/Search'
 import styles from '../ImportTool.css'
 import {searchReducer} from './reducers/searchReducer'
 import {chooseItem} from './apis'
+import {Container, Grid} from '@sanity/ui'
 
 const IMPORT_API_URL = 'https://api.nb.no/catalog/v1/items/?'
 
@@ -120,7 +121,7 @@ const SearchNB = () => {
   const {searchParameter, items, totalElements, page, limit, errorMessage, loading} = state
 
   return (
-    <div>
+    <Container width={5} paddingY={5}>
       <Search search={search} />
       <p>{totalElements}</p>
       <ReactPaginate
@@ -139,18 +140,18 @@ const SearchNB = () => {
         activeClassName={styles.active}
         onPageChange={handlePageClick}
       />
-      <div className={styles.grid}>
+      <Grid columns={[3, 4, 4, 4]} gap={[1, 1, 2, 3]}>
         {loading && !errorMessage ? (
           <span>loading... </span>
         ) : errorMessage ? (
           <div className="errorMessage">{errorMessage}</div>
         ) : (
           items.map((item) => (
-            <Preview key={item.id} item={item} searchValue={searchParameter} onClick={chooseItem} />
+            <Preview item={item} searchValue={searchParameter} onClick={chooseItem} />
           ))
         )}
-      </div>
-    </div>
+      </Grid>
+    </Container>
   )
 }
 

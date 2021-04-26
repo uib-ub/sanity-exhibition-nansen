@@ -1,9 +1,9 @@
 import React from 'react'
 import {ReactiveBase} from '@appbaseio/reactivesearch'
-import styled from 'styled-components'
 import Filters from './components/Filters'
 import Results from './components/Results'
 import Search from './components/Search'
+import {Grid} from '@sanity/ui'
 
 function SearchMarcus() {
   const marcus = 'https://jambo.uib.no/elasticsearch'
@@ -11,29 +11,12 @@ function SearchMarcus() {
   return (
     <ReactiveBase app="marcus-prod" url={marcus}>
       <Search />
-      <Wrapper>
+      <Grid marginY="5" style={{gridTemplateColumns: "1fr 3fr"}} gap={[5]}>
         <Filters />
         <Results />
-      </Wrapper>
+      </Grid>
     </ReactiveBase>
   )
 }
-
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 0.3fr 1fr;
-  padding: 0.5em 0;
-  grid-gap: 0.5em;
-  @media (max-width: 1240px) {
-    grid-template-columns: 0.3fr 1fr;
-  }
-  @media (max-width: 960px) {
-    grid-template-columns: 0.6fr 1fr;
-  }
-  @media (max-width: 576px) {
-    padding: 0;
-    grid-template-columns: auto;
-  }
-`
 
 export default SearchMarcus

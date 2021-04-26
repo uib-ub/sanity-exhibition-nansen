@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
-import Input from 'part:@sanity/components/textinputs/default'
-import Button from 'part:@sanity/components/buttons/default'
+import {Container, TextInput, Button, Inline} from '@sanity/ui'
+import {MdSearch} from 'react-icons/md'
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState('')
@@ -19,18 +19,21 @@ const Search = (props) => {
   }
 
   return (
-    <form>
-      <Input
-        value={searchValue}
-        onChange={handleSearchInputChanges}
-        type="text"
-        isClearable
-        onClear={() => handleClear('')}
-      />
-      <Button style={{marginTop: '0.5em'}} onClick={callSearchFunction} type="submit">
-        Søk
-      </Button>
-    </form>
+    <Container width={5}>
+      <Inline width={5}>
+        <TextInput
+          fontSize={[2, 2, 3, 4]}
+          padding={[3, 3, 4]}
+          type="text"
+          icon={MdSearch}
+          onChange={handleSearchInputChanges}
+          value={searchValue}
+          isClearable
+          onClear={() => handleClear('')}
+        />
+        <Button fontSize={[2, 2, 3, 4]} padding={[3, 3, 4]} onClick={callSearchFunction} mode="default" type="submit" text="Søk" />
+      </Inline>
+    </Container>
   )
 }
 

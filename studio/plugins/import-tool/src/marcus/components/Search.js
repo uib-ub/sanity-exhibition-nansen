@@ -1,5 +1,5 @@
 import React from 'react'
-import {DataSearch} from '@appbaseio/reactivesearch'
+import {DataSearch, SelectedFilters} from '@appbaseio/reactivesearch'
 import styled from 'styled-components'
 
 const navbarStyles = styled.div`
@@ -33,6 +33,7 @@ const Navbar = () => {
         autosuggest={false}
         placeholder="Search ..."
       />
+      <SelectedFilters />
     </div>
   )
 }

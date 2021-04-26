@@ -1,8 +1,15 @@
 import React, {useState} from 'react'
-import Button from 'part:@sanity/components/buttons/default'
-import DefaultBadge from 'part:@sanity/components/badges/default'
-import {ResultCard} from '@appbaseio/reactivesearch'
-// import DateBadge from '../../components/DateBadge'
+import {
+  Box,
+  Card as SanityCard,
+  Heading,
+  Text,
+  Badge,
+  Button,
+  Inline,
+  Stack
+} from '@sanity/ui'
+import {RiDownloadLine} from 'react-icons/ri'
 import {chooseItem} from '../apis'
 
 const Card = ({item}) => {
@@ -28,33 +35,40 @@ const Card = ({item}) => {
   }
 
   return (
-    <ResultCard key={item._id}>
-      {item.hasThumbnail && <ResultCard.Image src={item.hasThumbnail} />}
-      <ResultCard.Title
-        dangerouslySetInnerHTML={{
-          __html: item.label || item.preferredLabel || item.title || item.identifier,
-        }}
-      />
-      <ResultCard.Description>
-        {item.description && (
-          <p>{item.description}</p>
-        )}
-        <DefaultBadge style={{marginBottom: '0.5em'}}>{item.type}</DefaultBadge>
-        <br />
-        {item.hasThumbnail && (
+    <SanityCard style={{display: "flex", flexDirection: "column"}} key={item._id} padding={[2, 2, 3]} radius={2} shadow={1}>
+      <Box>
+        <img style={{width: "100%"}} src={item.hasThumbnail} />
+      </Box>
+      <Box style={{flexGrow: "1"}} marginY={3}>
+        <Heading size="1">
+          {item.label || item.preferredLabel || item.title || item.identifier}
+        </Heading>
+        <Stack paddingY={2} space={3}>
+          <Inline space={2}>
+            <Badge tone="primary">{item.type}</Badge>
+          </Inline>
+          {item.description && (
+            <Text muted size={[1, 1, 2]}>
+              {item.description}
+            </Text>
+          )}
+        </Stack>
+      </Box>
+      <Stack style={{marginTop: "auto"}} style={{borderTop: "1px dotted gray"}} paddingTop={2} space={3}>
+        <Inline space={2}>
           <Button
-            inverted={isImported}
+            fontSize={[1, 1, 2]}
+            padding={[1, 1, 2]}
+            icon={RiDownloadLine}
+            text={buttonLabel}
+            mode={isImported ? 'ghost' : 'default'}
             disabled={isFetching}
             onClick={() => onChooseItem(item.uri)}
-          >
-            {buttonLabel}
-          </Button>
-        )}
-        <a target="blank" href={item.uri} style={{marginLeft: '0.5em'}}>
-          View at Marcus
-        </a>
-      </ResultCard.Description>
-    </ResultCard>
+          />
+          <a href={item._id} target="_blank" rel="noopener noreferrer">Åpne i Marcus</a>
+        </Inline>
+      </Stack>
+    </SanityCard>
   )
 }
 
