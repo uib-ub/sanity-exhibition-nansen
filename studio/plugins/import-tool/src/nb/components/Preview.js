@@ -50,24 +50,27 @@ const Preview = ({item, searchValue, onClick}) => {
         
         <Stack paddingY={2} space={3}>
           <Inline space={2}>
-            {item.metadata.mediaTypes &&
-              item.metadata.mediaTypes.map((type) => <Badge tone="primary" key={type}>{type} 🙄</Badge>)}
+            {item.metadata.mediaTypes && item.metadata.mediaTypes.map((type) => (
+              <Badge tone="primary" key={type}>{type} 🙄</Badge>
+            ))}
           </Inline>
         </Stack>
         
-        {item.metadata.dateCreated && (
+        {(item.metadata.dateCreated ?? item.metadata.originInfo?.issued) && (
           <Box marginY={2}>
-            <DateBadge date={item.metadata.dateCreated} />
+            <DateBadge date={item.metadata.dateCreated ?? item.metadata.originInfo?.issued} />
           </Box>
         )}
         
         {item.metadata.creators && (
           <Stack paddingY={2} space={3}>
             <Inline space={2}>
-              {item.metadata.creators.map((creator) => <Text mode="outline">{creator}</Text>)}
+              {item.metadata.creators.map((creator, index) => <Text key={index} mode="outline">{creator}</Text>)}
             </Inline>
           </Stack>
         )}
+        
+        {item.accessInfo.isPublicDomain === true ? <Badge key="publicDomain" tone="positive">Fri bruk</Badge> : null}
       </Box>
 
       <Stack style={{marginTop: "auto"}} style={{borderTop: "1px dotted gray"}} paddingTop={2} space={3}>
