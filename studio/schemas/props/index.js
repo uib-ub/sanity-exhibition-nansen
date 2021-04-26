@@ -1,8 +1,10 @@
 import React from 'react'
 import {BsFillQuestionCircleFill} from 'react-icons/bs'
-import client from 'part:@sanity/base/client'
 import {Link} from 'part:@sanity/base/router'
 import {licenseTypes} from '../vocabularies/defaultVocabularies'
+import sanityClient from 'part:@sanity/base/client'
+
+const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
 
 export const editorialState = {
   name: 'editorialState',
