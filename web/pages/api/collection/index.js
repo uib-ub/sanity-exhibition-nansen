@@ -1,6 +1,7 @@
 import {sanityClient, previewClient} from '../../../lib/sanity.server'
 const getClient = (preview) => (preview ? previewClient : sanityClient)
 
+const domain = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000"
 /* 
   Construct a IIIF Presentation v3 collection json
 */
@@ -40,7 +41,7 @@ export default async function handler(req, res) {
   async function getObject(preview = false) {
     const results = await getClient(preview).fetch(`
       *[_type == "Group" && count(*[_type == "HumanMadeObject" && ^._id in hasCurrentOwner[]._ref]) > 0] {
-        "id": "http://localhost:3000/api/collection/" + _id,
+        "id": "${domain}/api/collection/" + _id,
         "type": "Collection",
         label,
       }
