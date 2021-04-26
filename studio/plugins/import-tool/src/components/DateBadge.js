@@ -3,12 +3,27 @@ import {parse, format} from 'date-fns'
 import {Text} from '@sanity/ui'
 
 const DateBadge = (props) => {
-  if (!props.date || props.date.length !== 8) {
+  if (!props.date) {
     return null
   }
+  let parsedDate
+  let formatedDate
 
-  const parsedDate = parse(props.date, 'yyyyMMdd', new Date())
-  const formatedDate = format(parsedDate, 'd. MMMM yyyy')
+  switch(props.date.length) {
+    case 8 :
+      parsedDate = parse(props.date, 'yyyyMMdd', new Date())
+      formatedDate = format(parsedDate, 'd. MMMM yyyy')
+      break
+    case 6 :
+      parsedDate = parse(props.date, 'yyyyMM', new Date())
+      formatedDate = format(parsedDate, 'MMMM yyyy')
+      break
+    case 4 :
+      parsedDate = parse(props.date, 'yyyy', new Date())
+      formatedDate = format(parsedDate, 'yyyy')
+      break
+
+  }
 
   return <Text size={1}>{formatedDate}</Text>
 }
