@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link as NextLink} from 'next/link'
+import NextLink from 'next/link'
 import {Heading, Link, Text} from '@chakra-ui/react'
 import { BigText, Hero, Iframe, InstagramPost, PageHeader,Quote, MiradorGallery, SectionText, SingleObject, Social, SubStory, TimelineSection, TwoColumn, Video, IllustrationWithCaption } from './Sections'
 
@@ -63,22 +63,24 @@ export default function PortableTextBlock(props) {
       internalLink: ({mark, children}) => {
         const {reference} = mark
         const href = `/id/${reference._ref}`
+        const text = children.length ? children[0] : children
         return (
           <Link as={NextLink} href={href}>
-            {children}
+            {text}
           </Link>
         )
       },
       link: ({mark, children}) => {
         // Read https://css-tricks.com/use-target_blank/
         const {blank, href} = mark
+        const text = children.length ? children[0] : children
         return blank ? (
           <Link as={NextLink} href={href} isExternal>
-            {children}
+            {text}
           </Link>
         ) : (
-          <Link as={NextLink} href={href} isExternal>
-            {children}
+          <Link as={NextLink} href={href}>
+            {text}
           </Link>
         )
       },

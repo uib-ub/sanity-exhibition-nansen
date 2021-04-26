@@ -1,4 +1,4 @@
-import {Link as NextLink} from 'next/link'
+import NextLink from 'next/link'
 import {Link, Text} from '@chakra-ui/react'
 
 const BlockContent = require('@sanity/block-content-to-react')
@@ -27,22 +27,24 @@ export default function PortableTextBlockQuote(props) {
       internalLink: ({mark, children}) => {
         const {reference} = mark
         const href = `/id/${reference._ref}`
+        const text = children.length ? children[0] : children
         return (
           <Link as={NextLink} href={href}>
-            {children}
+            {text}
           </Link>
         )
       },
       link: ({mark, children}) => {
         // Read https://css-tricks.com/use-target_blank/
         const {blank, href} = mark
+        const text = children.length ? children[0] : children
         return blank ? (
           <Link as={NextLink} href={href} isExternal>
-            {children}
+            {text}
           </Link>
         ) : (
-          <Link as={NextLink} href={href} isExternal>
-            {children}
+          <Link as={NextLink} href={href}>
+            {text}
           </Link>
         )
       },
