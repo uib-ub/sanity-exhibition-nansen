@@ -27,7 +27,7 @@ const Results = () => {
           }
           if (data.length) {
             return (
-              <Grid columns={[2, 3, 3, 3]} gap={[1, 1, 2, 3]}>
+              <Grid columns={[1, 1, 2, 3]} gap={[1, 1, 2, 3]}>
                 {data.map((item) => (
                   <Card item={item} />
                 ))}

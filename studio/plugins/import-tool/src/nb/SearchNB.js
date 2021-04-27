@@ -150,7 +150,7 @@ const SearchNB = () => {
           onPageChange={handlePageClick}
         />
       </Box>
-      <Grid columns={[3, 4, 4, 4]} gap={[1, 1, 2, 3]}>
+      <Grid columns={[2, 3, 3, 4]} gap={[2, 3, 3, 3]}>
         {loading && !errorMessage ? (
           <span>loading... </span>
         ) : errorMessage ? (
