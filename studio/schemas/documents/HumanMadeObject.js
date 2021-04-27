@@ -27,6 +27,7 @@ import {
   labelSingleton,
   presentAt,
   homepage,
+  wasOutputOf,
 } from '../props'
 import {coalesceLabel} from '../helpers/helpers'
 
@@ -202,12 +203,7 @@ export default {
       ...hasFormerOrCurrentOwner,
       fieldset: 'ownership',
     },
-    {
-      name: 'wasOutputOf',
-      title: 'Was output of',
-      type: 'DataTransferEvent',
-      hidden: true,
-    },
+    wasOutputOf
   ],
   preview: {
     select: {

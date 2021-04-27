@@ -1,5 +1,5 @@
 import {FaTag} from 'react-icons/fa'
-import {editorialState, accessState, label, altLabel} from '../../props'
+import {editorialState, accessState, label, altLabel, wasOutputOf} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers'
 
@@ -43,6 +43,7 @@ export default {
       type: 'array',
       of: [{type: 'Creation'}],
     },
+    wasOutputOf
   ],
   preview: {
     select: {
