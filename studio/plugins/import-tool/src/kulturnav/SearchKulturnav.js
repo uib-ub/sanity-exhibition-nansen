@@ -1,33 +1,36 @@
 /* eslint-disable no-undef */
 import React, {useReducer, useEffect} from 'react'
-import ReactPaginate from 'react-paginate'
+//import ReactPaginate from 'react-paginate'
 // import fetch from 'unfetch'
-import Preview from './components/Preview'
+import Card from './components/Card'
 import Search from './components/Search'
-import styles from '../ImportTool.css'
+// import styles from '../ImportTool.css'
 import {searchReducer} from './reducers/searchReducer'
 import {chooseItem} from './apis'
 import {Box, Container, Grid, Flex, Text} from '@sanity/ui'
 
 const IMPORT_API_URL = 'https://kulturnav.org/api/search/'
+const GET_TYPES = 'Concept'
 
 export const initialState = {
-  sourceAPI: 'nb',
-  apiURL: 'https://kulturnav.org/api/search/',
+  sourceAPI: 'kn',
+  apiURL: IMPORT_API_URL,
   loading: true,
-  searchParameter: '',
+  searchParameter: '*',
   items: [],
   page: 0,
   totalElements: 0,
-  limit: 30,
+  max: 64,
   errorMessage: null,
 }
 
 const SearchNB = () => {
   const [state, dispatch] = useReducer(searchReducer, initialState)
 
-  /* useEffect(() => {
-    fetch(state.apiURL + new URLSearchParams({}))
+  useEffect(() => {
+    fetch(
+      `${state.apiURL}actualEntityType:${GET_TYPES},compoundName:${state.searchParameter}/${state.page}/${state.max}`
+    )
       .then((response) => response.json())
       .then((jsonResponse) => {
         dispatch({
@@ -36,9 +39,9 @@ const SearchNB = () => {
           totalElements: jsonResponse.length,
         })
       })
-  }, []) */
+  }, [])
 
-  const handlePageClick = (data) => {
+  /* const handlePageClick = (data) => {
     let selected = data.selected
     let page = selected
 
@@ -48,7 +51,7 @@ const SearchNB = () => {
     })
 
     fetch(
-      state.apiURL + 'actualEntityType:Person%20OR%20Concept,compoundName:' + state.searchParameter
+      state.apiURL + 'actualEntityType:${GET_TYPES},compoundName:' + state.searchParameter
         ? state.searchParameter
         : '' + new URLSearchParams({}),
     )
@@ -68,7 +71,7 @@ const SearchNB = () => {
           })
         }
       })
-  }
+  } */
 
   const search = (searchValue) => {
     // setSearchParameter(searchValue)
@@ -79,10 +82,7 @@ const SearchNB = () => {
     })
 
     fetch(
-      IMPORT_API_URL +
-        'actualEntityType:Person%20OR%20Concept,compoundName:' +
-        searchValue +
-        new URLSearchParams({}),
+      `${state.apiURL}actualEntityType:${GET_TYPES},compoundName:${searchValue}/0/${state.max}`
     )
       .then((response) => response.json())
       .then((jsonResponse) => {
@@ -102,8 +102,8 @@ const SearchNB = () => {
       })
   }
 
-  const {searchParameter, items, totalElements, page, limit, errorMessage, loading} = state
-  console.log(items)
+  const {searchParameter, items, totalElements, page, max, errorMessage, loading} = state
+  
   return (
     <Container width={5} paddingY={5}>
       <form>
@@ -115,13 +115,13 @@ const SearchNB = () => {
         <Text flex={1} size={1}>{totalElements} result found</Text>
       </Box>
 
-      <Box marginBottom={3}>
+      {/* <Box marginBottom={3}>
         <ReactPaginate
           previousLabel={'previous'}
           nextLabel={'next'}
           breakLabel={'...'}
           forcePage={page}
-          pageCount={totalElements / limit}
+          pageCount={totalElements / max}
           marginPagesDisplayed={2}
           pageRangeDisplayed={3}
           containerClassName={styles.pagination}
@@ -132,7 +132,7 @@ const SearchNB = () => {
           activeClassName={styles.active}
           onPageChange={handlePageClick}
         />
-      </Box>
+      </Box> */}
       <Grid columns={[3, 4, 4, 4]} gap={[1, 1, 2, 3]}>
         {loading && !errorMessage ? (
           <span>loading... </span>
@@ -140,7 +140,7 @@ const SearchNB = () => {
           <div className="errorMessage">{errorMessage}</div>
         ) : (
           items.map((item) => (
-            <Preview key={item.id} item={item} searchValue={searchParameter} onClick={chooseItem} />
+            <Card key={item.uuid} item={item} searchValue={searchParameter} onClick={chooseItem} />
           ))
         )}
       </Grid>

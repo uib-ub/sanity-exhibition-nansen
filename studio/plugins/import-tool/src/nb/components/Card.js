@@ -29,7 +29,7 @@ const Card = ({item, searchValue, onClick}) => {
   return (
     <SanityCard
       style={{display: "flex", flexDirection: "column"}} 
-      key={item._id} 
+      key={item.id}
       padding={[2, 2, 3]} 
       radius={2} 
       shadow={1} 

@@ -157,7 +157,7 @@ const SearchNB = () => {
           <div className="errorMessage">{errorMessage}</div>
         ) : (
           items.map((item) => (
-            <Card key={item._id} item={item} searchValue={searchParameter} onClick={chooseItem} />
+            <Card key={item.id} item={item} searchValue={searchParameter} onClick={chooseItem} />
           ))
         )}
       </Grid>

@@ -1,58 +1,36 @@
 import {nanoid} from 'nanoid'
-import {mapMediatypes} from './mapMediatypes'
 import sanityClient from 'part:@sanity/base/client'
 
 const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
 
 export const chooseItem = async (item) => {
-  // Get a 200x200px thumbnail. Maybe change to a bigger size based on thumbnail_custom.
-  const imageUrl = item._links.thumbnail_custom.href
-
-  function customImageSize(image, h, w) {
-    if (!image) {
-      console.error('No image input')
-      throw Error
-    }
-    const height = '600' || h
-    const width = '600' || w
-    const template = image.replace('{height}', height).replace('{width}', width)
-    return template
-  }
-
-  const types = mapMediatypes(item.metadata.mediaTypes)
-
   const doc = {
-    _type: 'HumanMadeObject',
-    _id: `${item.id}`,
+    _type: 'Concept',
+    _id: `${item.uuid}`,
     accessState: 'open',
     editorialState: 'published',
-    license:
-      item.accessInfo && item.accessInfo.isPublicDomain
-        ? 'https://creativecommons.org/publicdomain/mark/1.0/'
-        : 'https://rightsstatements.org/vocab/CNE/1.0/',
-    label: item.metadata.title,
-    preferredIdentifier: item.id,
+    label: {
+      ...(item.caption.no ? {
+        nor: item.caption.no
+      } : null),
+      ...(item.caption.sv ? {
+        swe: item.caption.sv
+      } : null)
+    },
+    /* preferredIdentifier: item.uuid,
     identifiedBy: [
       {
         _type: 'Identifier',
         _key: nanoid(),
-        content: item.id,
+        content: item.uuid,
         hasType: {
           _type: 'reference',
           _key: nanoid(),
           _ref: 'de22df48-e3e7-47f2-9d29-cae1b5e4d728',
         },
       },
-    ],
-    hasCurrentOwner: [
-      {
-        _type: 'reference',
-        _key: nanoid(),
-        _ref: '37f7376a-c635-420b-8ec6-ec0fd4c4a55c',
-      },
-    ],
-    subjectOfManifest: item._links.presentation.href,
-    hasType: types,
+    ], */
+    /* hasType: types, */
     wasOutputOf: {
       _type: 'DataTransferEvent',
       _key: nanoid(),
@@ -68,14 +46,14 @@ export const chooseItem = async (item) => {
         _type: 'DigitalDevice',
         _key: nanoid(),
         /* _ref: nanoid(36), */
-        label: 'api.nb.no',
+        label: 'kulturnav.no/api',
       },
     },
   }
 
   /* TODO
     Important to include iiif manifest in asset metadata as the asset could be reused else where in the dataset */
-  const assetMeta = {
+  /* const assetMeta = {
     source: {
       // The source this image is from
       name: 'nb.no',
@@ -86,7 +64,7 @@ export const chooseItem = async (item) => {
     },
     description: item.metadata.title,
     creditLine: 'From nb.no',
-  }
+  } */
 
   const getImageBlob = async (url) => {
     // eslint-disable-next-line no-undef
@@ -151,11 +129,20 @@ export const chooseItem = async (item) => {
   }
 
   const createDoc = async (doc) => {
-    const res = client.createIfNotExists(doc).then((result) => {
-      console.log(`${result._id} was imported!`)
-      return result
-    })
-    return res
+    const transaction = client.transaction()
+  
+    transaction.createOrReplace(doc)
+    
+    transaction
+      .commit()
+      .then((res) => {
+        console.log(JSON.stringify(res, null, 2))
+        return res
+      })
+      .catch((err) => {
+        console.log('Transaction failed', err)
+        return err
+      })
   }
 
   const setAssetRef = async (docID, assetID) => {
@@ -180,23 +167,21 @@ export const chooseItem = async (item) => {
   }
 
   try {
-    const imageResonse = await getImageBlob(customImageSize(imageUrl))
+    /* const imageResonse = await getImageBlob(customImageSize(imageUrl))
     const asset = await uploadImageBlob(imageResonse)
-    await patchAssetMeta(asset._id, assetMeta)
+    await patchAssetMeta(asset._id, assetMeta) */
 
-    const document = await createDoc(doc)
-    if (asset && document) {
+    await createDoc(doc)
+    /* if (asset && document) {
       await setAssetRef(document._id, asset._id)
-    }
+    } */
 
     return {
       success: true,
-      body: JSON.stringify(document, asset),
     }
   } catch (err) {
     return {
       success: false,
-      body: JSON.stringify(response.status, response.statusText),
     }
   }
 }

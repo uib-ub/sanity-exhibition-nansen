@@ -54,8 +54,6 @@ export const chooseItem = async (uri) => {
     // Map type to Sanity types
     const types = mapMediatypes([cleanJSON.type])
 
-    /* TODO
-    Include iiif manifest in asset metadata as the asset could be reused elsewhere in the dataset */
     const assetMeta = {
       source: {
         // The source this image is from
