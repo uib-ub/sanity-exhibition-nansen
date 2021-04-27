@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import Input from 'part:@sanity/components/textinputs/default'
-import Button from 'part:@sanity/components/buttons/default'
+import {Box, TextInput, Button, Inline} from '@sanity/ui'
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState('')
@@ -19,18 +18,30 @@ const Search = (props) => {
   }
 
   return (
-    <form>
-      <Input
-        value={searchValue}
-        onChange={handleSearchInputChanges}
-        type="text"
-        isClearable
-        onClear={() => handleClear('')}
-      />
-      <Button style={{marginTop: '0.5em'}} onClick={callSearchFunction} type="submit">
-        Søk
-      </Button>
-    </form>
+    <>
+      <Box flex={3}>
+        <TextInput
+          style={{backgroundColor: "white", border: "solid 1px #ccc"}}
+          fontSize={[2, 2, 2, 3]}
+          padding={[2, 2, 3]}
+          type="text"
+          onChange={handleSearchInputChanges}
+          value={searchValue}
+          isClearable
+          onClear={() => handleClear('')}
+        />
+      </Box>
+      <Box marginLeft={2}>
+        <Button 
+          fontSize={[2, 2, 2, 3]}
+          padding={[2, 2, 3]}
+          onClick={callSearchFunction} 
+          mode="default" 
+          type="submit" 
+          text="Søk" 
+        />
+      </Box>
+    </>
   )
 }
 

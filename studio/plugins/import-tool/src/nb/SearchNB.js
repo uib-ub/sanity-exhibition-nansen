@@ -2,12 +2,12 @@
 import React, {useReducer, useEffect} from 'react'
 import ReactPaginate from 'react-paginate'
 // import fetch from 'unfetch'
-import Preview from './components/Preview'
+import Card from './components/Card'
 import Search from './components/Search'
 import styles from '../ImportTool.css'
 import {searchReducer} from './reducers/searchReducer'
 import {chooseItem} from './apis'
-import {Container, Grid} from '@sanity/ui'
+import {Box, Container, Grid, Flex, Text} from '@sanity/ui'
 
 const IMPORT_API_URL = 'https://api.nb.no/catalog/v1/items/?'
 
@@ -123,24 +123,33 @@ const SearchNB = () => {
 
   return (
     <Container width={5} paddingY={5}>
-      <Search search={search} />
-      <p>{totalElements}</p>
-      <ReactPaginate
-        previousLabel={'previous'}
-        nextLabel={'next'}
-        breakLabel={'...'}
-        forcePage={page}
-        pageCount={totalElements / limit}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={3}
-        containerClassName={styles.pagination}
-        pageClassName={styles.page}
-        previousClassName={styles.previous}
-        nextClassName={styles.next}
-        breakClassName={styles.break}
-        activeClassName={styles.active}
-        onPageChange={handlePageClick}
-      />
+      <form>
+        <Flex>
+          <Search search={search} />
+        </Flex>
+      </form>
+      <Box marginY={3}>
+        <Text flex={1} size={1}>{totalElements} result found</Text>
+      </Box>
+
+      <Box marginBottom={3}>
+        <ReactPaginate
+          previousLabel={'previous'}
+          nextLabel={'next'}
+          breakLabel={'...'}
+          forcePage={page}
+          pageCount={totalElements / limit}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          containerClassName={styles.pagination}
+          pageClassName={styles.page}
+          previousClassName={styles.previous}
+          nextClassName={styles.next}
+          breakClassName={styles.break}
+          activeClassName={styles.active}
+          onPageChange={handlePageClick}
+        />
+      </Box>
       <Grid columns={[3, 4, 4, 4]} gap={[1, 1, 2, 3]}>
         {loading && !errorMessage ? (
           <span>loading... </span>
@@ -148,7 +157,7 @@ const SearchNB = () => {
           <div className="errorMessage">{errorMessage}</div>
         ) : (
           items.map((item) => (
-            <Preview item={item} searchValue={searchParameter} onClick={chooseItem} />
+            <Card key={item._id} item={item} searchValue={searchParameter} onClick={chooseItem} />
           ))
         )}
       </Grid>

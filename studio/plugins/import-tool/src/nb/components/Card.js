@@ -2,8 +2,9 @@ import React, {useState} from 'react'
 import DateBadge from '../../components/DateBadge'
 import {Card as SanityCard, Box, Button, Heading, Text, Badge, Stack, Inline} from '@sanity/ui'
 import {RiDownloadLine} from 'react-icons/ri'
+import License from './License'
 
-const Preview = ({item, searchValue, onClick}) => {
+const Card = ({item, searchValue, onClick}) => {
   const [isFetching, setIsFetching] = useState(false)
   const [isImported, setIsImported] = useState(false)
   const [buttonLabel, setButtonLabel] = useState('Import')
@@ -35,7 +36,7 @@ const Preview = ({item, searchValue, onClick}) => {
     >
       <Box>
         <img
-          style={{width: "100%", maxHeight: "250px", objectFit: "cover"}}
+          style={{width: "100%", height: "250px", objectFit: "cover"}}
           src={
             item && item._links && item._links.thumbnail_large
               ? item._links.thumbnail_large.href
@@ -51,16 +52,10 @@ const Preview = ({item, searchValue, onClick}) => {
         <Stack paddingY={2} space={3}>
           <Inline space={2}>
             {item.metadata.mediaTypes && item.metadata.mediaTypes.map((type) => (
-              <Badge tone="primary" key={type}>{type} 🙄</Badge>
+              <Badge tone="primary" key={type}>{type}</Badge>
             ))}
           </Inline>
         </Stack>
-        
-        {(item.metadata.dateCreated ?? item.metadata.originInfo?.issued) && (
-          <Box marginY={2}>
-            <DateBadge date={item.metadata.dateCreated ?? item.metadata.originInfo?.issued} />
-          </Box>
-        )}
         
         {item.metadata.creators && (
           <Stack paddingY={2} space={3}>
@@ -69,8 +64,17 @@ const Preview = ({item, searchValue, onClick}) => {
             </Inline>
           </Stack>
         )}
+
+        {(item.metadata.dateCreated ?? item.metadata.originInfo?.issued) && (
+          <Box marginTop={2}>
+            <DateBadge date={item.metadata.dateCreated ?? item.metadata.originInfo?.issued} />
+          </Box>
+        )}
         
-        {item.accessInfo.isPublicDomain === true ? <Badge key="publicDomain" tone="positive">Fri bruk</Badge> : null}
+      </Box>
+
+      <Box marginY={2} style={{marginTop: "auto"}} >
+        <License license={item.accessInfo.license} />
       </Box>
 
       <Stack style={{marginTop: "auto"}} style={{borderTop: "1px dotted gray"}} paddingTop={2} space={3}>
@@ -96,4 +100,4 @@ const Preview = ({item, searchValue, onClick}) => {
   )
 }
 
-export default Preview
+export default Card

@@ -7,6 +7,7 @@ import Search from './components/Search'
 import styles from '../ImportTool.css'
 import {searchReducer} from './reducers/searchReducer'
 import {chooseItem} from './apis'
+import {Box, Container, Grid, Flex, Text} from '@sanity/ui'
 
 const IMPORT_API_URL = 'https://kulturnav.org/api/search/'
 
@@ -104,26 +105,35 @@ const SearchNB = () => {
   const {searchParameter, items, totalElements, page, limit, errorMessage, loading} = state
   console.log(items)
   return (
-    <div>
-      <Search search={search} />
-      <p>{totalElements}</p>
-      <ReactPaginate
-        previousLabel={'previous'}
-        nextLabel={'next'}
-        breakLabel={'...'}
-        forcePage={page}
-        pageCount={totalElements / limit}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={3}
-        containerClassName={styles.pagination}
-        pageClassName={styles.page}
-        previousClassName={styles.previous}
-        nextClassName={styles.next}
-        breakClassName={styles.break}
-        activeClassName={styles.active}
-        onPageChange={handlePageClick}
-      />
-      <div className={styles.grid}>
+    <Container width={5} paddingY={5}>
+      <form>
+        <Flex>
+          <Search search={search} />
+        </Flex>
+      </form>
+      <Box marginY={3}>
+        <Text flex={1} size={1}>{totalElements} result found</Text>
+      </Box>
+
+      <Box marginBottom={3}>
+        <ReactPaginate
+          previousLabel={'previous'}
+          nextLabel={'next'}
+          breakLabel={'...'}
+          forcePage={page}
+          pageCount={totalElements / limit}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          containerClassName={styles.pagination}
+          pageClassName={styles.page}
+          previousClassName={styles.previous}
+          nextClassName={styles.next}
+          breakClassName={styles.break}
+          activeClassName={styles.active}
+          onPageChange={handlePageClick}
+        />
+      </Box>
+      <Grid columns={[3, 4, 4, 4]} gap={[1, 1, 2, 3]}>
         {loading && !errorMessage ? (
           <span>loading... </span>
         ) : errorMessage ? (
@@ -133,8 +143,8 @@ const SearchNB = () => {
             <Preview key={item.id} item={item} searchValue={searchParameter} onClick={chooseItem} />
           ))
         )}
-      </div>
-    </div>
+      </Grid>
+    </Container>
   )
 }
 
