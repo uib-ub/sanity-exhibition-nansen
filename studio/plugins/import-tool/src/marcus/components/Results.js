@@ -1,5 +1,5 @@
 import React from 'react'
-import {ReactiveList, SelectedFilters} from '@appbaseio/reactivesearch'
+import {ReactiveList} from '@appbaseio/reactivesearch'
 import Card from './Card'
 import {
   Container,

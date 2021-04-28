@@ -7,7 +7,7 @@ import Search from './components/Search'
 import styles from '../ImportTool.css'
 import {searchReducer} from './reducers/searchReducer'
 import {chooseItem} from './apis'
-import {Box, Container, Grid, Flex, Text} from '@sanity/ui'
+import {Box, Card as SanityCard, Container, Grid, Flex, Text, Spinner} from '@sanity/ui'
 
 const IMPORT_API_URL = 'https://api.nb.no/catalog/v1/items/?'
 
@@ -103,7 +103,7 @@ const SearchNB = () => {
     )
       .then((response) => response.json())
       .then((jsonResponse) => {
-        if (jsonResponse.page && jsonResponse.page.totalElements) {
+        if (jsonResponse.page && jsonResponse.page.totalElements > 0) {
           dispatch({
             type: 'SEARCH_SUCCESS',
             payload: jsonResponse._embedded.items,
@@ -114,6 +114,8 @@ const SearchNB = () => {
           dispatch({
             type: 'SEARCH_FAILURE',
             error: jsonResponse.Error,
+            payload: [],
+            totalElements: jsonResponse.page.totalElements,
           })
         }
       })
@@ -129,38 +131,73 @@ const SearchNB = () => {
         </Flex>
       </form>
       <Box marginY={3}>
-        <Text flex={1} size={1}>{totalElements} result found</Text>
+        {!loading && <Text flex={1} size={1}>{totalElements} result found</Text>}
       </Box>
 
       <Box marginBottom={3}>
-        <ReactPaginate
-          previousLabel={'previous'}
-          nextLabel={'next'}
-          breakLabel={'...'}
-          forcePage={page}
-          pageCount={totalElements / limit}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={3}
-          containerClassName={styles.pagination}
-          pageClassName={styles.page}
-          previousClassName={styles.previous}
-          nextClassName={styles.next}
-          breakClassName={styles.break}
-          activeClassName={styles.active}
-          onPageChange={handlePageClick}
-        />
+        {!loading && totalElements != 0 &&
+          <ReactPaginate
+            previousLabel={'previous'}
+            nextLabel={'next'}
+            breakLabel={'...'}
+            forcePage={page}
+            pageCount={totalElements / limit}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={3}
+            containerClassName={styles.pagination}
+            pageClassName={styles.page}
+            previousClassName={styles.previous}
+            nextClassName={styles.next}
+            breakClassName={styles.break}
+            activeClassName={styles.active}
+            onPageChange={handlePageClick}
+          />
+        }
       </Box>
-      <Grid columns={[2, 3, 3, 4]} gap={[2, 3, 3, 3]}>
-        {loading && !errorMessage ? (
-          <span>loading... </span>
-        ) : errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
-        ) : (
-          items.map((item) => (
+      
+      {loading && !errorMessage ? (
+        <Flex style={{width: "100%"}} align="center" justify="center">
+          <Spinner size={2}/>
+        </Flex>
+      ) : errorMessage ? (
+        <SanityCard
+          padding={[3, 3, 4]}
+          radius={2}
+          shadow={1}
+          tone="critical"
+        >
+          <Text size={[2, 2, 3]}>
+            {errorMessage}
+          </Text>
+        </SanityCard>
+      ) : (
+        <Grid columns={[2, 3, 3, 4]} gap={[2, 3, 3, 3]}>
+          {items.map((item) => (
             <Card key={item.id} item={item} searchValue={searchParameter} onClick={chooseItem} />
-          ))
-        )}
-      </Grid>
+          ))}
+        </Grid>
+      )}
+
+      <Box marginY={3}>
+        {!loading && totalElements != 0 &&
+          <ReactPaginate
+            previousLabel={'previous'}
+            nextLabel={'next'}
+            breakLabel={'...'}
+            forcePage={page}
+            pageCount={totalElements / limit}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={3}
+            containerClassName={styles.pagination}
+            pageClassName={styles.page}
+            previousClassName={styles.previous}
+            nextClassName={styles.next}
+            breakClassName={styles.break}
+            activeClassName={styles.active}
+            onPageChange={handlePageClick}
+          />
+        }
+      </Box>
     </Container>
   )
 }

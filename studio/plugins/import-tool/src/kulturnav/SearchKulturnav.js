@@ -7,7 +7,7 @@ import Search from './components/Search'
 // import styles from '../ImportTool.css'
 import {searchReducer} from './reducers/searchReducer'
 import {chooseItem} from './apis'
-import {Box, Container, Grid, Flex, Text} from '@sanity/ui'
+import {Box, Card as SanityCard, Container, Grid, Flex, Text, Spinner} from '@sanity/ui'
 
 const IMPORT_API_URL = 'https://kulturnav.org/api/search/'
 const GET_TYPES = 'Concept'
@@ -24,12 +24,12 @@ export const initialState = {
   errorMessage: null,
 }
 
-const SearchNB = () => {
+const SearchKN = () => {
   const [state, dispatch] = useReducer(searchReducer, initialState)
 
   useEffect(() => {
     fetch(
-      `${state.apiURL}actualEntityType:${GET_TYPES},compoundName:${state.searchParameter}/${state.page}/${state.max}`
+      `${state.apiURL}entityType:${GET_TYPES},concept.isCollection:!true,compoundName:${state.searchParameter}/${state.page}/${state.max}`
     )
       .then((response) => response.json())
       .then((jsonResponse) => {
@@ -51,7 +51,7 @@ const SearchNB = () => {
     })
 
     fetch(
-      state.apiURL + 'actualEntityType:${GET_TYPES},compoundName:' + state.searchParameter
+      state.apiURL + 'entityType:${GET_TYPES},concept.isCollection:!true,compoundName:' + state.searchParameter
         ? state.searchParameter
         : '' + new URLSearchParams({}),
     )
@@ -74,19 +74,17 @@ const SearchNB = () => {
   } */
 
   const search = (searchValue) => {
-    // setSearchParameter(searchValue)
-
     dispatch({
       type: 'SEARCH_REQUEST',
       searchParameter: searchValue,
     })
 
     fetch(
-      `${state.apiURL}actualEntityType:${GET_TYPES},compoundName:${searchValue}/0/${state.max}`
+      `${state.apiURL}entityType:${GET_TYPES},concept.isCollection:!true,compoundName:${searchValue}/0/${state.max}`
     )
       .then((response) => response.json())
       .then((jsonResponse) => {
-        if (jsonResponse && jsonResponse.length) {
+        if (jsonResponse && jsonResponse.length > 0) {
           dispatch({
             type: 'SEARCH_SUCCESS',
             payload: jsonResponse,
@@ -96,6 +94,8 @@ const SearchNB = () => {
         } else {
           dispatch({
             type: 'SEARCH_FAILURE',
+            payload: jsonResponse,
+            totalElements: 0,
             error: jsonResponse.Error,
           })
         }
@@ -112,7 +112,7 @@ const SearchNB = () => {
         </Flex>
       </form>
       <Box marginY={3}>
-        <Text flex={1} size={1}>{totalElements} result found</Text>
+        {!loading && <Text flex={1} size={1}>{totalElements} result found</Text>}
       </Box>
 
       {/* <Box marginBottom={3}>
@@ -133,19 +133,31 @@ const SearchNB = () => {
           onPageChange={handlePageClick}
         />
       </Box> */}
-      <Grid columns={[2, 3, 3, 4]} gap={[2, 3, 3, 3]}>
-        {loading && !errorMessage ? (
-          <span>loading... </span>
-        ) : errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
-        ) : (
-          items.map((item) => (
-            <Card key={item.uuid} item={item} searchValue={searchParameter} onClick={chooseItem} />
-          ))
-        )}
-      </Grid>
+      
+      {loading && !errorMessage ? (
+        <Flex style={{width: "100%"}} align="center" justify="center">
+          <Spinner size={2}/>
+        </Flex>
+      ) : errorMessage ? (
+        <SanityCard
+          padding={[3, 3, 4]}
+          radius={2}
+          shadow={1}
+          tone="critical"
+        >
+          <Text size={[2, 2, 3]}>
+            {errorMessage}
+          </Text>
+        </SanityCard>
+      ) : (
+        <Grid columns={[2, 3, 3, 4]} gap={[2, 3, 3, 3]}>
+          {items.map((item) => (
+            <Card key={item.id} item={item} searchValue={searchParameter} onClick={chooseItem} />
+          ))}
+        </Grid>
+      )}
     </Container>
   )
 }
 
-export default SearchNB
+export default SearchKN

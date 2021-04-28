@@ -41,7 +41,7 @@ const Card = ({item}) => {
       </Box> */}
       <Box style={{flexGrow: "1"}} marginY={3}>
         <Heading size="1">
-          {item.caption.no || item.caption.sv || 'Manglende caption?'}
+          {item.caption.no || item.caption.sv || item.caption.en || 'Manglende caption?'}
         </Heading>
         <Stack paddingY={2} space={3}>
           <Inline space={2}>

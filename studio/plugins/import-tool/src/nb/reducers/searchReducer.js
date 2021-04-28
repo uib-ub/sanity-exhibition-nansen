@@ -19,6 +19,8 @@ export const searchReducer = (state, action) => {
       return {
         ...state,
         loading: false,
+        items: action.payload,
+        totalElements: action.totalElements,
         errorMessage: action.error,
       }
     case 'IMPORT_SUCCESS':
