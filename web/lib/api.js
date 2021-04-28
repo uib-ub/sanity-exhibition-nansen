@@ -57,13 +57,7 @@ export async function getEvents(preview) {
   const data = await getClient(preview).fetch(
     eventsQuery
   )
-
-  const {items, objects, siteSettings} = data  
-  const result = {
-    items: getUniques([...items, ...objects]),
-    siteSettings
-  }
-  return result
+  return data
 }
 
 export async function getPreviewHumanMadeObjectByID(id) {

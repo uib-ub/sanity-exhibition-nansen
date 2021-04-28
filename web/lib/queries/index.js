@@ -292,25 +292,27 @@ export const typeQuery = groq`
 `
 
 export const eventsQuery = groq`{
-  "items": *[_type in ["Activity", "Event"]]{
-    ...,
-    _id,
-    label,
-    hasType[]->{
-      _id,
-      label
-    },
-    timespan[]{
+  "items": [
+    ...*[_type in ["Activity", "Event"]]{
       ...,
-      "orderDate": coalesce(date, beginOfTheBegin)
-    },
-    tookPlaceAt[]->{
       _id,
-      label
+      label,
+      hasType[]->{
+        _id,
+        label
+      },
+      timespan[]{
+        ...,
+        "orderDate": coalesce(date, beginOfTheBegin)
+      },
+      tookPlaceAt[]->{
+        _id,
+        label
+      },
     },
-  },
-  "objects": *[defined(activityStream) && _type != "HumanMadeObject"].activityStream[featured == true]{
-    ${activityStreamFields}
-  },
+    ...*[defined(activityStream)].activityStream[featured == true]{
+      ${activityStreamFields}
+    }
+  ],
   ${siteSettings}
 }`
