@@ -6,6 +6,14 @@ import sanityClient from 'part:@sanity/base/client'
 
 const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
 
+export const sameAs = {
+  name: 'sameAs',
+  title: 'Samme som',
+  titleEN: 'Same as',
+  type: 'array',
+  of: [{type: 'string'}]
+}
+
 export const editorialState = {
   name: 'editorialState',
   title: 'Status',

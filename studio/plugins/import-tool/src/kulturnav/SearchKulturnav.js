@@ -152,7 +152,7 @@ const SearchKN = () => {
       ) : (
         <Grid columns={[2, 3, 3, 4]} gap={[2, 3, 3, 3]}>
           {items.map((item) => (
-            <Card key={item.id} item={item} searchValue={searchParameter} onClick={chooseItem} />
+            <Card key={item.uuid} item={item} searchValue={searchParameter} onClick={chooseItem} />
           ))}
         </Grid>
       )}
