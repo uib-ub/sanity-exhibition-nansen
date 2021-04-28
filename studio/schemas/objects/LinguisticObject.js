@@ -8,10 +8,10 @@ export default {
   title: 'Tekst',
   titleEN: 'Text',
   fieldsets: defaultFieldsets,
-  /* initialValue: {
-    editorialState: 'draft',
-    accessState: 'secret',
-  }, */
+  initialValue: {
+    editorialState: 'published',
+    accessState: 'open',
+  },
   fields: [
     editorialState,
     accessState,
