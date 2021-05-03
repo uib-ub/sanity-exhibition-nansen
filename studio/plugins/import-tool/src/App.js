@@ -1,10 +1,10 @@
 import React from 'react'
 import {HashRouter as Router, NavLink, Route} from 'react-router-dom'
 import styles from './ImportTool.css'
-import Header from './components/Header'
-import SearchNB from './nb/SearchNB'
-import SearchMarcus from './marcus/SearchMarcus'
-import SearchKulturnav from './kulturnav/SearchKulturnav'
+import Header from './shared/components/Header'
+import SearchNB from './nb'
+import SearchMarcus from './marcus'
+import SearchKN from './kulturnav'
 import {Box} from '@sanity/ui'
 
 const App = () => {
@@ -35,7 +35,7 @@ const App = () => {
         </Route>
 
         <Route path="/kulturnav">
-          <SearchKulturnav />
+          <SearchKN />
         </Route>
       </Box>
     </Router>

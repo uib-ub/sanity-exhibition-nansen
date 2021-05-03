@@ -5,7 +5,7 @@ import React, {useReducer, useEffect} from 'react'
 import Card from './components/Card'
 import Search from './components/Search'
 // import styles from '../ImportTool.css'
-import {searchReducer} from './reducers/searchReducer'
+import {searchReducer} from '../shared/searchReducer'
 import {chooseItem} from './apis'
 import {Box, Card as SanityCard, Container, Grid, Flex, Text, Spinner} from '@sanity/ui'
 

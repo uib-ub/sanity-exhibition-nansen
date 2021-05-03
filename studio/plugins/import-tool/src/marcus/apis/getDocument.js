@@ -1,7 +1,7 @@
 import {nanoid} from 'nanoid'
 import {parse} from 'date-fns'
-import {mapLicenses} from './mapLicenses'
-import {mapOwner} from './mapOwner'
+import {mapLicenses} from '../../shared/mapLicenses'
+import {mapOwner} from '../../shared/mapOwner'
 
 export default function getDocument(item, types, assetID) {
   const parseDate = (date) => {

@@ -5,9 +5,9 @@ import ReactPaginate from 'react-paginate'
 import Card from './components/Card'
 import Search from './components/Search'
 import styles from '../ImportTool.css'
-import {searchReducer} from './reducers/searchReducer'
 import {chooseItem} from './apis'
 import {Box, Card as SanityCard, Container, Grid, Flex, Text, Spinner} from '@sanity/ui'
+import { searchReducer } from '../shared/searchReducer'
 
 const IMPORT_API_URL = 'https://api.nb.no/catalog/v1/items/?'
 

@@ -5,7 +5,7 @@ import Results from './components/Results'
 import Search from './components/Search'
 import {Box, Grid} from '@sanity/ui'
 
-function SearchMarcus() {
+export default function SearchMarcus() {
   const marcus = 'https://jambo.uib.no/elasticsearch'
 
   return (
@@ -20,5 +20,3 @@ function SearchMarcus() {
     </ReactiveBase>
   )
 }
-
-export default SearchMarcus

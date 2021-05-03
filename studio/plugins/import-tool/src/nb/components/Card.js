@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import DateBadge from '../../components/DateBadge'
+import DateBadge from '../../shared/components/DateBadge'
 import {Card as SanityCard, Box, Button, Heading, Text, Badge, Stack, Inline} from '@sanity/ui'
 import {RiDownloadLine} from 'react-icons/ri'
 import License from './License'

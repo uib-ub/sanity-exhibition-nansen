@@ -2,8 +2,8 @@ import {omit} from 'lodash'
 import getQuery from './getQuery'
 import getFrame from './getFrame'
 import getDocument from './getDocument'
-import {mapMediatypes} from './mapMediatypes'
-import {createDoc, getImageBlob, patchAssetMeta, uploadImageBlob} from './storeFunctions'
+import {createDoc, getImageBlob, patchAssetMeta, uploadImageBlob} from '../../shared/storeFunctions'
+import { mapMediatypes } from '../../shared/mapMediatypes'
 const jsonld = require('jsonld/dist/jsonld.js')
 
 export const chooseItem = async (uri) => {
