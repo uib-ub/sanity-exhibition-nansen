@@ -96,7 +96,15 @@ export default {
       description: 'Andre identifiserte undersamlinger som er en del av dette samlingen.',
       descriptionEN: 'Other identified subcollections this collection is composed of',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'Collection'}]}],
+      of: [
+        {
+          type: 'reference', 
+          to: [
+            {type: 'Collection'},
+            {type: 'HumanMadeObject'}
+          ]
+        }
+      ],
     },
   ],
   preview: {
