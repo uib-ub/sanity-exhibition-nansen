@@ -11,7 +11,8 @@ import {
   eventsQuery,
   humanMadeObjectsQuery,
   typeQuery,
-  publicDocumentTypes } from './queries'
+  publicDocumentTypes, 
+  contactCopyQuery} from './queries'
 import {
   humanMadeObjectFields, 
   groupFields, 
@@ -137,5 +138,10 @@ export async function getSiteSettings(preview) {
 
 export async function getAlert(preview) {
   const results = await getClient(preview).fetch(alertQuery)
+  return results
+}
+
+export async function getContactCopy(preview) {
+  const results = await getClient(preview).fetch(contactCopyQuery)
   return results
 }

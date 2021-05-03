@@ -316,3 +316,14 @@ export const eventsQuery = groq`{
   ],
   ${siteSettings}
 }`
+
+export const contactCopyQuery = groq`{
+  "tags": *[_type == "media.tag"]| order(name.current desc){
+    name,
+    "images": *[references(^._id)]{
+      ...,
+      "count": count(*[references(^._id)])
+    }
+  },
+  ${siteSettings}
+}`
