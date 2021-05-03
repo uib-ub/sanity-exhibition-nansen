@@ -20,7 +20,7 @@ export const editorialState = {
   titleEN: 'State',
   type: 'string',
   fieldset: 'state',
-  validation: (Rule) => Rule.required(),
+  initialValue: 'published',
   options: {
     list: [
       {title: 'Til gjennomgang', value: 'review'},
@@ -37,7 +37,7 @@ export const accessState = {
   titleEN: 'Access state',
   type: 'string',
   fieldset: 'state',
-  validation: (Rule) => Rule.required(),
+  initialValue: 'open',
   options: {
     list: [
       {title: 'Privat', value: 'secret'},
@@ -1109,6 +1109,7 @@ export const featured = {
   title: 'Fremhevet?',
   titleEN: 'Featured?',
   type: 'boolean',
+  initialValue: false,
 }
 
 export const wasOutputOf = {

@@ -61,6 +61,10 @@
     {
       "implements": "part:@sanity/base/absolutes",
       "path": "./src/parts/bundleChecker.js"
+    },
+    {
+      "name": "part:@sanity/base/initial-value-templates",
+      "path": "./src/parts/initialValueTemplates.js"
     }
   ]
 }

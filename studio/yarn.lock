@@ -1401,9 +1401,9 @@
     prop-types "^15.6.0"
     rxjs "^6.5.3"
 
-"@sanity/desk-tool@^2.10.0":
-  version "2.10.0"
-  resolved "https://registry.npmjs.org/@sanity/desk-tool/-/desk-tool-2.10.0.tgz#b50ed91330f9aaef561bb545e9c29b5ec319cf5b"
+"@sanity/desk-tool@^2.10.1":
+  version "2.10.1"
+  resolved "https://registry.npmjs.org/@sanity/desk-tool/-/desk-tool-2.10.1.tgz#06b4fda90178cb1e969dfe076b2b59929ded1f3f"
   dependencies:
     "@popperjs/core" "^2.5.4"
     "@reach/auto-id" "^0.13.2"
@@ -1412,7 +1412,7 @@
     "@sanity/data-aspects" "2.2.6"
     "@sanity/diff" "2.7.4"
     "@sanity/field" "2.10.0"
-    "@sanity/form-builder" "2.10.0"
+    "@sanity/form-builder" "2.10.1"
     "@sanity/generate-help-url" "2.2.6"
     "@sanity/mutator" "2.2.6"
     "@sanity/react-hooks" "2.10.0"
@@ -1483,9 +1483,9 @@
     sanity-diff-patch "^1.0.9"
     styled-components "^5.2.1"
 
-"@sanity/form-builder@2.10.0":
-  version "2.10.0"
-  resolved "https://registry.npmjs.org/@sanity/form-builder/-/form-builder-2.10.0.tgz#c7ee00975da8a3238c40e866ddcd2750fd00d895"
+"@sanity/form-builder@2.10.1":
+  version "2.10.1"
+  resolved "https://registry.npmjs.org/@sanity/form-builder/-/form-builder-2.10.1.tgz#b5c634665259008af769ebd177df574db1c1a8c3"
   dependencies:
     "@reach/auto-id" "^0.13.2"
     "@sanity/base" "2.10.0"
@@ -2904,7 +2904,7 @@ browserslist@^2.0.0, browserslist@^2.11.3:
     caniuse-lite "^1.0.30000792"
     electron-to-chromium "^1.3.30"
 
-browserslist@^4.0.0, browserslist@^4.14.5, browserslist@^4.16.4:
+browserslist@^4.0.0, browserslist@^4.14.5, browserslist@^4.16.5:
   version "4.16.5"
   resolved "https://registry.npmjs.org/browserslist/-/browserslist-4.16.5.tgz#952825440bca8913c62d0021334cbe928ef062ae"
   dependencies:
@@ -3497,10 +3497,10 @@ copy-to-clipboard@^3.2.0, copy-to-clipboard@^3.3.1:
     toggle-selection "^1.0.6"
 
 core-js-compat@^3.9.0, core-js-compat@^3.9.1:
-  version "3.11.0"
-  resolved "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.11.0.tgz#635683f43480a0b41e3f6be3b1c648dadb8b4390"
+  version "3.11.1"
+  resolved "https://registry.npmjs.org/core-js-compat/-/core-js-compat-3.11.1.tgz#57a91e9b02d3bb8cf37f82eceaf44a3d646fa614"
   dependencies:
-    browserslist "^4.16.4"
+    browserslist "^4.16.5"
     semver "7.0.0"
 
 core-js@^2.4.0, core-js@^2.5.0:
@@ -5289,8 +5289,8 @@ for-own@^1.0.0:
     for-in "^1.0.1"
 
 force-graph@^1.40.2:
-  version "1.40.2"
-  resolved "https://registry.npmjs.org/force-graph/-/force-graph-1.40.2.tgz#e29c6635f8b81306ec6b776f6f3a57e8ee4d370f"
+  version "1.40.3"
+  resolved "https://registry.npmjs.org/force-graph/-/force-graph-1.40.3.tgz#c49394bad53c47ea694b602793d899dd3bcef72e"
   dependencies:
     "@tweenjs/tween.js" "^18.6.4"
     accessor-fn "^1.3.0"

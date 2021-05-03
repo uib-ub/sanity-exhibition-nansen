@@ -23,7 +23,7 @@
     "@sanity/dashboard": "2.8.2-canary.40",
     "@sanity/default-layout": "^2.10.0",
     "@sanity/default-login": "^2.8.0",
-    "@sanity/desk-tool": "^2.10.0",
+    "@sanity/desk-tool": "^2.10.1",
     "@sanity/production-preview": "2.8.2-canary.40",
     "@sanity/vision": "^2.10.0",
     "@seidhr/sanity-plugin-dashboard-widget-muna-docs": "^1.0.0",
