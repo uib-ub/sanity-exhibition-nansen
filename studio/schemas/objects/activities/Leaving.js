@@ -33,8 +33,12 @@ export default {
       description: 'Actor(s) that left this group',
       type: 'reference', 
       to: [
-        {type: 'Group'}
-      ]
+        {type: 'Actor'}
+      ],
+      options: {
+        filter: '_type == "Actor" && references($id)',
+        filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'}
+      }
     },
     {
       name: 'separated',
@@ -46,9 +50,12 @@ export default {
         {
           type: 'reference', 
           to: [
-            {type: 'Actor'}, 
-            {type: 'Group'}
-          ]
+            {type: 'Actor'}
+          ],
+          options: {
+            filter: '_type == "Actor" && references($id)',
+            filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'}
+          }
         }
       ],
     },
@@ -57,7 +64,7 @@ export default {
   preview: {
     select: {
       type: '_type',
-      joinedWith: 'joinedWith.label',
+      separatedFrom: 'separatedFrom.label',
       bb: 'timespan.0.beginOfTheBegin',
       eb: 'timespan.0.endOfTheBegin',
       date: 'timespan.0.date',
@@ -65,10 +72,10 @@ export default {
       ee: 'timespan.0.endOfTheEnd',
     },
     prepare(selection) {
-      const {type, joinedWith, bb, eb, date, be, ee} = selection
+      const {type, separatedFrom, bb, eb, date, be, ee} = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       return {
-        title: `${capitalize(type)} ${joinedWith ? joinedWith : ''}`,
+        title: `${capitalize(type)} ${separatedFrom ? separatedFrom : ''}`,
         subtitle: `${timespan ? timespan : ''}`,
       }
     },

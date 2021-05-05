@@ -308,7 +308,6 @@ export const relation = {
       to: [
         {type: 'HumanMadeObject'},
         {type: 'Actor'},
-        {type: 'Group'},
         {type: 'Event'},
         {type: 'Activity'},
       ],
@@ -406,7 +405,6 @@ export const hasCurrentOwner = {
       type: 'reference',
       to: [
         {type: 'Actor'}, 
-        {type: 'Group'}
       ],
     },
   ],
@@ -443,8 +441,7 @@ export const hasFormerOrCurrentOwner = {
     {
       type: 'reference',
       to: [
-        {type: 'Actor'}, 
-        {type: 'Group'}
+        {type: 'Actor'},
       ],
     },
   ],
@@ -546,8 +543,7 @@ export const depicts = {
       type: 'reference',
       to: [
         {type: 'HumanMadeObject'}, 
-        {type: 'Actor'}, 
-        {type: 'Group'}, 
+        {type: 'Actor'},
         {type: 'Concept'}
       ],
     },
@@ -581,7 +577,6 @@ export const represents = {
       to: [
         {type: 'HumanMadeObject'}, 
         {type: 'Actor'}, 
-        {type: 'Group'}, 
         {type: 'Concept'}
       ],
     },
@@ -917,8 +912,7 @@ export const carriedOutBy = {
   of: [{
     type: 'reference', 
     to:[
-      {type: 'Actor'}, 
-      {type: 'Group'}
+      {type: 'Actor'},
     ]
   }],
 }
@@ -1001,7 +995,18 @@ export const memberOf = {
   title: 'Medlem av',
   titleEN: 'Member of',
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'Group'}]}],
+  of: [
+    {
+      type: 'reference', 
+      to: [
+        {type: 'Actor'}
+      ],
+      options: {
+        filter: '_type == "Actor" && references($id)',
+        filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'}
+      }
+    }
+  ],
 }
 
 /**
@@ -1038,7 +1043,6 @@ export const transferredTitleTo = {
     {
       type: 'reference', 
       to: [
-        {type: 'Group'}, 
         {type: 'Actor'}
       ]
     }
@@ -1055,7 +1059,6 @@ export const transferredTitleFrom = {
     {
       type: 'reference', 
       to: [
-        {type: 'Group'}, 
         {type: 'Actor'}
       ]
     }

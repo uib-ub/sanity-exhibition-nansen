@@ -1,55 +1,11 @@
 import {nanoid} from 'nanoid'
 import sanityClient from 'part:@sanity/base/client'
+import { getDocument } from './getDocument'
 
 const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
 
 export const chooseItem = async (item) => {
-  const doc = {
-    _type: 'Concept',
-    _id: `${item.uuid}`,
-    accessState: 'open',
-    editorialState: 'published',
-    label: {
-      ...(item.caption.no ? {
-        nor: item.caption.no
-      } : null),
-      ...(item.caption.sv ? {
-        swe: item.caption.sv
-      } : null)
-    },
-    /* preferredIdentifier: item.uuid,
-    identifiedBy: [
-      {
-        _type: 'Identifier',
-        _key: nanoid(),
-        content: item.uuid,
-        hasType: {
-          _type: 'reference',
-          _key: nanoid(),
-          _ref: 'de22df48-e3e7-47f2-9d29-cae1b5e4d728',
-        },
-      },
-    ], */
-    /* hasType: types, */
-    wasOutputOf: {
-      _type: 'DataTransferEvent',
-      _key: nanoid(),
-      /* _ref: nanoid(36), <- uncomment if changed to a document in schema */
-      transferred: {
-        _type: 'DigitalObject',
-        _key: nanoid(),
-        /* _ref: item.id, */
-        value: `"${JSON.stringify(item, null, 0)}"`,
-      },
-      timestamp: new Date(),
-      hasSender: {
-        _type: 'DigitalDevice',
-        _key: nanoid(),
-        /* _ref: nanoid(36), */
-        label: 'kulturnav.no/api',
-      },
-    },
-  }
+  const doc = getDocument(item)
 
   /* TODO
     Important to include iiif manifest in asset metadata as the asset could be reused else where in the dataset */
@@ -67,6 +23,9 @@ export const chooseItem = async (item) => {
   } */
 
   const createDoc = async (doc) => {
+    console.log(doc)
+    if(!doc) return {success: false}
+
     const transaction = client.transaction()
   
     transaction.createOrReplace(doc)

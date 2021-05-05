@@ -117,7 +117,7 @@ export default {
 
       return {
         title: title,
-        subtitle: subtitle,
+        subtitle: subtitle ?? 'No identifier set',
       }
     },
   },

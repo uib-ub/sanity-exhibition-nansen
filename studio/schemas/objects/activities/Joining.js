@@ -38,8 +38,12 @@ export default {
       description: 'Group that actor(s) joined with',
       type: 'reference', 
       to: [
-        {type: 'Group'}
-      ]
+        {type: 'Actor'}
+      ],
+      options: {
+        filter: '_type == "Actor" && references($id)',
+        filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'}
+      }
     },
     {
       name: 'joined',
@@ -51,8 +55,7 @@ export default {
         {
           type: 'reference', 
           to: [
-            {type: 'Actor'}, 
-            {type: 'Group'}
+            {type: 'Actor'},
           ]
         }
       ],

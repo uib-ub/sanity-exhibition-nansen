@@ -40,7 +40,13 @@ export const searchReducer = (state, action) => {
         ...state,
         apiURL: action.apiURL,
       }
+    case 'SET_TYPE_SEARCH':
+      return {
+        ...state,
+        searchType: action.searchType,
+        filter: action.searchType === 'Concept' ? ',concept.isCollection:!true' : ''
+      }
     default:
-      return state
+      return {...state}
   }
 }

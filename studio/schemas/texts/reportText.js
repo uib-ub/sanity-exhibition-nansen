@@ -58,7 +58,6 @@ export default {
         {type: 'Actor'},
         {type: 'HumanMadeObject'},
         {type: 'Collection'},
-        {type: 'Group'},
         {type: 'Event'},
         {type: 'Place'},
         {type: 'Material'},

@@ -21,7 +21,6 @@ const hiddenDocTypes = (listItem) =>
     'HumanMadeObject',
     'Collection',
     'Actor',
-    'Group',
     'Period',
     'Event',
     'Activity',
@@ -46,7 +45,6 @@ const hiddenDocTypes = (listItem) =>
     'EventType',
     'ExhibitionType',
     'ActorType',
-    'GroupType',
     'TextType',
     'WorkType',
     'Technique',
@@ -141,7 +139,7 @@ export default () =>
                         .schemaType('Exhibition')
                         .title('Utstillinger')
                         .filter('_type == "Exhibition" && $catId in hasType[]._ref')
-                        .params({catId}),
+                        .params({catId})
                     ),
                 ),
               S.listItem().title('Upubliserte utstillinger').icon(FaGlasses).child(
@@ -178,14 +176,17 @@ export default () =>
                   S.documentTypeList('ActorType')
                     .title('Aktører etter type')
                     .filter('_type == "ActorType"')
-                    .child((catId) =>
+                    .child((actorTypeId) =>
                       // List out project documents where the _id for the selected
                       // category appear as a _ref in the project’s categories array
                       S.documentList()
                         .schemaType('Actor')
                         .title('Aktører')
-                        .filter('_type == "Actor" && $catId in hasType[]._ref')
-                        .params({catId}),
+                        .filter('_type == "Actor" && $actorTypeId in hasType[]._ref')
+                        .params({actorTypeId})
+                        .initialValueTemplates([
+                          S.initialValueTemplateItem('actorWithType', {actorTypeId})
+                        ])
                     ),
                 ),
               S.listItem().title('Upubliserte poster').icon(TiUser).child(
@@ -204,49 +205,6 @@ export default () =>
                 .title('Alle Aktører')
                 .icon(TiUser)
                 .child(S.documentTypeList('Actor').title('Alle Aktører')),
-            ]),
-        ),
-      S.listItem()
-        .title('Grupper')
-        .icon(TiGroup)
-        .child(
-          S.list()
-            .title('Grupper')
-            .items([
-              S.listItem()
-                .title('Grupper etter type')
-                .icon(TiGroup)
-                .child(
-                  // List out all categories
-                  S.documentTypeList('GroupType')
-                    .title('Grupper etter type')
-                    .filter('_type == "GroupType"')
-                    .child((catId) =>
-                      // List out project documents where the _id for the selected
-                      // category appear as a _ref in the project’s categories array
-                      S.documentList()
-                        .schemaType('Group')
-                        .title('Grupper')
-                        .filter('_type == "Group" && $catId in hasType[]._ref')
-                        .params({catId}),
-                    ),
-                ),
-              S.listItem().title('Upubliserte grupper').icon(TiGroup).child(
-                // List out all categories
-                S.documentTypeList('Group')
-                  .title('Upubliserte grupper')
-                  .filter('_type == "Group" && accessState == "secret"'),
-              ),
-              S.listItem().title('Til gjennomgang').icon(TiGroup).child(
-                // List out all categories
-                S.documentTypeList('Group')
-                  .title('Til gjennomgang')
-                  .filter('_type == "Group" && editorialState == "review"'),
-              ),
-              S.listItem()
-                .title('Alle grupper')
-                .icon(TiGroup)
-                .child(S.documentTypeList('Group').title('Alle grupper')),
             ]),
         ),
       S.listItem()

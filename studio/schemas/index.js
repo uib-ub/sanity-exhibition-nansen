@@ -1,3 +1,4 @@
+// Documents
 export {default as Acquisition} from './documents/Acquisition.js'
 export {default as Activity} from './documents/Activity.js'
 export {default as Actor} from './documents/Actor.js'
@@ -5,7 +6,6 @@ export {default as Collection} from './documents/Collection.js'
 export {default as DesignOrProcedure} from './documents/DesignOrProcedure.js'
 export {default as Event} from './documents/Event.js'
 export {default as Exhibition} from './documents/Exhibition.js'
-export {default as Group} from './documents/Group.js'
 export {default as HumanMadeObject} from './documents/HumanMadeObject.js'
 export {default as Move} from './documents/Move.js'
 export {default as Period} from './documents/Period.js'
@@ -16,17 +16,20 @@ export {default as VisualItem} from './documents/VisualItem.js'
 export {default as Work} from './documents/Work.js'
 export {default as LinguisticDocument} from './documents/LinguisticDocument.js'
 
+// Report
 export {default as Report} from './documents/report/Report.js'
 export {default as Sampling} from './documents/report/Sampling.js'
 export {default as Treatment} from './documents/report/Treatment.js'
 export {default as TreatmentAssessment} from './documents/report/TreatmentAssessment.js'
 
+// Timeline
 export {default as Era} from './documents/timeline/Era.js'
 export {default as ExternalMediaObject} from './documents/timeline/ExternalMediaObject.js'
 export {default as MediaObject} from './documents/timeline/MediaObject.js'
 export {default as Timeline} from './documents/timeline/Timeline.js'
 export {default as TimelineSlide} from './documents/timeline/TimelineSlide.js'
 
+// Types
 export {default as AcquisitionType} from './documents/types/AcquisitionType.js'
 export {default as ActivityType} from './documents/types/ActivityType.js'
 export {default as ActorType} from './documents/types/ActorType.js'
@@ -36,7 +39,6 @@ export {default as ConditionType} from './documents/types/ConditionType.js'
 export {default as DimensionType} from './documents/types/DimensionType.js'
 export {default as EventType} from './documents/types/EventType.js'
 export {default as ExhibitionType} from './documents/types/ExhibitionType.js'
-export {default as GroupType} from './documents/types/GroupType.js'
 export {default as IdentifierType} from './documents/types/IdentifierType.js'
 export {default as MeasurementUnit} from './documents/types/MeasurementUnit.js'
 export {default as ObjectType} from './documents/types/ObjectType.js'
@@ -51,9 +53,11 @@ export {default as Technique} from './documents/types/Technique.js'
 export {default as TextType} from './documents/types/TextType.js'
 export {default as WorkType} from './documents/types/WorkType.js'
 
+// Images
 export {default as ImageCompare} from './images/ImageCompare.js'
 export {default as DigitalImageObject} from './images/DigitalImageObject.js'
 
+// Objects
 export {default as Background} from './documents/timeline/Background.js'
 export {default as ContributionAssignment} from './objects/ContributionAssignment.js'
 export {default as ConditionState} from './objects/ConditionState.js'
@@ -78,6 +82,7 @@ export {default as Set} from './objects/Set.js'
 export {default as SpacetimeVolume} from './objects/SpacetimeVolume.js'
 export {default as Timespan} from './objects/Timespan.js'
 
+// Activities
 export {default as BeginningOfExistence} from './objects/activities/BeginningOfExistence.js'
 export {default as Birth} from './objects/activities/Birth.js'
 export {default as Creation} from './objects/activities/Creation.js'
@@ -91,6 +96,7 @@ export {default as Measurement} from './objects/activities/Measurement.js'
 export {default as Production} from './objects/activities/Production.js'
 export {default as Transformation} from './objects/activities/Transformation.js'
 
+// Site
 export {default as Alert} from './site/Alert.js'
 export {default as NavigationItem} from './site/NavigationItem.js'
 export {default as NavigationMenu} from './site/NavigationMenu.js'
@@ -123,12 +129,14 @@ export {default as TwoColumn} from './site/plugs/TwoColumn'
 export {default as Grid} from './site/plugs/Grid'
 export {default as Video} from './site/plugs/Video'
 
+// Locale text
 export {default as LocaleBlock} from './texts/LocaleBlock.js'
 export {default as LocaleBlockReport} from './texts/LocaleBlockReport.js'
 export {default as LocaleBlockSimple} from './texts/LocaleBlockSimple.js'
 export {default as LocaleSlug} from './texts/LocaleSlug.js'
 export {default as LocaleString} from './texts/LocaleString.js'
-// Text props
+
+// Text
 export {default as blockContent} from './texts/blockContent.js'
 export {default as quoteBlock} from './texts/quoteBlock.js'
 export {default as reportText} from './texts/reportText.js'

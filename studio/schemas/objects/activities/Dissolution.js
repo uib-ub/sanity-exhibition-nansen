@@ -3,7 +3,7 @@ import {defaultFieldsets} from '../../fieldsets'
 
 var capitalize = require('capitalize')
 
-// Implisit 'wasFormedBy' to parent group
+// Implisit 'wasFormedBy' to parent Actor
 
 export default {
   name: 'Dissolution',

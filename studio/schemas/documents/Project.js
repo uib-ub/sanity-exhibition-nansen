@@ -60,7 +60,6 @@ export default {
             {type: 'HumanMadeObject'}, 
             {type: 'Collection'}, 
             {type: 'Actor'}, 
-            {type: 'Group'}
           ],
         },
       ],

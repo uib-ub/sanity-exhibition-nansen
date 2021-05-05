@@ -1,5 +1,5 @@
 import {FaTag} from 'react-icons/fa'
-import {editorialState, accessState, label, altLabel, wasOutputOf, sameAs} from '../../props'
+import {editorialState, accessState, label, altLabel, wasOutputOf, sameAs, identifiedBy, preferredIdentifier} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers'
 
@@ -18,13 +18,15 @@ export default {
     accessState,
     label,
     altLabel,
-    {
+    preferredIdentifier,
+    identifiedBy,
+    /* {
       name: 'broader',
       title: 'Overordnet term',
       titleEN: 'Broader',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Concept'}]}],
-    },
+    }, */
     /* {
       name: 'narrower',
       title: 'Underordnet term',

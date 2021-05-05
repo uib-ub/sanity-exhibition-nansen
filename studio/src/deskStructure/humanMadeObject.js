@@ -28,14 +28,17 @@ const humanMadeObject = S.listItem()
               .schemaType('objectType')
               .title('Objekt etter type')
               .filter('_type == "ObjectType"')
-              .child((catId) =>
+              .child((objectTypeId) =>
                 // List out project documents where the _id for the selected
                 // category appear as a _ref in the project’s categories array
                 S.documentList()
                   .schemaType('HumanMadeObject')
                   .title('Objekt')
-                  .filter('_type == "HumanMadeObject" && $catId in hasType[]._ref')
-                  .params({catId}),
+                  .filter('_type == "HumanMadeObject" && $objectTypeId in hasType[]._ref')
+                  .params({objectTypeId})
+                  .initialValueTemplates([
+                    S.initialValueTemplateItem('humanMadeObjectWithType', {objectTypeId})
+                  ])
               ),
           ),
         /* Could be used for parts of a book

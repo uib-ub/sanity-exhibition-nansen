@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Box, TextInput, Button, Inline} from '@sanity/ui'
+import {Box, TextInput, Button, Select, Stack} from '@sanity/ui'
 
 const Search = (props) => {
   const [searchValue, setSearchValue] = useState('')
@@ -17,8 +17,23 @@ const Search = (props) => {
     props.search(searchValue)
   }
 
+  const callSetSearchTypeFunction = (e) => {
+    props.searchType(e.target.value)
+  }
+
   return (
     <>
+       <Stack>
+        <Select
+          fontSize={3}
+          padding={[3,3,3]}
+          space={[3, 3, 4]}
+          onChange={e => callSetSearchTypeFunction(e)}
+        >
+          <option value="Concept">Concepts</option>
+          <option value="Agent">Agents</option>
+        </Select>
+       </Stack>
       <Box flex={3}>
         <TextInput
           style={{backgroundColor: "white", border: "solid 1px #ccc"}}

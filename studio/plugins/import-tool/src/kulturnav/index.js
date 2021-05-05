@@ -10,7 +10,6 @@ import {chooseItem} from './apis'
 import {Box, Card as SanityCard, Container, Grid, Flex, Text, Spinner} from '@sanity/ui'
 
 const IMPORT_API_URL = 'https://kulturnav.org/api/search/'
-const GET_TYPES = 'Concept'
 
 export const initialState = {
   sourceAPI: 'kn',
@@ -20,8 +19,10 @@ export const initialState = {
   items: [],
   page: 0,
   totalElements: 0,
-  max: 64,
+  max: 100,
   errorMessage: null,
+  searchType: 'Concept',
+  filter: ',concept.isCollection:!true'
 }
 
 const SearchKN = () => {
@@ -29,7 +30,7 @@ const SearchKN = () => {
 
   useEffect(() => {
     fetch(
-      `${state.apiURL}entityType:${GET_TYPES},concept.isCollection:!true,compoundName:${state.searchParameter}/${state.page}/${state.max}`
+      `${state.apiURL}entityType:${state.searchType}${state.filter},compoundName:${state.searchParameter}/${state.page}/${state.max}`
     )
       .then((response) => response.json())
       .then((jsonResponse) => {
@@ -51,7 +52,7 @@ const SearchKN = () => {
     })
 
     fetch(
-      state.apiURL + 'entityType:${GET_TYPES},concept.isCollection:!true,compoundName:' + state.searchParameter
+      state.apiURL + 'entityType:${state.searchType}${state.filter},compoundName:' + state.searchParameter
         ? state.searchParameter
         : '' + new URLSearchParams({}),
     )
@@ -80,7 +81,7 @@ const SearchKN = () => {
     })
 
     fetch(
-      `${state.apiURL}entityType:${GET_TYPES},concept.isCollection:!true,compoundName:${searchValue}/0/${state.max}`
+      `${state.apiURL}entityType:${state.searchType}${state.filter},compoundName:${searchValue}/0/${state.max}`
     )
       .then((response) => response.json())
       .then((jsonResponse) => {
@@ -102,13 +103,20 @@ const SearchKN = () => {
       })
   }
 
+  const setSearchType = (e) => {
+    dispatch({
+      type: 'SET_TYPE_SEARCH',
+      searchType: e
+    })
+  }
+
   const {searchParameter, items, totalElements, page, max, errorMessage, loading} = state
   
   return (
     <Container width={5} paddingY={5}>
       <form>
         <Flex>
-          <Search search={search} />
+          <Search search={search} searchType={setSearchType} />
         </Flex>
       </form>
       <Box marginY={3}>

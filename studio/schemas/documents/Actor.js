@@ -8,7 +8,7 @@ import {
   memberOf,
   image,
 } from '../props'
-import {timespanAsString} from '../helpers/helpers'
+import {coalesceLabel, timespanAsString} from '../helpers/helpers'
 
 export default {
   name: 'Actor',
@@ -65,6 +65,7 @@ export default {
           to: [{type: 'ActorType'}],
         },
       ],
+      validation: Rule => Rule.min(1).warning('Du bør ha "Person" eller "Gruppe" som første type!'),
     },
     {
       ...image,
@@ -95,6 +96,7 @@ export default {
   preview: {
     select: {
       title: 'label',
+      type: 'hasType.0.label',
       bb: 'activityStream.0.timespan.0.beginOfTheBegin',
       eb: 'activityStream.0.timespan.0.endOfTheBegin',
       date: 'activityStream.0.timespan.0.date',
@@ -103,12 +105,12 @@ export default {
       media: 'image',
     },
     prepare(selection) {
-      const {title, media, bb, eb, date, be, ee} = selection
+      const {title, type, media, bb, eb, date, be, ee} = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
 
       return {
         title: title,
-        subtitle: `${timespan ? 'Født: ' + timespan : ''}`,
+        subtitle: `${type ? coalesceLabel(type, 'nor') + '. ' : ''}${timespan ? 'Født: ' + timespan : ''}`,
         media: media,
       }
     },

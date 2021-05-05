@@ -77,8 +77,7 @@ export default {
       type: 'reference',
       to: [
         {type: 'Collection'}, 
-        {type: 'Actor'}, 
-        {type: 'Group'}
+        {type: 'Actor'}
       ],
     },
     timespan,
@@ -118,8 +117,7 @@ export default {
             {type: 'Event'},
             {type: 'Place'},
             {type: 'Work'},
-            {type: 'Actor'},
-            {type: 'Group'},
+            {type: 'Actor'}
           ],
         },
       ],

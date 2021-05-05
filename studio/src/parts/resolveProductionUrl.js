@@ -3,7 +3,6 @@ export default function resolveProductionUrl(document) {
   const publicDocumentTypes = [
     'HumanMadeObject',
     'Actor',
-    'Group',
     'Page',
     'Route'
   ]

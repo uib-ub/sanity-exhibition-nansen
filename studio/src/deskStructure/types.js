@@ -14,7 +14,6 @@ const types = S.listItem()
         S.documentTypeListItem('ActorType').title('Aktørtype'),
         S.documentTypeListItem('DimensionType').title('Dimensjonstype'),
         S.documentTypeListItem('Concept').title('Emner'),
-        S.documentTypeListItem('GroupType').title('Gruppetype'),
         S.documentTypeListItem('EventType').title('Hendelsestype'),
         S.documentTypeListItem('IdentifierType').title('IdentifikatorType'),
         S.documentTypeListItem('StorageType').title('Lagringstype'),

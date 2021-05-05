@@ -102,7 +102,6 @@ export default {
           type: 'reference',
           to: [
             {type: 'Actor'},
-            {type: 'Group'}
           ]
         }
       ]

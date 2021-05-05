@@ -42,7 +42,6 @@ export default {
           to: [
             {type: 'HumanMadeObject'}, 
             {type: 'Exhibition'}, 
-            {type: 'Group'}, 
             {type: 'Actor'}
           ],
         },
