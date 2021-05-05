@@ -48,7 +48,8 @@ export default function ContactCopy({data, preview}) {
                     {image.source?.name && (
                       <ListItem fontSize="xs">Importert fra {image.source.name ?? 'Illustrasjon'}</ListItem>
                     )}
-                    <ListItem fontSize="xs"><strong>{image.count} referanse(r)</strong></ListItem>
+                    <ListItem fontSize="xs"><strong>{image.isThumbnail ? "Brukt som objekt thumbnail" : ''}</strong></ListItem>
+                    <ListItem fontSize="xs"><strong>{image.countAssetUsage > 0 ? `Brukt som ill. ${image.countAssetUsage} gang(er)` : 'Ikke benyttet som ill. i nettutstilling'}</strong></ListItem>
                   </List>
                 </Box>
               ))}

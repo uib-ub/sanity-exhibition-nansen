@@ -322,7 +322,8 @@ export const contactCopyQuery = groq`{
     name,
     "images": *[references(^._id)]{
       ...,
-      "count": count(*[references(^._id)])
+      "isThumbnail": defined(*[_type == "HumanMadeObject" && references(^._id)]),
+      "countAssetUsage": count(*[_type != "HumanMadeObject" && references(^._id)])
     }
   },
   ${siteSettings}
