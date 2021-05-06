@@ -10,6 +10,7 @@ const Card = ({item, searchValue, onClick}) => {
   const [buttonLabel, setButtonLabel] = useState('Import')
 
   const onChooseItem = async (item) => {
+    console.log(item)
     setIsFetching(true)
     setButtonLabel('...importing')
     const importStatus = await onClick(item)
@@ -86,7 +87,7 @@ const Card = ({item, searchValue, onClick}) => {
             text={buttonLabel}
             mode={isImported ? 'ghost' : 'default'}
             disabled={isFetching}
-            onClick={() => onChooseItem(item.uri)}
+            onClick={() => onChooseItem(item)}
           />
           <a
             href={`https://www.nb.no/items/${item.id}?searchText=${searchValue}`}

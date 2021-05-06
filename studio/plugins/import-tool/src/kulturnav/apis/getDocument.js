@@ -1,5 +1,5 @@
 import {nanoid} from 'nanoid'
-import { mapMediatypes } from '../../shared/mapMediatypes'
+import { mapTypes } from '../../shared/mapTypes'
 
 export const getDocument = (item) => {
   console.log(item)
@@ -29,9 +29,8 @@ export const getDocument = (item) => {
     }
   }
 
-
   const doc = {
-    _type: 'Actor',
+    _type: item.entityType == 'Concept' ? 'Concept' : 'Actor',
     _id: `${item.uuid}`,
     accessState: 'open',
     editorialState: 'published',
@@ -49,7 +48,7 @@ export const getDocument = (item) => {
         },
       },
     ],
-    hasType: mapMediatypes(item.entityType),
+    ...(item.entityType != 'Concept' && {hasType: mapTypes([item.entityType])}),
     wasOutputOf: {
       _type: 'DataTransferEvent',
       _key: nanoid(),

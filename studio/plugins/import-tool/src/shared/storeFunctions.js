@@ -93,7 +93,7 @@ export const setAssetRef = async (docID, assetID) => {
     .patch(docID)
     .set({
       image: {
-        _type: 'digitalImageObject',
+        _type: 'DigitalImageObject',
         asset: {
           _type: 'reference',
           _ref: assetID,

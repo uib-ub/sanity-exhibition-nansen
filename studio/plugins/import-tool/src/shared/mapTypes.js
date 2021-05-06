@@ -1,6 +1,6 @@
 import {nanoid} from 'nanoid'
 
-export const mapMediatypes = (types) => {
+export const mapTypes = (types) => {
   let mappedTypes = []
 
   types.map((type) => {
@@ -46,6 +46,27 @@ export const mapMediatypes = (types) => {
           _type: 'reference',
           _key: nanoid(),
         })
+        break
+      case 'Person':
+        mappedTypes.push({
+          _ref: '787513b1-33bf-4c41-8363-a0c1989b020d',
+          _type: 'reference',
+          _key: nanoid(),
+        })
+        break
+      case 'Organization':
+        mappedTypes.push(
+          {
+            _ref: 'd4ad3e47-1498-4b95-9b7f-c25be386691a', // Group
+            _type: 'reference',
+            _key: nanoid(),
+          },
+          {
+            _ref: '14cfb90c-3e7f-46da-96e8-46a548f6a50f', // Organization
+            _type: 'reference',
+            _key: nanoid(),
+          }
+        )
         break
       default:
         break

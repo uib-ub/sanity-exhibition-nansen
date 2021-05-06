@@ -3,7 +3,7 @@ import getQuery from './getQuery'
 import getFrame from './getFrame'
 import getDocument from './getDocument'
 import {createDoc, getImageBlob, patchAssetMeta, uploadImageBlob} from '../../shared/storeFunctions'
-import { mapMediatypes } from '../../shared/mapMediatypes'
+import { mapTypes } from '../../shared/mapTypes'
 const jsonld = require('jsonld/dist/jsonld.js')
 
 export const chooseItem = async (uri) => {
@@ -52,7 +52,7 @@ export const chooseItem = async (uri) => {
     console.log(cleanJSON)
 
     // Map type to Sanity types
-    const types = mapMediatypes([cleanJSON.type])
+    const types = mapTypes([cleanJSON.type])
 
     const assetMeta = {
       source: {
