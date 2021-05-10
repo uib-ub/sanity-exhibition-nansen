@@ -7,6 +7,8 @@ import {
   identifiedBy,
   memberOf,
   image,
+  wasOutputOf,
+  inDataset,
 } from '../props'
 import {coalesceLabel, timespanAsString} from '../helpers/helpers'
 
@@ -92,6 +94,8 @@ export default {
         editModal: 'fullscreen',
       },
     },
+    inDataset,
+    wasOutputOf
   ],
   preview: {
     select: {
@@ -103,14 +107,16 @@ export default {
       be: 'activityStream.0.timespan.0.beginOfTheEnd',
       ee: 'activityStream.0.timespan.0.endOfTheEnd',
       media: 'image',
+      imported: 'wasOutputOf'
     },
     prepare(selection) {
-      const {title, type, media, bb, eb, date, be, ee} = selection
+      const {title, type, media, imported, bb, eb, date, be, ee} = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
+      const wasImported = imported ? `Importert fra ${imported.hasSender.label}` : ''
 
       return {
         title: title,
-        subtitle: `${type ? coalesceLabel(type, 'nor') + '. ' : ''}${timespan ? 'Født: ' + timespan : ''}`,
+        subtitle: `${type ? coalesceLabel(type, 'nor') + '. ' : ''}${timespan ? 'Født: ' + timespan : ''} ${wasImported}`,
         media: media,
       }
     },

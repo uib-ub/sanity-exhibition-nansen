@@ -11,7 +11,7 @@ export const sameAs = {
   title: 'Samme som',
   titleEN: 'Same as',
   type: 'array',
-  of: [{type: 'string'}]
+  of: [{type: 'url'}]
 }
 
 export const editorialState = {
@@ -1120,4 +1120,11 @@ export const wasOutputOf = {
   title: 'Was output of',
   type: 'DataTransferEvent',
   hidden: true,
+}
+
+export const inDataset = {
+  name: 'inDataset',
+  title: 'I datasett',
+  titleEN: 'In dataset',
+  type: 'Dataset',
 }

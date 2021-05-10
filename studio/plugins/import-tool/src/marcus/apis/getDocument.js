@@ -129,43 +129,41 @@ export default function getDocument(item, types, assetID) {
         activityStream,
       }),
       ...(item.description && {
-        ...{
-          referredToBy: [
-            {
-              _key: nanoid(),
-              _type: 'LinguisticObject',
-              accessState: 'open',
-              editorialState: 'published',
-              body: [
-                {
-                  _type: 'block',
-                  _key: nanoid(),
-                  style: 'normal',
-                  markDefs: [],
-                  children: [
-                    {
-                      _type: 'span',
-                      _key: nanoid(),
-                      text: item.description,
-                      marks: [],
-                    },
-                  ],
-                },
-              ],
-              hasType: [
-                {
-                  _key: nanoid(),
-                  _ref: 'cad752ea-0888-415a-a691-9d5b92577389',
-                  _type: 'reference',
-                },
-              ],
-              language: {
-                _ref: 'e81f617f-b767-4e7c-8495-93b745f47aa0',
+        referredToBy: [
+          {
+            _key: nanoid(),
+            _type: 'LinguisticObject',
+            accessState: 'open',
+            editorialState: 'published',
+            body: [
+              {
+                _type: 'block',
+                _key: nanoid(),
+                style: 'normal',
+                markDefs: [],
+                children: [
+                  {
+                    _type: 'span',
+                    _key: nanoid(),
+                    text: item.description,
+                    marks: [],
+                  },
+                ],
+              },
+            ],
+            hasType: [
+              {
+                _key: nanoid(),
+                _ref: 'cad752ea-0888-415a-a691-9d5b92577389',
                 _type: 'reference',
               },
+            ],
+            language: {
+              _ref: 'e81f617f-b767-4e7c-8495-93b745f47aa0',
+              _type: 'reference',
             },
-          ],
-        },
+          },
+        ],
       }),
       ...(item.subject && {
         subject: [

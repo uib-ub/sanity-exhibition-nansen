@@ -1,5 +1,5 @@
 import {FaTag} from 'react-icons/fa'
-import {editorialState, accessState, label, altLabel, wasOutputOf, sameAs, identifiedBy, preferredIdentifier} from '../../props'
+import {editorialState, accessState, label, altLabel, wasOutputOf, sameAs, identifiedBy, preferredIdentifier, inDataset} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers'
 
@@ -18,7 +18,6 @@ export default {
     accessState,
     label,
     altLabel,
-    preferredIdentifier,
     identifiedBy,
     /* {
       name: 'broader',
@@ -46,20 +45,19 @@ export default {
       of: [{type: 'Creation'}],
     },
     sameAs,
+    inDataset,
     wasOutputOf
   ],
   preview: {
     select: {
       title: 'label',
-      broader: 'broader',
+      imported: 'wasOutputOf'
     },
     prepare(selection) {
-      const {title, broader} = selection
+      const {title, imported} = selection
       return {
         title: coalesceLabel(title),
-        subtitle: coalesceLabel(broader)
-          ? `⬆️` + coalesceLabel(broader)
-          : '🔝 Overordnet type/konsept',
+        subtitle: imported ? `Importert fra ${imported.hasSender.label}`: 'Lokal'
       }
     },
   },

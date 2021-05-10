@@ -12,16 +12,20 @@ import {
 import {RiDownloadLine} from 'react-icons/ri'
 import {chooseItem} from '../apis'
 import { coalesceLabel } from '../../../../../schemas/helpers/helpers'
+import { useImportType } from './SearchProvider'
 
 const Card = ({item}) => {
+  const {state: {importTo}
+  } = useImportType()
+
   const [isFetching, setIsFetching] = useState(false)
   const [isImported, setIsImported] = useState(false)
   const [buttonLabel, setButtonLabel] = useState('Import')
 
-  const onChooseItem = async (item) => {
+  const onChooseItem = async (item, to) => {
     setIsFetching(true)
     setButtonLabel('...importing')
-    const importStatus = await chooseItem(item)
+    const importStatus = await chooseItem(item, to)
 
     if (!importStatus.success) {
       setIsFetching(false)
@@ -67,7 +71,7 @@ const Card = ({item}) => {
             text={buttonLabel}
             mode={isImported ? 'ghost' : 'default'}
             disabled={isFetching}
-            onClick={() => onChooseItem(item)}
+            onClick={() => onChooseItem(item, importTo)}
           />
           <a href={`https://kulturnav.org/${uuid}`} target="_blank" rel="noopener noreferrer">Åpne i Kulturnav</a>
         </Inline>

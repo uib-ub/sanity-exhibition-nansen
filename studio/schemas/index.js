@@ -63,6 +63,7 @@ export {default as ContributionAssignment} from './objects/ContributionAssignmen
 export {default as ConditionState} from './objects/ConditionState.js'
 export {default as Dimension} from './objects/Dimension.js'
 export {default as DigitalObject} from './objects/DigitalObject.js'
+export {default as Dataset} from './objects/Dataset.js'
 export {default as DataTransferEvent} from './objects/DataTransferEvent.js'
 export {default as DigitalDevice} from './objects/DigitalDevice.js'
 export {default as File} from './objects/DigitalFile.js'

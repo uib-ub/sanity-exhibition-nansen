@@ -1,5 +1,5 @@
 import {FaTag} from 'react-icons/fa'
-import {editorialState, accessState, label, altLabel, broader, domain} from '../../props'
+import {editorialState, accessState, label, altLabel, broader, domain, sameAs, inDataset, wasOutputOf, identifiedBy} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
 import {coalesceLabel} from '../../helpers/helpers'
 
@@ -18,13 +18,7 @@ export default {
     accessState,
     label,
     altLabel,
-    {
-      name: 'broader',
-      title: 'Overordnet term',
-      titleEN: 'Broader',
-      type: 'array',
-      of: [{type: 'reference', to: [{type: 'ObjectType'}]}],
-    },
+    identifiedBy,
     {
       name: 'activityStream',
       title: 'Aktivitetsstrøm',
@@ -33,17 +27,20 @@ export default {
       type: 'array',
       of: [{type: 'Creation'}],
     },
+    sameAs,
+    inDataset,
+    wasOutputOf
   ],
   preview: {
     select: {
       title: 'label',
-      broader: 'broader.0.label.nor',
+      imported: 'wasOutputOf'
     },
     prepare(selection) {
-      const {title, broader} = selection
+      const {title, imported} = selection
       return {
         title: coalesceLabel(title),
-        subtitle: broader ? `⬆️` + broader : '🔝 Toppkonsept',
+        subtitle: imported ? `Importert fra ${imported.hasSender.label}`: 'Lokal'
       }
     },
   },

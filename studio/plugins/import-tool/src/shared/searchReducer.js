@@ -46,6 +46,11 @@ export const searchReducer = (state, action) => {
         searchType: action.searchType,
         filter: action.searchType === 'Concept' ? ',concept.isCollection:!true' : ''
       }
+    case 'SET_IMPORT_TYPE':
+      return {
+        ...state,
+        importTo: action.importTo,
+      }
     default:
       return {...state}
   }
