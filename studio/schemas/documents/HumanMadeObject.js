@@ -24,7 +24,7 @@ import {
   carries,
   measuredBy,
   consistsOf,
-  labelSingleton,
+  label,
   presentAt,
   homepage,
   wasOutputOf,
@@ -88,7 +88,7 @@ export default {
     editorialState,
     accessState,
     preferredIdentifier,
-    labelSingleton,
+    label,
     homepage,
     {
       ...identifiedBy,
@@ -221,7 +221,7 @@ export default {
       const secret = published === 'secret' ? '🔒' : ''
 
       return {
-        title: title,
+        title: coalesceLabel(title),
         subtitle: secret + (id ? id + ', ' : '') + coalesceLabel(type),
         description: block
           ? block.children

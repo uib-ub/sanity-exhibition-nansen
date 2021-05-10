@@ -3,7 +3,7 @@ import {
   editorialState,
   accessState,
   referredToBy,
-  labelSingleton,
+  label,
   identifiedBy,
   memberOf,
   image,
@@ -25,7 +25,7 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false},
+      options: {collapsible: true, collapsed: false, columns: 2},
     },
     {
       name: 'minimum',
@@ -46,7 +46,7 @@ export default {
   fields: [
     editorialState,
     accessState,
-    labelSingleton,
+    label,
     {
       ...identifiedBy,
       fieldset: 'minimum',
@@ -115,7 +115,7 @@ export default {
       const wasImported = imported ? `Importert fra ${imported.hasSender.label}` : ''
 
       return {
-        title: title,
+        title: coalesceLabel(title),
         subtitle: `${type ? coalesceLabel(type, 'nor') + '. ' : ''}${timespan ? 'Født: ' + timespan : ''} ${wasImported}`,
         media: media,
       }

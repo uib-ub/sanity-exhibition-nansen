@@ -130,8 +130,8 @@ const Search = () => {
               space={[2, 2, 3]}
               onChange={e => callSetSearchTypeFunction(e)}
             >
-              <option value="Concept">Concepts</option>
-              <option value="Agent">Agents</option>
+              <option value="Concept">Emneord</option>
+              <option value="Agent">Aktører</option>
             </Select>
           </Stack>
           <Box flex={3}>
@@ -162,6 +162,7 @@ const Search = () => {
         <Stack space={3}>
           {state.searchType === 'Concept' && (
             <Inline space={3}>
+              Importér som: 
               <Radio
                 checked={state.importTo === 'Concept'}
                 name="concept"
