@@ -5,6 +5,8 @@ import {MdMenu} from 'react-icons/md'
 import {FcHome, FcTemplate} from 'react-icons/fc'
 import {RiSideBarFill} from 'react-icons/ri'
 import {AiFillAlert} from 'react-icons/ai'
+import {FaGlasses} from 'react-icons/fa'
+import {BsFileRichtext} from 'react-icons/bs'
 
 export default S.listItem()
   .title('Sidebygger')
@@ -33,6 +35,49 @@ export default S.listItem()
             .menuItems(S.documentTypeList('Page').getMenuItems())
             .filter('_type == "Page" && !(_id match "**frontpage")'),
             ),
+        S.listItem()
+          .title('Tekster')
+          .icon(BsFileRichtext)
+          .child(
+            S.list()
+              .title('Tekster')
+              .items([
+                S.listItem()
+                  .title('Tekster etter type')
+                  .icon(FaGlasses)
+                  .child(
+                    // List out all categories
+                    S.documentTypeList('TextType')
+                      .title('Tekster etter type')
+                      .filter('_type == "TextType"')
+                      .child((catId) =>
+                        // List out project documents where the _id for the selected
+                        // category appear as a _ref in the project’s categories array
+                        S.documentList()
+                          .schemaType('LinguisticDocument')
+                          .title('Tekster')
+                          .filter('_type == "LinguisticDocument" && $catId in hasType[]._ref')
+                          .params({catId}),
+                      ),
+                  ),
+                S.listItem().title('Upubliserte tekster').icon(FaGlasses).child(
+                  // List out all categories
+                  S.documentTypeList('LinguisticDocument')
+                    .title('Upubliserte tekster')
+                    .filter('_type == "LinguisticDocument" && accessState == "secret"'),
+                ),
+                S.listItem().title('Til gjennomgang').icon(FaGlasses).child(
+                  // List out all categories
+                  S.documentTypeList('LinguisticDocument')
+                    .title('Til gjennomgang')
+                    .filter('_type == "LinguisticDocument" && editorialState == "review"'),
+                ),
+                S.listItem()
+                  .title('Alle tekster')
+                  .icon(FaGlasses)
+                  .child(S.documentTypeList('LinguisticDocument').title('Alle tekster')),
+              ]),
+          ),
         S.listItem()
           .title('Varsler')
           .icon(AiFillAlert)

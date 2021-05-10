@@ -117,6 +117,7 @@ export default () =>
       pageBuilder,
       S.divider(),
       humanMadeObject,
+      S.divider(),
       S.listItem()
         .title('Utstillinger')
         .icon(FaGlasses)
@@ -158,9 +159,8 @@ export default () =>
                 .title('Alle utstillinger')
                 .icon(FaGlasses)
                 .child(S.documentTypeList('Exhibition').title('Alle utstillinger')),
-            ]),
-        ),
-      S.divider(),
+              ]),
+              ),
       S.listItem()
         .title('Aktører')
         .icon(TiUser)
@@ -207,6 +207,8 @@ export default () =>
                 .child(S.documentTypeList('Actor').title('Alle Aktører')),
             ]),
         ),
+      // TYPE
+      types,
       S.listItem()
         .title('Steder')
         .icon(FaMapMarkedAlt)
@@ -285,8 +287,6 @@ export default () =>
             ]),
         ),
       S.divider(),
-      // TYPE
-      types,
       S.documentTypeListItem('Period').title('Perioder'),
       S.listItem()
         .title('Hendelser')

@@ -1,11 +1,8 @@
 /* eslint-disable no-undef */
 import React from 'react'
 //import ReactPaginate from 'react-paginate'
-// import fetch from 'unfetch'
 import Search from './components/Search'
-// import styles from '../ImportTool.css'
-import {chooseItem} from './apis'
-import {Box, Card as SanityCard, Container, Grid, Flex, Text, Spinner} from '@sanity/ui'
+import {Container} from '@sanity/ui'
 import { SearchProvider } from './components/SearchProvider'
 import { Items } from './components/Item'
 

@@ -125,9 +125,9 @@ const Search = () => {
         <Flex>
           <Stack>
             <Select
-              fontSize={3}
-              padding={[3,3,3]}
-              space={[3, 3, 4]}
+              fontSize={[2, 2, 2, 3]}
+              padding={[2, 2, 3]}
+              space={[2, 2, 3]}
               onChange={e => callSetSearchTypeFunction(e)}
             >
               <option value="Concept">Concepts</option>
@@ -159,8 +159,8 @@ const Search = () => {
         </Flex>
 
       <Card padding={[2, 2, 3]} radius={2} shadow={1} marginY={[2,2,3]}>
-        {state.searchType === 'Concept' && (
-          <Box>
+        <Stack space={3}>
+          {state.searchType === 'Concept' && (
             <Inline space={3}>
               <Radio
                 checked={state.importTo === 'Concept'}
@@ -175,11 +175,13 @@ const Search = () => {
                 value="ObjectType"
               /> Objekttype
             </Inline>
-          </Box>
-        )}
-        <Box marginY={3}>
-          {!state.loading && <Text flex={1} size={1}>{totalElements} result found</Text>}
-        </Box>
+          )}
+          {!state.loading && (
+            <Box>
+              <Text flex={1} size={1}>{totalElements} result found</Text>
+            </Box>
+          )}
+        </Stack>
       </Card>
     </form>
   )
