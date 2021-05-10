@@ -1,8 +1,14 @@
+/*  Use IANA
+    http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
+ */
 export const supportedLanguages = [
-  {id: 'nor', title: 'Norwegian', isDefault: true},
-  {id: 'eng', title: 'English'},
-  {id: 'sme', title: 'Sami'},
-  {id: 'ger', title: 'German'},
+  {id: 'no', title: 'Norwegian', isDefault: true},
+  {id: 'en', title: 'English'},
+  {id: 'smi', title: 'Sami'}, // Sami languages, general
+  {id: 'sv', title: 'Swedish'},
+  {id: 'de', title: 'German'},
+  {id: 'eng', title: 'English (Ikke bruk)'}, // Deprecated
+  {id: 'nor', title: 'Norwegian (Ikke bruk)'}, // Deprecated
 ]
 
 export const licenseTypes = [
