@@ -29,12 +29,12 @@ export default {
       titleEN: 'Tagline',
       description: 'Tagline under tittelen. Bør ikke være lengre en to korte avsnitt.',
       descriptionEN: 'Tagline under the title. Should not be longer than two short paragraphs.',
-      type: 'blockContent',
+      type: 'simpleBlockContent',
     },
     {
       name: 'content',
       title: 'Content',
-      type: 'simpleBlockContent',
+      type: 'blockContent',
     },
     {
       name: 'illustration',
@@ -42,7 +42,7 @@ export default {
       titleEN: 'Illustration',
       description: 'Bakgrunnsbilde under teksten',
       descriptionEN: 'Illustration below the text',
-      type: 'Illustration',
+      type: 'IllustrationWithCaption',
     },
   ],
   preview: {
