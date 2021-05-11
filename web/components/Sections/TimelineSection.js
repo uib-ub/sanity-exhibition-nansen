@@ -52,10 +52,10 @@ import PortableTextBlock from '../PortableTextBlock'
       text: Object.assign(
         {},
         {
-          headline: event.label.nor,
+          headline: event.label.no,
           text: event.description
             ? blocksToHtml({
-              blocks: event.description.nor.filter(({ _key = "" }) => _key)
+              blocks: event.description.no.filter(({ _key = "" }) => _key)
             })
             : ""
         }
@@ -108,10 +108,10 @@ import PortableTextBlock from '../PortableTextBlock'
       text: Object.assign(
         {},
         {
-          headline: event.headline.nor,
-          text: event.text.nor
+          headline: event.headline.no,
+          text: event.text.no
             ? blocksToHtml({
-              blocks: event.text.nor.filter(({ _key = "" }) => _key)
+              blocks: event.text.no.filter(({ _key = "" }) => _key)
             })
             : ""
         }
@@ -122,10 +122,10 @@ import PortableTextBlock from '../PortableTextBlock'
 const tl = Object.assign({}, item, {
   title: {
     text: {
-      headline: item.headline.nor,
-      text: item.text.nor
+      headline: item.headline.no,
+      text: item.text.no
         ? blocksToHtml({
-          blocks: item.text.nor.filter(({ _key = "" }) => _key)
+          blocks: item.text.no.filter(({ _key = "" }) => _key)
         })
         : ""
     },

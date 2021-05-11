@@ -138,7 +138,7 @@ export default function Card(props) {
                   fontSize={['xs', 'xs', 'xs', 'xs']} 
                   colorScheme={tagColor}
                 >
-                  {type.label?.nor}
+                  {type.label?.no}
                 </Tag>
               ))}
             </HStack>

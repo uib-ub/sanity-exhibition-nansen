@@ -13,7 +13,7 @@ export default function Subject({subjects}) {
         {subjects.map((subject) => (
           <WrapItem key={subject._id}>
             <Tag colorScheme="blackAlpha" size="sm">
-              <Link href={`/id/${subject._id}`}>{subject.label.nor}</Link>
+              <Link href={`/id/${subject._id}`}>{subject.label.no}</Link>
             </Tag>
           </WrapItem>
         ))}

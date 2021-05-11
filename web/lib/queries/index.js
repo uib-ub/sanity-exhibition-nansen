@@ -43,7 +43,7 @@ export const alertQuery = groq`
 
 export const conceptsQuery = groq`
   {
-    "items": *[_type in ["Concept", "ObjectType"]] | order(label.nor desc){ 
+    "items": *[_type in ["Concept", "ObjectType"]] | order(label.no desc){ 
       _id,
       _type,
       label,
@@ -55,7 +55,7 @@ export const conceptsQuery = groq`
 
 export const registryQuery = groq`
   {
-    "items": *[_type in ["Concept", "ObjectType", "Actor", "Group"]] | order(label, label.nor){ 
+    "items": *[_type in ["Concept", "ObjectType", "Actor", "Group"]] | order(label, label.no){ 
       _id,
       _type,
       label,

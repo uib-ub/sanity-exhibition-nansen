@@ -68,7 +68,7 @@ export default function Activity({data}) {
               <TagLeftIcon boxSize="12px" as={SunIcon} />
               <TagLabel>
                 <Link href={`/id/${place._id}`}>
-                  <a>{place.label.nor}</a>
+                  <a>{place.label.no}</a>
                 </Link>
               </TagLabel>
             </Tag>
@@ -137,7 +137,7 @@ export default function Activity({data}) {
         <p>
           <span>
             ➡️
-            <a href={`/id/${data.movedTo._id}`}>{data.movedTo.label.nor}</a>
+            <a href={`/id/${data.movedTo._id}`}>{data.movedTo.label.no}</a>
           </span>
         </p>
       )}

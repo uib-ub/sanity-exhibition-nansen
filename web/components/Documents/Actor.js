@@ -31,7 +31,7 @@ export default function Actor(item) {
             {item.hasType &&
               item.hasType.map((type) => (
                 <Badge key={type._id} borderRadius="full" px="2" colorScheme="teal">
-                  {type.label?.nor}
+                  {type.label?.no}
                 </Badge>
               ))}
             {!item.hasType && (

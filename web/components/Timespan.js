@@ -26,7 +26,7 @@ export default function Timespan(props) {
 
           {time.endOfTheEnd && formatDate(time.endOfTheEnd)}
 
-          {time.description?.nor && <PortableTextBlock blocks={time.description.nor} />}
+          {time.description?.no && <PortableTextBlock blocks={time.description.no} />}
         </Box>
       ))}
     </Box>

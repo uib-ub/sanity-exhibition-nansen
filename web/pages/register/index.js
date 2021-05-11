@@ -52,7 +52,7 @@ export default function Register({data, preview}) {
                       href={`/id/${item._id}`}
                       order="1"
                       >
-                      {item.label.nor ?? item.label}
+                      {item.label.no ?? item.label}
                     </Link>
                     <Badge
                       alignSelf="flex-start"

@@ -15,7 +15,7 @@ export default function HasType({types}) {
               {owner.label}
             </Link> */}
             <Tag key={type._id} size="sm">
-              {type.label.nor}
+              {type.label.no}
             </Tag>
           </WrapItem>
         ))}

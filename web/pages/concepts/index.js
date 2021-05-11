@@ -14,7 +14,7 @@ export default function Concepts({data, preview}) {
                 .filter((item) => item.count > 0)
                 .map((item) => (
                   <ListItem key={item._id}>
-                    <Link href={`/id/${item._id}`}>{item.label.nor}</Link> <span>{item.count}</span>
+                    <Link href={`/id/${item._id}`}>{item.label.no}</Link> <span>{item.count}</span>
                   </ListItem>
                 ))}
             </List>

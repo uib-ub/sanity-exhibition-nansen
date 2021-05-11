@@ -14,7 +14,7 @@ export default function Document({data, preview}) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
       <Head>
-        <title>{`${data.item?.label?.nor || data.item.label}`}</title>
+        <title>{`${data.item?.label?.no || data.item.label}`}</title>
         <script type="application/ld+json">
           {JSON.stringify(data.item, null, 2)}
         </script>

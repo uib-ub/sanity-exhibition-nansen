@@ -9,7 +9,7 @@ export default function Concept(item) {
       py="10" 
       centerContent
     >
-      <Heading pb="10" fontSize={["2xl", "4xl", "5xl", "6xl"]}>{item.label.nor}</Heading>
+      <Heading pb="10" fontSize={["2xl", "4xl", "5xl", "6xl"]}>{item.label.no}</Heading>
       
       <Box maxW="2xl">
         {item?.referredToBy?.map((ref) => (
