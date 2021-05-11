@@ -81,21 +81,21 @@ export default function Activity({data}) {
       <HStack>
         {data.contributionAssignedBy?.length > 0 && (
           <Wrap>
-            {data.contributionAssignedBy.map((inRole) => (
-              <Tag key={inRole.assignedActor._id} size="sm" colorScheme="">
+            {data.contributionAssignedBy.map((assignment) => (
+              <Tag key={assignment.assignedActor._id} size="sm" colorScheme="">
                 <Avatar
                   size="xs"
                   ml={-1}
                   mr={2}
-                  name={inRole.assignedActor.label}
+                  name={assignment.assignedActor.label.no}
                   src={imageBuilder
-                    .image(inRole.assignedActor.image)
+                    .image(assignment.assignedActor.image)
                     .height(300)
                     .width(300)
                     .url()}
                 />
                 <TagLabel>
-                  <Link href={`/id/${inRole.assignedActor._id}`}>{inRole.assignedActor.label}</Link>
+                  <Link href={`/id/${assignment.assignedActor._id}`}>{assignment.assignedActor.label.no}</Link>
                 </TagLabel>
               </Tag>
             ))}
@@ -108,7 +108,7 @@ export default function Activity({data}) {
             <Popover>
               <PopoverTrigger>
                 <Avatar
-                  name={data.target.label}
+                  name={data.target.label.no}
                   src={imageBuilder
                     .image(data.target.image)
                     .height('300')
@@ -123,7 +123,7 @@ export default function Activity({data}) {
                   <PopoverCloseButton />
                   <PopoverBody>
                     <Link key={data.target._id} href={`/id/${data.target._id}`}>
-                      <a>{data.target.label}</a>
+                      <a>{data.target.label.no}</a>
                     </Link>
                   </PopoverBody>
                 </PopoverContent>
@@ -146,7 +146,7 @@ export default function Activity({data}) {
         data.observedDimension.map((dimension) => (
           <span>
             <strong>{dimension.hasType}:</strong>
-            {dimension.value} {dimension.hasUnit}
+            {dimension.value} {dimension.hasUnit.no}
           </span>
         ))}
     

@@ -24,14 +24,17 @@ export default function SingleObject(props) {
       gridTemplateColumns={{base: '3xl', xl: '10fr 4fr'}}
     >
   
-      <MiradorWithNoSSR
-        gridArea="image"
-        variant="basic"  
-        manifests={[{
-          manifest: item.manifest,
-          ...(canvasUrl && {canvasUrl: canvasUrl})
-        }]} 
-      />
+      {item?.manifest ? 
+        (<MiradorWithNoSSR
+          gridArea="image"
+          variant="basic"  
+          manifests={[{
+            manifest: item.manifest,
+            ...(canvasUrl && {canvasUrl: canvasUrl})
+          }]} 
+        />) :
+        (<Flex gridArea="image">Mangler manifest</Flex>)
+      }
 
       <Flex 
         h="full"

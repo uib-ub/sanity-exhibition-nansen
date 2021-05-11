@@ -1,6 +1,5 @@
 import { Box } from '@chakra-ui/react'
 import Link from '../../Link'
-import PortableTextBlock from '../../PortableTextBlock'
 import Timespan from '../../Timespan'
 
 export default function Death(props) {
@@ -11,7 +10,7 @@ export default function Death(props) {
     <>
       <Timespan display="inline-block" fontWeight="bolder" timespan={timespan} />
       <Box>
-        <Link href={`id/${deathOf._id}`}>{deathOf.label}</Link> dør
+        <Link href={`id/${deathOf._id}`}>{deathOf.label.no ?? 'Mangler norsk navn'}</Link> dør
       </Box>
     </>
   )

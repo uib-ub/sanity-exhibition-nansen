@@ -1,5 +1,5 @@
-import NextLink from 'next/link'
-import { Text, Icon, Link } from "@chakra-ui/react"
+import Link from '../Link'
+import { Text, Icon } from "@chakra-ui/react"
 import { BsInfoCircle } from 'react-icons/bs'
 
 export default function Source(props) {
@@ -19,13 +19,13 @@ export default function Source(props) {
       <Icon as={BsInfoCircle} mr="2" />
 
       <i>
-        <Link as={NextLink} href={`/id/${_id}`} isExternal>
-          {label}
+        <Link href={`/id/${_id}`} isExternal>
+          {label?.no ?? 'Mangler norsk tittel'}
         </Link>
       </i>
 
       {owner?.length && (
-        `. ${owner[0].label}.`
+        `. ${owner[0].label?.no ?? 'Mangler norsk tittel'}.`
       )}
     </Text>
   )

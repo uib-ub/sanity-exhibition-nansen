@@ -1,6 +1,6 @@
 import {getRegistry} from '../../lib/api'
 import Layout from '../../components/Layout'
-import {Badge, Heading, Box, List, ListItem, useColorMode, useColorModeValue} from '@chakra-ui/react'
+import {Badge, Heading, Box, List, ListItem, useColorModeValue} from '@chakra-ui/react'
 import Link from '../../components/Link'
 
 export default function Register({data, preview}) {
@@ -52,7 +52,7 @@ export default function Register({data, preview}) {
                       href={`/id/${item._id}`}
                       order="1"
                       >
-                      {item.label.no ?? item.label}
+                      {item.label.no ?? 'Mangler norsk tittel'}
                     </Link>
                     <Badge
                       alignSelf="flex-start"

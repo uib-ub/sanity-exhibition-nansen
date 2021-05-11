@@ -1,8 +1,8 @@
 import {imageBuilder} from '../../lib/sanity'
 import {getAllActors} from '../../lib/api'
-import Link from 'next/link'
 import {Grid, Avatar, Box, Heading, Flex, Badge, Container} from '@chakra-ui/react'
 import Layout from '../../components/Layout'
+import Link from '../../components/Link'
 import PortableTextBlock from '../../components/PortableTextBlock'
 
 export default function Actors({data, preview}) {
@@ -35,20 +35,20 @@ export default function Actors({data, preview}) {
               <Flex key={item._id}>
                 <Avatar
                   size="lg"
-                  name={item.label}
+                  name={item.label.no}
                   src={imageBuilder.image(item.image).height('200').width('200').url()}
                 />
                 <Box p={2}>
                   <Heading size="md">
                     <Link href={`/id/${item._id}`}>
-                      <a>{item.label}</a>
+                      {item.label.no ?? 'Mangler norsk navn'}
                     </Link>
                   </Heading>
                   <Box d="flex" alignItems="baseline">
                     {item.hasType &&
                       item.hasType.map((type) => (
                         <Badge key={type._id} borderRadius="full" px="2" colorScheme="teal">
-                          {type.label?.no}
+                          {type.label.no}
                         </Badge>
                       ))}
 

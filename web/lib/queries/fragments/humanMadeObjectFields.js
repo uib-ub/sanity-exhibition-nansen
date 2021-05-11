@@ -1,4 +1,6 @@
-export const humanMadeObjectFields = `
+import groq from "groq";
+
+export const humanMadeObjectFields = groq`
   _id,
   _type,
   depicts[]-> {

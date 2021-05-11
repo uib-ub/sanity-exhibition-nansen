@@ -21,11 +21,14 @@ export default function MiradorGallery(props) {
       gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
     >
 
-      <MiradorWithNoSSR
-        gridArea="image"
-        variant="standard"
-        manifests={items} 
-      />
+      {items ? 
+        (<MiradorWithNoSSR
+          gridArea="image"
+          variant="standard"
+          manifests={items} 
+        />) :
+        (<Flex gridArea="image">Mangler manifest</Flex>)
+      }
       
       <Box fontFamily="Montserrat" gridArea="metadata" pr="10">
         <Heading fontFamily="Montserrat" fontWeight="semibold" color="red.600" fontSize={{base: "sm", sm: "sm", md: "md", xl: "xl"}} mb={1}>

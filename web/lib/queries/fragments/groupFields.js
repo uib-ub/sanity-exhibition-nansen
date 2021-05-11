@@ -1,6 +1,7 @@
+import groq from 'groq'
 import {activityStreamFields} from './activityStreamFields'
 
-export const groupFields = `
+export const groupFields = groq`
   _id,
   _type,
   label,

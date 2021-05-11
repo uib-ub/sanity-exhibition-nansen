@@ -1,6 +1,5 @@
 import { Box } from '@chakra-ui/react'
 import Link from '../../Link'
-import PortableTextBlock from '../../PortableTextBlock'
 import Timespan from '../../Timespan'
 
 export default function Joining(props) {
@@ -11,7 +10,7 @@ export default function Joining(props) {
     <>
       <Timespan display="inline-block" fontWeight="bolder" timespan={timespan} />
       <Box>
-        <Link href={`id/${joined._id}`}>{joined.label}</Link> blir medlem av <Link href={`id/${joinedWith._id}`}>{joinedWith.label}</Link>
+        <Link href={`id/${joined._id}`}>{joined.label.no ?? 'Mangler norsk navn'}</Link> blir medlem av <Link href={`id/${joinedWith._id}`}>{joinedWith.label.no ?? 'Mangler norsk navn'}</Link>
       </Box>
     </>
   )

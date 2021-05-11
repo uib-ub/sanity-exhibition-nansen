@@ -45,7 +45,7 @@ export default function HumanMadeObject(item) {
     >
       <Container maxW="full" gridArea="metadata" p="0">
         <Heading fontFamily="EB Garamond" fontWeight="thin" mt={5} mb={5}>
-          {item.label}
+          {item.label.no}
 
           <Button variant="link" size="lg" onClick={onOpen}>
             <Icon as={BiDotsVerticalRounded} />

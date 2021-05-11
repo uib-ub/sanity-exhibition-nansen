@@ -1,6 +1,5 @@
 import { Box } from '@chakra-ui/react'
 import Link from '../../Link'
-import PortableTextBlock from '../../PortableTextBlock'
 import Timespan from '../../Timespan'
 
 export default function BeginningOfExistence(props) {
@@ -11,7 +10,7 @@ export default function BeginningOfExistence(props) {
     <>
       <Timespan display="inline-block" fontWeight="bolder" timespan={timespan} />
       <Box>
-        <Link href={`id/${broughtIntoLife._id}`}>{broughtIntoLife.label}</Link> blir født.
+        <Link href={`id/${broughtIntoLife._id}`}>{broughtIntoLife.label.no ?? 'Mangler norsk navn'}</Link> blir født.
       </Box>
     </>
   )

@@ -1,6 +1,5 @@
 import { Box } from '@chakra-ui/react'
 import Link from '../../Link'
-import PortableTextBlock from '../../PortableTextBlock'
 import Timespan from '../../Timespan'
 
 export default function Event(props) {
@@ -11,7 +10,7 @@ export default function Event(props) {
     <>
       {timespan ? <Timespan display="inline-block" fontWeight="bolder" timespan={timespan} /> : <Box></Box>} 
       <Box>
-        <Link href={`id/${_id}`}>{label}</Link>
+        <Link href={`id/${_id}`}>{label ?? 'Mangler norsk navn'}</Link>
       </Box>
     </>
   )

@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from '@chakra-ui/icons'
-import {Box, Flex, Grid, Heading, Link, Wrap, WrapItem, Spacer, Tag} from '@chakra-ui/react'
+import {Heading, Link, Wrap, WrapItem} from '@chakra-ui/react'
 
 export default function Homepage(props) {
   if (!props) {

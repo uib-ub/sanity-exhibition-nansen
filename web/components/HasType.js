@@ -12,7 +12,7 @@ export default function HasType({types}) {
         {types.map((type) => (
           <WrapItem key={type._id}>
             {/* <Link fontSize="sm" key={owner._id} href={`/id/${owner._id}`}>
-              {owner.label}
+              {owner.label.no}
             </Link> */}
             <Tag key={type._id} size="sm">
               {type.label.no}

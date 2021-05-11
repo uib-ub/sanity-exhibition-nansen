@@ -1,6 +1,5 @@
 import { Box } from '@chakra-ui/react'
 import Link from '../../Link'
-import PortableTextBlock from '../../PortableTextBlock'
 import Timespan from '../../Timespan'
 
 export default function Leaving(props) {
@@ -11,7 +10,7 @@ export default function Leaving(props) {
     <>
       <Timespan display="inline-block" fontWeight="bolder" timespan={timespan} />
       <Box>
-        <Link href={`id/${separated._id}`}>{separated.label}</Link> forlater <Link href={`id/${separatedFrom._id}`}>{separatedFrom.label}</Link>
+        <Link href={`id/${separated._id}`}>{separated.label.no ?? 'Mangler norsk navn'}</Link> forlater <Link href={`id/${separatedFrom._id}`}>{separatedFrom.label.no  ?? 'Mangler norsk navn'}</Link>
       </Box>
     </>
   )

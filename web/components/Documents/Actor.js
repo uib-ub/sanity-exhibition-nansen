@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '../Link'
 import {Image, Badge, Box, Container, Flex, Heading, SimpleGrid} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 import Cards from '../Cards'
@@ -17,7 +17,7 @@ export default function Actor(item) {
         {item.image && (
           <Image
             boxSize="100"
-            name={item.label}
+            name={item.label.no}
             mr="5"
             src={imageBuilder.image(item.image).height('200').width('200').url()}
           />
@@ -25,7 +25,7 @@ export default function Actor(item) {
 
         <Box pt="2">
           <Heading fontSize={["2xl", "4xl", "5xl", "6xl"]}>
-            <a>{item.label}</a>
+            <a>{item.label.no}</a>
           </Heading>
           <Box d="flex" alignItems="baseline">
             {item.hasType &&
@@ -72,7 +72,7 @@ export default function Actor(item) {
 
       {item.hasMember && item.hasMember.map((member) => (
         <Link href={member._id}>
-          <a>{member.label}</a>
+          <a>{member.label.no}</a>
         </Link>
       ))}
 

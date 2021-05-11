@@ -1,4 +1,6 @@
-export const siteSettings = `
+import groq from "groq";
+
+export const siteSettings = groq`
   "siteSettings": *[_id == "site-settings"][0] {
     ...,
     publisher[]->{

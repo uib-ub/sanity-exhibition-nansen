@@ -1,4 +1,6 @@
-export const pageFields = `
+import groq from "groq";
+
+export const pageFields = groq`
   ...,
   navMenu->{
     ...,

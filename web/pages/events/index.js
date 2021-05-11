@@ -1,8 +1,7 @@
 import {orderBy} from 'lodash'
 import {getEvents} from '../../lib/api'
 import Layout from '../../components/Layout'
-import {Badge, Container, Heading, Box, List, ListItem, useColorModeValue, SimpleGrid} from '@chakra-ui/react'
-import Link from '../../components/Link'
+import {Container, Heading, useColorModeValue, SimpleGrid} from '@chakra-ui/react'
 import RenderMergedActivityStreamList from '../../components/ActivityStream/RenderMergedActivityStreamList'
 
 export default function Events({data, preview}) {

@@ -31,7 +31,7 @@ const constructManifest = async (object) => {
     "@context": "http://iiif.io/api/presentation/3/context.json",
     id: `https://example.org/iiif/${iiified._id}/manifest`,
     type: "Manifest",
-    label: { "none": [ `${iiified.label}` ] },
+    label: { "none": [ `${iiified.label.no}` ] },
     provider: [
       {
         id: "https://www.uib.no/ub",

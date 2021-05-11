@@ -71,15 +71,16 @@ export default function PortableTextBlock(props) {
         )
       },
       link: ({mark, children}) => {
+        console.log(children)
         // Read https://css-tricks.com/use-target_blank/
         const {blank, href} = mark
         const text = children.length ? children[0] : children
         return blank ? (
-          <Link as={NextLink} href={href} isExternal>
+          <Link href={href} isExternal>
             {text}
           </Link>
         ) : (
-          <Link as={NextLink} href={href}>
+          <Link href={href}>
             {text}
           </Link>
         )
@@ -111,7 +112,7 @@ export default function PortableTextBlock(props) {
         <div>
           <h2>Demo: referanse til dokument i en Portable Text blokk</h2>
           <p>
-            <Link href={`/id/${props.node._id}`}>{props.node.label.no}</Link>
+            <Link as={NextLink} href={`/id/${props.node._id}`}>{props.node.label.no}</Link>
           </p>
         </div>
       )

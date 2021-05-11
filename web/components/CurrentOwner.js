@@ -12,7 +12,7 @@ export default function CurrentOwner({owners}) {
         {owners.map((owner) => (
           <WrapItem key={owner._id}>
             <Link fontSize="sm" key={owner._id} href={`/id/${owner._id}`}>
-              {owner.label}
+              {owner.label.no}
             </Link>
           </WrapItem>
         ))}

@@ -1,5 +1,5 @@
 import {imageBuilder} from '../lib/sanity'
-import {Avatar, Box, Flex, Heading, Link, Wrap, Tag, TagLabel} from '@chakra-ui/react'
+import {Avatar, Heading, Link, Wrap, Tag, TagLabel} from '@chakra-ui/react'
 
 export default function Depicts({depicted}) {
   if (!depicted) {
@@ -16,7 +16,7 @@ export default function Depicts({depicted}) {
               size="xs"
               ml={-1}
               mr={2}
-              name={actor.label}
+              name={actor.no}
               src={imageBuilder
                 .image(actor.image)
                 .height(300)
@@ -24,7 +24,7 @@ export default function Depicts({depicted}) {
                 .url()}
             />
             <TagLabel>
-              <Link href={`/id/${actor._id}`}>{actor.label}</Link>
+              <Link href={`/id/${actor._id}`}>{actor.label.no}</Link>
             </TagLabel>
           </Tag>
         ))}

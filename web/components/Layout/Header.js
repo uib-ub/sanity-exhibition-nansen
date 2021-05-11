@@ -124,7 +124,7 @@ export default function Header(props) {
                   .width(50)
                   .url()}
               />
-                <Link href={`/id/${p._id}`}>{p.label}</Link>
+                <Link href={`/id/${p._id}`}>{p.label.no}</Link>
             </Container>
           )}
         </Box>

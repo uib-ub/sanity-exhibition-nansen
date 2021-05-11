@@ -73,7 +73,7 @@ export default function Card(props) {
       <LinkBox>
         {image && (
           <Box bgColor="gray.100">
-            <CardImage id={_id} label={label} url={image} />
+            <CardImage id={_id} label={label.no ?? label} url={image} />
           </Box>
         )}
 
@@ -87,7 +87,7 @@ export default function Card(props) {
             fontSize={['xs', 'sm', 'md', 'md']} 
             lineHeight="tight" >
             <NextLink href={`/id/${encodeURIComponent(_id)}`} passHref>
-              <LinkOverlay>{label}</LinkOverlay>
+              <LinkOverlay>{label.no ?? label}</LinkOverlay>
             </NextLink>
           </Heading>
 
@@ -108,9 +108,9 @@ export default function Card(props) {
               mb="1"
             >
               {creation[0].creators
-                .filter(creator => creator.name != 'Ukjent')
+                .filter(creator => creator.name.no != 'Ukjent')
                 .map((creator, index) => (
-                  <span key={creator._id}>{index === 0 ? '': ', '}{creator.name}</span>
+                  <span key={creator._id}>{index === 0 ? '': ', '}{creator.name.no ?? creator.name}</span>
                 )
               )}
             </Text>
@@ -138,7 +138,7 @@ export default function Card(props) {
                   fontSize={['xs', 'xs', 'xs', 'xs']} 
                   colorScheme={tagColor}
                 >
-                  {type.label?.no}
+                  {type.label.no}
                 </Tag>
               ))}
             </HStack>
