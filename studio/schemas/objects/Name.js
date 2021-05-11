@@ -1,5 +1,6 @@
 import {timespan, referredToBy} from '../props'
 import {defaultFieldsets} from '../fieldsets'
+import { coalesceLabel } from '../helpers/helpers'
 
 export default {
   name: 'Name',
@@ -41,14 +42,14 @@ export default {
   preview: {
     select: {
       title: 'content',
-      type: 'hasType.label.nor',
-      lang: 'language.0.label.nor',
+      type: 'hasType.label',
+      lang: 'language.0.label',
     },
     prepare(selection) {
       const {title, type, lang} = selection
       return {
-        title: title,
-        subtitle: `${type} ${lang ? 'på ' + lang : ''}`,
+        title: coalesceLabel(title),
+        subtitle: `${type} ${lang ? 'på ' + coalesceLabel(lang) : ''}`,
       }
     },
   },

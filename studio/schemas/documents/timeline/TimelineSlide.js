@@ -1,5 +1,5 @@
 import {timespan, timespanSingleton} from '../../props'
-import {timespanAsString} from '../../helpers/helpers'
+import {coalesceLabel, timespanAsString} from '../../helpers/helpers'
 
 // TODO: Finish timeline with references to internal stuff and external. +datamodell
 // See http://timeline.knightlab.com/docs/json-format.html#json-slide for more info
@@ -57,7 +57,7 @@ export default {
   ],
   preview: {
     select: {
-      title: 'headline.nor',
+      title: 'headline',
       bb: 'timespan.beginOfTheBegin',
       eb: 'timespan.endOfTheBegin',
       date: 'timespan.date',
@@ -68,7 +68,7 @@ export default {
       const {title, bb, eb, date, be, ee} = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       return {
-        title: title,
+        title: coalesceLabel(title),
         subtitle: timespan,
       }
     },

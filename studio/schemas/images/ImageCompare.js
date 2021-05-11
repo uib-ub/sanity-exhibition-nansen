@@ -1,15 +1,14 @@
+import { labelSingleton } from "../props"
+
+/* TODO Fix language
+ */
+
 export default {
   name: 'ImageCompare',
   type: 'object',
   title: 'Compare images',
   fields: [
-    {
-      name: 'label',
-      title: 'Tittel',
-      titleEN: 'Title',
-      type: 'LocaleString',
-      validation: (Rule) => Rule.required(),
-    },
+    labelSingleton,
     {
       name: 'before',
       title: 'Before',
@@ -47,7 +46,13 @@ export default {
   ],
   preview: {
     select: {
-      title: 'label.nor',
+      title: 'label',
+    },
+    prepare(selection) {
+      const {title} = selection
+      return {
+        title: label,
+      }
     },
   },
 }

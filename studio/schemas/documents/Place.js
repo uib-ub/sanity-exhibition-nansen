@@ -8,6 +8,7 @@ import {
   definedByGeoJSON,
 } from '../props'
 import {defaultFieldsets} from '../fieldsets'
+import { coalesceLabel } from '../helpers/helpers'
 // import {KulturnavInput} from '../components/kulturnavInput/KulturnavInput'
 
 export default {
@@ -50,12 +51,12 @@ export default {
   ],
   preview: {
     select: {
-      title: 'label.nor',
+      title: 'label',
     },
     prepare(selection) {
       const {title} = selection
       return {
-        title: title,
+        title: coalesceLabel(title),
       }
     },
   },

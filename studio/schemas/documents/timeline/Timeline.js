@@ -1,6 +1,7 @@
 import {GiCalendar} from 'react-icons/gi'
 import {editorialState, accessState} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
+import { coalesceLabel } from '../../helpers/helpers'
 
 export default {
   name: 'Timeline',
@@ -88,12 +89,12 @@ export default {
   ],
   preview: {
     select: {
-      title: 'headline.nor',
+      title: 'headline',
     },
     prepare(selection) {
       const {title} = selection
       return {
-        title: title,
+        title: coalesceLabel(title),
       }
     },
   },

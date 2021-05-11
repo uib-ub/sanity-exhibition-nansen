@@ -82,6 +82,8 @@ export default {
         calendarTodayLabel: 'Today',
       },
     },
+    /* TODO Swap to referredToBy
+     */
     {
       name: 'description',
       title: 'Beskrivelse',

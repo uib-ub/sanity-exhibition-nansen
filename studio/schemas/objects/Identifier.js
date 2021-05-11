@@ -1,5 +1,6 @@
-import {referredToBy} from '../props'
+import {referredToBy, timespan} from '../props'
 import {defaultFieldsets} from '../fieldsets'
+import { coalesceLabel } from '../helpers/helpers'
 
 export default {
   name: 'Identifier',
@@ -22,18 +23,19 @@ export default {
       to: [{type: 'IdentifierType'}],
       validation: (Rule) => Rule.required(),
     },
+    timespan,
     referredToBy,
   ],
   preview: {
     select: {
       title: 'content',
-      type: 'hasType.label.nor',
+      type: 'hasType.label',
     },
     prepare(selection) {
       const {title, type} = selection
       return {
         title: title,
-        subtitle: type,
+        subtitle: coalesceLabel(type),
       }
     },
   },

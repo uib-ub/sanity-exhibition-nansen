@@ -30,13 +30,11 @@ export default {
   preview: {
     select: {
       title: 'label',
-      broader: 'broader.0.label.nor',
     },
     prepare(selection) {
-      const {title, broader} = selection
+      const {title} = selection
       return {
         title: coalesceLabel(title),
-        subtitle: broader ? `⬆️` + broader : '🔝 Toppkonsept',
       }
     },
   },

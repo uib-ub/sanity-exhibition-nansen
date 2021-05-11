@@ -3,13 +3,13 @@ import {
   timespan,
   editorialState,
   accessState,
-  label,
   referredToBy,
   tookPlaceAt,
   preferredIdentifier,
   identifiedBy,
 } from '../props'
 import {defaultFieldsets} from '../fieldsets'
+import { coalesceLabel } from '../helpers/helpers'
 
 export default {
   name: 'Storage',
@@ -26,7 +26,6 @@ export default {
     editorialState,
     accessState,
     preferredIdentifier,
-    label,
     identifiedBy,
     {
       name: 'hasType',
@@ -67,15 +66,15 @@ export default {
   ],
   preview: {
     select: {
-      type: 'hasType.0.label.nor',
-      title: 'label.nor',
+      id: 'preferredIdentifier',
+      type: 'hasType.label',
     },
     prepare(selection) {
-      const {title, type} = selection
+      const {id, type} = selection
 
       return {
-        title: title,
-        subtitle: type,
+        title: `${id ? id : ''}`,
+        subtitle: coalesceLabel(type),
       }
     },
   },

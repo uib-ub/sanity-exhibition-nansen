@@ -11,7 +11,7 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false},
+      options: {collapsible: true, collapsed: false, columns: 2},
     },
     {
       name: 'minimum',
@@ -34,6 +34,7 @@ export default {
       titleEN: 'Ongoing?',
       type: 'boolean',
       fieldset: 'minimum',
+      initialValue: true
     },
     {
       ...identifiedBy,
@@ -86,7 +87,7 @@ export default {
     select: {
       type: 'hasType.0.label',
       title: 'label',
-      blocks: 'description.nor',
+      blocks: 'referredToBy.0.body',
       published: 'accessState',
       active: 'active',
     },

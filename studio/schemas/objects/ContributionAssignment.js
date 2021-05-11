@@ -1,3 +1,5 @@
+import { coalesceLabel } from "../helpers/helpers"
+
 export default {
   name: 'ContributionAssignment',
   type: 'object',
@@ -38,13 +40,13 @@ export default {
     select: {
       actor: 'assignedActor.label',
       name:  'usedName.content',
-      role: 'role.0.label.nor',
+      role: 'role.0.label',
     },
     prepare(selection) {
       const {actor, name, role} = selection
       return {
         title: actor || name,
-        subtitle: `${role ? role : ''}`,
+        subtitle: `${role ? coalesceLabel(role) : ''}`,
       }
     },
   },

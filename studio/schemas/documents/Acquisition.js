@@ -1,4 +1,5 @@
 import {FaGifts} from 'react-icons/fa'
+import { coalesceLabel } from '../helpers/helpers'
 import {
   editorialState,
   accessState,
@@ -101,7 +102,7 @@ export default {
   ],
   preview: {
     select: {
-      type: 'hasType.0.label.nor',
+      type: 'hasType.0.label',
       title: 'label',
       published: 'accessState',
     },
@@ -110,7 +111,7 @@ export default {
       const secret = published === 'secret' ? '🔒' : ''
 
       return {
-        title: title,
+        title: coalesceLabel(title),
         subtitle: secret + type,
       }
     },

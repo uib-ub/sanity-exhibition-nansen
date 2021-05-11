@@ -8,8 +8,6 @@ export const supportedLanguages = [
   {id: 'sv', title: 'Swedish'},
   {id: 'de', title: 'German'},
   {id: 'none', title: 'No spesific language'},
-  {id: 'eng', title: 'English (Ikke bruk)'}, // Deprecated
-  {id: 'nor', title: 'Norwegian (Ikke bruk)'}, // Deprecated
 ]
 
 export const licenseTypes = [

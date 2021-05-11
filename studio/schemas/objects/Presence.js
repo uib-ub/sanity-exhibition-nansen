@@ -1,3 +1,4 @@
+import { coalesceLabel } from '../helpers/helpers'
 import {label, definedByGeoJSON} from '../props'
 
 export default {
@@ -46,7 +47,7 @@ export default {
     prepare(selection) {
       const {title} = selection
       return {
-        title: title.nor,
+        title: coalesceLabel(title),
       }
     },
   },

@@ -18,12 +18,6 @@ export default {
     accessState,
     label,
     identifiedBy,
-    {
-      name: 'body',
-      title: 'Tekst',
-      titleEN: 'Body',
-      type: 'LocaleBlock',
-    },
     referredToBy,
     {
       name: 'documentedIn',
@@ -36,12 +30,20 @@ export default {
   preview: {
     select: {
       title: 'label',
+      blocks: 'referredToBy.0.body',
     },
     prepare(selection) {
-      const {title} = selection
-
+      const {title, blocks} = selection
+      const block = (blocks || []).find((block) => block._type === 'block')
+      /* TODO add blocks description */
       return {
         title: coalesceLabel(title),
+        description: block
+        ? block.children
+            .filter((child) => child._type === 'span')
+            .map((span) => span.text)
+            .join('')
+        : 'No description',
       }
     },
   },

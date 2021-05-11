@@ -74,7 +74,7 @@ export default {
     select: {
       title: 'hasType.0.label',
       blocks: 'body',
-      lang: 'language.label.nor',
+      lang: 'language.label',
     },
     prepare(selection) {
       const {title, blocks, lang} = selection
@@ -86,7 +86,7 @@ export default {
               .map((span) => span.text)
               .join('')
           : 'No content',
-        subtitle: `${coalesceLabel(title)} ${lang ? 'på ' + lang : ''}`,
+        subtitle: `${coalesceLabel(title)} ${lang ? 'på ' + coalesceLabel(lang) : ''}`,
       }
     },
   },

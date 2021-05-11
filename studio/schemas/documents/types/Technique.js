@@ -19,13 +19,6 @@ export default {
     label,
     altLabel,
     {
-      name: 'broader',
-      title: 'Overordnet term',
-      titleEN: 'Broader',
-      type: 'array',
-      of: [{type: 'reference', to: [{type: 'Technique'}]}],
-    },
-    {
       name: 'activityStream',
       title: 'Aktivitetsstrøm',
       titleEN: 'Activity stream',
@@ -37,13 +30,11 @@ export default {
   preview: {
     select: {
       title: 'label',
-      broader: 'broader.0.label.nor',
     },
     prepare(selection) {
-      const {title, broader} = selection
+      const {title} = selection
       return {
         title: coalesceLabel(title),
-        subtitle: broader ? `⬆️` + broader : '🔝 Toppkonsept',
       }
     },
   },

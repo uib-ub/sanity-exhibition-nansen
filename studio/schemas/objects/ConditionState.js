@@ -2,6 +2,7 @@ import React from "react"
 import {Link} from 'part:@sanity/base/router'
 import {BsFillQuestionCircleFill} from 'react-icons/bs'
 import {valueSlider} from '../props'
+import { coalesceLabel } from "../helpers/helpers"
 
 export default {
   name: 'ConditionState',
@@ -67,13 +68,13 @@ export default {
   ],
   preview: {
     select: {
-      type: 'hasType.label.nor',
+      type: 'hasType.label',
       value: 'value',
     },
     prepare(selection) {
       const {type, value} = selection
       return {
-        title: type + ': ' + value + ' / 100',
+        title: coalesceLabel(type) + ': ' + value + ' / 100',
       }
     },
   },

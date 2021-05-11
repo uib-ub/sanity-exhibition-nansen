@@ -53,12 +53,7 @@ const management = S.listItem()
                 S.listItem()
                   .title('Alle akkvisisjoner')
                   .icon(FaGifts)
-                  .child(
-                    S.documentList()
-                      .title('Alle akkvisisjoner')
-                      .schemaType('Acquisition')
-                      .filter('_type == "Acquisition"'),
-                  ),
+                  .child(S.documentTypeList('Acquisition').title('Alle akkvisisjoner'))
               ]),
           ),
         S.documentTypeListItem('DesignOrProcedure').title('Design eller prosedyre'),
@@ -102,12 +97,7 @@ const management = S.listItem()
                 S.listItem()
                   .title('Alle rapporter')
                   .icon(GiCrackedGlass)
-                  .child(
-                    S.documentList()
-                      .title('Alle rapporter')
-                      .schemaType('Report')
-                      .filter('_type == "Report"'),
-                  ),
+                  .child(S.documentTypeList('Report').title('Alle rapporter'))
               ]),
           ),
         S.documentTypeListItem('Storage').title('Lagrinsenheter'),
@@ -131,14 +121,9 @@ const management = S.listItem()
                     .filter('_type == "Project" && !active'),
                 ),
                 S.listItem()
-                  .title('Alle projects')
+                  .title('Alle prosjekter')
                   .icon(FaProjectDiagram)
-                  .child(
-                    S.documentList()
-                      .title('Alle projects')
-                      .schemaType('Project')
-                      .filter('_type == "Project"'),
-                  ),
+                  .child(S.documentTypeList('Project').title('Alle prosjekter'))
               ]),
           ),
       ]),

@@ -1,4 +1,5 @@
 import {FaImage} from 'react-icons/fa'
+import { coalesceLabel } from '../helpers/helpers'
 
 export default {
   name: 'VisualItem',
@@ -24,13 +25,13 @@ export default {
   ],
   preview: {
     select: {
-      title: 'label.nor',
+      title: 'label',
     },
     prepare(selection) {
       const {title} = selection
 
       return {
-        title: title,
+        title: coalesceLabel(title),
       }
     },
   },

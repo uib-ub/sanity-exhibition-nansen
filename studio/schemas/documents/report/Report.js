@@ -13,6 +13,7 @@ import {
   carriedOutBy,
   timespan,
 } from '../../props'
+import { coalesceLabel } from '../../helpers/helpers'
 
 /**
  * Report
@@ -32,7 +33,7 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false},
+      options: {collapsible: true, collapsed: false, columns: 2},
     },
     {
       name: 'minimum',
@@ -250,9 +251,9 @@ export default {
   ],
   preview: {
     select: {
-      type: 'hasType.0.label.nor',
-      title: 'label.nor',
-      blocks: 'description.nor',
+      type: 'hasType.0.label',
+      title: 'label',
+      blocks: 'referredToBy.0.body',
       published: 'accessState',
     },
     prepare(selection) {
@@ -261,8 +262,8 @@ export default {
       const secret = published === 'secret' ? '🔒' : ''
 
       return {
-        title: title,
-        subtitle: secret + type,
+        title: coalesceLabel(title),
+        subtitle: secret + coalesceLabel(type),
         description: block
           ? block.children
               .filter((child) => child._type === 'span')
