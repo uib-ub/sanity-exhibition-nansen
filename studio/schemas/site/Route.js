@@ -116,13 +116,14 @@ export default {
     select: {
       title: 'slug.current',
       subtitle: 'page.title',
+      label: 'page.label',
       language: 'language.identifiedByISO6393'
     },
-    prepare({title, subtitle, language}) {
+    prepare({title, subtitle, label, language}) {
       const lang = language ? `${language}/` : ''
       return {
         title: ['/', lang, title].join(''),
-        subtitle,
+        subtitle: subtitle ?? label
       }
     },
   },
