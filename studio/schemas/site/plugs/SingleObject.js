@@ -1,3 +1,5 @@
+import { coalesceLabel } from "../../helpers/helpers"
+
 export default {
   name: 'SingleObject',
   type: 'object',
@@ -50,7 +52,7 @@ export default {
     },
     prepare({title, media}) {
       return {
-        title: title,
+        title: coalesceLabel(title),
         subtitle: 'Single Object',
         media: media,
       }
