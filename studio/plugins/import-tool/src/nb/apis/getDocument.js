@@ -13,7 +13,10 @@ export const getDocument = async (item) => {
       item.accessInfo && item.accessInfo.isPublicDomain
         ? 'https://creativecommons.org/publicdomain/mark/1.0/'
         : 'https://rightsstatements.org/vocab/CNE/1.0/',
-    label: item.metadata.title,
+    label: {
+      _type: "LocaleString",
+      no: item.metadata.title
+    },
     preferredIdentifier: item.id,
     homepage: `https://urn.nb.no/${item.metadata.identifiers.urn}`,
     identifiedBy: [

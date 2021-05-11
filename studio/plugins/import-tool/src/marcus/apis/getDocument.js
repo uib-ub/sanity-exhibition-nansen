@@ -23,7 +23,7 @@ export default function getDocument(item, types, assetID) {
             editorialState: 'published',
             label: {
               _type: 'LocaleString',
-              nor: Array.isArray(s.prefLabel) === false ? s.prefLabel : s.prefLabel[0],
+              no: Array.isArray(s.prefLabel) === false ? s.prefLabel : s.prefLabel[0],
             },
           }
         }),
@@ -39,7 +39,10 @@ export default function getDocument(item, types, assetID) {
             _rev: nanoid(),
             accessState: 'open',
             editorialState: 'published',
-            label: Array.isArray(s.name) === false ? s.name : s.name[0],
+            label: {
+              _type: "LocaleString",
+              no: Array.isArray(s.name) === false ? s.name : s.name[0]
+            },
           }
         }),
       ]
@@ -54,7 +57,10 @@ export default function getDocument(item, types, assetID) {
             _rev: nanoid(),
             accessState: 'open',
             editorialState: 'published',
-            label: Array.isArray(s.name) === false ? s.name : s.name[0],
+            label: {
+              _type: "LocaleString",
+              no: Array.isArray(s.name) === false ? s.name : s.name[0]
+            },
           }
         }),
       ]
@@ -101,7 +107,10 @@ export default function getDocument(item, types, assetID) {
       _id: `${item.identifier}`,
       accessState: 'open',
       editorialState: 'published',
-      label: item.title,
+      label: {
+        _type: "LocaleString",
+        no: item.title
+      },
       preferredIdentifier: item.identifier,
       homepage: item.homepage.id,
       subjectOfManifest: `https://marcus-manifest-api.vercel.app/api/iiif/manifest/${item.identifier}`,
