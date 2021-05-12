@@ -3,18 +3,18 @@ import {Button, Container, DrawerFooter, Drawer, DrawerContent, DrawerCloseButto
 import {useColorMode, useColorModeValue} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import Sections from './Sections'
 
 export default function SubStory(props) {
   if(props.disabled === true) {
     return null
   }
+
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const {colorMode, toggleColorMode} = useColorMode()
   const bg = useColorModeValue('gray.800', 'gray.300')
   const color = useColorModeValue('white', 'gray.800')
 
-
-  const image = props.illustration.image
+  const {label, title, tagline, content, illustration} = props
 
   return (
     <Flex 
@@ -27,29 +27,31 @@ export default function SubStory(props) {
     >
       <Box>
         <Badge 
+          marginTop="4"
           backgroundColor={bg} 
           color={color}
         >
-          {props.label}
+          {label}
         </Badge>
         <Heading 
           fontSize={["xl", "2xl", "2xl", "4xl"]} 
         >
-          {props.title}
+          {title}
         </Heading>
 
-        {props?.tagline && (
+        {tagline && (
           <Box>
-            <PortableTextBlock fontSize={["md", "xl"]} blocks={props.tagline} />
+            <PortableTextBlock fontSize={["md", "xl"]} blocks={tagline} />
           </Box>
         )}
       </Box>
 
       <Button 
+        paddingTop="4"
         colorScheme="teal"
         variant="link"
         onClick={onOpen}
-        rightIcon={<ArrowForwardIcon color="red.400" w={["10", null, "20", null]} h={["10", null, "20", null]} />}
+        rightIcon={<ArrowForwardIcon color="red.400" w={["10", null, "16", null]} h={["10", null, "20", null]} />}
         alignSelf="center"
       />
       
@@ -62,22 +64,24 @@ export default function SubStory(props) {
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>{props.title}</DrawerHeader>
+            <DrawerHeader>{title}</DrawerHeader>
 
             <DrawerBody>
               <Container maxW="2xl" centerContent>
-                <Image
-                  src={imageBuilder.image(image).height(600).width(800).url()}
-                  alt={''}
-                  mb="5"
-                />
-                <PortableTextBlock fontSize={["md", "xl"]} blocks={props.content} />
+                {illustration && illustration.image && (
+                  <Image
+                    src={imageBuilder.image(illustration.image).height(600).width(800).url()}
+                    alt={''}
+                    mb="5"
+                  />
+                )}
+                <PortableTextBlock fontSize={["md", "xl"]} blocks={content} />
                 <Button 
                   my="16"
                   colorScheme="teal"
                   variant="link"
                   onClick={onClose}
-                  rightIcon={<ArrowBackIcon color="red.400" w="20" h="20" />}
+                  rightIcon={<ArrowBackIcon color="red.400" w="16" h="20" />}
                   alignSelf="center"
                 />
               </Container>
