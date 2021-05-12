@@ -322,6 +322,7 @@ export const routeQuery = groq`
   }
 `
 
+/* List query */
 export const humanMadeObjectsQuery = groq`{
   "items": *[_type == "HumanMadeObject"] | order(label){ 
     _id,

@@ -3,7 +3,7 @@ import {Image, Badge, Box, Container, Flex, Heading, SimpleGrid} from '@chakra-u
 import PortableTextBlock from '../PortableTextBlock'
 import Cards from '../Cards'
 import {imageBuilder} from '../../lib/sanity'
-import RenderMergedActivityStreamList from '../ActivityStream/RenderMergedActivityStreamList'
+import RenderMergedActivityStreamList from '../ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'
 
 export default function Actor(item) {
   if(!item) return null

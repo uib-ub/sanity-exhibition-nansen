@@ -1,6 +1,5 @@
-import {Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex, Heading, Link, Wrap, WrapItem} from '@chakra-ui/react'
-import RenderHumanMadeObjectActivityStream from '../RenderHumanMadeObjectActivityStream'
-import Activity from './Activity'
+import {Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Flex} from '@chakra-ui/react'
+import RenderHumanMadeObjectActivityStream from './RenderHumanMadeObjectActivityStream'
 
 export default function ActivityStream({stream}) {
   if (!stream) {
@@ -8,7 +7,7 @@ export default function ActivityStream({stream}) {
   }
 
   return (
-    <Box> 
+    <Box fontFamily="Montserrat"> 
       {/* <Heading as="dt" fontFamily="Montserrat" fontWeight="semibold" fontSize="sm" pb="2">Hendelser</Heading>
       <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
         {stream.map((activity) => (

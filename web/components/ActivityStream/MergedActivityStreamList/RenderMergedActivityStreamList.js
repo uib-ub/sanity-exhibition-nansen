@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import * as ObjectComponents from './HumanMadeObjectActivityStream'
+import * as ObjectComponents from '.'
 import { Alert, AlertIcon, AlertDescription, AlertTitle, Code } from '@chakra-ui/react'
 
 function resolveEvents(event) {
@@ -14,7 +14,7 @@ function resolveEvents(event) {
   return null
 }
 
-function RenderHumanMadeObjectActivityStream(props) {
+function RenderMergedActivityStreamList(props) {
   const {stream} = props
 
   const filteredStream = stream.filter((x) => x._type)
@@ -43,7 +43,7 @@ function RenderHumanMadeObjectActivityStream(props) {
   )
 }
 
-RenderHumanMadeObjectActivityStream.propTypes = {
+RenderMergedActivityStreamList.propTypes = {
   stream: PropTypes.arrayOf(
     PropTypes.shape({
       _type: PropTypes.string,
@@ -53,4 +53,4 @@ RenderHumanMadeObjectActivityStream.propTypes = {
   ),
 }
 
-export default RenderHumanMadeObjectActivityStream
+export default RenderMergedActivityStreamList
