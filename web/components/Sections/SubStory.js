@@ -19,7 +19,8 @@ export default function SubStory(props) {
   return (
     <Flex 
       maxW="2xl"
-      p="6"
+      paddingTop="1"
+      paddingBottom="4"
       my="10"
       borderY="1px solid"
       borderColor="red.200"

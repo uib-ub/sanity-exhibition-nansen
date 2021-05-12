@@ -11,23 +11,28 @@ export default function IllustrationWithCaption(props) {
 
   return (
     <Grid
-      maxW={["3xl", "3xl", "3xl", "6xl"]}
-      my={10}
+      h={{xl: "50vh"}}
+      maxW={["xl", "xl", "xl", "6xl"]}
+      my={{base: "6", md: "16", xl: "24"}}
       gridGap={5}
-      alignContent="start"
-      gridTemplateAreas={{base: '"image" "metadata"', lg: '"image metadata"'}}
-      gridTemplateColumns={{base: '100%', lg: '10fr 4fr'}}
+      gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
+      gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
+      gridTemplateRows="1fr auto"
     >
-      <Box gridArea="image">
-        <Image
-          h="100%"
-          width="100%"
-          src={imageBuilder.image(illustration.image).height(500).width(1000).url()}
-          alt={''}
-        />
-      </Box>
+      
+      {illustration ? (
+        <Box h="50vh" gridArea="image">
+          <Image
+            h="100%"
+            width="100%"
+            src={imageBuilder.image(illustration.image).fit('crop').height(500).width(1000).url()}
+            alt={''}
+          />
+        </Box>
+        ) : (<Flex gridArea="image">Mangler illustrasjon</Flex>)
+      }
 
-      <Box fontFamily="Montserrat" gridArea="metadata" pr="10">
+      <Box fontFamily="Montserrat" gridArea="metadata" pr="10" overflowY={{xl: "scroll"}}>
         <Heading 
           fontFamily="Montserrat" 
           fontWeight="semibold" 
@@ -39,11 +44,13 @@ export default function IllustrationWithCaption(props) {
         </Heading>
 
         {content && (
-          <PortableTextBlock 
-            fontSize={{base: "sm", sm: "sm", md: "md", xl: "md"}} 
-            fontWeight="200" 
-            blocks={content} 
-          />
+          <Box>
+            <PortableTextBlock 
+              fontSize={{base: "sm", sm: "sm", md: "md", xl: "md"}} 
+              fontWeight="200" 
+              blocks={content}              
+            />
+          </Box>
         )}
       </Box>
     </Grid>

@@ -22,6 +22,7 @@ export default function SingleObject(props) {
       gridGap={5}
       gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
       gridTemplateColumns={{base: '3xl', xl: '10fr 4fr'}}
+      gridTemplateRows="1fr auto"
     >
   
       {item?.manifest ? 
@@ -42,6 +43,7 @@ export default function SingleObject(props) {
         fontFamily="Montserrat" 
         gridArea="metadata" 
         pr={{base: 0, md: 10}}
+        alignSelf="flex-end"
       >
         <Heading 
           fontFamily="Montserrat" 

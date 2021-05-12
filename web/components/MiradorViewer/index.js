@@ -180,7 +180,7 @@ export default function MiradorViewer(props) {
       h="100%"
       position="relative"
       gridArea={gridArea}
-      bgGradient="linear(to-t, blue.100, white)" 
+      bgColor="#eeeeee" 
     >
       <Box h="100%" id={ID} />
     </Box>

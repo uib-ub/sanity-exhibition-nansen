@@ -19,6 +19,7 @@ export default function MiradorGallery(props) {
       gridGap={5}
       gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
       gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
+      gridTemplateRows="1fr auto"
     >
 
       {items ? 
