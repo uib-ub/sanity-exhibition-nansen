@@ -2,7 +2,7 @@ import {orderBy} from 'lodash'
 import {getEvents} from '../../lib/api'
 import Layout from '../../components/Layout'
 import {Container, Heading, useColorModeValue, SimpleGrid} from '@chakra-ui/react'
-import RenderMergedActivityStreamList from '../../components/ActivityStream/RenderMergedActivityStreamList'
+import RenderMergedActivityStreamList from '../../components/ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'
 
 export default function Events({data, preview}) {
   const tagColor = useColorModeValue('blackAlpha', 'red')
