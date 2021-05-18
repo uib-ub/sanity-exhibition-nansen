@@ -2,18 +2,12 @@ import {nanoid} from 'nanoid'
 import { mapLanguage } from '../../shared/mapLanguage'
 import { mapTypes } from '../../shared/mapTypes'
 
-const getLabel = (type, item) => {
-  if(type == 'Concept') {
-    return {
-      label: {
-        _type: "LocaleString",
-        ...item.caption
-      }
-    }
-  }
-  else {
-    return { 
-      label: item.properties['entity.name'][0].value.no ?? item.properties['entity.name'][0].value.sv
+const getLabel = (item) => {
+  return {
+    label: {
+      _type: "LocaleString",
+      ...item.caption ?? '',
+      ...item.properties['entity.name'][0]?.value ?? ''
     }
   }
 }
@@ -71,8 +65,9 @@ export const getDocument = (item) => {
     _id: item.uuid,
     accessState: 'open',
     editorialState: 'published',
-    ...getLabel(item.entityType, item),
+    ...getLabel(item),
     // preferredIdentifier: item.uuid,
+    homepage: `https://kulturnav.org/${item.uuid}`,
     identifiedBy: [
       {
         _type: 'Identifier',

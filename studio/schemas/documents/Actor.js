@@ -9,6 +9,7 @@ import {
   image,
   wasOutputOf,
   inDataset,
+  homepage,
 } from '../props'
 import {coalesceLabel, timespanAsString} from '../helpers/helpers'
 
@@ -47,6 +48,7 @@ export default {
     editorialState,
     accessState,
     label,
+    homepage,
     {
       ...identifiedBy,
       fieldset: 'minimum',

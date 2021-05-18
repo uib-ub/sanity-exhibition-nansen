@@ -168,7 +168,7 @@ const Search = () => {
                 name="concept"
                 onChange={e => callSetImportTypeFunction(e)}
                 value="Concept"
-              /> Konsept
+              /> Emneord
               <Radio
                 checked={state.importTo === 'ObjectType'}
                 name="concept"
