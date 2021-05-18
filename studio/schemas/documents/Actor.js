@@ -18,7 +18,7 @@ export default {
   title: 'Actor',
   type: 'document',
   initialValue: {
-    editorialState: 'draft',
+    editorialState: 'review',
     accessState: 'secret',
   },
   icon: FaUser,

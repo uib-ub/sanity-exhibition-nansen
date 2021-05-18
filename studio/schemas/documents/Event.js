@@ -14,7 +14,7 @@ export default {
   type: 'document',
   title: 'Event',
   initialValue: {
-    editorialState: 'draft',
+    editorialState: 'review',
     accessState: 'secret',
   },
   icon: FaCalendar,

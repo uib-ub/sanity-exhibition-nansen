@@ -8,7 +8,7 @@ export default {
   type: 'document',
   title: 'Text',
   initialValue: {
-    editorialState: 'draft',
+    editorialState: 'review',
     accessState: 'secret',
   },
   icon: FaMarker,
@@ -88,17 +88,17 @@ export default {
       type: 'datetime',
     },
     {
+      name: 'body',
+      title: 'Tekst',
+      titleEN: 'Body',
+      type: 'blockContent',
+    },
+    {
       name: 'excerpt',
       title: 'Sammendrag',
       titleEN: 'Excerpt',
       description:
         'This ends up on summary pages, on Google, when people share your post in social media.',
-      type: 'blockContent',
-    },
-    {
-      name: 'body',
-      title: 'Tekst',
-      titleEN: 'Body',
       type: 'blockContent',
     },
     {

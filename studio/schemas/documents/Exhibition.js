@@ -16,7 +16,7 @@ export default {
   title: 'Exhibition',
   type: 'document',
   initialValue: {
-    editorialState: 'draft',
+    editorialState: 'review',
     accessState: 'secret',
   },
   icon: FaGlasses,

@@ -164,8 +164,13 @@ export default () =>
                 .child(S.documentTypeList('Actor').title('Alle Aktører')),
             ]),
         ),
+      // Much used types
+      S.divider(),
+      S.documentTypeListItem('Concept').title('Emner'),
+      S.documentTypeListItem('Material').title('Material'),
       // TYPE
       types,
+      S.divider(),
       S.listItem()
         .title('Steder')
         .icon(FaMapMarkedAlt)

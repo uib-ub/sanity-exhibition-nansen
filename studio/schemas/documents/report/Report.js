@@ -25,7 +25,7 @@ export default {
   title: 'Rapport',
   type: 'document',
   initialValue: {
-    editorialState: 'draft',
+    editorialState: 'review',
     accessState: 'secret',
   },
   icon: GiCrackedGlass,

@@ -3,7 +3,7 @@ import {FaTags} from 'react-icons/fa'
 // import PreviewIFrame from '../../src/components/previewIFrame'
 
 const types = S.listItem()
-  .title('Typer')
+  .title('...andre typer')
   .icon(FaTags)
   .child(
     S.list()
@@ -13,11 +13,9 @@ const types = S.listItem()
         S.documentTypeListItem('AcquisitionType').title('Akkvisisjonstype'),
         S.documentTypeListItem('ActorType').title('Aktørtype'),
         S.documentTypeListItem('DimensionType').title('Dimensjonstype'),
-        S.documentTypeListItem('Concept').title('Emner'),
         S.documentTypeListItem('EventType').title('Hendelsestype'),
         S.documentTypeListItem('IdentifierType').title('IdentifikatorType'),
         S.documentTypeListItem('StorageType').title('Lagringstype'),
-        S.documentTypeListItem('Material').title('Material'),
         S.documentTypeListItem('MeasurementUnit').title('Måleenhet'),
         S.documentTypeListItem('AppelationType').title('Navnetype'),
         S.documentTypeListItem('ObjectType').title('Objekttype'),

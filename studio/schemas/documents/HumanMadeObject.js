@@ -38,7 +38,7 @@ export default {
   titleEN: 'Made Object',
   description: 'Menneskapte objekt',
   initialValue: {
-    editorialState: 'draft',
+    editorialState: 'review',
     accessState: 'secret',
   },
   icon: FaBookDead,

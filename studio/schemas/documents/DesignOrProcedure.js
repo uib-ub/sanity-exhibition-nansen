@@ -8,7 +8,7 @@ export default {
   title: 'Design or procedure',
   type: 'document',
   initialValue: {
-    editorialState: 'draft',
+    editorialState: 'review',
     accessState: 'secret',
   },
   icon: FaClipboard,

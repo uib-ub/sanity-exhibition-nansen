@@ -29,6 +29,13 @@ export default {
       to: [{type: 'Route'}],
     },
     {
+      name: 'children',
+      title: 'Undersider',
+      titleEN: 'Children',
+      type: 'array',
+      of: [{type: 'NavigationItem'}],
+    },
+    {
       name: 'route',
       title: 'Sti',
       titleEN: 'Path',
