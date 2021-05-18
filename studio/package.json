@@ -14,7 +14,7 @@
   "dependencies": {
     "@appbaseio/reactivesearch": "^3.13.1",
     "@sanity/base": "^2.10.2",
-    "@sanity/block-content-to-react": "^2.0.7",
+    "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/cli": "^2.10.0",
     "@sanity/code-input": "^2.9.0",
     "@sanity/color-input": "2.8.2-canary.40",
@@ -23,7 +23,7 @@
     "@sanity/dashboard": "2.8.2-canary.40",
     "@sanity/default-layout": "^2.10.2",
     "@sanity/default-login": "^2.8.0",
-    "@sanity/desk-tool": "^2.10.2",
+    "@sanity/desk-tool": "^2.10.4",
     "@sanity/production-preview": "2.8.2-canary.40",
     "@sanity/vision": "^2.10.0",
     "@seidhr/sanity-plugin-dashboard-widget-muna-docs": "^1.0.0",
