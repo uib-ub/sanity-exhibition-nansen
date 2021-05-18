@@ -16,7 +16,7 @@ export default function SingleObject(props) {
     <Grid
       h="50vh" 
       maxW={["xl", "xl", "xl", "6xl"]}
-      my={{base: "6", md: "16", xl: "28"}}
+      my={{base: "6", md: "16", xl: "20"}}
       borderBottom={{base: "solid 1px", md: "none"}}
       borderColor="gray.300"
       gridGap={5}

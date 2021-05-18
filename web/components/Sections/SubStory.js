@@ -1,9 +1,8 @@
 import {imageBuilder} from '../../lib/sanity'
-import {Button, Container, DrawerFooter, Drawer, DrawerContent, DrawerCloseButton, DrawerOverlay, DrawerBody, DrawerHeader, Box, Flex, Heading, Image, Badge, useDisclosure} from '@chakra-ui/react'
-import {useColorMode, useColorModeValue} from '@chakra-ui/react'
+import {Button, Container, DrawerFooter, Drawer, DrawerContent, DrawerCloseButton, DrawerOverlay, DrawerBody, DrawerHeader, Flex, Box, Grid, Heading, Image, Badge, useDisclosure} from '@chakra-ui/react'
+import {useColorModeValue} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
-import Sections from './Sections'
 
 export default function SubStory(props) {
   if(props.disabled === true) {
@@ -17,24 +16,33 @@ export default function SubStory(props) {
   const {label, title, tagline, content, illustration} = props
 
   return (
-    <Flex 
+    <Grid 
       maxW="2xl"
-      paddingTop="1"
-      paddingBottom="4"
+      py="5"
       my="10"
       borderY="1px solid"
       borderColor="red.200"
+      templateColumns="2fr 4fr 1fr"
+      gap="4"
     >
+      <Flex alignSelf="center">
+        <Image
+          maxW="100%"
+          src={imageBuilder.image(illustration.illustration.image).fit('fill').height(500).width(500).url()}
+          alt={''}
+        />
+      </Flex>
+
       <Box>
-        <Badge 
-          marginTop="4"
-          backgroundColor={bg} 
+        <Badge
+          backgroundColor={bg}
           color={color}
         >
           {label}
         </Badge>
+
         <Heading 
-          fontSize={["xl", "2xl", "2xl", "4xl"]} 
+          fontSize={["xl", "2xl", "2xl", "3xl"]} 
         >
           {title}
         </Heading>
@@ -68,9 +76,9 @@ export default function SubStory(props) {
 
             <DrawerBody>
               <Container maxW="2xl" centerContent>
-                {illustration && illustration.image && (
+                {illustration?.illustration?.image && illustration.illustration.image && (
                   <Image
-                    src={imageBuilder.image(illustration.image).height(600).width(800).url()}
+                    src={imageBuilder.image(illustration.illustration.image).height(600).width(800).url()}
                     alt={''}
                     mb="5"
                   />
@@ -91,6 +99,6 @@ export default function SubStory(props) {
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-    </Flex>
+    </Grid>
   )
 }
