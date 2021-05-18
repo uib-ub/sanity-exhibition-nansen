@@ -1,6 +1,6 @@
 import S from '@sanity/desk-tool/structure-builder'
 import {GiCrackedGlass} from 'react-icons/'
-import {FaGifts, FaProjectDiagram} from 'react-icons/fa'
+import {FaGifts, FaGlasses, FaProjectDiagram} from 'react-icons/fa'
 import {ImLibrary} from 'react-icons/im'
 
 // import PreviewIFrame from '../../src/components/previewIFrame'
@@ -56,6 +56,49 @@ const management = S.listItem()
                   .child(S.documentTypeList('Acquisition').title('Alle akkvisisjoner'))
               ]),
           ),
+        S.listItem()
+        .title('Utstillinger')
+        .icon(FaGlasses)
+        .child(
+          S.list()
+            .title('Utstillinger')
+            .items([
+              S.listItem()
+                .title('Utstillinger etter type')
+                .icon(FaGlasses)
+                .child(
+                  // List out all categories
+                  S.documentTypeList('ExhibitionType')
+                    .title('Utstillinger etter type')
+                    .filter('_type == "ExhibitionType"')
+                    .child((catId) =>
+                      // List out project documents where the _id for the selected
+                      // category appear as a _ref in the project’s categories array
+                      S.documentList()
+                        .schemaType('Exhibition')
+                        .title('Utstillinger')
+                        .filter('_type == "Exhibition" && $catId in hasType[]._ref')
+                        .params({catId})
+                    ),
+                ),
+              S.listItem().title('Upubliserte utstillinger').icon(FaGlasses).child(
+                // List out all categories
+                S.documentTypeList('Exhibition')
+                  .title('Upubliserte utstillinger')
+                  .filter('_type == "Exhibition" && accessState == "secret"'),
+              ),
+              S.listItem().title('Til gjennomgang').icon(FaGlasses).child(
+                // List out all categories
+                S.documentTypeList('Exhibition')
+                  .title('Til gjennomgang')
+                  .filter('_type == "Exhibition" && editorialState == "review"'),
+              ),
+              S.listItem()
+                .title('Alle utstillinger')
+                .icon(FaGlasses)
+                .child(S.documentTypeList('Exhibition').title('Alle utstillinger')),
+              ]),
+        ),
         S.documentTypeListItem('DesignOrProcedure').title('Design eller prosedyre'),
         S.listItem()
           .title('Rapport')

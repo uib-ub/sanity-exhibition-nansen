@@ -7,6 +7,7 @@ import {RiSideBarFill} from 'react-icons/ri'
 import {AiFillAlert} from 'react-icons/ai'
 import {FaGlasses} from 'react-icons/fa'
 import {BsFileRichtext} from 'react-icons/bs'
+import blog from './blog'
 
 export default S.listItem()
   .title('Sidebygger')
@@ -78,6 +79,7 @@ export default S.listItem()
                   .child(S.documentTypeList('LinguisticDocument').title('Alle tekster')),
               ]),
           ),
+        blog,
         S.listItem()
           .title('Varsler')
           .icon(AiFillAlert)

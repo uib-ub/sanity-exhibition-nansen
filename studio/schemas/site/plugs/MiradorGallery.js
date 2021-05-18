@@ -33,10 +33,12 @@ export default {
   preview: {
     select: {
       title: 'title',
+      media: 'items.0.manifestRef.image'
     },
-    prepare: ({title}) => ({
+    prepare: ({title, media}) => ({
       title: title,
       subtitle: `Mirador galleri`,
+      media: media ? media : '' 
     }),
   },
 }

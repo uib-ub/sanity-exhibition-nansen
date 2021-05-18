@@ -1,3 +1,5 @@
+import {coalesceLabel} from '../../helpers/helpers'
+
 export default {
   title: 'Gallery manifest',
   name: 'MiradorGalleryWindow',
@@ -16,9 +18,9 @@ export default {
       options: {collapsible: true, collapsed: true},
     },
   ],
-  /* initialValue: {
+  initialValue: {
     view: 'book'
-  }, */
+  },
   fields: [
     {
       name: 'view',
@@ -70,7 +72,7 @@ export default {
     },
     prepare({internalManifest, manifestUrl, media}) {
       return {
-        title: internalManifest ? internalManifest : manifestUrl ? manifestUrl : '',
+        title: internalManifest ? coalesceLabel(internalManifest) : manifestUrl ? manifestUrl : '',
         media: media,
       }
     },

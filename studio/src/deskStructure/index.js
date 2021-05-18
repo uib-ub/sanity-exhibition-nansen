@@ -1,15 +1,14 @@
 import S from '@sanity/desk-tool/structure-builder'
 import {FaGlasses, FaMapMarkedAlt} from 'react-icons/fa'
 import {GiBoltSpellCast} from 'react-icons/gi'
-import {TiGroup, TiUser} from 'react-icons/ti'
+import {TiUser} from 'react-icons/ti'
 import {BsFileRichtext} from 'react-icons/bs'
 import {FcTimeline} from 'react-icons/fc'
 import {MdEvent} from 'react-icons/md'
-import blog from './blog'
 import pageBuilder from './pageBuilder'
-import types from './types'
 import management from './management'
 import humanMadeObject from './humanMadeObject'
+import types from './types'
 import React from 'react'
 import {Spinner, Container, Box} from '@sanity/ui'
 import Preview from 'part:@sanity/base/preview'
@@ -115,52 +114,10 @@ export default () =>
     .title('Innhold')
     .items([
       pageBuilder,
+      management,
       S.divider(),
       humanMadeObject,
       S.divider(),
-      S.listItem()
-        .title('Utstillinger')
-        .icon(FaGlasses)
-        .child(
-          S.list()
-            .title('Utstillinger')
-            .items([
-              S.listItem()
-                .title('Utstillinger etter type')
-                .icon(FaGlasses)
-                .child(
-                  // List out all categories
-                  S.documentTypeList('ExhibitionType')
-                    .title('Utstillinger etter type')
-                    .filter('_type == "ExhibitionType"')
-                    .child((catId) =>
-                      // List out project documents where the _id for the selected
-                      // category appear as a _ref in the project’s categories array
-                      S.documentList()
-                        .schemaType('Exhibition')
-                        .title('Utstillinger')
-                        .filter('_type == "Exhibition" && $catId in hasType[]._ref')
-                        .params({catId})
-                    ),
-                ),
-              S.listItem().title('Upubliserte utstillinger').icon(FaGlasses).child(
-                // List out all categories
-                S.documentTypeList('Exhibition')
-                  .title('Upubliserte utstillinger')
-                  .filter('_type == "Exhibition" && accessState == "secret"'),
-              ),
-              S.listItem().title('Til gjennomgang').icon(FaGlasses).child(
-                // List out all categories
-                S.documentTypeList('Exhibition')
-                  .title('Til gjennomgang')
-                  .filter('_type == "Exhibition" && editorialState == "review"'),
-              ),
-              S.listItem()
-                .title('Alle utstillinger')
-                .icon(FaGlasses)
-                .child(S.documentTypeList('Exhibition').title('Alle utstillinger')),
-              ]),
-              ),
       S.listItem()
         .title('Aktører')
         .icon(TiUser)
@@ -351,36 +308,33 @@ export default () =>
                 .child(S.documentTypeList('Activity').title('Alle aktiviteter')),
             ]),
         ),
-      S.divider(),
-      // This returns an array of all the document types
-      // defined in schema.js. We filter out those that we have
-      // defined the structure above
-      ...S.documentTypeListItems().filter(hiddenDocTypes),
-      blog,
       S.listItem()
         .title('Tidslinjer')
         .icon(FcTimeline)
         .child(
           S.list()
-            .title('Tidslinjer')
-            .items([
-              S.listItem().title('Upubliserte tidslinjer').icon(FcTimeline).child(
-                // List out all categories
-                S.documentTypeList('Timeline')
-                  .title('Upubliserte tidslinjer')
-                  .filter('_type == "Timeline" && accessState == "secret"'),
+          .title('Tidslinjer')
+          .items([
+            S.listItem().title('Upubliserte tidslinjer').icon(FcTimeline).child(
+              // List out all categories
+              S.documentTypeList('Timeline')
+              .title('Upubliserte tidslinjer')
+              .filter('_type == "Timeline" && accessState == "secret"'),
               ),
               S.listItem().title('Til gjennomgang').icon(FcTimeline).child(
                 // List out all categories
                 S.documentTypeList('Timeline')
-                  .title('Til gjennomgang')
-                  .filter('_type == "Timeline" && editorialState == "review"'),
-              ),
-              S.listItem()
+                .title('Til gjennomgang')
+                .filter('_type == "Timeline" && editorialState == "review"'),
+                ),
+                S.listItem()
                 .title('Alle tidslinjer')
                 .icon(FcTimeline)
                 .child(S.documentTypeList('Timeline').title('Alle tidslinjer')),
-            ]),
+              ]),
         ),
-      management,
+      // This returns an array of all the document types
+      // defined in schema.js. We filter out those that we have
+      // defined the structure above
+      ...S.documentTypeListItems().filter(hiddenDocTypes),
     ])

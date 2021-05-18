@@ -2,7 +2,7 @@ const defaultFieldsets = [
   {
     name: 'state',
     title: 'Status',
-    options: {collapsible: true, collapsed: false},
+    options: {collapsible: true, collapsed: false, columns: 2},
   },
   {
     name: 'minimum',

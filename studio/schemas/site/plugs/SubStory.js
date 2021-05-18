@@ -49,7 +49,7 @@ export default {
     select: {
       title: 'title',
       subtitle: 'label',
-      media: 'illustration',
+      media: 'illustration.illustration',
       disabled: 'disabled',
     },
     prepare({title, media, disabled}) {
