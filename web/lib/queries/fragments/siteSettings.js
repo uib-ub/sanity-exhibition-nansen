@@ -10,16 +10,28 @@ export const siteSettings = groq`
     },
     mainNavigation->{
       items[]{
-        ...,
-        "route": coalesce(landingPageRoute->.slug.current, route)      
+        _key,
+        label,
+        "route": coalesce(landingPageRoute->.slug.current, route, link),
+        children[]{
+          _key,
+          label,
+          "route": coalesce(landingPageRoute->.slug.current, route, link),
+        }
       }
     },
     footer->{
       ...,
       navMenu->{
         items[]{
-          ...,
-          "route": coalesce(landingPageRoute->.slug.current, route)
+          _key,
+          label,
+          "route": coalesce(landingPageRoute->.slug.current, route, link),
+          children[]{
+            _key,
+            label,
+            "route": coalesce(landingPageRoute->.slug.current, route, link),
+          }
         }
       }
     }

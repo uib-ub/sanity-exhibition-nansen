@@ -84,6 +84,18 @@ export default function Header(props) {
                 <ActiveLink href={`/${item.route}`} activeClassName="active">
                   <a>{item.label}</a>
                 </ActiveLink>
+                
+                {item.children && (
+                  <List styleType="circle" ml="4" fontSize={["sm", "sm", "md", "md"]}>
+                    {item.children.map(child => (
+                      <ListItem key={child._key}>
+                        <ActiveLink href={`/${child.route}`} activeClassName="active">
+                          <a>{child.label}</a>
+                        </ActiveLink>
+                      </ListItem>
+                    ))}
+                  </List>
+                )}
               </ListItem>
             ))}
           </List>
@@ -94,6 +106,18 @@ export default function Header(props) {
                 <ActiveLink href={`/${item.route}`} activeClassName="active">
                   <a>{item.label}</a>
                 </ActiveLink>
+
+                {/* {item.children && (
+                  <List styleType="circle" ml="4" fontSize={["sm", "sm", "md", "md"]}>
+                    {item.children.map(child => (
+                      <ListItem key={child._key}>
+                        <ActiveLink href={`/${child.route}`} activeClassName="active">
+                          <a>{child.label}</a>
+                        </ActiveLink>
+                      </ListItem>
+                    ))}
+                  </List>
+                )} */}
               </ListItem>
             ))}
           </List>
