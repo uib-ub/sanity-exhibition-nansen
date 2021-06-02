@@ -100,6 +100,7 @@ export default {
     {type: 'SubStory'},
     {type: 'InstagramPost'},
     {type: 'ImageCompare'},
+    {type: 'SingleLevelChart'},
     {type: 'Geojson'},
     {type: 'Quote'},
     {type: 'TimelineSection'},
