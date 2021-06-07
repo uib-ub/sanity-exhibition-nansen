@@ -4,14 +4,13 @@ import { ResponsivePie } from '@nivo/pie'
 
 
 export default function SingleLevelChart(props) {
-  console.log(props)
   const {data, caption} = props
 
   return (
-    <Box as="figure" maxW={["lg",null, null, null, "2xl"]} h="md">
+    <Box as="figure" maxW={["lg",null, null, null, "xl"]} h="md">
       <ResponsivePie
         data={JSON.parse(data.code)}
-        margin={{ top: 40, right: 80, bottom: 80, left: 0 }}
+        margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
         innerRadius={0.5}
         padAngle={0.7}
         cornerRadius={3}

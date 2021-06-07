@@ -26,6 +26,12 @@ export default {
     },
     labelSingleton,
     {
+      name: 'caption',
+      title: 'Tekst',
+      titleEN: 'Text',
+      type: 'blockContent',
+    },
+    {
       name: 'data',
       title: 'Data',
       titleEN: 'Data',
@@ -33,12 +39,6 @@ export default {
         language: 'json'
       },
       type: 'code',
-    },
-    {
-      name: 'caption',
-      title: 'Tekst',
-      titleEN: 'Text',
-      type: 'blockContent',
     },
   ],
   preview: {
