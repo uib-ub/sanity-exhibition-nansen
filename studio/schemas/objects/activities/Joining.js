@@ -1,4 +1,4 @@
-import { timespanAsString } from '../../helpers/helpers'
+import { coalesceLabel, timespanAsString } from '../../helpers/helpers'
 import {timespan, referredToBy, tookPlaceAt, featured} from '../../props'
 
 var capitalize = require('capitalize')
@@ -76,7 +76,7 @@ export default {
       const {type, joinedWith, bb, eb, date, be, ee} = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       return {
-        title: `${capitalize(type)} ${joinedWith ? joinedWith : ''}`,
+        title: `${capitalize(type)}: ${joinedWith ? coalesceLabel(joinedWith) : ''}`,
         subtitle: `${timespan ? timespan : ''}`,
       }
     },

@@ -1,6 +1,6 @@
 import {timespan, tookPlaceAt, referredToBy, featured} from '../../props'
 import {defaultFieldsets} from '../../fieldsets'
-import { timespanAsString } from '../../helpers/helpers'
+import { coalesceLabel, timespanAsString } from '../../helpers/helpers'
 
 var capitalize = require('capitalize')
 
@@ -75,7 +75,7 @@ export default {
       const {type, separatedFrom, bb, eb, date, be, ee} = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       return {
-        title: `${capitalize(type)} ${separatedFrom ? separatedFrom : ''}`,
+        title: `${capitalize(type)} ${separatedFrom ? coalesceLabel(separatedFrom) : ''}`,
         subtitle: `${timespan ? timespan : ''}`,
       }
     },
