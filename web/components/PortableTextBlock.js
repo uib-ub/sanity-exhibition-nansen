@@ -71,7 +71,7 @@ export default function PortableTextBlock(props) {
         )
       },
       link: ({mark, children}) => {
-        console.log(children)
+        // console.log(children)
         // Read https://css-tricks.com/use-target_blank/
         const {blank, href} = mark
         const text = children.length ? children[0] : children
