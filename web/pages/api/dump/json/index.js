@@ -1,18 +1,18 @@
 import {sanityClient as client} from '../../../../lib/sanity.server'
-import { getDump } from "../lib/api";
+import { getDump } from "../lib/queries";
 import { toJSONLD } from "../lib";
 import { context } from "../lib/context";
 
 export default async function handler(req, res) {
   const response = await client.fetch(getDump);
-  const data = await response;
+  const body = await response;
 
-  const result = toJSONLD(data)
+  const json = toJSONLD(body)
   
-  const json = {
+  const jsonldData = {
     ...context,
-    "@graph": result,
+    "@graph": json,
   };
 
-  res.status(200).json(json);
+  res.status(200).json(jsonldData);
 }

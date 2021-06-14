@@ -1,8 +1,8 @@
 import {sanityClient as client} from '../../../../../lib/sanity.server'
+import * as jsonld from "jsonld";
 import { toJSONLD } from "../../lib";
 import { context } from "../../lib/context";
-import * as jsonld from "jsonld";
-import { getID } from "../../lib/api";
+import { getID } from "../../lib/queries";
 
 export default async function rdfIdHandler(req, res) {
   const {
@@ -10,16 +10,16 @@ export default async function rdfIdHandler(req, res) {
   } = req
 
   const response = await client.fetch(getID, {id});
-  const data = await response;
+  const body = await response;
 
-  const result = toJSONLD(data)
+  const json = toJSONLD(body)
 
-  const json = {
+  const jsonldData = {
     ...context,
-    ...result[0],
+    ...json[0],
   };
 
-  const nquads = await jsonld.toRDF(json, { format: "application/n-quads" });
+  const nquads = await jsonld.toRDF(jsonldData, { format: "application/n-quads" });
 
   // User with id exists
   if (nquads) {

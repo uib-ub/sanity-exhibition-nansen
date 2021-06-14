@@ -1,6 +1,7 @@
 import {sanityClient as client} from '../../../../../lib/sanity.server'
 import { toJSONLD } from "../../lib";
-import { getID } from "../../lib/api";
+import { context } from "../../lib/context";
+import { getID } from "../../lib/queries";
 
 
 export default async function idHandler(req, res) {
@@ -9,13 +10,18 @@ export default async function idHandler(req, res) {
   } = req
 
   const response = await client.fetch(getID, {id});
-  const data = await response;
+  const body = await response;
 
-  const result = toJSONLD(data)
+  const json = toJSONLD(body)
+  
+  const jsonldData = {
+    ...context,
+    ...json[0],
+  }
 
   // User with id exists
-  if (result) {
-    res.status(200).json(result);
+  if (jsonldData) {
+    res.status(200).json(jsonldData);
   } else {
     res.status(404).json({ message: `Document with id: ${id} not found.` });
   }
