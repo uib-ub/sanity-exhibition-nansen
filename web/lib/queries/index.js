@@ -193,7 +193,7 @@ export const routeQuery = groq`
               canvasUrl,
             }
           },
-          _type == 'SubStory' => { // Ai! Deeply nested full block content
+          _type == 'SubStory' => {
             ...,
             content[] {
               ...,
