@@ -48,7 +48,7 @@ export async function getRoute(preview, id) {
   const joinID = (typeof id === 'string') ? id : id.join('/')
 
   const data = await getClient(preview).fetch(
-    routeQuery,
+    JSON.parse(JSON.stringify(routeQuery)), // Too long query?
     {joinID},
   )
   return data
