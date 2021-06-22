@@ -11,7 +11,7 @@ export default function Page({data, preview}) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
 
-      <Container pl={{md: "12"}} maxWidth="6xl">
+      <Container pl={{md: '12'}} maxWidth="6xl">
         {/* A Page  */} 
         {content && <Sections sections={content} /> }
 

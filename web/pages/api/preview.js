@@ -19,9 +19,9 @@ export default async function preview(req, res) {
   }
 
   /* Page is only for preview, so we add it to a new array with publicDocumentTypes */
-  const types = ["Page", ...publicDocumentTypes]
+  const types = ['Page', ...publicDocumentTypes]
   const id = post.slug?.current ?? post._id
-  const path = types.includes(post._type) ? "/id/" : "/"
+  const path = types.includes(post._type) ? '/id/' : '/'
 
   // Enable Preview Mode by setting the cookies
   res.setPreviewData({})

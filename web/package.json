@@ -29,7 +29,7 @@
     "jsonld": "^3.2.0",
     "mirador": "^3.1.1",
     "mirador-image-tools": "^0.10.0",
-    "next": "^10.2.0",
+    "next": "^11.0.1-canary.6",
     "next-images": "^1.7.0",
     "next-sanity": "^0.1.12",
     "react": "^17.0.1",
@@ -55,6 +55,7 @@
     "@storybook/react": "^6.2.9",
     "babel-loader": "^8.2.2",
     "eslint": "^7.13.0",
+    "eslint-config-next": "^11.0.0",
     "eslint-plugin-react": "^7.21.5",
     "postcss-preset-env": "^6.7.0",
     "prettier": "2.2.0"

@@ -12,20 +12,20 @@ export default function PortableTextBlock(props) {
 
   const {
     blocks,
-    fontSize = {base: "lg", sm: "xl", md: "xl", xl: "xl"}, 
-    lineHeight=["1.3", "1.4"], 
-    fontWeight = "normal",
+    fontSize = {base: 'lg', sm: 'xl', md: 'xl', xl: 'xl'}, 
+    lineHeight=['1.3', '1.4'], 
+    fontWeight = 'normal',
     fontFamily,
     ...rest
   } = props
 
   const getFontSize = (level) => {
     switch(level) {
-      case "h2" :
-        return {base: "lg", sm: "2xl", md: "3xl", xl: "4xl"}
-      case "h3" :
-        return {base: "md", sm: "xl", md: "2xl", xl: "3xl"}
-      default : return null
+    case 'h2' :
+      return {base: 'lg', sm: '2xl', md: '3xl', xl: '4xl'}
+    case 'h3' :
+      return {base: 'md', sm: 'xl', md: '2xl', xl: '3xl'}
+    default : return null
     }
   }
 
@@ -44,7 +44,7 @@ export default function PortableTextBlock(props) {
 
     return (
       <Text 
-        maxWidth={["lg", null, "xl", null ]}
+        maxWidth={['lg', null, 'xl', null ]}
         fontSize={fontSize} 
         lineHeight={lineHeight} 
         fontWeight={fontWeight} 

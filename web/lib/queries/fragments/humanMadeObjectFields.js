@@ -1,4 +1,4 @@
-import groq from "groq";
+import groq from 'groq'
 
 export const humanMadeObjectFields = groq`
   _id,

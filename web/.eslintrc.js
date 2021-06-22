@@ -4,7 +4,7 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  extends: ['prettier', 'prettier/react', 'prettier/@typescript-eslint', 'prettier/babel'],
+  // extends: ['prettier', 'prettier/react', 'prettier/@typescript-eslint', 'prettier/babel'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,

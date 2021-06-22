@@ -1,5 +1,5 @@
 import {Box} from '@chakra-ui/react'
-import SVG from 'react-inlinesvg';
+import SVG from 'react-inlinesvg'
 
 export default function SvgTitle(props) {
   const {content, title} = props

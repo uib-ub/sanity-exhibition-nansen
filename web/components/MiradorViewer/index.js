@@ -10,69 +10,69 @@ import RemoveWindowTopBarPlugin from './plugins/RemoveWindowTopBarPlugin'
 
 const getVariant = (variant) => {
   switch (variant) {
-    case('basic') :
-      return {
-        variantSettings: {
-          maximized: true,
-          allowMaximize: false,
-          allowClose: false,
-          allowTopMenuButton: false,
-          allowFullscreen: true,
-          view: 'single'
-        },
-        plugins: [
-          RemoveWindowTopBarPlugin,
-          RemoveNavPlugin,
-          ThumbnailCustomizationPlugin, 
-          NavgationButtonsPlugin,
-          ZoomButtonsPlugin
-        ]
-      }
-    case('standard') :
-      return {
-        variantSettings: {
-          maximized: true,
-          allowClose: false,
-          allowTopMenuButton: false,
-          allowFullscreen: true,
-        },
-        plugins: [
-          RemoveNavPlugin, 
-          ThumbnailCustomizationPlugin, 
-          NavgationButtonsPlugin,
-          ZoomButtonsPlugin
-        ]
-      }
-    case('catalog') :
-      return {
-        variantSettings: {
-          maximized: false,
-          allowClose: true,
-          allowTopMenuButton: true,
-          allowFullscreen: true,
-        },
-        plugins: [
-        ]
-      }
-      default :
-        return {
-          variantSettings: {
-            maximized: true,
-            allowMaximize: false,
-            allowClose: false,
-            allowTopMenuButton: false,
-            allowFullscreen: true,
-            hideWindowTitle: true
-          },
-          plugins: [
-            RemoveNavPlugin, 
-            ThumbnailCustomizationPlugin, 
-            NavgationButtonsPlugin,
-            ZoomButtonsPlugin
-          ]
-        }
+  case('basic') :
+    return {
+      variantSettings: {
+        maximized: true,
+        allowMaximize: false,
+        allowClose: false,
+        allowTopMenuButton: false,
+        allowFullscreen: true,
+        view: 'single'
+      },
+      plugins: [
+        RemoveWindowTopBarPlugin,
+        RemoveNavPlugin,
+        ThumbnailCustomizationPlugin, 
+        NavgationButtonsPlugin,
+        ZoomButtonsPlugin
+      ]
+    }
+  case('standard') :
+    return {
+      variantSettings: {
+        maximized: true,
+        allowClose: false,
+        allowTopMenuButton: false,
+        allowFullscreen: true,
+      },
+      plugins: [
+        RemoveNavPlugin, 
+        ThumbnailCustomizationPlugin, 
+        NavgationButtonsPlugin,
+        ZoomButtonsPlugin
+      ]
+    }
+  case('catalog') :
+    return {
+      variantSettings: {
+        maximized: false,
+        allowClose: true,
+        allowTopMenuButton: true,
+        allowFullscreen: true,
+      },
+      plugins: [
+      ]
+    }
+  default :
+    return {
+      variantSettings: {
+        maximized: true,
+        allowMaximize: false,
+        allowClose: false,
+        allowTopMenuButton: false,
+        allowFullscreen: true,
+        hideWindowTitle: true
+      },
+      plugins: [
+        RemoveNavPlugin, 
+        ThumbnailCustomizationPlugin, 
+        NavgationButtonsPlugin,
+        ZoomButtonsPlugin
+      ]
     }
   }
+}
   
 const mergeManifestAndVariant = (arr, settings) => {
   let windows = []

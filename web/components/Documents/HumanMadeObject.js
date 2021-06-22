@@ -40,7 +40,7 @@ export default function HumanMadeObject(item) {
       p={5}
       gridGap={{base: 0}}
       alignContent="start"
-      gridTemplateAreas={{base: `"image" "metadata"`}}
+      gridTemplateAreas={{base: '"image" "metadata"'}}
       gridTemplateColumns={{base: '1fr'}}
     >
       <Container maxW="full" gridArea="metadata" p="0">
@@ -64,7 +64,7 @@ export default function HumanMadeObject(item) {
 
         {item.image?.palette && <Palette colors={item.image?.palette} />}
 
-        <Grid as="dl" pt="4" templateColumns={["2fr", "2fr", "160px auto"]}>
+        <Grid as="dl" pt="4" templateColumns={['2fr', '2fr', '160px auto']}>
           {item.hasType && 
             <HasType types={item.hasType} />
           }

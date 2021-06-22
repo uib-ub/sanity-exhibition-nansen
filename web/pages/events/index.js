@@ -11,7 +11,7 @@ export default function Events({data, preview}) {
     <Layout preview={preview} site={data.siteSettings}>
       <Container my="5" maxWidth="6xl">
         <Heading 
-          fontSize={["2xl", "3xl", "4xl", "5xl"]}
+          fontSize={['2xl', '3xl', '4xl', '5xl']}
           py="5"
           mb="5"
           borderBottom="solid 1px"
@@ -26,8 +26,8 @@ export default function Events({data, preview}) {
             w="full"
             columnGap="5"
             templateColumns={{
-              base: "1fr",
-              md: "auto 1fr"
+              base: '1fr',
+              md: 'auto 1fr'
             }}
           >
             <RenderMergedActivityStreamList stream={data.items} />

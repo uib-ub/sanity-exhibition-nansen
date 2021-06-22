@@ -1,4 +1,4 @@
-import groq from "groq";
+import groq from 'groq'
 
 export const siteSettings = groq`
   "siteSettings": *[_id == "site-settings"][0] {

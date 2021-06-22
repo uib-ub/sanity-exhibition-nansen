@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import { getViewer } from 'mirador/dist/es/src/state/selectors';
+import React, { Component } from 'react'
+import ButtonGroup from '@material-ui/core/ButtonGroup'
+import { withStyles } from '@material-ui/core/styles'
+import Button from '@material-ui/core/Button'
+import SvgIcon from '@material-ui/core/SvgIcon'
+import { getViewer } from 'mirador/dist/es/src/state/selectors'
 
 //custom icons
 const ZoomInIcon = (props) => (
@@ -15,17 +15,17 @@ const ZoomInIcon = (props) => (
       <rect x='10' y='8' width='1' height='5' transform='translate(21) rotate(90)' fill='currentColor'/>
     </svg>
   </SvgIcon>
-);
+)
 
 const ZoomOutIcon = (props) => (
   <SvgIcon {...props}>
     <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
-        <circle cx='10.5' cy='10.5' r='5.5' fill='none' stroke='currentColor' strokeLinejoin='bevel' strokeWidth='1.4'/>
-        <line x1='14.5' y1='14.5' x2='19' y2='19' fill='none' stroke='currentColor' strokeLinecap='square' strokeLinejoin='bevel' strokeWidth='1.4'/>
+      <circle cx='10.5' cy='10.5' r='5.5' fill='none' stroke='currentColor' strokeLinejoin='bevel' strokeWidth='1.4'/>
+      <line x1='14.5' y1='14.5' x2='19' y2='19' fill='none' stroke='currentColor' strokeLinecap='square' strokeLinejoin='bevel' strokeWidth='1.4'/>
       <rect x='10' y='8' width='1' height='5' transform='translate(21) rotate(90)' fill='currentColor'/>
-  </svg>
+    </svg>
   </SvgIcon>
-);
+)
 
 const styles = theme => ({
   CustomZoomButton: {
@@ -60,48 +60,48 @@ class ZoomButtonsPlugin extends Component {
    * constructor -
    */
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       viewerFullyLoaded: false,
     }
 
-    this.handleZoomInClick = this.handleZoomInClick.bind(this);
-    this.handleZoomOutClick = this.handleZoomOutClick.bind(this);
-    this.imageLoaded = this.imageLoaded.bind(this);
-    this.imageChange = this.imageChange.bind(this);
+    this.handleZoomInClick = this.handleZoomInClick.bind(this)
+    this.handleZoomOutClick = this.handleZoomOutClick.bind(this)
+    this.imageLoaded = this.imageLoaded.bind(this)
+    this.imageChange = this.imageChange.bind(this)
   }
 
   componentDidUpdate(prevProps) {
-    const { viewer } = this.props;
-    const { viewerFullyLoaded } = this.state;
+    const { viewer } = this.props
+    const { viewerFullyLoaded } = this.state
     if (viewer && !viewerFullyLoaded) {
-      viewer.addOnceHandler('tile-drawn', this.imageLoaded);
-      viewer.addOnceHandler('close', this.imageChange);
+      viewer.addOnceHandler('tile-drawn', this.imageLoaded)
+      viewer.addOnceHandler('close', this.imageChange)
     }
   }
 
   imageLoaded() {
-    const { viewer } = this.props;
-    this.setState({viewerFullyLoaded: true});
-    viewer.removeHandler('tile-drawn', this.imageLoaded);
+    const { viewer } = this.props
+    this.setState({viewerFullyLoaded: true})
+    viewer.removeHandler('tile-drawn', this.imageLoaded)
   }
 
   imageChange() {
-    const { viewer } = this.props;
-    this.setState({viewerFullyLoaded: false});
-    viewer.removeHandler('close', this.imageChange);
+    const { viewer } = this.props
+    this.setState({viewerFullyLoaded: false})
+    viewer.removeHandler('close', this.imageChange)
   }
 
   /**
    * @private
    */
   handleZoomInClick() {
-    const { windowId, updateViewport, viewer, windowViewProperties } = this.props;
+    const { windowId, updateViewport, viewer, windowViewProperties } = this.props
     if (windowViewProperties.zoom <= viewer.viewport.getMaxZoom()) {
       updateViewport(windowId, {
         zoom: windowViewProperties.zoom * 2,
-      });
+      })
     }
   }
 
@@ -109,19 +109,19 @@ class ZoomButtonsPlugin extends Component {
    * @private
    */
   handleZoomOutClick() {
-    const { windowId, updateViewport, viewer, windowViewProperties } = this.props;
+    const { windowId, updateViewport, viewer, windowViewProperties } = this.props
     if (windowViewProperties.zoom >= viewer.viewport.getMinZoom()) {
       updateViewport(windowId, {
         zoom: windowViewProperties.zoom / 2,
-      });
+      })
     }
   }
 
   render() {
-    const { classes, viewer, windowViewProperties } = this.props;
-    const { viewerFullyLoaded } = this.state;
-    const zoomIn = ( windowViewProperties && viewer && windowViewProperties.zoom < viewer.viewport.getMaxZoom() );
-    const zoomOut = ( windowViewProperties && viewer && windowViewProperties.zoom > viewer.viewport.getMinZoom() );
+    const { classes, viewer, windowViewProperties } = this.props
+    const { viewerFullyLoaded } = this.state
+    const zoomIn = ( windowViewProperties && viewer && windowViewProperties.zoom < viewer.viewport.getMaxZoom() )
+    const zoomOut = ( windowViewProperties && viewer && windowViewProperties.zoom > viewer.viewport.getMinZoom() )
     return (
       <div className={!viewerFullyLoaded && classes.Loader ? 'false' : undefined}>
         <div style={{position: 'absolute', bottom: 58, right: 32, left: 'auto', zIndex: 500}}>
@@ -135,7 +135,7 @@ class ZoomButtonsPlugin extends Component {
           </ButtonGroup>
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -148,11 +148,11 @@ const mapStateToProps = (state, { windowId }) => (
   {
     windowViewProperties: getViewer(state, { windowId }),
   }
-);
+)
 
 export default {
   component: withStyles(styles)(ZoomButtonsPlugin),
   mapStateToProps: mapStateToProps,
   target: 'OpenSeadragonViewer',
   mode: 'add',
-};
+}

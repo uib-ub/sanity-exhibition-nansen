@@ -69,7 +69,7 @@ const createCoordinates = (coordinates) => {
  */
 export const fitViewportToFeature = (feature, options) => {
   /** Invariants */
-  if (!feature) throw Error('You must pass a feature to fitMapToFeature')
+  if (!feature) {throw Error('You must pass a feature to fitMapToFeature')}
 
   /** Get bounding box of feature/collection */
   const bounds = bbox(feature)

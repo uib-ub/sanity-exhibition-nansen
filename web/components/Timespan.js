@@ -6,7 +6,7 @@ const formatDate = (date) => {
 }
 
 export default function Timespan(props) {
-  if (!props && props.timespan) return null
+  if (!props && props.timespan) {return null}
 
   const {timespan, ...rest} = props
 

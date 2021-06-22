@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 // a plugin to remove default navigation controls
 class RemoveNavPlugin extends Component {
@@ -7,7 +7,7 @@ class RemoveNavPlugin extends Component {
     return (
       <div>
       </div>
-    );
+    )
   }
 }
 
@@ -15,4 +15,4 @@ export default {
   component: RemoveNavPlugin,
   target: 'ViewerNavigation',
   mode: 'wrap',
-};
+}

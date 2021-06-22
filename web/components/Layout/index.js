@@ -10,26 +10,26 @@ export default function Layout({alert, preview, children, site}) {
   const { isOpen, onToggle } = useDisclosure({defaultIsOpen: true})
   const {footer} = site
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     const start = () => {
       /* console.log("start"); */
-      setLoading(true);
-    };
+      setLoading(true)
+    }
     const end = () => {
       /* console.log("findished"); */
-      setLoading(false);
-    };
-    Router.events.on("routeChangeStart", start);
-    Router.events.on("routeChangeComplete", end);
-    Router.events.on("routeChangeError", end);
+      setLoading(false)
+    }
+    Router.events.on('routeChangeStart', start)
+    Router.events.on('routeChangeComplete', end)
+    Router.events.on('routeChangeError', end)
     return () => {
-      Router.events.off("routeChangeStart", start);
-      Router.events.off("routeChangeComplete", end);
-      Router.events.off("routeChangeError", end);
-    };
-  }, []);
+      Router.events.off('routeChangeStart', start)
+      Router.events.off('routeChangeComplete', end)
+      Router.events.off('routeChangeError', end)
+    }
+  }, [])
   
   return (
     <>
@@ -37,10 +37,10 @@ export default function Layout({alert, preview, children, site}) {
       <Alert preview={(alert, preview)} />
 
       <Header 
-        gridArea={{base: "header", md: "nav"}}
-        ml={{base: "0", md: isOpen ? "0" : "-400px"}}
-        visibility={{base: "visible", md:isOpen ? "visible" : "hidden"}}
-        opacity={{base: "1", md:isOpen ? "1" : "0"}}
+        gridArea={{base: 'header', md: 'nav'}}
+        ml={{base: '0', md: isOpen ? '0' : '-400px'}}
+        visibility={{base: 'visible', md:isOpen ? 'visible' : 'hidden'}}
+        opacity={{base: '1', md:isOpen ? '1' : '0'}}
         transition="opacity 0.5s 0.5s, margin-left 0.5s 0s"
         data={{...site}}
       />
@@ -50,7 +50,7 @@ export default function Layout({alert, preview, children, site}) {
         top="0"
         gridArea="toggle"
         h="100vh"
-        pr={!isOpen ? {md:"2"} : {}}
+        pr={!isOpen ? {md:'2'} : {}}
         transition="padding-right 0.3s" 
         overflowY="hidden"
         zIndex="1"
@@ -58,15 +58,15 @@ export default function Layout({alert, preview, children, site}) {
         justifyContent="center"
         borderRight="thin solid"
         borderColor="gray.300"
-        sx={{boxShadow: "5px 0 10px -10px #444"}}
+        sx={{boxShadow: '5px 0 10px -10px #444'}}
         onClick={onToggle}
       >
         <Text
           m="0"
-          opacity={{base: "0", md:isOpen ? "0" : "1"}}
+          opacity={{base: '0', md:isOpen ? '0' : '1'}}
           transition="opacity 0.5s 0.5s" 
           sx={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}
-          >
+        >
           Nansen
         </Text>
         <Button
@@ -75,14 +75,14 @@ export default function Layout({alert, preview, children, site}) {
           onClick={onToggle}
           outline="none"
           my="5"
-          _hover={{ textDecoration:"none" }}
-          _focus={{ boxShadow:"none" }}
-          >
+          _hover={{ textDecoration:'none' }}
+          _focus={{ boxShadow:'none' }}
+        >
           ⋮
         </Button>
         <Text 
           m="0"
-          opacity={{base: "0", md:isOpen ? "0" : "1"}}
+          opacity={{base: '0', md:isOpen ? '0' : '1'}}
           transition="opacity 0.5s 0.5s" 
           sx={{writingMode: 'vertical-rl', textOrientation: 'mixed'}}
         >

@@ -42,7 +42,7 @@ export default function Hero(props) {
 
 
           <Heading 
-            fontSize={["xl", "2xl", "4xl", "5xl"]} 
+            fontSize={['xl', '2xl', '4xl', '5xl']} 
           >
             <NextLink href={`/${item.route}`} passHref>
               <LinkOverlay>{item.title}</LinkOverlay>
@@ -51,7 +51,7 @@ export default function Hero(props) {
 
           {item.content && (
             <Box>
-              <PortableTextBlock fontSize={["md", "xl"]} blocks={item.content} />
+              <PortableTextBlock fontSize={['md', 'xl']} blocks={item.content} />
             </Box>
           )}
 

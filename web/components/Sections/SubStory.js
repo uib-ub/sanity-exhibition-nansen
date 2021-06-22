@@ -42,14 +42,14 @@ export default function SubStory(props) {
         </Badge>
 
         <Heading 
-          fontSize={["xl", "2xl", "2xl", "3xl"]} 
+          fontSize={['xl', '2xl', '2xl', '3xl']} 
         >
           {title}
         </Heading>
 
         {tagline && (
           <Box>
-            <PortableTextBlock fontSize={["md", "xl"]} blocks={tagline} />
+            <PortableTextBlock fontSize={['md', 'xl']} blocks={tagline} />
           </Box>
         )}
       </Box>
@@ -59,7 +59,7 @@ export default function SubStory(props) {
         colorScheme="teal"
         variant="link"
         onClick={onOpen}
-        rightIcon={<ArrowForwardIcon color="red.400" w={["10", null, "16", null]} h={["10", null, "20", null]} />}
+        rightIcon={<ArrowForwardIcon color="red.400" w={['10', null, '16', null]} h={['10', null, '20', null]} />}
         alignSelf="center"
       />
       
@@ -83,7 +83,7 @@ export default function SubStory(props) {
                     mb="5"
                   />
                 )}
-                <PortableTextBlock fontSize={["md", "xl"]} blocks={content} />
+                <PortableTextBlock fontSize={['md', 'xl']} blocks={content} />
                 <Button 
                   my="16"
                   colorScheme="teal"

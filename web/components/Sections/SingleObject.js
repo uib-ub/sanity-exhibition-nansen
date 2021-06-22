@@ -15,9 +15,9 @@ export default function SingleObject(props) {
   return (
     <Grid
       h="50vh" 
-      maxW={["xl", "xl", "xl", "6xl"]}
-      my={{base: "6", md: "16", xl: "20"}}
-      borderBottom={{base: "solid 1px", md: "none"}}
+      maxW={['xl', 'xl', 'xl', '6xl']}
+      my={{base: '6', md: '16', xl: '20'}}
+      borderBottom={{base: 'solid 1px', md: 'none'}}
       borderColor="gray.300"
       gridGap={5}
       gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
@@ -49,7 +49,7 @@ export default function SingleObject(props) {
           fontFamily="Montserrat" 
           fontWeight="semibold" 
           color="red.600" 
-          fontSize={{base: "sm", sm: "sm", md: "md", xl: "xl"}} 
+          fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'xl'}} 
           mb={1}
         >
           {title}
@@ -57,7 +57,7 @@ export default function SingleObject(props) {
 
         {description && (
           <PortableTextBlock 
-            fontSize={{base: "sm", sm: "sm", md: "sm", xl: "md"}} 
+            fontSize={{base: 'sm', sm: 'sm', md: 'sm', xl: 'md'}} 
             fontWeight="200"
             blocks={description} 
           />

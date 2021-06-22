@@ -3,7 +3,7 @@ import PortableTextBlock from '../PortableTextBlock'
 
 export default function SectionText(props) {
   return (
-    <Box maxW={["lg",null, null, null, "2xl"]}>
+    <Box maxW={['lg',null, null, null, '2xl']}>
       {props?.title && (
         <Heading fontSize="xl">{props.title}</Heading>
       )}

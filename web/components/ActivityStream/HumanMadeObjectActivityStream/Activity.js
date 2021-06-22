@@ -36,11 +36,11 @@ export default function Activity({data}) {
     return null
   }
 
-  if(data._type === "BeginningOfExistence") {
-    data._type = "Skapt"
+  if(data._type === 'BeginningOfExistence') {
+    data._type = 'Skapt'
   }
-  if(data._type === "Production") {
-    data._type = "Produksjon"
+  if(data._type === 'Production') {
+    data._type = 'Produksjon'
   }
 
   return (

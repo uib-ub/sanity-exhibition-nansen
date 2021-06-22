@@ -97,9 +97,9 @@ export async function getIdPaths(preview) {
   const results = await getClient(preview).fetch(
     idsQuery,
     {publicDocumentTypes},
-    )
-    return results
-  }
+  )
+  return results
+}
   
 export async function getType(id, preview) {
   const results = await getClient(preview).fetch(

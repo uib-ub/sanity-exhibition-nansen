@@ -6,7 +6,7 @@ import {imageBuilder} from '../../lib/sanity'
 import RenderMergedActivityStreamList from '../ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'
 
 export default function Actor(item) {
-  if(!item) return null
+  if(!item) {return null}
 
   return (
     <Container 
@@ -24,7 +24,7 @@ export default function Actor(item) {
         )}
 
         <Box pt="2">
-          <Heading fontSize={["2xl", "4xl", "5xl", "6xl"]}>
+          <Heading fontSize={['2xl', '4xl', '5xl', '6xl']}>
             <a>{item.label.no}</a>
           </Heading>
           <Box d="flex" alignItems="baseline">
@@ -60,8 +60,8 @@ export default function Actor(item) {
             mb="5"
             columnGap="5"
             templateColumns={{
-              base: "1fr",
-              md: "auto 1fr"
+              base: '1fr',
+              md: 'auto 1fr'
             }}
           >
             <RenderMergedActivityStreamList stream={item.activityStream} />

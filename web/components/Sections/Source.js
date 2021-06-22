@@ -1,5 +1,5 @@
 import Link from '../Link'
-import { Text, Icon } from "@chakra-ui/react"
+import { Text, Icon } from '@chakra-ui/react'
 import { BsInfoCircle } from 'react-icons/bs'
 
 export default function Source(props) {
@@ -12,8 +12,8 @@ export default function Source(props) {
   return (
     <Text 
       color="gray.500" 
-      fontSize={{base: "xs", sm: "xs", md: "sm", xl: "sm"}}
-      pb={{base: "2", md: "0"}}
+      fontSize={{base: 'xs', sm: 'xs', md: 'sm', xl: 'sm'}}
+      pb={{base: '2', md: '0'}}
       mb="0"
     >
       <Icon as={BsInfoCircle} mr="2" />

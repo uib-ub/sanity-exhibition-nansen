@@ -4,7 +4,7 @@ import Headroom from 'react-headroom'
 
 export default function HeaderNavBarContainer({children, ...props}) {
   return (
-    <Headroom style={{ zIndex:"9" }} >
+    <Headroom style={{ zIndex:'9' }} >
       <Flex 
         as="header" 
         position="absolute"

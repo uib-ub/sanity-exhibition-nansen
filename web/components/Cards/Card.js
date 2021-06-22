@@ -112,9 +112,9 @@ export default function Card(props) {
                 .map((creator, index) => (
                   <span key={creator._id}>{index === 0 ? '': ', '}{creator.name.no ?? creator.name}</span>
                 )
-              )}
+                )}
             </Text>
-          )}
+            )}
 
           {creation && creation[0].timespan && (
             <Box 

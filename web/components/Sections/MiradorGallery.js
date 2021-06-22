@@ -14,8 +14,8 @@ export default function MiradorGallery(props) {
   return (
     <Grid
       h="50vh"
-      maxW={["xl", "xl", "xl", "6xl"]}
-      my={{base: "6", md: "16", xl: "20"}}
+      maxW={['xl', 'xl', 'xl', '6xl']}
+      my={{base: '6', md: '16', xl: '20'}}
       gridGap={5}
       gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
       gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
@@ -32,12 +32,12 @@ export default function MiradorGallery(props) {
       }
       
       <Box fontFamily="Montserrat" gridArea="metadata" pr="10">
-        <Heading fontFamily="Montserrat" fontWeight="semibold" color="red.600" fontSize={{base: "sm", sm: "sm", md: "md", xl: "xl"}} mb={1}>
+        <Heading fontFamily="Montserrat" fontWeight="semibold" color="red.600" fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'xl'}} mb={1}>
           {props.title}
         </Heading>
 
         {props?.description && (
-          <PortableTextBlock fontSize={{base: "sm", sm: "sm", md: "sm", xl: "md"}} fontWeight="200" blocks={props.description} />
+          <PortableTextBlock fontSize={{base: 'sm', sm: 'sm', md: 'sm', xl: 'md'}} fontWeight="200" blocks={props.description} />
         )}
       </Box>
     </Grid>

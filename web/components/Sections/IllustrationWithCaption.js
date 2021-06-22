@@ -11,9 +11,9 @@ export default function IllustrationWithCaption(props) {
 
   return (
     <Grid
-      h={{xl: "50vh"}}
-      maxW={["xl", "xl", "xl", "6xl"]}
-      my={{base: "6", md: "16", xl: "24"}}
+      h={{xl: '50vh'}}
+      maxW={['xl', 'xl', 'xl', '6xl']}
+      my={{base: '6', md: '16', xl: '24'}}
       gridGap={5}
       gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
       gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
@@ -29,15 +29,15 @@ export default function IllustrationWithCaption(props) {
             alt={''}
           />
         </Box>
-        ) : (<Flex gridArea="image">Mangler illustrasjon</Flex>)
+      ) : (<Flex gridArea="image">Mangler illustrasjon</Flex>)
       }
 
-      <Box fontFamily="Montserrat" gridArea="metadata" pr="10" overflowY={{xl: "scroll"}}>
+      <Box fontFamily="Montserrat" gridArea="metadata" pr="10" overflowY={{xl: 'scroll'}}>
         <Heading 
           fontFamily="Montserrat" 
           fontWeight="semibold" 
           color="red.600" 
-          fontSize={{base: "sm", sm: "sm", md: "md", xl: "xl"}} 
+          fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'xl'}} 
           mb={1}
         >
           {title}
@@ -46,7 +46,7 @@ export default function IllustrationWithCaption(props) {
         {content && (
           <Box>
             <PortableTextBlock 
-              fontSize={{base: "sm", sm: "sm", md: "md", xl: "md"}} 
+              fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'md'}} 
               fontWeight="200" 
               blocks={content}              
             />

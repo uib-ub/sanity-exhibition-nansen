@@ -18,13 +18,13 @@ export default function ContactCopy({data, preview}) {
           borderBottom="solid 1px"
           color="gray.600"
           borderColor="gray.300"
-          fontSize={["2xl", "3xl", "4xl", "5xl"]}
+          fontSize={['2xl', '3xl', '4xl', '5xl']}
         >
           <Link href="/">Kontaktkopi for <strong>{siteSettings.title}</strong></Link>
         </Heading>
 
         {tags && tags.map(tag =>(
-          <Box key={tag._id} sx={{pageBreakAfter: "always"}}>
+          <Box key={tag._id} sx={{pageBreakAfter: 'always'}}>
             <Heading>
               {tag.name.current}
             </Heading>
@@ -48,7 +48,7 @@ export default function ContactCopy({data, preview}) {
                     {image.source?.name && (
                       <ListItem fontSize="xs">Importert fra {image.source.name ?? 'Illustrasjon'}</ListItem>
                     )}
-                    <ListItem fontSize="xs"><strong>{image.isThumbnail ? "Brukt som objekt thumbnail" : ''}</strong></ListItem>
+                    <ListItem fontSize="xs"><strong>{image.isThumbnail ? 'Brukt som objekt thumbnail' : ''}</strong></ListItem>
                     <ListItem fontSize="xs"><strong>{image.countAssetUsage > 0 ? `Brukt som ill. ${image.countAssetUsage} gang(er)` : 'Ikke benyttet som ill. i nettutstilling'}</strong></ListItem>
                   </List>
                 </Box>

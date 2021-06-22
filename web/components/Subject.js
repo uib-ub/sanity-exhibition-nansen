@@ -7,7 +7,7 @@ export default function Subject({subjects}) {
   }
 
   return (
-   <> 
+    <> 
       <Heading as="dt" fontFamily="Montserrat" fontWeight="semibold" fontSize="sm" pb="2">Emner</Heading>
       <Wrap as="dd" fontFamily="Montserrat" marginBottom={5}>
         {subjects.map((subject) => (
@@ -18,6 +18,6 @@ export default function Subject({subjects}) {
           </WrapItem>
         ))}
       </Wrap>
-</>
+    </>
   )
 }

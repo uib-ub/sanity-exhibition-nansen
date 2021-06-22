@@ -7,7 +7,7 @@ export default function SingleLevelChart(props) {
   const {data, caption} = props
 
   return (
-    <Box as="figure" maxW={["lg",null, null, null, "xl"]} h="md">
+    <Box as="figure" maxW={['lg',null, null, null, 'xl']} h="md">
       <ResponsivePie
         data={JSON.parse(data.code)}
         margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
@@ -24,54 +24,54 @@ export default function SingleLevelChart(props) {
         arcLabelsSkipAngle={10}
         arcLabelsTextColor={{ from: 'color', modifiers: [ [ 'darker', 2 ] ] }}
         defs={[
-            {
-                id: 'dots',
-                type: 'patternDots',
-                background: 'inherit',
-                color: 'rgba(255, 255, 255, 0.3)',
-                size: 4,
-                padding: 1,
-                stagger: true
-            },
-            {
-                id: 'lines',
-                type: 'patternLines',
-                background: 'inherit',
-                color: 'rgba(255, 255, 255, 0.3)',
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10
-            }
+          {
+            id: 'dots',
+            type: 'patternDots',
+            background: 'inherit',
+            color: 'rgba(255, 255, 255, 0.3)',
+            size: 4,
+            padding: 1,
+            stagger: true
+          },
+          {
+            id: 'lines',
+            type: 'patternLines',
+            background: 'inherit',
+            color: 'rgba(255, 255, 255, 0.3)',
+            rotation: -45,
+            lineWidth: 6,
+            spacing: 10
+          }
         ]}
         legends={[
-            {
-                anchor: 'bottom',
-                direction: 'row',
-                justify: false,
-                translateX: 0,
-                translateY: 56,
-                itemsSpacing: 4,
-                itemWidth: 100,
-                itemHeight: 18,
-                itemTextColor: '#999',
-                itemDirection: 'left-to-right',
-                itemOpacity: 1,
-                symbolSize: 18,
-                symbolShape: 'circle',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemTextColor: '#000'
-                        }
-                    }
-                ]
-            }
+          {
+            anchor: 'bottom',
+            direction: 'row',
+            justify: false,
+            translateX: 0,
+            translateY: 56,
+            itemsSpacing: 4,
+            itemWidth: 100,
+            itemHeight: 18,
+            itemTextColor: '#999',
+            itemDirection: 'left-to-right',
+            itemOpacity: 1,
+            symbolSize: 18,
+            symbolShape: 'circle',
+            effects: [
+              {
+                on: 'hover',
+                style: {
+                  itemTextColor: '#000'
+                }
+              }
+            ]
+          }
         ]}
       />
       <figcaption>
         <PortableTextBlock
-          fontSize={{base: "sm", sm: "sm", md: "md", xl: "md"}}
+          fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'md'}}
           blocks={caption}
         />
       </figcaption>

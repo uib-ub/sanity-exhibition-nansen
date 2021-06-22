@@ -28,7 +28,7 @@ export default function Hero(props) {
         gridArea={{md: 'hero', base: 'text'}}
         d="flex"
         color={color}
-        p={["0", "0"]}
+        p={['0', '0']}
         zIndex="1"
         /* selfalign="center"
         justifyContent="center" */
@@ -36,11 +36,11 @@ export default function Hero(props) {
         placeItems="flex-end"
       >
         <Box
-          w={{base: "full", md: "md"}}
-          px={["2", "4"]}
-          pt={["2", "4"]}
+          w={{base: 'full', md: 'md'}}
+          px={['2', '4']}
+          pt={['2', '4']}
           /* backgroundColor={bg} */
-          sx={{backdropFilter: "invert(.2) blur(16px)" }}
+          sx={{backdropFilter: 'invert(.2) blur(16px)' }}
         >
           <Badge 
             backgroundColor={bg} 
@@ -50,14 +50,14 @@ export default function Hero(props) {
           </Badge>
 
           <Heading 
-            fontSize={["xl", "4xl", "4xl", "6xl"]} 
+            fontSize={['xl', '4xl', '4xl', '6xl']} 
           >
             {props.title}
           </Heading>
 
           {props?.tagline && (
             <Box>
-              <PortableTextBlock fontSize={["md", "xl"]} blocks={props.tagline} />
+              <PortableTextBlock fontSize={['md', 'xl']} blocks={props.tagline} />
             </Box>
           )}
         </Box>

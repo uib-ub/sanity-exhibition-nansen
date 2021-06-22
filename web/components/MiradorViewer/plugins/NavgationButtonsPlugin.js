@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import IconButton from '@material-ui/core/IconButton';
-import * as actions from 'mirador/dist/es/src/state/actions';
+import React, { Component } from 'react'
+import SvgIcon from '@material-ui/core/SvgIcon'
+import IconButton from '@material-ui/core/IconButton'
+import * as actions from 'mirador/dist/es/src/state/actions'
 import {
   getSequenceViewingDirection,
   getNextCanvasGrouping,
   getPreviousCanvasGrouping,
-} from 'mirador/dist/es/src/state/selectors';
-import { withStyles } from '@material-ui/core/styles';
+} from 'mirador/dist/es/src/state/selectors'
+import { withStyles } from '@material-ui/core/styles'
 
 //custom icons
 const PrevIcon = (props) => (
@@ -17,7 +17,7 @@ const PrevIcon = (props) => (
       </path>
     </svg>
   </SvgIcon>
-);
+)
 
 const NextIcon = (props) => (
   <SvgIcon {...props}>
@@ -26,7 +26,7 @@ const NextIcon = (props) => (
       </path>
     </svg>
   </SvgIcon>
-);
+)
 
 const styles = theme => ({
   CustomButtonPrevious: {
@@ -45,26 +45,26 @@ const styles = theme => ({
       backgroundColor: 'rgba(255, 255, 255, 0.0)',
     },
   },
-});
+})
 
 class NavigationButtonsPlugin extends Component {
   render() {
     const {
       classes, hasNextCanvas, hasPreviousCanvas, setNextCanvas, setPreviousCanvas, t,
-    } = this.props;
+    } = this.props
 
     return (
       <>
-      {(hasPreviousCanvas || hasNextCanvas) && (<div style={{position: 'absolute', bottom: '50%', zIndex:500, width:'100%'}}>
-        <IconButton className={classes.CustomButtonPrevious} aria-label='previous canvas'  disabled={!hasPreviousCanvas} onClick={() => { hasPreviousCanvas && setPreviousCanvas(); }}>
-          <PrevIcon />
-        </IconButton>
-        <IconButton className={classes.CustomButtonNext} aria-label='next canvas' disabled={!hasNextCanvas} onClick={() => { hasNextCanvas && setNextCanvas(); }}>
-          <NextIcon />
-        </IconButton>
-      </div>)}
+        {(hasPreviousCanvas || hasNextCanvas) && (<div style={{position: 'absolute', bottom: '50%', zIndex:500, width:'100%'}}>
+          <IconButton className={classes.CustomButtonPrevious} aria-label='previous canvas'  disabled={!hasPreviousCanvas} onClick={() => { hasPreviousCanvas && setPreviousCanvas() }}>
+            <PrevIcon />
+          </IconButton>
+          <IconButton className={classes.CustomButtonNext} aria-label='next canvas' disabled={!hasNextCanvas} onClick={() => { hasNextCanvas && setNextCanvas() }}>
+            <NextIcon />
+          </IconButton>
+        </div>)}
       </>
-    );
+    )
   }
 }
 
@@ -74,7 +74,7 @@ const mapStateToProps = (state, { windowId }) => (
     hasPreviousCanvas: !!getPreviousCanvasGrouping(state, { windowId }),
     viewingDirection: getSequenceViewingDirection(state, { windowId }),
   }
-);
+)
 
 /**
  * mapDispatchToProps - used to hook up connect to action creators
@@ -84,7 +84,7 @@ const mapStateToProps = (state, { windowId }) => (
 const mapDispatchToProps = (dispatch, { windowId }) => ({
   setNextCanvas: (...args) => dispatch(actions.setNextCanvas(windowId)),
   setPreviousCanvas: (...args) => dispatch(actions.setPreviousCanvas(windowId)),
-});
+})
 
 export default {
   component: withStyles(styles)(NavigationButtonsPlugin),
@@ -92,4 +92,4 @@ export default {
   mapDispatchToProps: mapDispatchToProps,
   target: 'OpenSeadragonViewer',
   mode: 'add',
-};
+}

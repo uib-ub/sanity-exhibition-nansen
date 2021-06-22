@@ -34,19 +34,19 @@ export default function Header(props) {
         position="sticky"
         top="0"
         flexWrap="nowrap"
-        direction={{base: "row", md: "column"}}
+        direction={{base: 'row', md: 'column'}}
         align="start" 
         w="full"
-        h={{base: "auto", md:"100vh"}}
-        pl={["2", "2", "10", "10"]}
-        py={["2", "2", "5", "5"]}
+        h={{base: 'auto', md:'100vh'}}
+        pl={['2', '2', '10', '10']}
+        py={['2', '2', '5', '5']}
         justify="flex-start"
         wrap="wrap"
         color={color}
-        bgColor={"white"}
-        borderBottom={{base: "1px solid", md: "none"}}
+        bgColor={'white'}
+        borderBottom={{base: '1px solid', md: 'none'}}
         borderColor="gray.200"
-        boxShadow={{base: "md", md: "none"}}
+        boxShadow={{base: 'md', md: 'none'}}
         zIndex="1001"
         justifyContent="center"
         {...rest}
@@ -55,17 +55,17 @@ export default function Header(props) {
         <Image
           src={imageBuilder.image(logo).height(200).flipHorizontal().url()} 
           alt="site logo" 
-          mb={{base: "0", md: "10"}} 
-          h={{base: "25px", md: "200"}} 
-          display={{base: "none", md: "inherit"}}
+          mb={{base: '0', md: '10'}} 
+          h={{base: '25px', md: '200'}} 
+          display={{base: 'none', md: 'inherit'}}
           filter={inverse}
         />
 
         <Heading 
-          fontSize={["lg", "xl", "3xl", "3xl"]} 
-          fontWeight={{base: "normal", md: "semibold"}} 
+          fontSize={['lg', 'xl', '3xl', '3xl']} 
+          fontWeight={{base: 'normal', md: 'semibold'}} 
           fontFamily="EB Garamond"
-          px={{base: "5", md: "0"}}
+          px={{base: '5', md: '0'}}
         >
           <Link href="/">
             <a>{title}</a>
@@ -74,11 +74,11 @@ export default function Header(props) {
         
         <Flex 
           as="nav"
-          display={{ base: "none", md: "flex" }} 
+          display={{ base: 'none', md: 'flex' }} 
           direction="column"
           flexWrap="nowrap" 
         >
-          <List styleType="lower-roman" spacing="1" fontSize={["md", "md", "lg", "lg"]}>
+          <List styleType="lower-roman" spacing="1" fontSize={['md', 'md', 'lg', 'lg']}>
             {mainNavigation?.items && mainNavigation.items.map((item) => (
               <ListItem key={item._key}>
                 <ActiveLink href={`/${item.route}`} activeClassName="active">
@@ -86,7 +86,7 @@ export default function Header(props) {
                 </ActiveLink>
                 
                 {item.children && (
-                  <List styleType="circle" ml="4" fontSize={["sm", "sm", "md", "md"]}>
+                  <List styleType="circle" ml="4" fontSize={['sm', 'sm', 'md', 'md']}>
                     {item.children.map(child => (
                       <ListItem key={child._key}>
                         <ActiveLink href={`/${child.route}`} activeClassName="active">
@@ -100,8 +100,8 @@ export default function Header(props) {
             ))}
           </List>
 
-          <List mt="5" styleType="upper-latin" spacing="1" fontSize={["md", "md", "lg", "lg"]}>
-          {footer.navMenu?.items && footer.navMenu.items.map((item) => (
+          <List mt="5" styleType="upper-latin" spacing="1" fontSize={['md', 'md', 'lg', 'lg']}>
+            {footer.navMenu?.items && footer.navMenu.items.map((item) => (
               <ListItem key={item._key}>
                 <ActiveLink href={`/${item.route}`} activeClassName="active">
                   <a>{item.label}</a>
@@ -121,22 +121,22 @@ export default function Header(props) {
               </ListItem>
             ))}
           </List>
-        <Button 
-          display={{base: 'none', md:'inherit'}}
-          mt="2"
-          p="0" 
-          h="5" 
-          w="1" 
-          onClick={toggleColorMode}
-        >
-          {colorMode === 'light' ? <MoonIcon w={3} h={3} /> : <SunIcon w={3} h={3} />}
-        </Button>
+          <Button 
+            display={{base: 'none', md:'inherit'}}
+            mt="2"
+            p="0" 
+            h="5" 
+            w="1" 
+            onClick={toggleColorMode}
+          >
+            {colorMode === 'light' ? <MoonIcon w={3} h={3} /> : <SunIcon w={3} h={3} />}
+          </Button>
 
         </Flex>
 
         <Spacer />
 
-        <Box ml="-5" display={{base: "none", md: "inherit"}}>
+        <Box ml="-5" display={{base: 'none', md: 'inherit'}}>
           {publisher && publisher.map(p =>
             <Container key={p._id} fontSize="xs" p="0" centerContent>
               <Image
@@ -148,11 +148,11 @@ export default function Header(props) {
                   .width(50)
                   .url()}
               />
-                <Link href={`/id/${p._id}`}>{p.label.no}</Link>
+              <Link href={`/id/${p._id}`}>{p.label.no}</Link>
             </Container>
           )}
         </Box>
-        <HStack ml="-5" display={{base: "none", md: "inherit"}}>
+        <HStack ml="-5" display={{base: 'none', md: 'inherit'}}>
           <License license={license} />
         </HStack>
 
@@ -189,29 +189,29 @@ export default function Header(props) {
               <DrawerBody>
                 <Center h="full" w="full">
                   <VStack align="stretch">
-                  <Flex flexWrap="nowrap" direction="column">
-                    <List styleType="lower-roman" spacing="1" fontSize={["lg", "xl"]}>
-                      {mainNavigation?.items && mainNavigation.items.map((item) => (
-                        <ListItem key={item._key}>
-                          <ActiveLink href={`/${item.route}`} activeClassName="active">
-                            <a onClick={onClose}>{item.label}</a>
-                          </ActiveLink>
-                        </ListItem>
-                      ))}
-                    </List>
-                  </Flex>
+                    <Flex flexWrap="nowrap" direction="column">
+                      <List styleType="lower-roman" spacing="1" fontSize={['lg', 'xl']}>
+                        {mainNavigation?.items && mainNavigation.items.map((item) => (
+                          <ListItem key={item._key}>
+                            <ActiveLink href={`/${item.route}`} activeClassName="active">
+                              <a onClick={onClose}>{item.label}</a>
+                            </ActiveLink>
+                          </ListItem>
+                        ))}
+                      </List>
+                    </Flex>
 
-                  <Flex mt="5" direction="column">
-                    <List styleType="upper-latin" spacing="1" fontSize={["lg", "xl"]}>
-                    {footer.navMenu?.items && footer.navMenu.items.map((item) => (
-                        <ListItem key={item._key}>
-                          <ActiveLink href={`/${item.route}`} activeClassName="active">
-                            <a onClick={onClose}>{item.label}</a>
-                          </ActiveLink>
-                        </ListItem>
-                      ))}
-                    </List>
-                  </Flex>
+                    <Flex mt="5" direction="column">
+                      <List styleType="upper-latin" spacing="1" fontSize={['lg', 'xl']}>
+                        {footer.navMenu?.items && footer.navMenu.items.map((item) => (
+                          <ListItem key={item._key}>
+                            <ActiveLink href={`/${item.route}`} activeClassName="active">
+                              <a onClick={onClose}>{item.label}</a>
+                            </ActiveLink>
+                          </ListItem>
+                        ))}
+                      </List>
+                    </Flex>
                     {/* <Flex wrap="wrap" justifyContent="center" direction={{ base: "column", md: "row" }}>
                       {mainNavigation?.items && mainNavigation.items.map((item) => (
                         <MenuItem key={item._key}>
