@@ -28,7 +28,8 @@
   "env": {
     "development": {
       "plugins": [
-        "@sanity/vision"
+        "@sanity/vision",
+        "jsonld-context"
       ]
     }
   },
