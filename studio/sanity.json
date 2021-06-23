@@ -23,13 +23,13 @@
     "leaflet-input",
     "media",
     "dashboard-widget-vercel",
-    "@seidhr/sanity-plugin-dashboard-widget-muna-docs"
+    "@seidhr/sanity-plugin-dashboard-widget-muna-docs",
+    "jsonld-context"
   ],
   "env": {
     "development": {
       "plugins": [
-        "@sanity/vision",
-        "jsonld-context"
+        "@sanity/vision"
       ]
     }
   },
