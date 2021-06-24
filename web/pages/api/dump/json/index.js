@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   const json = toJSONLD(body)
   
   const jsonldData = {
-    "@context": "https://muna.xyz/model/0.1/context.json",
+    '@context': 'https://muna.xyz/model/0.1/context.json',
     '@graph': json,
   }
 
