@@ -1,6 +1,5 @@
 import {sanityClient as client} from '../../../../../lib/sanity.server'
 import { toJSONLD } from '../../lib'
-import { context } from '../../lib/context'
 import { getID } from '../../lib/queries'
 
 

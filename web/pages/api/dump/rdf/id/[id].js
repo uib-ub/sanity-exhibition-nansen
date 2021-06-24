@@ -1,7 +1,6 @@
 import {sanityClient as client} from '../../../../../lib/sanity.server'
 import * as jsonld from 'jsonld'
 import { toJSONLD } from '../../lib'
-import { context } from '../../lib/context'
 import { getID } from '../../lib/queries'
 
 export default async function rdfIdHandler(req, res) {
