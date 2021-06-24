@@ -4,6 +4,11 @@ export default {
   name: 'LocaleBlock',
   type: 'object',
   title: 'LocaleBlock',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fieldsets: [
     {
       title: 'Translations',

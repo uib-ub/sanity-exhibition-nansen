@@ -21,6 +21,13 @@ export default {
       titleEN: 'Type',
       type: 'reference',
       to: [{type: 'AppelationType'}],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'part',
@@ -28,6 +35,14 @@ export default {
       titleEN: 'Part',
       type: 'array',
       of: [{type: 'Name'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'language',
@@ -35,6 +50,14 @@ export default {
       titleEN: 'Language',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Language'}]}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     timespan,
     referredToBy,

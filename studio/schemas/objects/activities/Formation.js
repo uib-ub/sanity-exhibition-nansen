@@ -24,6 +24,14 @@ export default {
           to: [{type: 'EventType'}],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'formedFrom',
@@ -42,6 +50,14 @@ export default {
           }
         }
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     timespan,
     tookPlaceAt,

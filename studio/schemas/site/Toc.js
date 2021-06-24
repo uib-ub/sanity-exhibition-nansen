@@ -27,6 +27,14 @@ export default {
       titleEN: 'Sections',
       type: 'array',
       of: [{type: 'TocSection'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
   preview: {

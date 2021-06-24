@@ -19,6 +19,14 @@ export default {
       title: 'Menypunkt',
       titleEN: 'Items',
       of: [{type: 'NavigationItem'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
 }

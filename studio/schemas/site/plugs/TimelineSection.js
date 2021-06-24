@@ -5,6 +5,11 @@ export default {
   title: 'Tidslinje',
   titleEN: 'Timeline',
   type: 'object',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

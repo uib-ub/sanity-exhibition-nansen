@@ -67,6 +67,14 @@ export default {
           to: [{type: 'ActivityType'}],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     carriedOutBy,
     hadParticipant,
@@ -79,6 +87,13 @@ export default {
         {type: 'Collection'}, 
         {type: 'Actor'}
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     timespan,
     tookPlaceAt,
@@ -88,6 +103,14 @@ export default {
       titleEN: 'Sub activities',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Activity'}]}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'continued',
@@ -95,6 +118,14 @@ export default {
       titleEN: 'Continued',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Activity'}]}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'wasContinuedBy',
@@ -102,6 +133,14 @@ export default {
       titleEN: 'Was continued by',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Activity'}]}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'influencedBy',
@@ -121,6 +160,14 @@ export default {
           ],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       ...usedGeneralTechnique,
@@ -151,6 +198,14 @@ export default {
           to: [{type: 'Concept'}],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'motivatedBy',
@@ -172,6 +227,14 @@ export default {
           ],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'intendedUseOf',
@@ -181,6 +244,14 @@ export default {
       fieldset: 'purpose',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
   preview: {

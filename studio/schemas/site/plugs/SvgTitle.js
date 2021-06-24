@@ -7,6 +7,11 @@ export default {
   titleEN: 'SVG title',
   description: '',
   descriptionEN: '',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

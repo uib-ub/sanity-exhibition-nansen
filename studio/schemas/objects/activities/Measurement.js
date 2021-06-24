@@ -17,6 +17,14 @@ export default {
       description: 'Events and activities connected to this object',
       type: 'array',
       of: [{type: 'Dimension'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     timespan,
     carriedOutBy,

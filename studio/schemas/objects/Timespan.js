@@ -35,6 +35,11 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+          }
+        }
       },
       // Validation on min/max date does not work, also handling of undefined is sub par
       // validation: Rule => Rule.max(Rule.valueOfField('endOfTheBegin')).max(Rule.valueOfField('BeginOfTheEnd')).max(Rule.valueOfField('endOfTheEnd'))
@@ -48,6 +53,11 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+          }
+        }
       },
     },
     {
@@ -58,6 +68,11 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+          }
+        }
       },
     },
     {
@@ -69,6 +84,11 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+          }
+        }
       },
     },
     {
@@ -80,6 +100,11 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+          }
+        }
       },
     },
     /* TODO Swap to referredToBy
@@ -89,6 +114,13 @@ export default {
       title: 'Beskrivelse',
       titleEN: 'Description',
       type: 'LocaleBlock',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
   ],
   preview: {

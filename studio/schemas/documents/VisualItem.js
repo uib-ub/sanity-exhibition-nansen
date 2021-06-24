@@ -13,6 +13,13 @@ export default {
       titleEN: 'Title',
       type: 'LocaleString',
       validation: (Rule) => Rule.required(),
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@language',
+          }
+        }
+      },
     },
     {
       name: 'activityStream',
@@ -21,6 +28,14 @@ export default {
       description: 'Events and activities connected to this object',
       type: 'array',
       of: [{type: 'Creation'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
   preview: {

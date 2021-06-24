@@ -30,6 +30,14 @@ export default {
         },
       ],
       validation: (Rule) => Rule.required(),
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     labelSingleton,
     identifiedBy,
@@ -40,6 +48,14 @@ export default {
       description: 'Events and activities connected to this object',
       type: 'array',
       of: [{type: 'Creation'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
   preview: {

@@ -6,6 +6,11 @@ export default {
   type: 'object',
   title: 'geoJSON',
   titleEN: 'geoJSON',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fieldsets: defaultFieldsets,
   fields: [
     label,

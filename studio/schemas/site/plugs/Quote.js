@@ -4,6 +4,11 @@ export default {
   name: 'Quote',
   type: 'object',
   title: 'Quote',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

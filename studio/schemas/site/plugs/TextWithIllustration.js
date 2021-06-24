@@ -3,6 +3,11 @@ export default {
   name: 'TextWithIllustration',
   title: 'Tekst med illustrasjon',
   titleEN: 'Text with illustration',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

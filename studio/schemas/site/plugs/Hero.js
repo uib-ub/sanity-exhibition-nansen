@@ -2,6 +2,11 @@ export default {
   name: 'Hero',
   type: 'object',
   title: 'Hero',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

@@ -27,6 +27,13 @@ export default {
       fieldset: 'link',
       type: 'reference',
       to: [{type: 'Route'}],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'children',
@@ -34,6 +41,14 @@ export default {
       titleEN: 'Children',
       type: 'array',
       of: [{type: 'NavigationItem'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'route',

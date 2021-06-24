@@ -7,6 +7,11 @@ export default {
   titleEN: 'Big text',
   description: 'Stor tekst. Centered. Keep it short to max 2-3 paragraphs.',
   descriptionEN: 'A big text. Centered. Keep it short to max 2-3 paragraphs.',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

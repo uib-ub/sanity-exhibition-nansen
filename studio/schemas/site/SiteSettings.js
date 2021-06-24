@@ -23,7 +23,14 @@ export default {
       type: 'reference',
       to: [
         {type: 'Page'}
-      ]
+      ],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'language',
@@ -58,6 +65,13 @@ export default {
           },
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     {
       name: 'mainNavigation',
@@ -65,6 +79,13 @@ export default {
       description: 'Select main navigation for the top menu',
       type: 'reference',
       to: [{type: 'NavigationMenu'}],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'footer',
@@ -72,6 +93,13 @@ export default {
       description: 'Select page for the footer',
       type: 'reference',
       to: [{type: 'Page'}],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'openGraph',
@@ -80,6 +108,13 @@ export default {
       description: 'Disse vil bli brukt i "meta tags" på sider som ikke har egne verdier',
       descriptionEN: 'These will be the default meta tags on all pages that have not set their own',
       type: 'OpenGraph',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     {
       name: 'keywords',
@@ -91,6 +126,13 @@ export default {
       of: [{type: 'string'}],
       options: {
         layout: 'tags',
+      },
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+          }
+        }
       },
     },
     {
@@ -104,7 +146,15 @@ export default {
             {type: 'Actor'},
           ]
         }
-      ]
+      ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
     license
     /* {

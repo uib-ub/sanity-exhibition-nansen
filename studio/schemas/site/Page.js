@@ -19,6 +19,13 @@ export default {
       descriptionEN: 'Which nav menu should be shown, if any',
       type: 'reference',
       to: [{type: 'NavigationMenu'}],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'content',
@@ -47,6 +54,13 @@ export default {
         {type: 'InstagramPost'},
         {type: 'Iframe'},
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
   ],
 }

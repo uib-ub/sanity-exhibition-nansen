@@ -20,12 +20,26 @@ export default {
       titleEN: 'Content',
       description: 'Beskriv varselet',
       descriptionEN: 'Describe what the alert is all about',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     {
       name: 'showAlert',
       type: 'boolean',
       title: 'Skal varselet være offentlig?',
       titleEN: 'Should the alert be public?',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+          }
+        }
+      },
     },
     {
       name: 'validFrom',
@@ -33,6 +47,13 @@ export default {
       title: 'Gyldig fra',
       titleEN: 'Valid from',
       fieldset: 'validPeriod',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+          }
+        }
+      },
     },
     {
       name: 'validTo',
@@ -40,6 +61,13 @@ export default {
       title: 'Gyldig til',
       titleEN: 'Valid to',
       fieldset: 'validPeriod',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#date"
+          }
+        }
+      },
     },
   ],
   preview: {

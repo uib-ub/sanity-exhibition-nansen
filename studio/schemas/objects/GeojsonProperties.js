@@ -2,6 +2,11 @@ export default {
   name: 'GeojsonProperties',
   type: 'object',
   title: 'Properties',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       // WIP. Should use systemcategories

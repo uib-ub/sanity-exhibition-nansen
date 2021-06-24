@@ -46,6 +46,14 @@ export default {
           ],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'movedFrom',
@@ -56,6 +64,13 @@ export default {
         {type: 'Place'}, 
         {type: 'Storage'}
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'movedTo',
@@ -66,6 +81,13 @@ export default {
         {type: 'Place'}, 
         {type: 'Storage'}
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     motivatedBy,
   ],

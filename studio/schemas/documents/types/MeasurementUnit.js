@@ -18,14 +18,6 @@ export default {
     accessState,
     label,
     altLabel,
-    {
-      name: 'activityStream',
-      title: 'Aktivitetsstrøm',
-      titleEN: 'Activity stream',
-      description: 'Events and activities connected to this object',
-      type: 'array',
-      of: [{type: 'Creation'}],
-    },
   ],
   preview: {
     select: {

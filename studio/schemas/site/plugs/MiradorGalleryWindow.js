@@ -4,6 +4,11 @@ export default {
   title: 'Gallery manifest',
   name: 'MiradorGalleryWindow',
   type: 'object',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fieldsets: [
     {
       name: 'internal',

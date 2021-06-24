@@ -5,9 +5,7 @@ import config from 'config:jsonld-context';
  * Order the schemas for simpler diffs
  */
 export const orderSchemas = (schema) => {
-  const orderedClasses = _.orderBy(schema, ['name'], ['asc']).filter(
-    (s) => !s.name.includes('locale') && !s.name.includes('block')
-  );
+  const orderedClasses = _.orderBy(schema, ['name'], ['asc']).filter(_class => _class.options?.jsonld?.exclude != true)
   return orderedClasses
 }
 
@@ -26,10 +24,14 @@ export const getContext = () => {
   // Default context
   const context = {
     '@context': {
-      '@version': 0.1,
+      '@version': 1.1,
       _id: '@id',
+      id: '@id',
+      _ref: '@id',
       _type: '@type',
+      type: '@type',
       [vocab]: vocabUri,
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
       '@base': config.base ? config.base : undefined
     },
   };
@@ -44,16 +46,24 @@ export const getContext = () => {
  * @returns {object}
  */
 const getProps = (prop, base) => {
-  let result = { '@id': `${base}${prop.name}` };
-  if (prop.type === 'array') {
-    result['@container'] = '@list';
-  }
-  if (prop.of && prop.of.some((i) => i.type === 'reference')) {
+  const result = {
+    '@id': prop.options?.jsonld?.context?.['@id'] ? prop.options.jsonld.context?.['@id'] : `${base}${prop.name}`,
+    '@container': prop.options?.jsonld?.context?.['@container'] ? prop.options.jsonld.context?.['@container'] : undefined,
+    '@type': prop.options?.jsonld?.context?.['@type'] ? prop.options.jsonld.context?.['@type'] : prop.type === 'reference' ? `${base}${prop.name}` : undefined,
+  };
+  
+/*   if (prop.type === 'reference') {
     result['@type'] = '@id';
   }
-  if (prop.type === 'reference') {
-    result['@type'] = '@id';
+
+  if (prop.options?.jsonld?.context) {
+    result = prop.options.jsonld.context
   }
+  
+  if (!prop.options?.jsonld?.context?.['@id']) {
+    result['@id'] = `${base}${prop.name}`;
+  } */
+  
   return result;
 };
 
@@ -67,6 +77,8 @@ export const getFields = (fields, base) => {
   if (!fields) return null;
 
   const result = fields.map((field) => {
+    if(field.options?.jsonld?.exclude) return
+
     return {
       [field.name]: getProps(field, base),
     };

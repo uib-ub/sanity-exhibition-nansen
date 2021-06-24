@@ -15,6 +15,13 @@ export default {
       titleEN: 'Description',
       description: 'A shortish description',
       type: 'LocaleBlockSimple',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     {
       name: 'temporalProjection',
@@ -22,6 +29,14 @@ export default {
       titleEN: 'Timespan',
       type: 'array',
       of: [{type: 'Timespan'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'spatialProjection',
@@ -29,6 +44,14 @@ export default {
       titleEN: 'Took place at',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Place'}]}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'hadPresence',
@@ -36,6 +59,14 @@ export default {
       titleEN: 'Had presence',
       type: 'array',
       of: [{type: 'Presence'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     definedByGeoJSON,
   ],

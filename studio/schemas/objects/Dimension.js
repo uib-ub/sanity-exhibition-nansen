@@ -13,12 +13,26 @@ export default {
       type: 'reference',
       to: [{type: 'DimensionType'}],
       validation: (Rule) => Rule.required(),
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'value',
       title: 'Verdi',
       titleEN: 'Value',
       type: 'number',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#number"
+          }
+        }
+      },
     },
     {
       name: 'hasUnit',

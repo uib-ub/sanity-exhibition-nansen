@@ -26,6 +26,14 @@ export default {
       titleEN: 'Sub activities',
       type: 'array',
       of: [{type: 'Production'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'hasType',
@@ -38,6 +46,14 @@ export default {
           to: [{type: 'ActivityType'}],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     contributionAssignedBy,
     timespan,
@@ -50,6 +66,14 @@ export default {
       description: 'A production can modify an existing object',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     usedGeneralTechnique,
     usedSpecificTechnique,
@@ -60,6 +84,14 @@ export default {
       description: 'WIP, could be a API call to some source of authorities',
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Material'}]}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
   preview: {

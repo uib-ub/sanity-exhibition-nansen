@@ -72,6 +72,12 @@ export default {
       ],
       options: {
         editModal: 'fullscreen',
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
       },
     },
     {
@@ -81,6 +87,11 @@ export default {
       type: 'SpacetimeVolume',
       options: {
         editModal: 'fullscreen',
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
       },
     },
   ],

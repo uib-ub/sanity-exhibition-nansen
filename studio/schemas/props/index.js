@@ -11,7 +11,16 @@ export const sameAs = {
   title: 'Samme som',
   titleEN: 'Same as',
   type: 'array',
-  of: [{type: 'url'}]
+  of: [{type: 'url'}],
+  options: {
+    jsonld: {
+      context: {
+        '@id': 'http://www.w3.org/2002/07/owl#sameAs',
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const editorialState = {
@@ -69,6 +78,13 @@ export const image = {
     </span>
   ),
   type: 'DigitalImageObject',
+  options: {
+    jsonld: {
+      context: {
+        '@type': '@json'
+      }
+    }
+  },
 }
 
 export const digitallyShownBy = { 
@@ -83,7 +99,12 @@ export const digitallyShownBy = {
     {type: 'DigitalImageObject'},
   ],
   options: {
-    layout: 'grid'
+    layout: 'grid',
+    jsonld: {
+      context: {
+        '@type': '@json'
+      }
+    }
   }
 }
 
@@ -157,6 +178,14 @@ export const label = {
   // descriptionEN: (<span>Title. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
   type: 'LocaleString',
   validation: (Rule) => Rule.required(),
+  options: {
+    jsonld: {
+      context: {
+        '@id': 'http://www.w3.org/2000/01/rdf-schema#label',
+        '@container': '@language'
+      }
+    }
+  },
 }
 
 export const labelSingleton = {
@@ -167,6 +196,13 @@ export const labelSingleton = {
   // descriptionEN: (<span>Title. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
   type: 'string',
   validation: (Rule) => Rule.required(),
+  options: {
+    jsonld: {
+      context: {
+        '@id': 'http://www.w3.org/2000/01/rdf-schema#label'
+      }
+    }
+  },
 }
 
 /**
@@ -203,6 +239,12 @@ export const identifiedBy = {
   ],
   options: {
     editModal: 'popup',
+    jsonld: {
+      context: {
+        '@container': '@list',
+        '@type': '@id'
+      }
+    }
   },
 }
 
@@ -259,8 +301,19 @@ export const subject = {
       to: [{type: 'Concept'}],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
+/**
+ * TODO: FIX! Mixes references and objects!
+ */
 export const  referredToBy = {
   name: 'referredToBy',
   title: 'Beskrivelse',
@@ -292,6 +345,11 @@ export const  referredToBy = {
   ],
   options: {
     editModal: 'fullscreen',
+    jsonld: {
+      context: {
+        '@type': '@json'
+      }
+    }
   },
 }
 
@@ -313,6 +371,14 @@ export const relation = {
       ],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const presentAt = {
@@ -345,6 +411,14 @@ export const presentAt = {
       ],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const motivatedBy = {
@@ -377,6 +451,14 @@ export const motivatedBy = {
       ],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const hasCurrentOwner = {
@@ -408,6 +490,14 @@ export const hasCurrentOwner = {
       ],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@list',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const hasFormerOrCurrentOwner = {
@@ -445,6 +535,14 @@ export const hasFormerOrCurrentOwner = {
       ],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@list',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const composedOf = {
@@ -476,6 +574,14 @@ export const composedOf = {
       ]
     }
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@list',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const homepage = {
@@ -515,6 +621,14 @@ export const subjectOf = {
       to: [{type: 'LinguisticDocument'}],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@list',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const depicts = {
@@ -548,6 +662,14 @@ export const depicts = {
       ],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const represents = {
@@ -581,6 +703,14 @@ export const represents = {
       ],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const showsVisualObject = {
@@ -605,6 +735,14 @@ export const showsVisualObject = {
   ),
   type: 'array',
   of: [{type: 'VisualObject'}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const carries = {
@@ -629,6 +767,14 @@ export const carries = {
   ),
   type: 'array',
   of: [{type: 'reference', to: [{type: 'Work'}]}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const measuredBy = {
@@ -653,6 +799,14 @@ export const measuredBy = {
   ),
   type: 'array',
   of: [{type: 'Measurement'}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const hasDimension = {
@@ -677,6 +831,14 @@ export const hasDimension = {
   ),
   type: 'array',
   of: [{type: 'Dimension'}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@list',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const consistsOf = {
@@ -714,6 +876,14 @@ export const consistsOf = {
       to: [{type: 'Material'}],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@list',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const usedGeneralTechnique = {
@@ -757,6 +927,14 @@ export const usedGeneralTechnique = {
       to: [{type: 'Technique'}],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const usedSpecificTechnique = {
@@ -795,6 +973,14 @@ export const usedSpecificTechnique = {
   ),
   type: 'array',
   of: [{type: 'reference', to: [{type: 'DesignOrProcedure'}]}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const usedObjectOfType = {
@@ -832,6 +1018,14 @@ export const usedObjectOfType = {
       to: [{type: 'ObjectType'}],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const usedSpecificObject = {
@@ -870,6 +1064,14 @@ export const usedSpecificObject = {
   ),
   type: 'array',
   of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const timespan = {
@@ -882,6 +1084,14 @@ export const timespan = {
     editModal: 'fullscreen',
   },
   validation: (Rule) => Rule.length(1).warning('You should only register one timespan'),
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const timespanSingleton = {
@@ -891,6 +1101,13 @@ export const timespanSingleton = {
   type: 'Timespan',
   options: {
     editModal: 'fullscreen',
+  },
+  options: {
+    jsonld: {
+      context: {
+        '@type': '@id'
+      }
+    }
   },
 }
 
@@ -902,6 +1119,14 @@ export const contributionAssignedBy = {
   of: [
     {type: 'ContributionAssignment'}
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const carriedOutBy = {
@@ -915,6 +1140,14 @@ export const carriedOutBy = {
       {type: 'Actor'},
     ]
   }],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const hadParticipant = {
@@ -923,6 +1156,14 @@ export const hadParticipant = {
   titleEN: 'Had participant',
   type: 'array',
   of: [{type: 'ContributionAssignment'}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const tookPlaceAt = {
@@ -947,6 +1188,14 @@ export const tookPlaceAt = {
   ),
   type: 'array',
   of: [{type: 'reference', to: [{type: 'Place'}]}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 /**
@@ -957,6 +1206,13 @@ export const altLabel = {
   title: 'Alternativt navn',
   titleEN: 'Alternative label',
   type: 'LocaleString',
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@language',
+      }
+    }
+  },
 }
 
 /**
@@ -968,6 +1224,14 @@ export const hasIdentified = {
   titleEN: 'Has identified condition states',
   type: 'array',
   of: [{type: 'ConditionState'}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const valueSlider = {
@@ -988,6 +1252,14 @@ export const language = {
   titleEN: 'Language',
   type: 'array',
   of: [{type: 'reference', to: [{type: 'Language'}]}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const memberOf = {
@@ -1007,6 +1279,14 @@ export const memberOf = {
       }
     }
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 /**
@@ -1019,6 +1299,14 @@ export const hasMember = {
   titleEN: 'Has member',
   type: 'array',
   of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const definedByGeoJSON = {
@@ -1031,6 +1319,14 @@ export const definedByGeoJSON = {
     {type: 'GeojsonFeatureCollection'}, 
     {type: 'Geojson'}
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const transferredTitleTo = {
@@ -1047,6 +1343,14 @@ export const transferredTitleTo = {
       ]
     }
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const transferredTitleFrom = {
@@ -1063,6 +1367,14 @@ export const transferredTitleFrom = {
       ]
     }
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const transferredTitleOf = {
@@ -1080,6 +1392,14 @@ export const transferredTitleOf = {
       ],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const concerned = {
@@ -1097,6 +1417,14 @@ export const concerned = {
       ],
     },
   ],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const motivated = {
@@ -1105,6 +1433,14 @@ export const motivated = {
   titleEN: 'Motivated',
   type: 'array',
   of: [{type: 'Treatment'}],
+  options: {
+    jsonld: {
+      context: {
+        '@container': '@set',
+        '@type': '@id'
+      }
+    }
+  },
 }
 
 export const featured = {
@@ -1113,6 +1449,13 @@ export const featured = {
   titleEN: 'Featured?',
   type: 'boolean',
   initialValue: false,
+  options: {
+    jsonld: {
+      context: {
+        "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    }
+  },
 }
 
 export const wasOutputOf = {
@@ -1120,6 +1463,13 @@ export const wasOutputOf = {
   title: 'Was output of',
   type: 'DataTransferEvent',
   hidden: true,
+  options: {
+    jsonld: {
+      context: {
+        '@type': '@json'
+      }
+    }
+  },
 }
 
 export const inDataset = {
@@ -1127,4 +1477,11 @@ export const inDataset = {
   title: 'I datasett',
   titleEN: 'In dataset',
   type: 'Dataset',
+  options: {
+    jsonld: {
+      context: {
+        '@type': '@id'
+      }
+    }
+  },
 }

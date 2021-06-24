@@ -2,6 +2,11 @@ export default {
   name: 'GeojsonFeature',
   type: 'object',
   title: 'Feature',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'geometry',

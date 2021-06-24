@@ -3,6 +3,11 @@ export default {
   type: 'object',
   title: 'Illustrasjon',
   titleEN: 'Illustration',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'image',

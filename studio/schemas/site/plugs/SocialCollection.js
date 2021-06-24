@@ -2,6 +2,11 @@ export default {
   name: 'SocialCollection',
   type: 'object',
   title: 'Social collection',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

@@ -4,6 +4,11 @@ export default {
   name: 'SectionText',
   title: 'Text',
   type: 'object',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

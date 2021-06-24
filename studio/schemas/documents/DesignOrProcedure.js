@@ -20,11 +20,16 @@ export default {
     identifiedBy,
     referredToBy,
     {
-      name: 'documentedIn',
+      name: 'documentedIn', // TODO: fix me
       title: 'Documented in',
       titleEN: 'Dokumentert i',
       type: 'array',
       of: [{type: 'file'}],
+      options: {
+        jsonld: {
+          excluded: true
+        }
+      },
     },
   ],
   preview: {

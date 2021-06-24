@@ -25,6 +25,14 @@ export default {
       description: 'Events and activities connected to this object',
       type: 'array',
       of: [{type: 'Creation'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
   preview: {

@@ -9,6 +9,9 @@ export default {
   options: {
     hotspot: true,
     metadata: ['exif', 'location', 'lqip', 'palette'],
+    jsonld: {
+      exclude: true
+    }
   },
   fields: [
     {

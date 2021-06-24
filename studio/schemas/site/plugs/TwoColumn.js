@@ -3,6 +3,11 @@ export default {
   type: 'object',
   title: 'To kolonner',
   titleEN: 'Two column',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

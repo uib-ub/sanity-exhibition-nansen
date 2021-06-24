@@ -68,6 +68,14 @@ export default {
         },
       ],
       validation: (Rule) => Rule.required(),
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'media',
@@ -75,6 +83,13 @@ export default {
       titleEN: 'Media',
       type: 'MediaObject',
       fieldset: 'timelineMedium',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     {
       name: 'location',
@@ -82,6 +97,13 @@ export default {
       title: 'Lokasjon',
       titleEN: 'Location',
       description: 'Where the hell did this happen?!',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
   ],
   preview: {

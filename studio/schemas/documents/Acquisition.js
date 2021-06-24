@@ -67,6 +67,14 @@ export default {
           to: [{type: 'AcquisitionType'}],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     timespan,
     {
@@ -90,14 +98,26 @@ export default {
       of: [{type: 'Acquisition'}],
       options: {
         editModal: 'fullscreen',
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
       },
     },
     {
-      name: 'documentedIn',
+      name: 'documentedIn', // TODO: how should this be handeled?
       title: 'Documented in',
       titleEN: 'Dokumentert i',
       type: 'array',
       of: [{type: 'file'}],
+      options: {
+        editModal: 'fullscreen',
+        jsonld: {
+          exclude: false
+        }
+      },
     },
   ],
   preview: {

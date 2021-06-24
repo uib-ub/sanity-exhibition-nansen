@@ -22,6 +22,11 @@ export default {
       options: {collapsible: true, collapsed: true},
     },
   ],
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

@@ -3,6 +3,11 @@ export default {
   type: 'object',
   title: 'Sideoverskrift',
   titleEN: 'Page Header',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fieldsets: [
     {
       name: 'subtitle',

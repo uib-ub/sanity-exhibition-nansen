@@ -70,6 +70,14 @@ export default {
         },
       ],
       validation: Rule => Rule.min(1).warning('Du bør ha "Person" eller "Gruppe" som første type!'),
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       ...image,
@@ -94,6 +102,12 @@ export default {
       ],
       options: {
         editModal: 'fullscreen',
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
       },
     },
     inDataset,

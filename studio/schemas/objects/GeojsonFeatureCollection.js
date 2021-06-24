@@ -5,6 +5,11 @@ export default {
   name: 'GeojsonFeatureCollection',
   type: 'object',
   title: 'Feature Collection',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fieldsets: defaultFieldsets,
   fields: [
     // Foreign member not in the GeoJSON schema

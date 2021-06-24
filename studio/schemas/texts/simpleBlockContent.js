@@ -80,4 +80,9 @@ export default {
       },
     },
   ],
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
 }

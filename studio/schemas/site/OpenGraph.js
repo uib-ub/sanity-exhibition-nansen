@@ -26,6 +26,13 @@ export default {
       description: 'Facebook anbefaler 1200x630 (størrelsen blir endret automatisk)',
       descriptionEN: 'Facebook recommends 1200x630 (will be auto resized)',
       type: 'DigitalImageObject',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     /*
     // You can add videos to Open Graph tags too

@@ -39,6 +39,14 @@ export default {
           type: 'ContributionAssignment',
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'activityStream',
@@ -50,6 +58,14 @@ export default {
         {type: 'Creation'}, 
         {type: 'Move'}
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
     tookPlaceAt,
     referredToBy,

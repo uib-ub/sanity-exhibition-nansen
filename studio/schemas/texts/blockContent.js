@@ -5,8 +5,8 @@ const highlightRender = (props) => <span style={{backgroundColor: 'yellow'}}>{pr
 
 export default {
   name: 'blockContent',
-  type: 'array',
   title: 'Excerpt',
+  type: 'array',
   of: [
     {
       title: 'Block',
@@ -109,4 +109,9 @@ export default {
     {type: 'Social'},
     {type: 'Iframe'},
   ],
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
 }

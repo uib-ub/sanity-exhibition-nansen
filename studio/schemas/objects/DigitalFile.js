@@ -11,6 +11,13 @@ export default {
       title: 'Beskrivelse',
       titleEN: 'Description',
       type: 'LocaleBlockSimple',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "@json"
+          }
+        }
+      },
     },
     license,
     {

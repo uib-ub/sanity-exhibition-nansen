@@ -2,6 +2,11 @@ export default {
   name: 'Iframe',
   type: 'object',
   title: 'iFrame',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',
@@ -22,6 +27,7 @@ export default {
       type: 'url',
     },
   ],
+  
   preview: {
     select: {
       title: 'title',

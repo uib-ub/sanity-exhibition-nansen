@@ -20,6 +20,14 @@ export default {
           to: [{type: 'EventType'}],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     carriedOutBy,
     timespan,

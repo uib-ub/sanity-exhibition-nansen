@@ -120,6 +120,14 @@ export default {
         },
       ],
       validation: (Rule) => Rule.required(),
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'activityStream',
@@ -138,6 +146,14 @@ export default {
         {type: 'Activity'},
         {type: 'Destruction'},
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       ...subject,

@@ -12,6 +12,11 @@ export default {
   type: 'object',
   title: 'Video',
   description: 'Embed video',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

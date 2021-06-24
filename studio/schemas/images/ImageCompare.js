@@ -7,6 +7,11 @@ export default {
   name: 'ImageCompare',
   type: 'object',
   title: 'Compare images',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     labelSingleton,
     {

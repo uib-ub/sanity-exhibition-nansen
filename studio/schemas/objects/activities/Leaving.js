@@ -23,6 +23,14 @@ export default {
           to: [{type: 'EventType'}],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     timespan,
     tookPlaceAt,
@@ -37,7 +45,13 @@ export default {
       ],
       options: {
         filter: '_type == "Actor" && references($id)',
-        filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'}
+        filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'},
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
       }
     },
     {
@@ -54,7 +68,13 @@ export default {
           ],
           options: {
             filter: '_type == "Actor" && references($id)',
-            filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'}
+            filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'},
+            jsonld: {
+              context: {
+                '@container': '@set',
+                '@type': '@id'
+              }
+            }
           }
         }
       ],

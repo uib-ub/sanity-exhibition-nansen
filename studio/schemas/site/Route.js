@@ -60,7 +60,14 @@ export default {
       type: 'reference',
       to: [
         {type: 'Language'}
-      ]
+      ],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'page',
@@ -74,6 +81,13 @@ export default {
         {type: 'Page'},
         {type: 'LinguisticDocument'},
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'useSiteTitle',
@@ -92,6 +106,13 @@ export default {
       description: 'Disse vil bli brukt i "meta tags"',
       descriptionEN: 'These values populate meta tags',
       type: 'OpenGraph',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     {
       name: 'includeInSitemap',
@@ -101,6 +122,13 @@ export default {
       descriptionEN: 'For search engines. Will be generateed to /sitemap.xml',
       fieldset: 'visibility',
       type: 'boolean',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+          }
+        }
+      },
     },
     {
       name: 'disallowRobots',
@@ -110,6 +138,13 @@ export default {
       descriptionEN: 'Hide this route for search engines like google',
       fieldset: 'visibility',
       type: 'boolean',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+          }
+        }
+      },
     },
   ],
   preview: {

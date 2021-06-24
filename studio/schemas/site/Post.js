@@ -30,6 +30,13 @@ export default {
       description: 'Denne datoen kan settes frem i tid for fremtidig publisering på en nettside',
       descriptionEN: 'This can be used to schedule post for publishing',
       type: 'datetime',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+          }
+        }
+      },
     },
     {
       name: 'excerpt',
@@ -39,18 +46,39 @@ export default {
       description: 'Brukes på oversiktssider, på Google og på sosiale medier.',
       descriptionEN:
         'This ends up on summary pages, on Google, when people share your post in social media.',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     {
       name: 'image',
       title: 'Hovedbilde',
       titleEN: 'Main image',
       type: 'DigitalImageObject',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     {
       name: 'body',
       title: 'Tekst',
       titleEN: 'Body',
       type: 'blockContent',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     {
       name: 'authors',
@@ -61,6 +89,14 @@ export default {
           type: 'ContributionAssignment',
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'categories',
@@ -75,6 +111,14 @@ export default {
           },
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
   orderings: [

@@ -21,6 +21,11 @@ export default {
   type: 'object',
   title: 'Social',
   description: 'A big social. Centered',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

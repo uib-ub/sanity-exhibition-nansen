@@ -20,6 +20,13 @@ export default {
       descriptionEN: 'No target route turns the item into a subheading',
       type: 'reference',
       to: [{type: 'Route'}],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'children',
@@ -29,6 +36,14 @@ export default {
       descriptionEN: 'You could have sublevels, but use it sparingly!',
       type: 'array',
       of: [{type: 'TocLink'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
   preview: {

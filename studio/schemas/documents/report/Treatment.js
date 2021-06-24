@@ -41,6 +41,14 @@ export default {
       ),
       type: 'array',
       of: [{type: 'TreatmentAssessment'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
   preview: {

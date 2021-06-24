@@ -52,6 +52,12 @@ export default {
       of: [{type: 'DigitalImageObject'}],
       options: {
         layout: 'grid',
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
       },
     },
   ],

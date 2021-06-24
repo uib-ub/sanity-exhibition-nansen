@@ -5,6 +5,11 @@ export default {
   type: 'object',
   title: 'Singel level chart',
   titleEN: 'Single level chart',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

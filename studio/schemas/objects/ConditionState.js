@@ -17,6 +17,13 @@ export default {
       type: 'reference',
       to: [{type: 'ConditionType'}],
       validation: (Rule) => Rule.required(),
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     valueSlider,
     {
@@ -31,6 +38,11 @@ export default {
           {title: 'Missing', value: 'missing'},
           {title: 'Partial remains', value: 'partialRemains'},
         ],
+        jsonld: {
+          context: {
+            '@container': '@set',
+          }
+        }
       },
     },
     {
@@ -63,6 +75,12 @@ export default {
       of: [{type: 'DigitalImageObject'}],
       options: {
         layout: 'grid',
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
       },
     },
   ],

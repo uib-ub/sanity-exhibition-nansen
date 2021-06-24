@@ -41,6 +41,14 @@ export default {
           type: 'ContributionAssignment',
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
     language,
     {
@@ -55,6 +63,14 @@ export default {
         },
       ],
       validation: (Rule) => Rule.required(),
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'categories',
@@ -67,6 +83,14 @@ export default {
           to: [{type: 'Concept'}],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     /* {
       name: 'hasTranslation',
@@ -86,12 +110,26 @@ export default {
       titleEN: 'Published at',
       description: 'This can be used to schedule post for publishing',
       type: 'datetime',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+          }
+        }
+      },
     },
     {
       name: 'body',
       title: 'Tekst',
       titleEN: 'Body',
       type: 'blockContent',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "@json"
+          }
+        }
+      },
     },
     {
       name: 'excerpt',
@@ -100,19 +138,38 @@ export default {
       description:
         'This ends up on summary pages, on Google, when people share your post in social media.',
       type: 'blockContent',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "@json"
+          }
+        }
+      },
     },
     {
       name: 'image',
       title: 'Hovedbilde',
       titleEN: 'Main image',
       type: 'DigitalImageObject',
+      options: {
+        jsonld: {
+          context: {
+            "@type": "@json"
+          }
+        }
+      },
     },
     {
-      name: 'documentedIn',
+      name: 'documentedIn', // TODO: Fix
       title: 'Documented in',
       titleEN: 'Dokumentert i',
       type: 'array',
       of: [{type: 'file'}],
+      options: {
+        jsonld: {
+          exclude: true
+        }
+      },
     },
   ],
   preview: {

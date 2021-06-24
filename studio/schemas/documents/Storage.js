@@ -34,6 +34,13 @@ export default {
       type: 'reference',
       to: [{type: 'StorageType'}],
       validation: (Rule) => Rule.required(),
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     referredToBy,
     timespan,
@@ -42,6 +49,13 @@ export default {
       title: 'Lokasjon',
       titleEN: 'Location',
       type: 'geopoint',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     tookPlaceAt,
     {
@@ -61,6 +75,12 @@ export default {
       ],
       options: {
         editModal: 'fullscreen',
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
       },
     },
   ],

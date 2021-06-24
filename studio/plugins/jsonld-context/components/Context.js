@@ -7,12 +7,13 @@ const Context = ({ types }) => {
   const orderedClasses = orderSchemas(types)
   let {context, base} = getContext()
 
-  orderedClasses.forEach((type) => {
-    context['@context'][type.name] = {
-      '@id': `${base}${type.name}`,
-      '@context': getFields(type.fields, base),
-    };
-  });
+  orderedClasses
+    .forEach((type) => {
+      context['@context'][type.name] = {
+        '@id': `${base}${type.name}`,
+        '@context': getFields(type.fields, base),
+      };
+    });
 
   return (
     <Container width={2} padding={4}>

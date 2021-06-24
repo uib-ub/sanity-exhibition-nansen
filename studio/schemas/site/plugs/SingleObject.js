@@ -4,6 +4,11 @@ export default {
   name: 'SingleObject',
   type: 'object',
   title: 'Single object',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'view',

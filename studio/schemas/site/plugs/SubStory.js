@@ -2,6 +2,11 @@ export default {
   name: 'SubStory',
   type: 'object',
   title: 'Underfortelling',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

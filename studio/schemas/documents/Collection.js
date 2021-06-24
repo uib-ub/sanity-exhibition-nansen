@@ -87,6 +87,12 @@ export default {
       ],
       options: {
         editModal: 'fullscreen',
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
       },
     },
     {
@@ -105,6 +111,14 @@ export default {
           ]
         }
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
   preview: {

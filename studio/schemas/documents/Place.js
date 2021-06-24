@@ -37,6 +37,14 @@ export default {
           to: [{type: 'PlaceType'}],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     /* {
       name: 'hasType',

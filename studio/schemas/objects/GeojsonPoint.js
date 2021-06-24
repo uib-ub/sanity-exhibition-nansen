@@ -2,6 +2,11 @@ export default {
   name: 'GeojsonPoint',
   type: 'object',
   title: 'Point',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'coordinates',

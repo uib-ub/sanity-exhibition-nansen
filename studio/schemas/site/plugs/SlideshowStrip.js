@@ -3,6 +3,11 @@ export default {
   type: 'object',
   title: 'Slideshow-stripe',
   titleEN: 'Slideshow strip',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',

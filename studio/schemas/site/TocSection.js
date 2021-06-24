@@ -20,6 +20,13 @@ export default {
       descriptionEN: 'If used the title becomes a link',
       type: 'reference',
       to: [{type: 'Route'}],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'links',
@@ -29,6 +36,14 @@ export default {
       descriptionEN: 'Links grouped in this section',
       type: 'array',
       of: [{type: 'TocLink'}],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@list',
+            '@type': '@id'
+          }
+        }
+      },
     },
   ],
 }

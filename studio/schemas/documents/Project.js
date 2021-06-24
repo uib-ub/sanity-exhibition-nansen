@@ -34,7 +34,14 @@ export default {
       titleEN: 'Ongoing?',
       type: 'boolean',
       fieldset: 'minimum',
-      initialValue: true
+      initialValue: true,
+      options: {
+        jsonld: {
+          context: {
+            "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+          }
+        }
+      },
     },
     {
       ...identifiedBy,
@@ -64,6 +71,14 @@ export default {
           ],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'consistsOf',
@@ -73,14 +88,25 @@ export default {
       of: [{type: 'Project'}],
       options: {
         editModal: 'fullscreen',
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
       },
     },
     {
-      name: 'documentedIn',
+      name: 'documentedIn', // TODO: fix
       title: 'Documented in',
       titleEN: 'Dokumentert i',
       type: 'array',
       of: [{type: 'file'}],
+      options: {
+        jsonld: {
+          exclude: true
+        }
+      },
     },
   ],
   preview: {

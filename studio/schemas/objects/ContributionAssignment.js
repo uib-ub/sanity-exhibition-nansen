@@ -14,6 +14,13 @@ export default {
       to: [
         {type: 'Actor'},
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'assignedRole',
@@ -26,6 +33,14 @@ export default {
           to: [{type: 'Role'}],
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'usedName',

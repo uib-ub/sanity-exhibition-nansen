@@ -27,12 +27,27 @@ export default {
         },
       ],
       /* validation: (Rule) => Rule.required(), */
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'body',
       title: 'Tekst',
       titleEN: 'Body',
       type: 'blockContent',
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
     {
       name: 'language',
@@ -41,6 +56,13 @@ export default {
       type: 'reference',
       to: [{type: 'Language'}],
       validation: (Rule) => Rule.required(),
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'creator',
@@ -54,6 +76,14 @@ export default {
           type: 'ContributionAssignment',
         },
       ],
+      options: {
+        jsonld: {
+          context: {
+            '@container': '@set',
+            '@type': '@id'
+          }
+        }
+      },
     },
     {
       name: 'publishedAt',
@@ -63,11 +93,18 @@ export default {
       type: 'datetime',
     },
     {
-      name: 'documentedIn',
+      name: 'documentedIn', // TODO: Fix
       title: 'Dokumentert i',
       titleEN: 'Documented in',
       type: 'array',
       of: [{type: 'file'}],
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@json'
+          }
+        }
+      },
     },
   ],
   preview: {

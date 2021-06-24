@@ -22,6 +22,13 @@ export default {
       type: 'reference',
       to: [{type: 'IdentifierType'}],
       validation: (Rule) => Rule.required(),
+      options: {
+        jsonld: {
+          context: {
+            '@type': '@id'
+          }
+        }
+      },
     },
     timespan,
     referredToBy,

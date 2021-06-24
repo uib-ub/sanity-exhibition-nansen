@@ -3,6 +3,11 @@ export default {
   type: 'object',
   title: 'Mirador galleri',
   titleEN: 'Mirador gallery',
+  options: {
+    jsonld: {
+      exclude: true
+    }
+  },
   fields: [
     {
       name: 'disabled',
