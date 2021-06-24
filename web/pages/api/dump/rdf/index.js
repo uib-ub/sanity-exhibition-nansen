@@ -11,7 +11,7 @@ export default async function rdfHandler(req, res) {
   const json = toJSONLD(body)
 
   const jsonldData = {
-    ...context,
+    "@context": "https://muna.xyz/model/0.1/context.json", 
     '@graph': [...json],
   }
 
