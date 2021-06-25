@@ -181,7 +181,7 @@ export const label = {
   options: {
     jsonld: {
       context: {
-        '@id': 'http://www.w3.org/2000/01/rdf-schema#label',
+        '@id': 'rdfs:label',
         '@container': '@language'
       }
     }
@@ -199,7 +199,7 @@ export const labelSingleton = {
   options: {
     jsonld: {
       context: {
-        '@id': 'http://www.w3.org/2000/01/rdf-schema#label'
+        '@id': 'rdfs:label'
       }
     }
   },
@@ -1452,7 +1452,7 @@ export const featured = {
   options: {
     jsonld: {
       context: {
-        "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+        "@type": "xsd:boolean"
       }
     }
   },

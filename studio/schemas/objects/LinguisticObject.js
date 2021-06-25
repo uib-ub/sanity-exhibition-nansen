@@ -109,12 +109,12 @@ export default {
   ],
   preview: {
     select: {
-      title: 'hasType.0.label',
+      type: 'hasType.0.label',
       blocks: 'body',
       lang: 'language.label',
     },
     prepare(selection) {
-      const {title, blocks, lang} = selection
+      const {type, blocks, lang} = selection
       
       return {
         title: blocks?.length
@@ -123,7 +123,7 @@ export default {
               .map((span) => span.text)
               .join('')
           : 'No content',
-        subtitle: `${coalesceLabel(title)} ${lang ? 'på ' + coalesceLabel(lang) : ''}`,
+        subtitle: `${type ? coalesceLabel(type) + ' på ' : ''} ${lang ? coalesceLabel(lang) : ''}`,
       }
     },
   },

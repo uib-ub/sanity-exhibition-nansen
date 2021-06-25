@@ -21,11 +21,19 @@ export default {
   },
   icon: FaGlasses,
   fieldsets: defaultFieldsets,
+  options: {
+    jsonld: {
+      context: {
+        '@id': 'crm:E89_Propositional_Object'
+      }
+    }
+  },
   fields: [
     editorialState,
     accessState,
     labelSingleton,
     identifiedBy,
+    referredToBy,
     language,
     {
       name: 'creator',
@@ -68,7 +76,6 @@ export default {
       },
     },
     tookPlaceAt,
-    referredToBy,
   ],
   preview: {
     select: {

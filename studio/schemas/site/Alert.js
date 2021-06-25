@@ -36,7 +36,7 @@ export default {
       options: {
         jsonld: {
           context: {
-            "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+            "@type": "xsd:boolean"
           }
         }
       },
@@ -50,7 +50,7 @@ export default {
       options: {
         jsonld: {
           context: {
-            "@type": "http://www.w3.org/2001/XMLSchema#date"
+            "@type": "xsd:date"
           }
         }
       },
@@ -64,7 +64,7 @@ export default {
       options: {
         jsonld: {
           context: {
-            "@type": "http://www.w3.org/2001/XMLSchema#date"
+            "@type": "xsd:date"
           }
         }
       },

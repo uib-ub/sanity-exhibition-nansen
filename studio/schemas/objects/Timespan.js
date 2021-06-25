@@ -37,7 +37,7 @@ export default {
         calendarTodayLabel: 'Today',
         jsonld: {
           context: {
-            "@type": "http://www.w3.org/2001/XMLSchema#date"
+            "@type": "xsd:date"
           }
         }
       },
@@ -55,7 +55,7 @@ export default {
         calendarTodayLabel: 'Today',
         jsonld: {
           context: {
-            "@type": "http://www.w3.org/2001/XMLSchema#date"
+            "@type": "xsd:date"
           }
         }
       },
@@ -70,7 +70,7 @@ export default {
         calendarTodayLabel: 'Today',
         jsonld: {
           context: {
-            "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            "@type": "xsd:dateTime"
           }
         }
       },
@@ -86,7 +86,7 @@ export default {
         calendarTodayLabel: 'Today',
         jsonld: {
           context: {
-            "@type": "http://www.w3.org/2001/XMLSchema#date"
+            "@type": "xsd:date"
           }
         }
       },
@@ -102,7 +102,7 @@ export default {
         calendarTodayLabel: 'Today',
         jsonld: {
           context: {
-            "@type": "http://www.w3.org/2001/XMLSchema#date"
+            "@type": "xsd:date"
           }
         }
       },
