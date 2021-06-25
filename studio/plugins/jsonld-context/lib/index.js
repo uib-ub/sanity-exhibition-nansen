@@ -5,8 +5,8 @@ import config from 'config:jsonld-context';
  * Order the schemas for simpler diffs
  */
 export const orderSchemas = (schema) => {
-  const orderedClasses = _.orderBy(schema, ['name'], ['asc']).filter(_class => _class.options?.jsonld?.exclude != true)
-  return orderedClasses
+  const result = _.orderBy(schema, ['name'], ['asc']).filter(_class => _class.options?.jsonld?.exclude != true)
+  return result
 }
 
 /**
@@ -26,13 +26,15 @@ export const getContext = () => {
     '@context': {
       '@version': 1.1,
       _id: '@id',
-      id: '@id',
       _ref: '@id',
+      id: '@id',
       _type: '@type',
       type: '@type',
+      '@base': config.base ? config.base : undefined,
       [vocab]: vocabUri,
+      "crm": "http://www.cidoc-crm.org/cidoc-crm/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
-      '@base': config.base ? config.base : undefined
+      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     },
   };
 

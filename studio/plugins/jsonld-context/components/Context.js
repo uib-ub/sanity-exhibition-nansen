@@ -10,7 +10,7 @@ const Context = ({ types }) => {
   orderedClasses
     .forEach((type) => {
       context['@context'][type.name] = {
-        '@id': `${base}${type.name}`,
+        '@id': type.options?.jsonld?.context?.['@id'] ? type.options.jsonld.context?.['@id'] : `${base}${type.name}`,
         '@context': getFields(type.fields, base),
       };
     });
