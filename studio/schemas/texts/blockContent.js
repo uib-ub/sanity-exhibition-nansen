@@ -82,6 +82,7 @@ export default {
     },
     {
       type: 'reference',
+      title: 'Insert internal object',
       to: [
         {type: 'Actor'},
         {type: 'HumanMadeObject'},
@@ -108,6 +109,7 @@ export default {
     {type: 'Video'},
     {type: 'Social'},
     {type: 'Iframe'},
+    {type: 'ExhibitionElement'},
   ],
   options: {
     jsonld: {

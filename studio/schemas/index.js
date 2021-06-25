@@ -109,7 +109,10 @@ export {default as SiteSettings} from './site/SiteSettings.js'
 export {default as Toc} from './site/Toc.js'
 export {default as TocLink} from './site/TocLink.js'
 export {default as TocSection} from './site/TocSection.js'
+
+// Plugs
 export {default as Hero} from './site/plugs/Hero'
+export {default as ExhibitionElement} from './site/plugs/ExhibitionElement'
 export {default as SectionText} from './site/plugs/SectionText'
 export {default as TextWithIllustration} from './site/plugs/TextWithIllustration'
 export {default as Iframe} from './site/plugs/Iframe'
