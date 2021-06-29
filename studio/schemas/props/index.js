@@ -347,7 +347,8 @@ export const  referredToBy = {
     editModal: 'fullscreen',
     jsonld: {
       context: {
-        '@type': '@json'
+        '@container': '@set',
+        '@type': '@id'
       }
     }
   },

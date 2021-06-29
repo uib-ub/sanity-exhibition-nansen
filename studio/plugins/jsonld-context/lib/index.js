@@ -25,22 +25,22 @@ export const getContext = () => {
   const context = {
     '@context': {
       '@version': 1.1,
-      _id: '@id',
-      _ref: '@id',
-      id: '@id',
-      _type: '@type',
-      type: '@type',
       '@base': config.base ? config.base : undefined,
       [vocab]: vocabUri,
       "crm": "http://www.cidoc-crm.org/cidoc-crm/",
       "xsd": "http://www.w3.org/2001/XMLSchema#",
       "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      _id: '@id',
+      _ref: '@id',
+      id: '@id',
+      _type: '@type',
+      type: '@type',
+      "_rev": `${vocabUri}revisionId`
     },
   };
 
   return {context, base}
 }
-
 
 /**
  * Map props to '@id', '@container' and '@type'
@@ -53,18 +53,6 @@ const getProps = (prop, base) => {
     '@container': prop.options?.jsonld?.context?.['@container'] ? prop.options.jsonld.context?.['@container'] : undefined,
     '@type': prop.options?.jsonld?.context?.['@type'] ? prop.options.jsonld.context?.['@type'] : prop.type === 'reference' ? `${base}${prop.name}` : undefined,
   };
-  
-/*   if (prop.type === 'reference') {
-    result['@type'] = '@id';
-  }
-
-  if (prop.options?.jsonld?.context) {
-    result = prop.options.jsonld.context
-  }
-  
-  if (!prop.options?.jsonld?.context?.['@id']) {
-    result['@id'] = `${base}${prop.name}`;
-  } */
   
   return result;
 };
