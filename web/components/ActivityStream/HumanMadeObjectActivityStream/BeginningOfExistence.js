@@ -5,6 +5,8 @@ import PortableTextBlock from '../../PortableTextBlock'
 import Timespan from '../../Timespan'
 
 export default function BeginningOfExistence(props) {
+  if(!props) return null
+  
   const {_id, _key, label, timespan, contributionAssignedBy, tookplaceAt} = props
   const id = _id ?? _key
   

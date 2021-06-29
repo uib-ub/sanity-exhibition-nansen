@@ -3,6 +3,8 @@ import Link from '../../Link'
 import Timespan from '../../Timespan'
 
 export default function Leaving(props) {
+  console.log(props)
+  if(!props.separated) return null
   const {_id, _key, separated, separatedFrom, timespan, tookplaceAt} = props
   const id = _id ?? _key
 

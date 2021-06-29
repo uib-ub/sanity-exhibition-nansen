@@ -3,6 +3,8 @@ import Link from '../../Link'
 import Timespan from '../../Timespan'
 
 export default function Death(props) {
+  console.log(props)
+  if(!props.deathOf) return null
   const {_id, _key, deathOf, timespan, tookplaceAt} = props
   const id = _id ?? _key
 
