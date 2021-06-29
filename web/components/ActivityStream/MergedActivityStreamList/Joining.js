@@ -4,7 +4,9 @@ import Timespan from '../../Timespan'
 
 export default function Joining(props) {
   console.log(props)
-  if(!props.joined) return null
+  if(!props.joined) { 
+    return null
+  }
   const {_id, _key, joined, joinedWith, timespan, tookplaceAt} = props
   const id = _id ?? _key
 

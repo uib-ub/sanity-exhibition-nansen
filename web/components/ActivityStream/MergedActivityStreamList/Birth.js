@@ -4,7 +4,9 @@ import Timespan from '../../Timespan'
 
 export default function Birth(props) {
   console.log(props)
-  if(!props.broughtIntoLife) return null
+  if(!props.broughtIntoLife) { 
+    return null
+  }
 
   const {_id, _key, broughtIntoLife, timespan, tookplaceAt} = props
   const id = _id ?? _key
