@@ -311,9 +311,6 @@ export const subject = {
   },
 }
 
-/**
- * TODO: FIX! Mixes references and objects!
- */
 export const  referredToBy = {
   name: 'referredToBy',
   title: 'Beskrivelse',
