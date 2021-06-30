@@ -400,3 +400,40 @@ export const contactCopyQuery = groq`{
   },
   ${siteSettings}
 }`
+
+export const physicalExhibitionQuery = groq`{
+  "item": *[_type == 'Exhibition'][0]{
+    ...,
+    language[]->{
+      _id,
+      label
+    },
+    referredToBy[]{
+      ...,
+      language->{
+        _id,
+        label
+      },
+      body[] {
+        ...,
+        _type == 'ExhibitionElement' => @{
+          ...,
+          forseesUseOf-> {
+            ...
+          },
+          item-> {
+            _id,
+            _type,
+            hasType[]->{
+              _id,
+              label
+            },
+            label,
+            image
+          }
+        }
+      }
+    }
+  },
+  ${siteSettings}
+}`

@@ -1,7 +1,7 @@
 import React from 'react'
 import NextLink from 'next/link'
 import {Heading, Link, Text} from '@chakra-ui/react'
-import { BigText, Hero, Iframe, InstagramPost, PageHeader,Quote, MiradorGallery, SectionText, SingleLevelChart, SingleObject, Social, SubStory, TimelineSection, TwoColumn, Video, IllustrationWithCaption } from './Sections'
+import { BigText, Hero, Iframe, InstagramPost, PageHeader,Quote, MiradorGallery, SectionText, SingleLevelChart, SingleObject, Social, SubStory, TimelineSection, TwoColumn, Video, IllustrationWithCaption, ExhibitionElement } from './Sections'
 
 const BlockContent = require('@sanity/block-content-to-react')
 
@@ -94,6 +94,7 @@ export default function PortableTextBlock(props) {
       ),
       block: BlockRenderer,
       BigText: (props) => (<BigText {...props.node} />),
+      ExhibitionElement: (props) => (<ExhibitionElement {...props.node} />),
       Hero: (props) => (<Hero {...props.node} />),
       Iframe: (props) => (<Iframe {...props.node} />),
       IllustrationWithCaption: (props) => (<IllustrationWithCaption {...props.node} />),

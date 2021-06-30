@@ -1,5 +1,5 @@
 import {FaClipboard} from 'react-icons/fa'
-import {editorialState, accessState, label, referredToBy, identifiedBy} from '../props'
+import {editorialState, accessState, label, referredToBy, identifiedBy, image, digitallyShownBy} from '../props'
 import {defaultFieldsets} from '../fieldsets'
 import {coalesceLabel} from '../helpers/helpers'
 
@@ -19,6 +19,7 @@ export default {
     label,
     identifiedBy,
     referredToBy,
+    image,
     {
       name: 'documentedIn', // TODO: fix me
       title: 'Documented in',

@@ -1,4 +1,5 @@
 export {default as BigText} from './BigText'
+export {default as ExhibitionElement} from './ExhibitionElement'
 export {default as Grid} from './Grid'
 export {default as Hero} from './Hero'
 export {default as Iframe} from './Iframe'
