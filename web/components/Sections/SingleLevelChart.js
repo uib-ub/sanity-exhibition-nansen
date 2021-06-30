@@ -3,6 +3,12 @@ import PortableTextBlock from '../PortableTextBlock'
 import { ResponsivePie } from '@nivo/pie'
 
 
+// make sure parent container have a defined height when using
+// responsive component, otherwise height will be 0 and
+// no chart will be rendered.
+// website examples showcase many properties,
+// you'll often use just a few of them.
+
 export default function SingleLevelChart(props) {
   const {data, caption} = props
 
@@ -10,9 +16,9 @@ export default function SingleLevelChart(props) {
     <Box as="figure" maxW={['lg',null, null, null, 'xl']} h="md">
       <ResponsivePie
         data={JSON.parse(data.code)}
-        margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+        margin={{ top: 40, right: 80, bottom: 40, left: 80 }}
         innerRadius={0.5}
-        padAngle={0.7}
+        padAngle={1}
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         borderWidth={1}
@@ -43,13 +49,13 @@ export default function SingleLevelChart(props) {
             spacing: 10
           }
         ]}
-        legends={[
+        /* legends={[
           {
-            anchor: 'bottom',
-            direction: 'row',
+            anchor: 'right',
+            direction: 'column',
             justify: false,
-            translateX: 0,
-            translateY: 56,
+            translateX: 50,
+            translateY: 0,
             itemsSpacing: 4,
             itemWidth: 100,
             itemHeight: 18,
@@ -67,7 +73,7 @@ export default function SingleLevelChart(props) {
               }
             ]
           }
-        ]}
+        ]} */
       />
       <figcaption>
         <PortableTextBlock
@@ -78,12 +84,3 @@ export default function SingleLevelChart(props) {
     </Box>
   )
 }
-
-
-// make sure parent container have a defined height when using
-// responsive component, otherwise height will be 0 and
-// no chart will be rendered.
-// website examples showcase many properties,
-// you'll often use just a few of them.
-
-  
