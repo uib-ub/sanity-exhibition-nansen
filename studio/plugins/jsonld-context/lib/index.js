@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import _, { property } from 'lodash';
 import config from 'config:jsonld-context';
 
 /**
@@ -9,17 +9,22 @@ export const orderSchemas = (schema) => {
   return result
 }
 
-/**
- * Create default context
- * @returns {object}
- */
-export const getContext = () => {
-  // If no vocab is set, default to example uri
+export const getConfig = () => {
   const vocab = config.vocab?.prefix ? config.vocab.prefix : '@vocab';
   const vocabUri = config.vocab?.uri ? config.vocab.uri : 'http://example.org/model/0.1/';
   
   // If vocab is set to '@vocab' then we do not add a prefix to '@id' values, because '@base' sets prefix for all
   const base = config.vocab?.prefix && config.vocab?.prefix != '@vocab' ? `${config.vocab.prefix}:` : ''
+
+  return {vocab, vocabUri, base}
+}
+
+/**
+ * Create default context
+ * @returns {object}
+ */
+export const getContext = () => {
+  const {vocab, vocabUri, base} = getConfig()
   
   // Default context
   const context = {
@@ -27,15 +32,15 @@ export const getContext = () => {
       '@version': 1.1,
       '@base': config.base ? config.base : undefined,
       [vocab]: vocabUri,
-      "crm": "http://www.cidoc-crm.org/cidoc-crm/",
-      "xsd": "http://www.w3.org/2001/XMLSchema#",
-      "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+      'crm': 'http://www.cidoc-crm.org/cidoc-crm/',
+      'xsd': 'http://www.w3.org/2001/XMLSchema#',
+      'rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
       _id: '@id',
       _ref: '@id',
       id: '@id',
       _type: '@type',
       type: '@type',
-      "_rev": `${vocabUri}revisionId`
+      '_rev': `${vocabUri}revisionId`
     },
   };
 
@@ -75,3 +80,154 @@ export const getFields = (fields, base) => {
   });
   return Object.assign(...result);
 };
+
+/**
+ * Return fields as key with local '@context' object
+ * @param {array} fields 
+ * @returns {object}
+ */
+export const getOntologyFields = (fields, base) => {
+  console.log(fields);
+  if (!fields) return null;
+
+  const result = fields.map((field) => {
+    if(field.options?.jsonld?.exclude) return
+
+    return {
+      [field.name]: getProps(field, base),
+    };
+  });
+  return Object.assign(...result);
+};
+
+
+export const getOntolgy = (source) => {
+  const {vocab, vocabUri, base} = getConfig()
+
+  const classes = source.map(type => {
+    return {
+      '@id': type.options?.jsonld?.context?.['@id'] ? type.options.jsonld.context?.['@id'] : `${base}${type.name}`,
+      '@type': 'owl:Class',
+      'label': type.name,
+      'comment': type.description ? type.description : undefined
+    }
+  })
+
+  const getClassID = (label) => {
+    const match = _.find(classes, { 'label': label} )
+    return match ? match['@id'] : label
+  }
+
+  /**
+   * First get all fields and insert schema name as domain
+   */
+  let allFields = []
+  source.map(type => {
+    type.fields.forEach(field => {
+      const data = {
+        ...field,
+        '@id': field.options?.jsonld?.context?.['@id'] ? field.options.jsonld.context?.['@id'] : `${base}${field.name}`,
+        '@type': field.options?.jsonld?.context?.['@type'] === '@id' ? 'owl:ObjectProperty' : 'owl:DatatypeProperty',
+        domain: type.options?.jsonld?.context?.['@id'] ? type.options.jsonld.context?.['@id'] : `${base}${type.name}`
+      }
+      allFields.push(data)
+    })
+  })
+  console.log(allFields.length)
+
+  /**
+   * Push unique props to array
+   */
+  let properties = []
+  allFields.forEach(property => {
+    // console.log(property)
+    // Initial prop
+    const initProp = {
+      '@id': property['@id'],
+      '@type': property['@type'],
+      'label': property.name,
+      domain: [],
+      ...(property['@type'] === 'owl:ObjectProperty' && {range: []})
+    }
+    
+    // Check if prop is initialized
+    if (!properties.find(p => p['@id'] == property['@id'])) {
+      properties.push(initProp)
+    }
+    
+    // Push domains. TODO: fix bad code :-(
+    if (properties.find(p => {
+      if(p['@id'] == property['@id']) {
+        p.domain.push(property.domain)
+      }
+    })) {}
+  
+    // Push ranges when we have a reference. TODO: fix bad code :-(
+    const pushRangeReferences = (id, type, to) => {
+      if(type == 'reference' && to) {
+        const range = [..._.map(to, 'type')]
+        if (properties.find(p => {
+          if(p.range && p['@id'] == id) {
+            range.forEach(
+              r => {
+                const classID = getClassID(r)
+                if (!p.range.find(s => s === classID))
+                  p.range.push(classID)
+              }
+            )
+          }
+        })) {}
+      }
+    }
+
+    if(property['@type' === 'owl:ObjectProperty']) {
+      pushRangeReferences(property['@id'], property.type, property.to)
+    }
+    
+    // Push arrays of references
+    if(property.type === 'array' && property.of) {
+      property.of.forEach(obj => {
+        console.log(obj)
+        pushRangeReferences(property['@id'], obj.type, obj.to)
+      })
+    }
+  })
+
+  const ontology = {
+    '@context': {
+      '@version': 1.1,
+      'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+      'rdfs': 'http://www.w3.org/2000/01/rdf-schema#',
+      'owl': 'http://www.w3.org/2002/07/owl#',
+      'crm': 'http://www.cidoc-crm.org/cidoc-crm/',
+      [vocab]: vocabUri,
+      'defines': {
+        '@reverse': 'rdfs:isDefinedBy'
+      },
+      'label': { 
+        '@id': 'rdfs:label',
+      },
+      'comment': { 
+        '@id': 'rdfs:comment',
+      },
+      'domain': { 
+        '@id': 'rdfs:domain',
+        '@type': '@id'
+      },
+      'range': { 
+        '@id': 'rdfs:range',
+        '@type': '@id'
+      }
+    },
+      '@id': vocabUri,
+      '@type': 'owl:Ontology',
+      'label': 'Muna ontology',
+      'defines': [
+        ...classes,
+        ...properties
+      ]
+    };
+
+  return ontology
+}
+

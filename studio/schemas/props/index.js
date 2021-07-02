@@ -334,11 +334,7 @@ export const  referredToBy = {
   ),
   type: 'array',
   of: [
-    {type: 'LinguisticObject'}, 
-    {
-      type: 'reference', 
-      to: [{type: 'LinguisticDocument'}]
-    }
+    {type: 'LinguisticObject'},
   ],
   options: {
     editModal: 'fullscreen',
