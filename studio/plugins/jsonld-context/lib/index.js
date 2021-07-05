@@ -5,7 +5,7 @@ import config from 'config:jsonld-context';
  * Order the schemas for simpler diffs
  */
 export const orderSchemas = (schema) => {
-  const result = _.orderBy(schema, ['name'], ['asc']).filter(_class => _class.options?.jsonld?.exclude != true)
+  const result = _.orderBy(schema, ['name'], ['asc'])
   return result
 }
 
@@ -98,7 +98,24 @@ export const getOntologyFields = (fields, base) => {
   return Object.assign(...result);
 };
 
+/**
+ * Map Sanity schema types to XSD
+ */
+export const datatypeMap = {
+  string: 'xsd:string',
+  text: 'xsd:string',
+  boolean: 'xsd:boolean',
+  number: 'xsd:float',
+  datetime: 'xsd:dateTime',
+  date: 'xsd:date',
+  uri: 'xsd:anyURI',
+}
 
+/**
+ * Build the ontology from source schemas
+ * @param {*} source 
+ * @returns 
+ */
 export const getOntolgy = (source) => {
   const {vocab, vocabUri, base} = getConfig()
 
@@ -117,16 +134,6 @@ export const getOntolgy = (source) => {
       console.warn(`No class match on ${label}!`)
     }
     return match ? match['@id'] : label
-  }
-
-  const datatypeMap = {
-    string: 'xsd:string',
-    text: 'xsd:string',
-    boolean: 'xsd:boolean',
-    number: 'xsd:float',
-    datetime: 'xsd:dateTime',
-    date: 'xsd:date',
-    uri: 'xsd:anyURI',
   }
 
   /**
