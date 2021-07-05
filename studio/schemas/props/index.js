@@ -311,7 +311,7 @@ export const subject = {
   },
 }
 
-export const  referredToBy = {
+export const referredToBy = {
   name: 'referredToBy',
   title: 'Beskrivelse',
   titleEN: 'Description',

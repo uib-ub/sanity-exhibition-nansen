@@ -1,4 +1,4 @@
-import _, { property } from 'lodash';
+import _ from 'lodash';
 import config from 'config:jsonld-context';
 
 /**
@@ -68,7 +68,6 @@ const getProps = (prop, base) => {
  * @returns {object}
  */
 export const getFields = (fields, base) => {
-  console.log(fields);
   if (!fields) return null;
 
   const result = fields.map((field) => {
@@ -87,7 +86,6 @@ export const getFields = (fields, base) => {
  * @returns {object}
  */
 export const getOntologyFields = (fields, base) => {
-  console.log(fields);
   if (!fields) return null;
 
   const result = fields.map((field) => {
@@ -115,7 +113,20 @@ export const getOntolgy = (source) => {
 
   const getClassID = (label) => {
     const match = _.find(classes, { 'label': label} )
+    if(!match?.['@id']) {
+      console.warn(`No class match on ${label}!`)
+    }
     return match ? match['@id'] : label
+  }
+
+  const datatypeMap = {
+    string: 'xsd:string',
+    text: 'xsd:string',
+    boolean: 'xsd:boolean',
+    number: 'xsd:float',
+    datetime: 'xsd:dateTime',
+    date: 'xsd:date',
+    uri: 'xsd:anyURI',
   }
 
   /**
@@ -133,12 +144,12 @@ export const getOntolgy = (source) => {
       allFields.push(data)
     })
   })
-  console.log(allFields.length)
 
   /**
    * Push unique props to array
    */
   let properties = []
+
   allFields.forEach(property => {
     // console.log(property)
     // Initial prop
@@ -147,7 +158,8 @@ export const getOntolgy = (source) => {
       '@type': property['@type'],
       'label': property.name,
       domain: [],
-      ...(property['@type'] === 'owl:ObjectProperty' && {range: []})
+      ...(property['@type'] === 'owl:ObjectProperty' && {range: []}),
+      ...(property['@type'] === 'owl:DatatypeProperty' && datatypeMap[property.type] ? {range: [datatypeMap[property.type]]} : undefined)
     }
     
     // Check if prop is initialized
@@ -163,8 +175,25 @@ export const getOntolgy = (source) => {
     })) {}
   
     // Push ranges when we have a reference. TODO: fix bad code :-(
-    const pushRangeReferences = (id, type, to) => {
-      if(type == 'reference' && to) {
+    const pushRangeArraysOfObjects = (id, of) => {
+      if(of) {
+        if (properties.find(p => {
+          if(p.range && p['@id'] == id) {
+            of.forEach(
+              r => {
+                const classID = getClassID(r.type)
+                if (!p.range.find(s => s === classID))
+                  p.range.push(classID)
+              }
+            )
+          }
+        })) {}
+      }
+    }
+
+    // Push ranges when we have a reference. TODO: fix bad code :-(
+    const pushRangeReferences = (id, to) => {
+      if(to) {
         const range = [..._.map(to, 'type')]
         if (properties.find(p => {
           if(p.range && p['@id'] == id) {
@@ -180,15 +209,43 @@ export const getOntolgy = (source) => {
       }
     }
 
+    // Push ranges when we have a reference. TODO: fix bad code :-(
+/*     const pushRangeDatatype = (id, datatype) => {
+      if(!datatype) {
+        return null
+      }
+      console.log(id, datatype)
+      if(datatype) {
+        if (properties.find(p => {
+          if(p.range && p['@id'] == id) {
+            if (!p.range.find(s => s === datatype)) {
+              p.range.push(datatype)
+            }
+          }
+        })) {}
+      }
+    }
+
+    if(property['@type' === 'owl:DatatypeProperty']) {
+      pushRangeDatatype(property['@id'], property.type)
+    } */
+
     if(property['@type' === 'owl:ObjectProperty']) {
-      pushRangeReferences(property['@id'], property.type, property.to)
+      pushRangeReferences(property['@id'], property.to)
     }
     
+    if(property.type === 'reference') {
+      pushRangeArraysOfObjects(property['@id'], property.to)
+    }
+
+    if(property.type === 'array' && !_.some(property.of, ['type', 'reference'])) {
+      pushRangeArraysOfObjects(property['@id'], property.of)
+    }
+  
     // Push arrays of references
     if(property.type === 'array' && property.of) {
       property.of.forEach(obj => {
-        console.log(obj)
-        pushRangeReferences(property['@id'], obj.type, obj.to)
+        pushRangeReferences(property['@id'], obj.to)
       })
     }
   })

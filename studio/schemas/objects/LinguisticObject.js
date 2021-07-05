@@ -12,6 +12,13 @@ export default {
     editorialState: 'published',
     accessState: 'open',
   },
+  options: {
+    jsonld: {
+      context: {
+        '@id': 'muna:LinguisticDocument',
+      }
+    }
+  },
   fields: [
     editorialState,
     accessState,
