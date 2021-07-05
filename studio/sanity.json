@@ -24,7 +24,7 @@
     "media",
     "dashboard-widget-vercel",
     "@seidhr/sanity-plugin-dashboard-widget-muna-docs",
-    "jsonld-context"
+    "semantic-sanity"
   ],
   "env": {
     "development": {

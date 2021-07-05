@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import config from 'config:jsonld-context';
+import config from 'config:semantic-sanity';
 
 /**
  * Order the schemas for simpler diffs

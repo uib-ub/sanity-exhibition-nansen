@@ -8,7 +8,7 @@ const { types } = schema._source;
 const boundHome = <Home types={types} />;
 
 export default {
-  title: 'LD Context',
-  name: 'jsonld-context',
+  title: 'Semantic Sanity',
+  name: 'semantic-sanity',
   component: () => boundHome,
 };
