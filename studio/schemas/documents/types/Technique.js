@@ -26,11 +26,9 @@ export default {
       type: 'array',
       of: [{type: 'Creation'}],
       options: {
-        jsonld: {
-          context: {
+        semanticSanity: {
             '@container': '@list',
             '@type': '@id'
-          }
         }
       },
     },

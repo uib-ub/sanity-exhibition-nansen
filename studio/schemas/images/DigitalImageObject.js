@@ -9,7 +9,7 @@ export default {
   options: {
     hotspot: true,
     metadata: ['exif', 'location', 'lqip', 'palette'],
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

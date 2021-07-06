@@ -20,11 +20,9 @@ export default {
       titleEN: 'Items',
       of: [{type: 'NavigationItem'}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },

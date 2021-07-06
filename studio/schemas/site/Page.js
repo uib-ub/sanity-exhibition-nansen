@@ -20,10 +20,8 @@ export default {
       type: 'reference',
       to: [{type: 'NavigationMenu'}],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -55,10 +53,8 @@ export default {
         {type: 'Iframe'},
       ],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },

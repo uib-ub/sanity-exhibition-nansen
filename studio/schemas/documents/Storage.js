@@ -35,10 +35,8 @@ export default {
       to: [{type: 'StorageType'}],
       validation: (Rule) => Rule.required(),
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -50,10 +48,8 @@ export default {
       titleEN: 'Location',
       type: 'geopoint',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },
@@ -75,11 +71,9 @@ export default {
       ],
       options: {
         editModal: 'fullscreen',
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },

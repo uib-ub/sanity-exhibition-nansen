@@ -21,10 +21,8 @@ export default {
       description: 'Beskriv varselet',
       descriptionEN: 'Describe what the alert is all about',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },
@@ -34,10 +32,8 @@ export default {
       title: 'Skal varselet være offentlig?',
       titleEN: 'Should the alert be public?',
       options: {
-        jsonld: {
-          context: {
-            "@type": "xsd:boolean"
-          }
+        semanticSanity: {
+          "@type": "xsd:boolean"
         }
       },
     },
@@ -48,10 +44,8 @@ export default {
       titleEN: 'Valid from',
       fieldset: 'validPeriod',
       options: {
-        jsonld: {
-          context: {
-            "@type": "xsd:date"
-          }
+        semanticSanity: {
+          "@type": "xsd:date"
         }
       },
     },
@@ -62,10 +56,8 @@ export default {
       titleEN: 'Valid to',
       fieldset: 'validPeriod',
       options: {
-        jsonld: {
-          context: {
-            "@type": "xsd:date"
-          }
+        semanticSanity: {
+          "@type": "xsd:date"
         }
       },
     },

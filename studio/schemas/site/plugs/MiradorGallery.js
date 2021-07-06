@@ -4,7 +4,7 @@ export default {
   title: 'Mirador galleri',
   titleEN: 'Mirador gallery',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

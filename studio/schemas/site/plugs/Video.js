@@ -13,7 +13,7 @@ export default {
   title: 'Video',
   description: 'Embed video',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

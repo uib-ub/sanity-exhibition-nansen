@@ -18,10 +18,8 @@ export default {
       to: [{type: 'ConditionType'}],
       validation: (Rule) => Rule.required(),
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -38,10 +36,8 @@ export default {
           {title: 'Missing', value: 'missing'},
           {title: 'Partial remains', value: 'partialRemains'},
         ],
-        jsonld: {
-          context: {
-            '@container': '@set',
-          }
+        semanticSanity: {
+          '@container': '@set',
         }
       },
     },
@@ -75,11 +71,9 @@ export default {
       of: [{type: 'DigitalImageObject'}],
       options: {
         layout: 'grid',
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },

@@ -25,10 +25,8 @@ export default {
         {type: 'Page'}
       ],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -66,10 +64,8 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },
@@ -80,10 +76,8 @@ export default {
       type: 'reference',
       to: [{type: 'NavigationMenu'}],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -94,10 +88,8 @@ export default {
       type: 'reference',
       to: [{type: 'Page'}],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -109,10 +101,8 @@ export default {
       descriptionEN: 'These will be the default meta tags on all pages that have not set their own',
       type: 'OpenGraph',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },
@@ -128,10 +118,8 @@ export default {
         layout: 'tags',
       },
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-          }
+        semanticSanity: {
+          '@container': '@set',
         }
       },
     },
@@ -148,11 +136,9 @@ export default {
         }
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },

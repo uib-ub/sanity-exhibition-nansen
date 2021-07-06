@@ -13,12 +13,10 @@ export const sameAs = {
   type: 'array',
   of: [{type: 'url'}],
   options: {
-    jsonld: {
-      context: {
-        '@id': 'http://www.w3.org/2002/07/owl#sameAs',
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@id': 'http://www.w3.org/2002/07/owl#sameAs',
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -79,10 +77,8 @@ export const image = {
   ),
   type: 'DigitalImageObject',
   options: {
-    jsonld: {
-      context: {
-        '@type': '@json'
-      }
+    semanticSanity: {
+      '@type': '@json'
     }
   },
 }
@@ -100,10 +96,8 @@ export const digitallyShownBy = {
   ],
   options: {
     layout: 'grid',
-    jsonld: {
-      context: {
-        '@type': '@json'
-      }
+    semanticSanity: {
+      '@type': '@json'
     }
   }
 }
@@ -179,11 +173,9 @@ export const label = {
   type: 'LocaleString',
   validation: (Rule) => Rule.required(),
   options: {
-    jsonld: {
-      context: {
-        '@id': 'rdfs:label',
-        '@container': '@language'
-      }
+    semanticSanity: {
+      '@id': 'rdfs:label',
+      '@container': '@language'
     }
   },
 }
@@ -197,10 +189,8 @@ export const labelSingleton = {
   type: 'string',
   validation: (Rule) => Rule.required(),
   options: {
-    jsonld: {
-      context: {
-        '@id': 'rdfs:label'
-      }
+    semanticSanity: {
+      '@id': 'rdfs:label'
     }
   },
 }
@@ -239,11 +229,9 @@ export const identifiedBy = {
   ],
   options: {
     editModal: 'popup',
-    jsonld: {
-      context: {
-        '@container': '@list',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@list',
+      '@type': '@id'
     }
   },
 }
@@ -302,11 +290,9 @@ export const subject = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -338,11 +324,9 @@ export const referredToBy = {
   ],
   options: {
     editModal: 'fullscreen',
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -366,11 +350,9 @@ export const relation = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -406,11 +388,9 @@ export const presentAt = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -446,11 +426,9 @@ export const motivatedBy = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -485,11 +463,9 @@ export const hasCurrentOwner = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@list',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@list',
+      '@type': '@id'
     }
   },
 }
@@ -530,11 +506,9 @@ export const hasFormerOrCurrentOwner = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@list',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@list',
+      '@type': '@id'
     }
   },
 }
@@ -569,11 +543,9 @@ export const composedOf = {
     }
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@list',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@list',
+      '@type': '@id'
     }
   },
 }
@@ -616,11 +588,9 @@ export const subjectOf = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@list',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@list',
+      '@type': '@id'
     }
   },
 }
@@ -657,11 +627,9 @@ export const depicts = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -698,11 +666,9 @@ export const represents = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -730,11 +696,9 @@ export const showsVisualObject = {
   type: 'array',
   of: [{type: 'VisualObject'}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -762,11 +726,9 @@ export const carries = {
   type: 'array',
   of: [{type: 'reference', to: [{type: 'Work'}]}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -794,11 +756,9 @@ export const measuredBy = {
   type: 'array',
   of: [{type: 'Measurement'}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -826,11 +786,9 @@ export const hasDimension = {
   type: 'array',
   of: [{type: 'Dimension'}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@list',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@list',
+      '@type': '@id'
     }
   },
 }
@@ -871,11 +829,9 @@ export const consistsOf = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@list',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@list',
+      '@type': '@id'
     }
   },
 }
@@ -922,11 +878,9 @@ export const usedGeneralTechnique = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -968,11 +922,9 @@ export const usedSpecificTechnique = {
   type: 'array',
   of: [{type: 'reference', to: [{type: 'DesignOrProcedure'}]}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1013,11 +965,9 @@ export const usedObjectOfType = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1059,11 +1009,9 @@ export const usedSpecificObject = {
   type: 'array',
   of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1079,11 +1027,9 @@ export const timespan = {
   },
   validation: (Rule) => Rule.length(1).warning('You should only register one timespan'),
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1097,10 +1043,8 @@ export const timespanSingleton = {
     editModal: 'fullscreen',
   },
   options: {
-    jsonld: {
-      context: {
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@type': '@id'
     }
   },
 }
@@ -1114,11 +1058,9 @@ export const contributionAssignedBy = {
     {type: 'ContributionAssignment'}
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1135,11 +1077,9 @@ export const carriedOutBy = {
     ]
   }],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1151,11 +1091,9 @@ export const hadParticipant = {
   type: 'array',
   of: [{type: 'ContributionAssignment'}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1183,11 +1121,9 @@ export const tookPlaceAt = {
   type: 'array',
   of: [{type: 'reference', to: [{type: 'Place'}]}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1201,10 +1137,8 @@ export const altLabel = {
   titleEN: 'Alternative label',
   type: 'LocaleString',
   options: {
-    jsonld: {
-      context: {
-        '@container': '@language',
-      }
+    semanticSanity: {
+      '@container': '@language',
     }
   },
 }
@@ -1219,11 +1153,9 @@ export const hasIdentified = {
   type: 'array',
   of: [{type: 'ConditionState'}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1247,11 +1179,9 @@ export const language = {
   type: 'array',
   of: [{type: 'reference', to: [{type: 'Language'}]}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1274,11 +1204,9 @@ export const memberOf = {
     }
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1294,11 +1222,9 @@ export const hasMember = {
   type: 'array',
   of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1314,11 +1240,9 @@ export const definedByGeoJSON = {
     {type: 'Geojson'}
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1338,11 +1262,9 @@ export const transferredTitleTo = {
     }
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1362,11 +1284,9 @@ export const transferredTitleFrom = {
     }
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1387,11 +1307,9 @@ export const transferredTitleOf = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1412,11 +1330,9 @@ export const concerned = {
     },
   ],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1428,11 +1344,9 @@ export const motivated = {
   type: 'array',
   of: [{type: 'Treatment'}],
   options: {
-    jsonld: {
-      context: {
-        '@container': '@set',
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@container': '@set',
+      '@type': '@id'
     }
   },
 }
@@ -1444,10 +1358,8 @@ export const featured = {
   type: 'boolean',
   initialValue: false,
   options: {
-    jsonld: {
-      context: {
-        "@type": "xsd:boolean"
-      }
+    semanticSanity: {
+      "@type": "xsd:boolean"
     }
   },
 }
@@ -1458,10 +1370,8 @@ export const wasOutputOf = {
   type: 'DataTransferEvent',
   hidden: true,
   options: {
-    jsonld: {
-      context: {
-        '@type': '@json'
-      }
+    semanticSanity: {
+      '@type': '@json'
     }
   },
 }
@@ -1472,10 +1382,8 @@ export const inDataset = {
   titleEN: 'In dataset',
   type: 'Dataset',
   options: {
-    jsonld: {
-      context: {
-        '@type': '@id'
-      }
+    semanticSanity: {
+      '@type': '@id'
     }
   },
 }

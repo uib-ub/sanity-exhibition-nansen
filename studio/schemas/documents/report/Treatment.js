@@ -42,11 +42,9 @@ export default {
       type: 'array',
       of: [{type: 'TreatmentAssessment'}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },

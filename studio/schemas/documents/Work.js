@@ -31,11 +31,9 @@ export default {
       ],
       validation: (Rule) => Rule.required(),
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -49,11 +47,9 @@ export default {
       type: 'array',
       of: [{type: 'Creation'}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },

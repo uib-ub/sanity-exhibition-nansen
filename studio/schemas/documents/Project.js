@@ -36,10 +36,8 @@ export default {
       fieldset: 'minimum',
       initialValue: true,
       options: {
-        jsonld: {
-          context: {
-            "@type": "xsd:boolean"
-          }
+        semanticSanity: {
+          "@type": "xsd:boolean"
         }
       },
     },
@@ -72,11 +70,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -88,11 +84,9 @@ export default {
       of: [{type: 'Project'}],
       options: {
         editModal: 'fullscreen',
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -103,7 +97,7 @@ export default {
       type: 'array',
       of: [{type: 'file'}],
       options: {
-        jsonld: {
+        semanticSanity: {
           exclude: true
         }
       },

@@ -35,10 +35,8 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
-        jsonld: {
-          context: {
-            "@type": "xsd:date"
-          }
+        semanticSanity: {
+          "@type": "xsd:date"
         }
       },
       // Validation on min/max date does not work, also handling of undefined is sub par
@@ -53,10 +51,8 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
-        jsonld: {
-          context: {
-            "@type": "xsd:date"
-          }
+        semanticSanity: {
+          "@type": "xsd:date"
         }
       },
     },
@@ -68,10 +64,8 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
-        jsonld: {
-          context: {
-            "@type": "xsd:dateTime"
-          }
+        semanticSanity: {
+          "@type": "xsd:dateTime"
         }
       },
     },
@@ -84,10 +78,8 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
-        jsonld: {
-          context: {
-            "@type": "xsd:date"
-          }
+        semanticSanity: {
+          "@type": "xsd:date"
         }
       },
     },
@@ -100,10 +92,8 @@ export default {
       options: {
         dateFormat: 'YYYY-MM-DD',
         calendarTodayLabel: 'Today',
-        jsonld: {
-          context: {
-            "@type": "xsd:date"
-          }
+        semanticSanity: {
+          "@type": "xsd:date"
         }
       },
     },
@@ -115,10 +105,8 @@ export default {
       titleEN: 'Description',
       type: 'LocaleBlock',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },

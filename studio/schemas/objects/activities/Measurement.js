@@ -18,11 +18,9 @@ export default {
       type: 'array',
       of: [{type: 'Dimension'}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },

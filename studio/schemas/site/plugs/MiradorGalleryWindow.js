@@ -5,7 +5,7 @@ export default {
   name: 'MiradorGalleryWindow',
   type: 'object',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

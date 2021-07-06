@@ -3,7 +3,7 @@ export default {
   type: 'object',
   title: 'Hero',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

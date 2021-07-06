@@ -27,8 +27,8 @@ export default {
       type: 'array',
       of: [{type: 'file'}],
       options: {
-        jsonld: {
-          excluded: true
+        semanticSanity: {
+          exclude: true
         }
       },
     },

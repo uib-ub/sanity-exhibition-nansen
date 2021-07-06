@@ -21,10 +21,8 @@ export default {
       type: 'reference',
       to: [{type: 'Route'}],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -37,11 +35,9 @@ export default {
       type: 'array',
       of: [{type: 'TocLink'}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },

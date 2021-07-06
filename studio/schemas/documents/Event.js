@@ -69,11 +69,9 @@ export default {
       ],
       validation: (Rule) => Rule.required(),
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -84,10 +82,8 @@ export default {
       type: 'MediaObject',
       fieldset: 'timelineMedium',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {  
+          '@type': '@json'
         }
       },
     },
@@ -98,10 +94,8 @@ export default {
       titleEN: 'Location',
       description: 'Where the hell did this happen?!',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },

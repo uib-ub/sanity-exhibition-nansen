@@ -3,7 +3,7 @@ export default {
   type: 'object',
   title: 'Properties',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

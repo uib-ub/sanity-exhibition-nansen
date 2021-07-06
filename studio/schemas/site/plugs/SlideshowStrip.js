@@ -4,7 +4,7 @@ export default {
   title: 'Slideshow-stripe',
   titleEN: 'Slideshow strip',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

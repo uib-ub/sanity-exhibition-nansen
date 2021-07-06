@@ -6,7 +6,7 @@ export default {
   title: 'Singel level chart',
   titleEN: 'Single level chart',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

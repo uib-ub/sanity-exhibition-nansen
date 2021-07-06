@@ -14,10 +14,8 @@ export default {
       to: [{type: 'DimensionType'}],
       validation: (Rule) => Rule.required(),
       options: {
-        jsonld: {
-          context: {
+        semanticSanity: {
             '@type': '@id'
-          }
         }
       },
     },
@@ -27,10 +25,8 @@ export default {
       titleEN: 'Value',
       type: 'number',
       options: {
-        jsonld: {
-          context: {
-            "@type": "xsd:number"
-          }
+        semanticSanity: {
+          "@type": "xsd:number"
         }
       },
     },

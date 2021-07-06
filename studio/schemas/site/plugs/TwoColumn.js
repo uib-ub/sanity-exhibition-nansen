@@ -4,7 +4,7 @@ export default {
   title: 'To kolonner',
   titleEN: 'Two column',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

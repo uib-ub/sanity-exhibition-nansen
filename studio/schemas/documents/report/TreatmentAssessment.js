@@ -52,11 +52,9 @@ export default {
       of: [{type: 'DigitalImageObject'}],
       options: {
         layout: 'grid',
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },

@@ -3,7 +3,7 @@ export default {
   type: 'object',
   title: 'Underfortelling',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

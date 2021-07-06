@@ -4,7 +4,7 @@ export default {
   title: 'Sideoverskrift',
   titleEN: 'Page Header',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

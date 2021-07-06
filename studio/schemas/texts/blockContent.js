@@ -112,7 +112,7 @@ export default {
     {type: 'ExhibitionElement'},
   ],
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

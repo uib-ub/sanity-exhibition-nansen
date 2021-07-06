@@ -5,7 +5,7 @@ export default {
   type: 'object',
   title: 'localeSlug',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

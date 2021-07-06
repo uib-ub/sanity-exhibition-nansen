@@ -23,8 +23,7 @@
     "leaflet-input",
     "media",
     "dashboard-widget-vercel",
-    "@seidhr/sanity-plugin-dashboard-widget-muna-docs",
-    "semantic-sanity"
+    "@seidhr/sanity-plugin-dashboard-widget-muna-docs"
   ],
   "env": {
     "development": {

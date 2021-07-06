@@ -6,7 +6,7 @@ export default {
   type: 'object',
   title: 'Feature Collection',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

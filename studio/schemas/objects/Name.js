@@ -22,10 +22,8 @@ export default {
       type: 'reference',
       to: [{type: 'AppelationType'}],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -36,11 +34,9 @@ export default {
       type: 'array',
       of: [{type: 'Name'}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -51,11 +47,9 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Language'}]}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },

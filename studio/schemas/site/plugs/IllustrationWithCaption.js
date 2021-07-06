@@ -4,7 +4,7 @@ export default {
   title: 'Illustrasjon med bildetekst',
   titleEN: 'Illustration with caption',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

@@ -7,7 +7,7 @@ export default {
   title: 'geoJSON',
   titleEN: 'geoJSON',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },
