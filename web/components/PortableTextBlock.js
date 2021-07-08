@@ -13,7 +13,7 @@ export default function PortableTextBlock(props) {
   const {
     blocks,
     fontSize = {base: 'lg', sm: 'xl', md: 'xl', xl: 'xl'}, 
-    lineHeight=['1.3', '1.4'], 
+    lineHeight=['1.25', '1.3'], 
     fontWeight = 'normal',
     fontFamily,
     ...rest
@@ -35,7 +35,15 @@ export default function PortableTextBlock(props) {
 
     if (/^h\d/.test(style)) {
       const level = style
-      return(<Heading as={level} fontSize={getFontSize(level)}>{props.children}</Heading>)
+      return (
+        <Heading 
+          maxWidth={['xl', null, 'xl', null ]}
+          margin="auto"
+          as={level} 
+          fontSize={getFontSize(level)}
+        >
+          {props.children}
+        </Heading>)
     }
 
     if (style === 'blockquote') {
@@ -44,11 +52,12 @@ export default function PortableTextBlock(props) {
 
     return (
       <Text 
-        maxWidth={['lg', null, 'xl', null ]}
+        maxWidth={['xl', null, 'xl', null ]}
         fontSize={fontSize} 
         lineHeight={lineHeight} 
         fontWeight={fontWeight} 
         fontFamily={fontFamily} 
+        mx="auto"
         {...rest}
       >
         {props.children}
