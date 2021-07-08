@@ -28,6 +28,13 @@ export default {
       type: 'simpleBlockContent',
     },
     {
+      name: 'source',
+      title: 'Kilde',
+      description: 'Legg til kilde eller kreditering',
+      titleEN: 'Source',
+      type: 'simpleBlockContent',
+    },
+    {
       name: 'illustration',
       title: 'Illustrasjonsbilde',
       titleEN: 'Illustration',

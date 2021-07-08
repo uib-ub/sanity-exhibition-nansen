@@ -7,7 +7,7 @@ export default function IllustrationWithCaption(props) {
     return null
   }
   
-  const {title, content, illustration} = props
+  const {title, content, illustration, source} = props
 
   return (
     <Grid
@@ -21,11 +21,15 @@ export default function IllustrationWithCaption(props) {
     >
       
       {illustration ? (
-        <Box h="50vh" gridArea="image">
+        <Box 
+          h="50vh" 
+          gridArea="image"
+          bgColor='gray.200'
+        >
           <Image
             h="100%"
-            width="100%"
-            src={imageBuilder.image(illustration.image).fit('crop').height(500).width(1000).url()}
+            margin="auto"
+            src={imageBuilder.image(illustration.image).fit('fill').url()}
             alt={''}
           />
         </Box>
@@ -51,6 +55,19 @@ export default function IllustrationWithCaption(props) {
               blocks={content}              
             />
           </Box>
+        )}
+
+        {source && (
+          <Text 
+            color="gray.500" 
+            fontSize={{base: 'xs', sm: 'xs', md: 'sm', xl: 'sm'}}
+            pb={{base: '2', md: '0'}}
+            mb="0"
+          >
+            <Icon as={BsInfoCircle} mr="2" />
+
+            {source}
+          </Text>
         )}
       </Box>
     </Grid>
