@@ -10,7 +10,7 @@ import {imageBuilder} from '../../lib/sanity'
 import License from '../License'
 
 /* const MenuItem = ({children}) => (
-  <Text mt={{base: 4, md: 0}} mr={6} mb="0" display="block">
+  <Text mt={{base: 4, md: 0}} mr={6} mb='0' display='block'>
     {children}
   </Text>
 ) */
@@ -29,35 +29,35 @@ export default function Header(props) {
 
   return (
     <Container
-      pt="3"
-      maxW="full"
-      position="fixed"
-      bgColor="white"
-      zIndex="9999"
-      margin="auto"
+      pt='3'
+      maxW='full'
+      position='fixed'
+      bgColor='white'
+      zIndex='9999'
+      margin='auto'
     >
       <Flex
-        as="header"
-        pb="1"
-        borderBottom="solid 1px "
+        as='header'
+        pb='1'
+        borderBottom='solid 1px '
         {...rest}
       >
         <Flex
-          direction="column"
+          direction='column'
         >
           <Heading 
             fontSize={['lg', 'xl', '3xl', '3xl']} 
             fontWeight={{base: 'normal', md: 'semibold'}} 
-            fontFamily="EB Garamond"
+            fontFamily='EB Garamond'
             px={{base: '5', md: '0'}}
           >
-            <Link href="/">
+            <Link href='/'>
               <a>{title}</a>
             </Link>
           </Heading>
           {/* <Image
             src={imageBuilder.image(logo).height(100).flipHorizontal().url()} 
-            alt="site logo" 
+            alt='site logo' 
             mb={{base: '0', md: '10'}} 
             h={{base: '25px', md: '100'}} 
             filter={inverse}
@@ -68,40 +68,40 @@ export default function Header(props) {
 
         <Button 
           display={{base: 'none', md:'inherit'}}
-          mt="2"
-          p="0" 
-          h="5" 
-          w="1" 
+          mt='2'
+          p='0' 
+          h='5' 
+          w='1' 
           onClick={toggleColorMode}
         >
           {colorMode === 'light' ? <MoonIcon w={3} h={3} /> : <SunIcon w={3} h={3} />}
         </Button>
         
         <Flex 
-          as="nav"
+          as='nav'
         >
-          <Menu placement="bottom">
-            <MenuButton as={Button} variant="link" color="gray.800" rightIcon={<ChevronDownIcon />}>
+          <Menu placement='bottom'>
+            <MenuButton as={Button} variant='link' color='gray.800' rightIcon={<ChevronDownIcon />}>
               Innholdsfortegnelse
             </MenuButton>
             <MenuList 
-              pl="10" 
+              pl='10' 
               as={List} 
-              styleType="lower-roman" 
-              spacing="1" 
+              styleType='lower-roman' 
+              spacing='1' 
               fontSize={['md', 'md', 'lg', 'lg']}
             >
               {mainNavigation?.items && mainNavigation.items.map((item) => (
-                <MenuItem as={ListItem} display="list-item" key={item._key}>
-                  <ActiveLink href={`/${item.route}`} activeClassName="active">
+                <MenuItem as={ListItem} display='list-item' key={item._key}>
+                  <ActiveLink href={`/${item.route}`} activeClassName='active'>
                     <a>{item.label}</a>
                   </ActiveLink>
                   
                   {/* {item.children && (
-                    <MenuList styleType="circle" ml="4" fontSize={['sm', 'sm', 'md', 'md']}>
+                    <MenuList styleType='circle' ml='4' fontSize={['sm', 'sm', 'md', 'md']}>
                       {item.children.map(child => (
                         <MenuItem key={child._key}>
-                          <ActiveLink href={`/${child.route}`} activeClassName="active">
+                          <ActiveLink href={`/${child.route}`} activeClassName='active'>
                             <a>{child.label}</a>
                           </ActiveLink>
                         </MenuItem>
@@ -114,8 +114,8 @@ export default function Header(props) {
               <MenuDivider />
               
               {footer.navMenu?.items && footer.navMenu.items.map((item) => (
-                <MenuItem as={ListItem} display="list-item" sx={{listStyle: "none"}} key={item._key}>
-                  <ActiveLink href={`/${item.route}`} activeClassName="active">
+                <MenuItem as={ListItem} display='list-item' sx={{listStyle: 'none'}} key={item._key}>
+                  <ActiveLink href={`/${item.route}`} activeClassName='active'>
                     <a>{item.label}</a>
                   </ActiveLink>
                 </MenuItem>
@@ -127,11 +127,11 @@ export default function Header(props) {
         </Flex>
 
 
-{/*         <Box ml="-5" display={{base: 'none', md: 'inherit'}}>
+        {/* <Box ml='-5' display={{base: 'none', md: 'inherit'}}>
           {publisher && publisher.map(p =>
-            <Container key={p._id} fontSize="xs" p="0" centerContent>
+            <Container key={p._id} fontSize='xs' p='0' centerContent>
               <Image
-                boxSize="50px"
+                boxSize='50px'
                 filter={inverse}
                 src={imageBuilder
                   .image(p.image)
@@ -143,48 +143,48 @@ export default function Header(props) {
             </Container>
           )}
         </Box>
-        <HStack ml="-5" display={{base: 'none', md: 'inherit'}}>
+        <HStack ml='-5' display={{base: 'none', md: 'inherit'}}>
           <License license={license} />
         </HStack> */}
 
       </Flex>
 
       <Box
-        position="fixed"
-        bottom="5"
-        right="5"
-        zIndex="2000"
+        position='fixed'
+        bottom='5'
+        right='5'
+        zIndex='2000'
       >
         <Button
-          w="12"
-          h="12"
+          w='12'
+          h='12'
           display={{base: 'block', md:'none'}}
-          borderRadius="full"
-          colorScheme="red"
-          boxShadow="dark-lg"
-          alignSelf="flex-start"
+          borderRadius='full'
+          colorScheme='red'
+          boxShadow='dark-lg'
+          alignSelf='flex-start'
           onClick={() => onOpen()}
-          leftIcon={<Icon color="white" h="12" w="8" ml="-2" as={HamburgerIcon} />}
+          leftIcon={<Icon color='white' h='12' w='8' ml='-2' as={HamburgerIcon} />}
         />
         <Drawer 
-          placement="bottom" 
+          placement='bottom' 
           onClose={onClose} 
           isOpen={isOpen} 
-          size="full" 
+          size='full' 
           onOverlayClick={onClose}
-          motionPreset="scale"
+          motionPreset='scale'
         >
           <DrawerOverlay>
             <DrawerContent>
               <DrawerCloseButton />
               <DrawerBody>
-                <Center h="full" w="full">
-                  <VStack align="stretch">
-                    <Flex flexWrap="nowrap" direction="column">
-                      <List styleType="lower-roman" spacing="1" fontSize={['lg', 'xl']}>
+                <Center h='full' w='full'>
+                  <VStack align='stretch'>
+                    <Flex flexWrap='nowrap' direction='column'>
+                      <List styleType='lower-roman' spacing='1' fontSize={['lg', 'xl']}>
                         {mainNavigation?.items && mainNavigation.items.map((item) => (
                           <ListItem key={item._key}>
-                            <ActiveLink href={`/${item.route}`} activeClassName="active">
+                            <ActiveLink href={`/${item.route}`} activeClassName='active'>
                               <a onClick={onClose}>{item.label}</a>
                             </ActiveLink>
                           </ListItem>
@@ -192,21 +192,21 @@ export default function Header(props) {
                       </List>
                     </Flex>
 
-                    <Flex mt="5" direction="column">
-                      <List styleType="upper-latin" spacing="1" fontSize={['lg', 'xl']}>
+                    <Flex mt='5' direction='column'>
+                      <List styleType='upper-latin' spacing='1' fontSize={['lg', 'xl']}>
                         {footer.navMenu?.items && footer.navMenu.items.map((item) => (
                           <ListItem key={item._key}>
-                            <ActiveLink href={`/${item.route}`} activeClassName="active">
+                            <ActiveLink href={`/${item.route}`} activeClassName='active'>
                               <a onClick={onClose}>{item.label}</a>
                             </ActiveLink>
                           </ListItem>
                         ))}
                       </List>
                     </Flex>
-                    {/* <Flex wrap="wrap" justifyContent="center" direction={{ base: "column", md: "row" }}>
+                    {/* <Flex wrap='wrap' justifyContent='center' direction={{ base: 'column', md: 'row' }}>
                       {mainNavigation?.items && mainNavigation.items.map((item) => (
                         <MenuItem key={item._key}>
-                          <ActiveLink passHref href={`/${item.route}`} activeClassName="active">
+                          <ActiveLink passHref href={`/${item.route}`} activeClassName='active'>
                             <a onClick={onClose}>{item.label}</a>
                           </ActiveLink>
                         </MenuItem>
@@ -215,10 +215,10 @@ export default function Header(props) {
 
                     <Spacer />
                     
-                    <Flex wrap="wrap" justifyContent="center" direction={{ base: "column", md: "row" }}>
+                    <Flex wrap='wrap' justifyContent='center' direction={{ base: 'column', md: 'row' }}>
                       {footer.navMenu?.items && footer.navMenu.items.map((item) => (
                         <MenuItem key={item._key}>
-                          <ActiveLink passHref href={`/${item.route}`} activeClassName="active">
+                          <ActiveLink passHref href={`/${item.route}`} activeClassName='active'>
                             <a onClick={onClose}>{item.label}</a>
                           </ActiveLink>
                         </MenuItem>
@@ -227,9 +227,9 @@ export default function Header(props) {
 
                     <Spacer />
 
-                    <Flex justifyContent="center">
-                      <Heading fontSize="sm" fontWeight="500">
-                        <Link href="http://marcus.uib.no/">
+                    <Flex justifyContent='center'>
+                      <Heading fontSize='sm' fontWeight='500'>
+                        <Link href='http://marcus.uib.no/'>
                           <a><Icon as={BsArrowUpLeft} /> tilbake til Marcus</a>
                         </Link>
                       </Heading>
@@ -241,17 +241,17 @@ export default function Header(props) {
             </DrawerContent>
           </DrawerOverlay>
           <Button
-            position="fixed"
-            bottom="5"
-            right="5"
-            w="12"
-            h="12"
-            borderRadius="full"
-            colorScheme="red"
-            boxShadow="dark-lg"
+            position='fixed'
+            bottom='5'
+            right='5'
+            w='12'
+            h='12'
+            borderRadius='full'
+            colorScheme='red'
+            boxShadow='dark-lg'
             onClick={() => onClose()}
-            zIndex="20000"
-            leftIcon={<Icon color="white" h="5" w="6" ml="2" as={CloseIcon} />}
+            zIndex='20000'
+            leftIcon={<Icon color='white' h='5' w='6' ml='2' as={CloseIcon} />}
           />
         </Drawer>
       </Box>

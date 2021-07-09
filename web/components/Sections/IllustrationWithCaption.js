@@ -48,12 +48,12 @@ export default function IllustrationWithCaption(props) {
         </Heading>
 
         {content && (
-            <PortableTextBlock 
-              fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'md'}} 
-              fontWeight="200"
-              mx="inherit"
-              blocks={content}              
-            />
+          <PortableTextBlock 
+            fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'md'}} 
+            fontWeight="200"
+            mx="inherit"
+            blocks={content}              
+          />
         )}
 
         {source && (

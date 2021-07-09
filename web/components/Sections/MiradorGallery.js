@@ -13,12 +13,12 @@ export default function MiradorGallery(props) {
   
   return (
     <Grid
-    maxW={['xl', 'xl', 'xl', '6xl']}
-    my={{base: '6', md: '16', xl: '20'}}
-    gridGap={5}
-    gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
-    gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
-    gridTemplateRows="1fr auto"
+      maxW={['xl', 'xl', 'xl', '6xl']}
+      my={{base: '6', md: '16', xl: '20'}}
+      gridGap={5}
+      gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
+      gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
+      gridTemplateRows="1fr auto"
     >
 
       {items ? 
