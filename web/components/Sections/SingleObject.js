@@ -14,7 +14,6 @@ export default function SingleObject(props) {
 
   return (
     <Grid
-      h="50vh" 
       maxW={['xl', 'xl', 'xl', '6xl']}
       my={{base: '6', md: '16', xl: '20'}}
       borderBottom={{base: 'solid 1px', md: 'none'}}
@@ -59,6 +58,7 @@ export default function SingleObject(props) {
           <PortableTextBlock 
             fontSize={{base: 'sm', sm: 'sm', md: 'sm', xl: 'md'}} 
             fontWeight="200"
+            mx="0"
             blocks={description} 
           />
         )}

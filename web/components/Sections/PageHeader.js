@@ -8,13 +8,13 @@ export default function PageHeader(props) {
 
   return (
     <Container 
+      centerContent
       borderBottom="solid 1px"
       borderColor="gray.300"
-      centerContent
+      py="5"
+      mb="8"
     >
       <Heading 
-        py="5"
-        mb="5"
         color="gray.700"
         // fontSize={['2xl', '3xl', '4xl', '5xl']}
         textTransform="uppercase"

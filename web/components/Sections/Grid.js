@@ -2,7 +2,6 @@ import {imageBuilder} from '../../lib/sanity'
 import { romanize } from 'react-roman'
 import NextLink from 'next/link'
 import {Grid, Box, Heading, Image, LinkBox, LinkOverlay, Text} from '@chakra-ui/react'
-import {useColorMode, useColorModeValue} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function Hero(props) {
@@ -11,11 +10,6 @@ export default function Hero(props) {
   }
 
   const {items} = props
-
-  const {colorMode, toggleColorMode} = useColorMode()
-  const bg = useColorModeValue('gray.800', 'gray.300')
-  const color = useColorModeValue('white', 'gray.800')
-
 
   return (
     <Grid

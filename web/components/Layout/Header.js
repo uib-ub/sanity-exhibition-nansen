@@ -1,9 +1,11 @@
 import React from 'react'
 import Link from 'next/link'
-import {Box, Button, Drawer, Container, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Menu, MenuButton, MenuList, MenuItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Center, Spacer, DrawerFooter, Tag, Avatar, TagLabel, HStack} from '@chakra-ui/react'
+import { useRouter } from 'next/router'
+import {Box, Button, Drawer, Container, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Menu, MenuButton, MenuDivider, MenuList, MenuItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Center, Spacer, DrawerFooter, Tag, Avatar, TagLabel, HStack} from '@chakra-ui/react'
 import {CloseIcon, MoonIcon, SunIcon, ChevronDownIcon} from '@chakra-ui/icons'
 import ActiveLink from '../Link/ActiveLink'
 import { HamburgerIcon } from '@chakra-ui/icons'
+import { romanize } from 'react-roman'
 import {imageBuilder} from '../../lib/sanity'
 import License from '../License'
 
@@ -17,11 +19,9 @@ export default function Header(props) {
   if(!props) {
     return null
   }
-  
+
+  const router = useRouter()
   const {colorMode, toggleColorMode} = useColorMode()
-  const color = useColorModeValue('black', 'white')
-  const bgcolor = useColorModeValue('white', 'black')
-  const inverse = useColorModeValue('invert(0%)', 'invert(85%)')
   const { isOpen, onOpen, onClose } = useDisclosure()
   
   const {data, ...rest} = props
@@ -29,11 +29,16 @@ export default function Header(props) {
 
   return (
     <Container
-      py="3"
-      maxW="6xl"
-      >
+      pt="3"
+      maxW="full"
+      position="fixed"
+      bgColor="white"
+      zIndex="9999"
+      margin="auto"
+    >
       <Flex
         as="header"
+        pb="1"
         borderBottom="solid 1px "
         {...rest}
       >
@@ -60,17 +65,34 @@ export default function Header(props) {
         </Flex>
 
         <Spacer />
+
+        <Button 
+          display={{base: 'none', md:'inherit'}}
+          mt="2"
+          p="0" 
+          h="5" 
+          w="1" 
+          onClick={toggleColorMode}
+        >
+          {colorMode === 'light' ? <MoonIcon w={3} h={3} /> : <SunIcon w={3} h={3} />}
+        </Button>
         
         <Flex 
           as="nav"
         >
           <Menu placement="bottom">
-            <MenuButton as={Button} variant="ghost" rightIcon={<ChevronDownIcon />}>
-              {title}
+            <MenuButton as={Button} variant="link" color="gray.800" rightIcon={<ChevronDownIcon />}>
+              Innholdsfortegnelse
             </MenuButton>
-            <MenuList pl="10" as={List} listStylePosition="inside" styleType="lower-roman" spacing="1" fontSize={['md', 'md', 'lg', 'lg']}>
+            <MenuList 
+              pl="10" 
+              as={List} 
+              styleType="lower-roman" 
+              spacing="1" 
+              fontSize={['md', 'md', 'lg', 'lg']}
+            >
               {mainNavigation?.items && mainNavigation.items.map((item) => (
-                <MenuItem as={ListItem} key={item._key}>
+                <MenuItem as={ListItem} display="list-item" key={item._key}>
                   <ActiveLink href={`/${item.route}`} activeClassName="active">
                     <a>{item.label}</a>
                   </ActiveLink>
@@ -88,41 +110,22 @@ export default function Header(props) {
                   )} */}
                 </MenuItem>
               ))}
+
+              <MenuDivider />
+              
               {footer.navMenu?.items && footer.navMenu.items.map((item) => (
-                <MenuItem key={item._key}>
+                <MenuItem as={ListItem} display="list-item" sx={{listStyle: "none"}} key={item._key}>
                   <ActiveLink href={`/${item.route}`} activeClassName="active">
                     <a>{item.label}</a>
                   </ActiveLink>
-
-                  {/* {item.children && (
-                    <List styleType="circle" ml="4" fontSize={["sm", "sm", "md", "md"]}>
-                      {item.children.map(child => (
-                        <MenuItem key={child._key}>
-                          <ActiveLink href={`/${child.route}`} activeClassName="active">
-                            <a>{child.label}</a>
-                          </ActiveLink>
-                        </MenuItem>
-                      ))}
-                    </List>
-                  )} */}
                 </MenuItem>
               ))}
-              <Button 
-                display={{base: 'none', md:'inherit'}}
-                mt="2"
-                p="0" 
-                h="5" 
-                w="1" 
-                onClick={toggleColorMode}
-              >
-                {colorMode === 'light' ? <MoonIcon w={3} h={3} /> : <SunIcon w={3} h={3} />}
-              </Button>
+
             </MenuList>
           </Menu>
 
         </Flex>
-        
-        <Spacer />
+
 
 {/*         <Box ml="-5" display={{base: 'none', md: 'inherit'}}>
           {publisher && publisher.map(p =>

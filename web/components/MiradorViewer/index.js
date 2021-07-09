@@ -177,7 +177,7 @@ export default function MiradorViewer(props) {
 
   return (
     <Box 
-      h="100%"
+      h="50vh"
       position="relative"
       gridArea={gridArea}
       bgColor="#eeeeee" 

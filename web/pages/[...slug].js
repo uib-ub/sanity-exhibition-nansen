@@ -12,7 +12,7 @@ export default function Page({data, preview}) {
     <Layout preview={preview} site={data.siteSettings}>
 
       <Container 
-        maxWidth="full" 
+        maxWidth="6xl" 
         centerContent
       >
         {/* A Page  */} 

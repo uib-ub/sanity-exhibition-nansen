@@ -17,45 +17,48 @@ export default function SubStory(props) {
 
   return (
     <Grid 
-      maxW="2xl"
-      py="5"
+      maxW="xl"
+      py="0"
       my="10"
+      mx="auto"
       borderY="1px solid"
       borderColor="red.200"
       templateColumns="2fr 4fr 1fr"
-      gap="4"
+      gap="2"
+      color="gray.500"
     >
       <Flex alignSelf="center">
         <Image
           maxW="100%"
-          src={imageBuilder.image(illustration.illustration.image).fit('fill').height(500).width(500).url()}
+          src={imageBuilder.image(illustration.illustration.image).fit('fill').height(500).url()}
           alt={''}
         />
       </Flex>
 
-      <Box>
-        <Badge
-          backgroundColor={bg}
-          color={color}
-        >
-          {label}
-        </Badge>
+      <Box pt="2" alignSelf="start">
+        {label && (
+          <Badge
+            variant="solid"
+            colorScheme="red"
+          >
+            {label}
+          </Badge>
+        )}
 
-        <Heading 
-          fontSize={['xl', '2xl', '2xl', '3xl']} 
+        <Heading
+          fontSize={['xl', 'xl', 'xl', 'xl']} 
         >
           {title}
         </Heading>
 
         {tagline && (
           <Box>
-            <PortableTextBlock fontSize={['md', 'xl']} blocks={tagline} />
+            <PortableTextBlock fontSize={['md', 'lg']} blocks={tagline} />
           </Box>
         )}
       </Box>
 
       <Button 
-        paddingTop="4"
         colorScheme="teal"
         variant="link"
         onClick={onOpen}

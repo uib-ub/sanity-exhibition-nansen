@@ -1,6 +1,6 @@
 import {getRegistry} from '../../lib/api'
 import Layout from '../../components/Layout'
-import {Badge, Heading, Box, List, ListItem, useColorModeValue} from '@chakra-ui/react'
+import {Badge, Heading, Container, List, ListItem, useColorModeValue} from '@chakra-ui/react'
 import Link from '../../components/Link'
 
 export default function Register({data, preview}) {
@@ -9,7 +9,7 @@ export default function Register({data, preview}) {
   return (
     <>
       <Layout preview={preview} site={data.siteSettings}>
-        <Box mx="5" maxW="6xl">
+        <Container my="5" maxW="6xl">
           <Heading 
             fontSize={['2xl', '3xl', '4xl', '5xl']}
             py="5"
@@ -68,7 +68,7 @@ export default function Register({data, preview}) {
                 ))}
             </List>
           )}
-        </Box>
+        </Container>
       </Layout>
     </>
   )

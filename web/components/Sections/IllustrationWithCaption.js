@@ -11,8 +11,7 @@ export default function IllustrationWithCaption(props) {
 
   return (
     <Grid
-      h={{xl: '50vh'}}
-      maxW={['xl', 'xl', 'xl', '6xl']}
+      maxW={['sm', 'sm', 'xl', '6xl']}
       my={{base: '6', md: '16', xl: '24'}}
       gridGap={5}
       gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
@@ -22,14 +21,15 @@ export default function IllustrationWithCaption(props) {
       
       {illustration ? (
         <Box 
-          h="50vh" 
+          maxH="50vh" 
+          w="100%"
           gridArea="image"
           bgColor='gray.200'
         >
           <Image
-            h="100%"
+            h="auto"
             margin="auto"
-            src={imageBuilder.image(illustration.image).fit('fill').url()}
+            src={imageBuilder.image(illustration.image).fit('fillmax').url()}
             alt={''}
           />
         </Box>
@@ -48,13 +48,12 @@ export default function IllustrationWithCaption(props) {
         </Heading>
 
         {content && (
-          <Box>
             <PortableTextBlock 
               fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'md'}} 
-              fontWeight="200" 
+              fontWeight="200"
+              mx="inherit"
               blocks={content}              
             />
-          </Box>
         )}
 
         {source && (

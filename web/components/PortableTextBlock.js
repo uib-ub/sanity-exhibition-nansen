@@ -16,6 +16,7 @@ export default function PortableTextBlock(props) {
     lineHeight=['1.25', '1.3'], 
     fontWeight = 'normal',
     fontFamily,
+    mx,
     ...rest
   } = props
 
@@ -57,7 +58,7 @@ export default function PortableTextBlock(props) {
         lineHeight={lineHeight} 
         fontWeight={fontWeight} 
         fontFamily={fontFamily} 
-        mx="auto"
+        mx={mx ?? 'auto'}
         {...rest}
       >
         {props.children}
