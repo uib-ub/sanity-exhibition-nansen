@@ -1,5 +1,5 @@
 import {imageBuilder} from '../../lib/sanity'
-import {Grid, Box, Image, Heading} from '@chakra-ui/react'
+import {Grid, Box, Image, Heading, Text} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function IllustrationWithCaption(props) {
