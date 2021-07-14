@@ -22,11 +22,11 @@ export default function ToCNav(props) {
     return {
       id: _(h.children[0].text).kebabCase(),
       text: _(h.children[0].text).trim(),
-      level: h.style
+      level: h.style.substring(1)
     }
   })
 
-  // console.log(headings)
+  console.log('Headings', headings)
   
   function buildTree(headers) {
     let list = [];
