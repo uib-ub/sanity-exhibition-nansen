@@ -114,7 +114,7 @@ export default function Header(props) {
               <MenuDivider />
               
               {footer.navMenu?.items && footer.navMenu.items.map((item) => (
-                <MenuItem as={ListItem} display='list-item' sx={{listStyle: 'none'}} key={item._key}>
+                <MenuItem as={ListItem} display='list-item' sx={{listStyleType: 'disc'}} key={item._key}>
                   <ActiveLink href={`/${item.route}`} activeClassName='active'>
                     <a>{item.label}</a>
                   </ActiveLink>

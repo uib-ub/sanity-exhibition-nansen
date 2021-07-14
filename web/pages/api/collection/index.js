@@ -56,7 +56,7 @@ export default async function handler(req, res) {
     const constructedManifest = constructCollection(object)
     const manifest = await constructedManifest
 
-    console.log('Collection served')
+    // console.log('Collection served')
     res.status(200).json(manifest)
     break
   default:

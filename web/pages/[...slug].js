@@ -4,6 +4,7 @@ import Date from '../components/Date'
 import Layout from '../components/Layout'
 import Sections from '../components/Sections/Sections'
 import PortableTextBlock from '../components/PortableTextBlock'
+import ToCNav from '../components/ToCNav'
 
 export default function Page({data, preview}) {
   const {content, body, title, _updatedAt} = data.route.page
@@ -12,9 +13,11 @@ export default function Page({data, preview}) {
     <Layout preview={preview} site={data.siteSettings}>
 
       <Container 
-        maxWidth="6xl" 
+        maxWidth="4xl" 
         centerContent
       >
+        <ToCNav blocks={body} />
+        
         {/* A Page  */} 
         {content && <Sections sections={content} /> }
 

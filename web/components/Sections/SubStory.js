@@ -67,7 +67,7 @@ export default function SubStory(props) {
       />
       
       <Drawer
-        size="full"
+        size="xl"
         isOpen={isOpen}
         placement="right"
         onClose={onClose}

@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic'
 import {Grid, Flex, Heading, Spacer} from '@chakra-ui/react'
 import Source from './Source'
 import PortableTextBlock from '../PortableTextBlock'
+import Caption from './shared/caption'
 
 const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), {ssr: false})
 
@@ -36,35 +37,7 @@ export default function SingleObject(props) {
         (<Flex gridArea="image">Mangler manifest</Flex>)
       }
 
-      <Flex 
-        h="full"
-        flexDirection="column" 
-        fontFamily="Montserrat" 
-        gridArea="metadata" 
-        pr={{base: 0, md: 10}}
-        alignSelf="flex-end"
-      >
-        <Heading 
-          fontFamily="Montserrat" 
-          fontWeight="semibold" 
-          color="red.600" 
-          fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'xl'}} 
-          mb={1}
-        >
-          {title}
-        </Heading>
-
-        {description && (
-          <PortableTextBlock 
-            fontSize={{base: 'sm', sm: 'sm', md: 'sm', xl: 'md'}} 
-            fontWeight="200"
-            mx="0"
-            blocks={description} 
-          />
-        )}
-        <Spacer />
-        <Source {...item} />
-      </Flex>
+      <Caption title={title} content={description} sourceItem={item} />
     </Grid>
   )
 }

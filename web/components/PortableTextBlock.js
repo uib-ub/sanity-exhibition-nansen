@@ -1,5 +1,6 @@
 import React from 'react'
 import NextLink from 'next/link'
+import {kebabCase} from 'lodash'
 import {Heading, Link, Text} from '@chakra-ui/react'
 import { BigText, Hero, Iframe, InstagramPost, PageHeader,Quote, MiradorGallery, SectionText, SingleLevelChart, SingleObject, Social, SubStory, TimelineSection, TwoColumn, Video, IllustrationWithCaption, ExhibitionElement } from './Sections'
 
@@ -36,11 +37,14 @@ export default function PortableTextBlock(props) {
 
     if (/^h\d/.test(style)) {
       const level = style
+      // TODO: This is prone to breaking when there is both hX and strong
+      const id = kebabCase(props.children)
       return (
         <Heading 
+          id={id}
           maxWidth={['xl', null, 'xl', null ]}
           margin="auto"
-          as={level} 
+          as={level}
           fontSize={getFontSize(level)}
         >
           {props.children}

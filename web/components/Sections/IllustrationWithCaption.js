@@ -1,6 +1,6 @@
 import {imageBuilder} from '../../lib/sanity'
-import {Grid, Box, Image, Heading} from '@chakra-ui/react'
-import PortableTextBlock from '../PortableTextBlock'
+import {Grid, Box, Image} from '@chakra-ui/react'
+import Caption from './shared/caption'
 
 export default function IllustrationWithCaption(props) {
   if (!props && !props.illustration) {
@@ -11,11 +11,13 @@ export default function IllustrationWithCaption(props) {
 
   return (
     <Grid
-      maxW={['sm', 'sm', 'xl', '6xl']}
-      my={{base: '6', md: '16', xl: '24'}}
+      maxW={['xl', 'xl', 'xl', '6xl']}
+      my={{base: '6', md: '16', xl: '20'}}
+      borderBottom={{base: 'solid 1px', md: 'none'}}
+      borderColor="gray.300"
       gridGap={5}
       gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
-      gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
+      gridTemplateColumns={{base: '3xl', xl: '10fr 4fr'}}
       gridTemplateRows="1fr auto"
     >
       
@@ -27,48 +29,16 @@ export default function IllustrationWithCaption(props) {
           bgColor='gray.200'
         >
           <Image
-            h="auto"
-            margin="auto"
-            src={imageBuilder.image(illustration.image).fit('fillmax').url()}
+            boxSize="full"
+            fit="contain"
+            src={imageBuilder.image(illustration.image).fit('fillmax').height(800).url()}
             alt={''}
           />
         </Box>
       ) : (<Flex gridArea="image">Mangler illustrasjon</Flex>)
       }
 
-      <Box fontFamily="Montserrat" gridArea="metadata" pr="10" overflowY={{xl: 'scroll'}}>
-        <Heading 
-          fontFamily="Montserrat" 
-          fontWeight="semibold" 
-          color="red.600" 
-          fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'xl'}} 
-          mb={1}
-        >
-          {title}
-        </Heading>
-
-        {content && (
-          <PortableTextBlock 
-            fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'md'}} 
-            fontWeight="200"
-            mx="inherit"
-            blocks={content}              
-          />
-        )}
-
-        {source && (
-          <Text 
-            color="gray.500" 
-            fontSize={{base: 'xs', sm: 'xs', md: 'sm', xl: 'sm'}}
-            pb={{base: '2', md: '0'}}
-            mb="0"
-          >
-            <Icon as={BsInfoCircle} mr="2" />
-
-            {source}
-          </Text>
-        )}
-      </Box>
+      <Caption title={title} content={content} source={source} />
     </Grid>
   )
 }

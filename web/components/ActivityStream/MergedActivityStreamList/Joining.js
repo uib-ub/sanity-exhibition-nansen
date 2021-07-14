@@ -3,7 +3,7 @@ import Link from '../../Link'
 import Timespan from '../../Timespan'
 
 export default function Joining(props) {
-  console.log(props)
+  // console.log(props)
   if(!props.joined) { 
     return null
   }
