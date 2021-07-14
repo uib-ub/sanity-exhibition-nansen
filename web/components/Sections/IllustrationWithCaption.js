@@ -1,5 +1,5 @@
 import {imageBuilder} from '../../lib/sanity'
-import {Grid, Box, Icon, Image, Heading, Text} from '@chakra-ui/react'
+import {Flex, Grid, Box, Icon, Image, Heading} from '@chakra-ui/react'
 import {BsInfoCircle} from 'react-icons/bs'
 import PortableTextBlock from '../PortableTextBlock'
 
@@ -59,16 +59,21 @@ export default function IllustrationWithCaption(props) {
         )}
 
         {source && (
-          <Text 
+          <Flex
             color="gray.500" 
             fontSize={{base: 'xs', sm: 'xs', md: 'sm', xl: 'sm'}}
             pb={{base: '2', md: '0'}}
             mb="0"
           >
-            <Icon as={BsInfoCircle} mr="2" />
-
-            {source}
-          </Text>
+            <Icon as={BsInfoCircle} mr="2" mt="1"/>
+            <PortableTextBlock 
+              color="gray.500" 
+              fontSize={{base: 'xs', sm: 'xs', md: 'sm', xl: 'sm'}}
+              mb="0"
+              mx="0"
+              blocks={source}
+            />
+          </Flex>
         )}
       </Box>
     </Grid>
