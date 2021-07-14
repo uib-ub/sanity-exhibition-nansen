@@ -1,7 +1,7 @@
 import React from 'react'
 import NextLink from 'next/link'
 import _ from 'lodash'
-import {ListItem, Link, OrderedList} from '@chakra-ui/react'
+import {List, ListItem, Link, OrderedList} from '@chakra-ui/react'
 
 const ListItemRenderer = (props) => {
   if(!props) { return null}
@@ -22,59 +22,49 @@ export default function ToCNav(props) {
     return {
       id: _(h.children[0].text).kebabCase(),
       text: _(h.children[0].text).trim(),
-      level: h.style.substring(1)
+      level: h.style
     }
   })
 
   console.log('Headings', headings)
   
-  function buildTree(headers) {
-    let list = [];
-    let nextLevelHeaders = [];
-    let lastLevel = -1;
+  const getNestedHeadings = (headingElements) => {
+    const nestedHeadings = [];
   
-    if (headers.length === 0) {
-      return "";
-    }
+    headingElements.forEach((heading, index) => {
+      const { id, text, level } = heading;
   
-    const buildSubTree = () => {
-      console.log(list, nextLevelHeaders, lastLevel)
-      if (nextLevelHeaders.length > 0) {
-        list[list.length] += buildTree(nextLevelHeaders);
+      if (heading.level === "h2") {
+        nestedHeadings.push({ id, text, items: [] });
+      } else if (heading.level === "h3" && nestedHeadings.length > 0) {
+        nestedHeadings[nestedHeadings.length - 1].items.push({
+          id,
+          text,
+        });
       }
-    };
-  
-    headers.forEach(h => {
-      if (lastLevel !== -1 && lastLevel < h.level) {
-        nextLevelHeaders.push(h);
-        return;
-      }
-  
-      buildSubTree();
-  
-      lastLevel = h.level;
-      list.push(<ListItem>
-        <Link href={`#${h.id}`}>{h.text}</Link>
-      </ListItem>);
-      nextLevelHeaders = [];
     });
   
-    buildSubTree();
+    return nestedHeadings;
+  };
 
-    console.log(list)
-
-    return (
-      <OrderedList>
-        {list.map(l => (l))}
-      </OrderedList>
-    );
-  }
-  const nav = buildTree(headings)
-  console.log(nav)
+  const list = getNestedHeadings(headings)
 
   return (
-     <div>
-       {nav}
-     </div>
+    <OrderedList>
+      {list.map((heading) => (
+        <List key={heading.id}>
+          <Link href={`#${heading.id}`}>{heading.text}</Link>
+          {heading.items.length > 0 && (
+            <OrderedList>
+              {heading.items.map((child) => (
+                <List key={child.id}>
+                  <Link href={`#${child.id}`}>{child.text}</Link>
+                </List>
+              ))}
+            </OrderedList>
+          )}
+        </List>
+      ))}
+    </OrderedList>
   )
 }
