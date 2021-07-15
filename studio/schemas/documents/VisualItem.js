@@ -14,10 +14,8 @@ export default {
       type: 'LocaleString',
       validation: (Rule) => Rule.required(),
       options: {
-        jsonld: {
-          context: {
-            '@container': '@language',
-          }
+        semanticSanity: {
+          '@container': '@language',
         }
       },
     },
@@ -29,11 +27,9 @@ export default {
       type: 'array',
       of: [{type: 'Creation'}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },

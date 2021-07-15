@@ -4,7 +4,7 @@ export default {
   title: 'Ustillingselement',
   titleEN: 'Exhibition element',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

@@ -5,7 +5,7 @@ export default {
   type: 'object',
   title: 'Quote',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

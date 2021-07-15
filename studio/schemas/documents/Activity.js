@@ -68,11 +68,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -88,10 +86,8 @@ export default {
         {type: 'Actor'}
       ],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -104,11 +100,9 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Activity'}]}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },
@@ -119,11 +113,9 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Activity'}]}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -134,11 +126,9 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Activity'}]}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -161,11 +151,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -199,11 +187,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -228,11 +214,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -245,11 +229,9 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },

@@ -1,25 +1,19 @@
-import {Flex} from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
+import Link from './Link'
 import PortableTextBlock from './PortableTextBlock'
 
-export default function Alert({alert, preview}) {
+export default function Alert({ alert, preview }) {
   if (!alert && preview === false) {
     return null
   }
 
-
   return (
     <Flex>
-      <div className="py-2 text-center text-sm">
+      <div>
         {preview && (
           <>
-            This page is a preview.{' '}
-            <a
-              href="/api/exit-preview"
-              className="underline hover:text-cyan duration-200 transition-colors"
-            >
-              Click here
-            </a>{' '}
-            to exit preview mode.
+            This page is a preview. <Link href="/api/exit-preview">Click here</Link> to exit preview
+            mode.
           </>
         )}
 

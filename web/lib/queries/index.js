@@ -1,7 +1,5 @@
 import { groq } from 'next-sanity'
-import {
-  activityStreamFields, siteSettings
-} from './fragments'
+import { activityStreamFields, siteSettings } from './fragments'
 
 /**
  * Enum of Classes that should generate pages
@@ -15,7 +13,7 @@ export const publicDocumentTypes = [
   'Concept',
   'ObjectType',
   'Place',
-  'Event'
+  'Event',
 ]
 
 export const actorsQuery = groq`

@@ -1,81 +1,39 @@
-import {imageBuilder} from '../../lib/sanity'
-import {Flex, Grid, Box, Icon, Image, Heading} from '@chakra-ui/react'
-import {BsInfoCircle} from 'react-icons/bs'
-import PortableTextBlock from '../PortableTextBlock'
+import { imageBuilder } from '../../lib/sanity'
+import { Flex, Grid, Box, Image } from '@chakra-ui/react'
+import Caption from './shared/caption'
 
 export default function IllustrationWithCaption(props) {
   if (!props && !props.illustration) {
     return null
   }
-  
-  const {title, content, illustration, source} = props
+
+  const { title, content, illustration, source } = props
 
   return (
     <Grid
-      h={{xl: '50vh'}}
       maxW={['xl', 'xl', 'xl', '6xl']}
-      my={{base: '6', md: '16', xl: '24'}}
+      my={{ base: '6', md: '16', xl: '20' }}
+      borderBottom={{ base: 'solid 1px', md: 'none' }}
+      borderColor="gray.300"
       gridGap={5}
-      gridTemplateAreas={{base: '"image" "metadata"', xl: '"image metadata"'}}
-      gridTemplateColumns={{base: '100%', xl: '10fr 4fr'}}
+      gridTemplateAreas={{ base: '"image" "metadata"', xl: '"image metadata"' }}
+      gridTemplateColumns={{ base: '3xl', xl: '10fr 4fr' }}
       gridTemplateRows="1fr auto"
     >
-      
       {illustration ? (
-        <Box 
-          h="50vh" 
-          gridArea="image"
-          bgColor='gray.200'
-        >
+        <Box maxH="50vh" w="100%" gridArea="image" bgColor="gray.200">
           <Image
-            h="100%"
-            margin="auto"
-            src={imageBuilder.image(illustration.image).fit('fill').url()}
+            boxSize="full"
+            fit="contain"
+            src={imageBuilder.image(illustration.image).fit('fillmax').height(800).url()}
             alt={''}
           />
         </Box>
-      ) : (<Flex gridArea="image">Mangler illustrasjon</Flex>)
-      }
+      ) : (
+        <Flex gridArea="image">Mangler illustrasjon</Flex>
+      )}
 
-      <Box fontFamily="Montserrat" gridArea="metadata" pr="10" overflowY={{xl: 'scroll'}}>
-        <Heading 
-          fontFamily="Montserrat" 
-          fontWeight="semibold" 
-          color="red.600" 
-          fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'xl'}} 
-          mb={1}
-        >
-          {title}
-        </Heading>
-
-        {content && (
-          <Box>
-            <PortableTextBlock 
-              fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'md'}} 
-              fontWeight="200" 
-              blocks={content}              
-            />
-          </Box>
-        )}
-
-        {source && (
-          <Flex
-            color="gray.500" 
-            fontSize={{base: 'xs', sm: 'xs', md: 'sm', xl: 'sm'}}
-            pb={{base: '2', md: '0'}}
-            mb="0"
-          >
-            <Icon as={BsInfoCircle} mr="2" mt="1"/>
-            <PortableTextBlock 
-              color="gray.500" 
-              fontSize={{base: 'xs', sm: 'xs', md: 'sm', xl: 'sm'}}
-              mb="0"
-              mx="0"
-              blocks={source}
-            />
-          </Flex>
-        )}
-      </Box>
+      <Caption title={title} content={content} source={source} />
     </Grid>
   )
 }

@@ -31,10 +31,8 @@ export default {
       descriptionEN: 'This can be used to schedule post for publishing',
       type: 'datetime',
       options: {
-        jsonld: {
-          context: {
-            "@type": "xsd:dateTime"
-          }
+        semanticSanity: {
+          "@type": "xsd:dateTime"
         }
       },
     },
@@ -47,10 +45,8 @@ export default {
       descriptionEN:
         'This ends up on summary pages, on Google, when people share your post in social media.',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },
@@ -60,10 +56,8 @@ export default {
       titleEN: 'Main image',
       type: 'DigitalImageObject',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },
@@ -73,10 +67,8 @@ export default {
       titleEN: 'Body',
       type: 'blockContent',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },
@@ -90,11 +82,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },
@@ -112,11 +102,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },

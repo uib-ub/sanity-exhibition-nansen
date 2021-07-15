@@ -1,11 +1,11 @@
-import {getAllHumanMadeObjects} from '../../lib/api'
+import { getAllHumanMadeObjects } from '../../lib/api'
 import Head from 'next/head'
 import Layout from '../../components/Layout'
 import Cards from '../../components/Cards'
-import {Container, Heading} from '@chakra-ui/react'
+import { Container, Heading } from '@chakra-ui/react'
 
-export default function Items({data, preview}) {
-  const {items, siteSettings} = data
+export default function Items({ data, preview }) {
+  const { items, siteSettings } = data
   return (
     <Layout preview={preview} site={siteSettings}>
       <Head>
@@ -13,7 +13,7 @@ export default function Items({data, preview}) {
       </Head>
 
       <Container my="5" maxWidth="6xl">
-        <Heading 
+        <Heading
           pb="5"
           mb="5"
           borderBottom="solid 1px"
@@ -30,9 +30,9 @@ export default function Items({data, preview}) {
   )
 }
 
-export async function getStaticProps({preview = false}) {
+export async function getStaticProps({ preview = false }) {
   const data = await getAllHumanMadeObjects(preview)
   return {
-    props: {data, preview},
+    props: { data, preview },
   }
 }

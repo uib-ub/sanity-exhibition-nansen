@@ -62,10 +62,8 @@ export default {
         {type: 'Language'}
       ],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -82,10 +80,8 @@ export default {
         {type: 'LinguisticDocument'},
       ],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -107,10 +103,8 @@ export default {
       descriptionEN: 'These values populate meta tags',
       type: 'OpenGraph',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },
@@ -123,10 +117,8 @@ export default {
       fieldset: 'visibility',
       type: 'boolean',
       options: {
-        jsonld: {
-          context: {
-            "@type": "xsd:boolean"
-          }
+        semanticSanity: {
+          "@type": "xsd:boolean"
         }
       },
     },
@@ -139,10 +131,8 @@ export default {
       fieldset: 'visibility',
       type: 'boolean',
       options: {
-        jsonld: {
-          context: {
-            "@type": "xsd:boolean"
-          }
+        semanticSanity: {
+          "@type": "xsd:boolean"
         }
       },
     },

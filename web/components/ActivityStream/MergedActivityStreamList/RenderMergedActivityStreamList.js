@@ -15,7 +15,7 @@ function resolveEvents(event) {
 }
 
 function RenderMergedActivityStreamList(props) {
-  const {stream} = props
+  const { stream } = props
 
   const filteredStream = stream.filter((x) => x._type)
 
@@ -33,7 +33,9 @@ function RenderMergedActivityStreamList(props) {
             <Alert status="error">
               <AlertIcon />
               <AlertTitle mr={2}>Missing event!</AlertTitle>
-              <AlertDescription>Add new event called <Code>{event._type}</Code>.</AlertDescription>
+              <AlertDescription>
+                Add new event called <Code>{event._type}</Code>.
+              </AlertDescription>
             </Alert>
           )
         }

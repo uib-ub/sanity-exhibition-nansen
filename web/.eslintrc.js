@@ -4,7 +4,16 @@ module.exports = {
     es2021: true,
     node: true,
   },
-  // extends: ['prettier', 'prettier/react', 'prettier/@typescript-eslint', 'prettier/babel'],
+  extends: [
+    'eslint:recommended',
+    // 'plugin:@typescript-eslint/recommended',
+    // 'plugin:jsx-a11y/recommended',
+    'next',
+    'prettier',
+    'next/core-web-vitals',
+    'plugin:prettier/recommended' // always at the end
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -12,12 +21,8 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react'],
   rules: {
-    curly: ['error', 'all'],
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'never'],
-  },
+    'react-hooks/rules-of-hooks': 'off',
+    'react/display-name': 'off'
+  }
 }

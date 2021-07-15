@@ -1,4 +1,4 @@
-import {AspectRatio, Heading} from '@chakra-ui/react'
+import { AspectRatio, Container, Heading } from '@chakra-ui/react'
 
 export default function Video(props) {
   return (
@@ -11,10 +11,7 @@ export default function Video(props) {
           width="1000px"
         /> */}
         <AspectRatio ratio={16 / 9}>
-          <iframe
-            src={props.url}
-            allowFullScreen
-          />
+          <iframe src={props.url} allowFullScreen />
         </AspectRatio>
       </Container>
     </>

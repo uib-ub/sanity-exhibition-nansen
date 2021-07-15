@@ -13,10 +13,8 @@ export default {
     accessState: 'open',
   },
   options: {
-    jsonld: {
-      context: {
-        '@id': 'muna:LinguisticDocument',
-      }
+    semanticSanity: {
+      '@id': 'muna:LinguisticDocument',
     }
   },
   fields: [
@@ -35,11 +33,9 @@ export default {
       ],
       /* validation: (Rule) => Rule.required(), */
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -49,10 +45,8 @@ export default {
       titleEN: 'Body',
       type: 'blockContent',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },
@@ -64,10 +58,8 @@ export default {
       to: [{type: 'Language'}],
       validation: (Rule) => Rule.required(),
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -84,11 +76,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -106,10 +96,8 @@ export default {
       type: 'array',
       of: [{type: 'file'}],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },

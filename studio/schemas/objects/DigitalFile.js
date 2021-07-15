@@ -12,10 +12,8 @@ export default {
       titleEN: 'Description',
       type: 'LocaleBlockSimple',
       options: {
-        jsonld: {
-          context: {
-            "@type": "@json"
-          }
+        semanticSanity: {
+          "@type": "@json"
         }
       },
     },

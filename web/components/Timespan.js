@@ -1,4 +1,4 @@
-import {Box, Grid, Heading} from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import PortableTextBlock from './PortableTextBlock'
 
 const formatDate = (date) => {
@@ -6,9 +6,11 @@ const formatDate = (date) => {
 }
 
 export default function Timespan(props) {
-  if (!props && props.timespan) {return null}
+  if (!props && props.timespan) {
+    return null
+  }
 
-  const {timespan, ...rest} = props
+  const { timespan, ...rest } = props
 
   return (
     <Box {...rest}>

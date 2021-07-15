@@ -1,28 +1,42 @@
-import {Flex, Container, Button, Text, useColorMode, useColorModeValue, Spacer} from '@chakra-ui/react'
+import {
+  Flex,
+  Container,
+  Button,
+  Text,
+  useColorMode,
+  useColorModeValue,
+  Spacer,
+} from '@chakra-ui/react'
 import ActiveLink from '../Link/ActiveLink'
-import {MoonIcon, SunIcon} from '@chakra-ui/icons'
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
-const MenuItem = ({children}) => (
-  <Text fontSize={{base: 'md', sm: 'md', md: 'xl', xl: 'xl'}} mt="0" mr={6} mb="0" display="block">
+const MenuItem = ({ children }) => (
+  <Text
+    fontSize={{ base: 'md', sm: 'md', md: 'xl', xl: 'xl' }}
+    mt="0"
+    mr={6}
+    mb="0"
+    display="block"
+  >
     {children}
   </Text>
 )
 
 export default function Footer(props) {
-  if(!props) {
+  if (!props) {
     return null
   }
 
-  const {colorMode, toggleColorMode} = useColorMode()
+  const { colorMode, toggleColorMode } = useColorMode()
   const bg = useColorModeValue('white', 'gray.700')
 
-  const {navMenu} = props
+  const { navMenu } = props
 
   return (
-    <Container 
-      as="footer" 
+    <Container
+      as="footer"
       gridArea="footer"
-      maxW="full" 
+      maxW="full"
       py="2"
       borderTopWidth="thin"
       borderTopStyle="dashed"
@@ -36,14 +50,19 @@ export default function Footer(props) {
         </Button>
 
         <Spacer />
-        
-        {navMenu?.items && navMenu.items.map((item) => (
-          <MenuItem key={item._key}>
-            <ActiveLink fontFamily="'Open Sans'" href={`/${item.route ?? ''}`} activeClassName="active">
-              <a>{item.label}</a>
-            </ActiveLink>
-          </MenuItem>
-        ))}
+
+        {navMenu?.items &&
+          navMenu.items.map((item) => (
+            <MenuItem key={item._key}>
+              <ActiveLink
+                fontFamily="'Open Sans'"
+                href={`/${item.route ?? ''}`}
+                activeClassName="active"
+              >
+                {item.label}
+              </ActiveLink>
+            </MenuItem>
+          ))}
       </Flex>
     </Container>
   )

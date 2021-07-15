@@ -8,7 +8,7 @@ export default {
   description: '',
   descriptionEN: '',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

@@ -8,26 +8,76 @@ import { getViewer } from 'mirador/dist/es/src/state/selectors'
 //custom icons
 const ZoomInIcon = (props) => (
   <SvgIcon {...props}>
-    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
-      <circle cx='10.5' cy='10.5' r='5.5' fill='none' stroke='currentColor' strokeLinejoin='bevel' strokeWidth='1.4'/>
-      <line x1='14.5' y1='14.5' x2='19' y2='19' fill='none' stroke='currentColor' strokeLinecap='square' strokeLinejoin='bevel' strokeWidth='1.4'/>
-      <rect x='10' y='8' width='1' height='5' fill='currentColor'/>
-      <rect x='10' y='8' width='1' height='5' transform='translate(21) rotate(90)' fill='currentColor'/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <circle
+        cx="10.5"
+        cy="10.5"
+        r="5.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="bevel"
+        strokeWidth="1.4"
+      />
+      <line
+        x1="14.5"
+        y1="14.5"
+        x2="19"
+        y2="19"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeLinejoin="bevel"
+        strokeWidth="1.4"
+      />
+      <rect x="10" y="8" width="1" height="5" fill="currentColor" />
+      <rect
+        x="10"
+        y="8"
+        width="1"
+        height="5"
+        transform="translate(21) rotate(90)"
+        fill="currentColor"
+      />
     </svg>
   </SvgIcon>
 )
 
 const ZoomOutIcon = (props) => (
   <SvgIcon {...props}>
-    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
-      <circle cx='10.5' cy='10.5' r='5.5' fill='none' stroke='currentColor' strokeLinejoin='bevel' strokeWidth='1.4'/>
-      <line x1='14.5' y1='14.5' x2='19' y2='19' fill='none' stroke='currentColor' strokeLinecap='square' strokeLinejoin='bevel' strokeWidth='1.4'/>
-      <rect x='10' y='8' width='1' height='5' transform='translate(21) rotate(90)' fill='currentColor'/>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+      <circle
+        cx="10.5"
+        cy="10.5"
+        r="5.5"
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="bevel"
+        strokeWidth="1.4"
+      />
+      <line
+        x1="14.5"
+        y1="14.5"
+        x2="19"
+        y2="19"
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="square"
+        strokeLinejoin="bevel"
+        strokeWidth="1.4"
+      />
+      <rect
+        x="10"
+        y="8"
+        width="1"
+        height="5"
+        transform="translate(21) rotate(90)"
+        fill="currentColor"
+      />
     </svg>
   </SvgIcon>
 )
 
-const styles = theme => ({
+const styles = () => ({
   CustomZoomButton: {
     backgroundColor: 'rgba(0,0,0,.5)',
     border: 0,
@@ -45,14 +95,14 @@ const styles = theme => ({
     },
     '&:not(:last-child)': {
       border: 0,
-    }
+    },
   },
   Loader: {
     backgroundColor: 'rgba(0,0,0,1)',
     width: 200,
     height: 200,
     margin: '0 auto',
-  }
+  },
 })
 
 class ZoomButtonsPlugin extends Component {
@@ -72,7 +122,7 @@ class ZoomButtonsPlugin extends Component {
     this.imageChange = this.imageChange.bind(this)
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
     const { viewer } = this.props
     const { viewerFullyLoaded } = this.state
     if (viewer && !viewerFullyLoaded) {
@@ -83,13 +133,13 @@ class ZoomButtonsPlugin extends Component {
 
   imageLoaded() {
     const { viewer } = this.props
-    this.setState({viewerFullyLoaded: true})
+    this.setState({ viewerFullyLoaded: true })
     viewer.removeHandler('tile-drawn', this.imageLoaded)
   }
 
   imageChange() {
     const { viewer } = this.props
-    this.setState({viewerFullyLoaded: false})
+    this.setState({ viewerFullyLoaded: false })
     viewer.removeHandler('close', this.imageChange)
   }
 
@@ -120,16 +170,28 @@ class ZoomButtonsPlugin extends Component {
   render() {
     const { classes, viewer, windowViewProperties } = this.props
     const { viewerFullyLoaded } = this.state
-    const zoomIn = ( windowViewProperties && viewer && windowViewProperties.zoom < viewer.viewport.getMaxZoom() )
-    const zoomOut = ( windowViewProperties && viewer && windowViewProperties.zoom > viewer.viewport.getMinZoom() )
+    const zoomIn =
+      windowViewProperties && viewer && windowViewProperties.zoom < viewer.viewport.getMaxZoom()
+    const zoomOut =
+      windowViewProperties && viewer && windowViewProperties.zoom > viewer.viewport.getMinZoom()
     return (
       <div className={!viewerFullyLoaded && classes.Loader ? 'false' : undefined}>
-        <div style={{position: 'absolute', bottom: 58, right: 32, left: 'auto', zIndex: 500}}>
-          <ButtonGroup size='large' disableElevation variant='contained' color='primary' >
-            <Button className={classes.CustomZoomButton} aria-label='zoom in' onClick={this.handleZoomInClick} disabled={!zoomIn}>
+        <div style={{ position: 'absolute', bottom: 58, right: 32, left: 'auto', zIndex: 500 }}>
+          <ButtonGroup size="large" disableElevation variant="contained" color="primary">
+            <Button
+              className={classes.CustomZoomButton}
+              aria-label="zoom in"
+              onClick={this.handleZoomInClick}
+              disabled={!zoomIn}
+            >
               <ZoomInIcon />
             </Button>
-            <Button className={classes.CustomZoomButton} aria-label='zoom out' onClick={this.handleZoomOutClick} disabled={!zoomOut}>
+            <Button
+              className={classes.CustomZoomButton}
+              aria-label="zoom out"
+              onClick={this.handleZoomOutClick}
+              disabled={!zoomOut}
+            >
               <ZoomOutIcon />
             </Button>
           </ButtonGroup>
@@ -144,11 +206,9 @@ class ZoomButtonsPlugin extends Component {
  * @memberof Workspace
  * @private
  */
-const mapStateToProps = (state, { windowId }) => (
-  {
-    windowViewProperties: getViewer(state, { windowId }),
-  }
-)
+const mapStateToProps = (state, { windowId }) => ({
+  windowViewProperties: getViewer(state, { windowId }),
+})
 
 export default {
   component: withStyles(styles)(ZoomButtonsPlugin),

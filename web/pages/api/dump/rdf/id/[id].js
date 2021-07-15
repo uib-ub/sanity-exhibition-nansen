@@ -1,20 +1,20 @@
-import {sanityClient as client} from '../../../../../lib/sanity.server'
+import { sanityClient as client } from '../../../../../lib/sanity.server'
 import * as jsonld from 'jsonld'
 import { toJSONLD } from '../../lib'
 import { getID } from '../../lib/queries'
 
 export default async function rdfIdHandler(req, res) {
   const {
-    query: {id}
+    query: { id },
   } = req
 
-  const response = await client.fetch(getID, {id})
+  const response = await client.fetch(getID, { id })
   const body = await response
 
   const json = toJSONLD(body)
 
   const jsonldData = {
-    '@context': 'https://muna.xyz/model/0.1/context.json', 
+    '@context': 'https://muna.xyz/model/0.1/context.json',
     ...json[0],
   }
 

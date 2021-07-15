@@ -1,9 +1,9 @@
-import {getAllConcepts} from '../../lib/api'
+import { getAllConcepts } from '../../lib/api'
 import Layout from '../../components/Layout'
-import {Container, List, ListItem} from '@chakra-ui/react'
+import { Container, List, ListItem } from '@chakra-ui/react'
 import Link from '../../components/Link'
 
-export default function Concepts({data, preview}) {
+export default function Concepts({ data, preview }) {
   return (
     <>
       <Layout preview={preview} site={data.siteSettings}>
@@ -25,9 +25,9 @@ export default function Concepts({data, preview}) {
   )
 }
 
-export async function getStaticProps({preview = false}) {
+export async function getStaticProps({ preview = false }) {
   const data = await getAllConcepts(preview)
   return {
-    props: {data, preview},
+    props: { data, preview },
   }
 }

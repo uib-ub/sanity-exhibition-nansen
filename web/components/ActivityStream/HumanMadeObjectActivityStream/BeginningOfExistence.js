@@ -1,37 +1,32 @@
 import { Box, Heading, Wrap, Tag, TagLabel, Avatar } from '@chakra-ui/react'
 import { imageBuilder } from '../../../lib/sanity'
 import Link from '../../Link'
-import PortableTextBlock from '../../PortableTextBlock'
 import Timespan from '../../Timespan'
 
 export default function BeginningOfExistence(props) {
-  if(!props) { 
+  if (!props) {
     return null
   }
 
-  const {_id, _key, label, timespan, contributionAssignedBy, tookplaceAt} = props
-  const id = _id ?? _key
-  
+  const { label, timespan, contributionAssignedBy } = props
+
   return (
     <Box border="1px solid" borderColor="gray.200" backgroundColor="gray.100" p="3">
-      <Heading 
-        as="h3" 
-        fontSize="md" 
+      <Heading
+        as="h3"
+        fontSize="md"
         pb="1"
         mb="2"
-        borderBottom="1px solid" 
+        borderBottom="1px solid"
         borderColor="gray.300"
         fontFamily="Montserrat"
         fontWeight="semibold"
-        fontSize="sm"
       >
         {label ? label : 'Skapt'}
       </Heading>
 
-      {timespan && (
-        <Timespan display="inline-block" fontWeight="bolder" timespan={timespan} />
-      )}
-      
+      {timespan && <Timespan display="inline-block" fontWeight="bolder" timespan={timespan} />}
+
       {contributionAssignedBy?.length > 0 && (
         <Wrap>
           {contributionAssignedBy.map((assignment) => (
@@ -48,7 +43,9 @@ export default function BeginningOfExistence(props) {
                   .url()}
               />
               <TagLabel>
-                <Link href={`/id/${assignment.assignedActor._id}`}>{assignment.assignedActor.label.no}</Link>
+                <Link href={`/id/${assignment.assignedActor._id}`}>
+                  {assignment.assignedActor.label.no}
+                </Link>
               </TagLabel>
             </Tag>
           ))}

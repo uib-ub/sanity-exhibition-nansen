@@ -24,10 +24,8 @@ export default {
       description: 'A shortish description',
       type: 'LocaleBlockSimple',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },
@@ -38,11 +36,9 @@ export default {
       type: 'array',
       of: [{type: 'Timespan'}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+      semanticSanity: { 
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -53,11 +49,9 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Place'}]}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: { 
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },

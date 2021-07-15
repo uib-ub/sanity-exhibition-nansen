@@ -1,4 +1,4 @@
-import {sanityClient as client} from '../../../../lib/sanity.server'
+import { sanityClient as client } from '../../../../lib/sanity.server'
 import * as jsonld from 'jsonld'
 import { toJSONLD } from '../lib'
 import { getDump } from '../lib/queries'
@@ -10,7 +10,7 @@ export default async function rdfHandler(req, res) {
   const json = toJSONLD(body)
 
   const jsonldData = {
-    '@context': 'https://muna.xyz/model/0.1/context.json', 
+    '@context': 'https://muna.xyz/model/0.1/context.json',
     '@graph': [...json],
   }
 

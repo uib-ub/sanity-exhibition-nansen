@@ -27,11 +27,9 @@ export default {
       type: 'array',
       of: [{type: 'Production'}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -47,11 +45,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -67,11 +63,9 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -85,11 +79,9 @@ export default {
       type: 'array',
       of: [{type: 'reference', to: [{type: 'Material'}]}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },

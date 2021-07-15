@@ -1,7 +1,0 @@
-{
-  "base": "http://data.muna.xyz/",
-  "vocab": {
-    "prefix": "muna",
-    "uri": "http://muna.xyz/model/0.1/"
-  }
-}

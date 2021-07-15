@@ -22,7 +22,7 @@ export default {
   title: 'Social',
   description: 'A big social. Centered',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

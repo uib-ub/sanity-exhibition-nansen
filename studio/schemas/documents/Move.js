@@ -47,11 +47,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -65,10 +63,8 @@ export default {
         {type: 'Storage'}
       ],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },
@@ -82,10 +78,8 @@ export default {
         {type: 'Storage'}
       ],
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },

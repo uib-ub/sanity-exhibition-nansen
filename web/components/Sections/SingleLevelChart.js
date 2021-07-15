@@ -1,7 +1,6 @@
-import { Box, Heading } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 import { ResponsivePie } from '@nivo/pie'
-
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -10,10 +9,10 @@ import { ResponsivePie } from '@nivo/pie'
 // you'll often use just a few of them.
 
 export default function SingleLevelChart(props) {
-  const {data, caption} = props
+  const { data, caption } = props
 
   return (
-    <Box as="figure" maxW={['lg',null, null, null, 'xl']} h="md">
+    <Box as="figure" maxW={['lg', null, null, null, 'xl']} h="md">
       <ResponsivePie
         data={JSON.parse(data.code)}
         margin={{ top: 40, right: 80, bottom: 40, left: 80 }}
@@ -22,13 +21,13 @@ export default function SingleLevelChart(props) {
         cornerRadius={3}
         activeOuterRadiusOffset={8}
         borderWidth={1}
-        borderColor={{ from: 'color', modifiers: [ [ 'darker', 0.2 ] ] }}
+        borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}
         arcLinkLabelsSkipAngle={10}
         arcLinkLabelsTextColor="#333333"
         arcLinkLabelsThickness={2}
         arcLinkLabelsColor={{ from: 'color' }}
         arcLabelsSkipAngle={10}
-        arcLabelsTextColor={{ from: 'color', modifiers: [ [ 'darker', 2 ] ] }}
+        arcLabelsTextColor={{ from: 'color', modifiers: [['darker', 2]] }}
         defs={[
           {
             id: 'dots',
@@ -37,7 +36,7 @@ export default function SingleLevelChart(props) {
             color: 'rgba(255, 255, 255, 0.3)',
             size: 4,
             padding: 1,
-            stagger: true
+            stagger: true,
           },
           {
             id: 'lines',
@@ -46,8 +45,8 @@ export default function SingleLevelChart(props) {
             color: 'rgba(255, 255, 255, 0.3)',
             rotation: -45,
             lineWidth: 6,
-            spacing: 10
-          }
+            spacing: 10,
+          },
         ]}
         /* legends={[
           {
@@ -77,7 +76,7 @@ export default function SingleLevelChart(props) {
       />
       <figcaption>
         <PortableTextBlock
-          fontSize={{base: 'sm', sm: 'sm', md: 'md', xl: 'md'}}
+          fontSize={{ base: 'sm', sm: 'sm', md: 'md', xl: 'md' }}
           blocks={caption}
         />
       </figcaption>

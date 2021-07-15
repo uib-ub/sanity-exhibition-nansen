@@ -15,7 +15,7 @@ function resolveSections(section) {
 }
 
 function RenderSections(props) {
-  const {sections} = props
+  const { sections } = props
 
   const filteredSections = sections.filter((x) => x._type)
 
@@ -33,7 +33,9 @@ function RenderSections(props) {
             <Alert status="error">
               <AlertIcon />
               <AlertTitle mr={2}>Missing section!</AlertTitle>
-              <AlertDescription>Add new section called <Code>{section._type}</Code>.</AlertDescription>
+              <AlertDescription>
+                Add new section called <Code>{section._type}</Code>.
+              </AlertDescription>
             </Alert>
           )
         }

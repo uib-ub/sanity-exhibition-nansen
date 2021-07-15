@@ -68,11 +68,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -98,11 +96,9 @@ export default {
       of: [{type: 'Acquisition'}],
       options: {
         editModal: 'fullscreen',
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },
@@ -114,7 +110,7 @@ export default {
       of: [{type: 'file'}],
       options: {
         editModal: 'fullscreen',
-        jsonld: {
+        semanticSanity: {
           exclude: false
         }
       },

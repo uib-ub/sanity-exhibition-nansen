@@ -2,12 +2,8 @@ import React, { Component } from 'react'
 
 // a plugin to remove default navigation controls
 class RemoveNavPlugin extends Component {
-
   render() {
-    return (
-      <div>
-      </div>
-    )
+    return <div></div>
   }
 }
 

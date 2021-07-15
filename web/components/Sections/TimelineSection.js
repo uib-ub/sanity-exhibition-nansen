@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import {Container, Box} from '@chakra-ui/react'
+import Script from 'next/script'
+import { Container, Box } from '@chakra-ui/react'
 import PortableTextBlockQuote from '../PortableTextBlockQuote'
 import PortableTextBlock from '../PortableTextBlock'
 
@@ -153,22 +153,20 @@ const tl = Object.assign({}, item, {
 export default function TimelineSection(props) {
   return (
     <Container maxW="4xl" marginTop="10">
-      <Head>
-        <link title="timeline-styles" rel="stylesheet" href="/static/timeline3/css/timeline.css" />
-        <script type="text/javascript" src="/static/timeline3/js/timeline-min.js"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `var additionalOptions = {
-              script_path: '/static/timeline3/js',
-            }
-            
-            timeline = new TL.Timeline('timeline-embed',
-            'https://docs.google.com/spreadsheets/d/1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI/pubhtml',
-            additionalOptions);`,
-          }}
-        />
-      </Head>
-      <div id="timeline-embed" style={{width: '100%', height: '500px'}}></div>
+      <link title="timeline-styles" rel="stylesheet" href="/static/timeline3/css/timeline.css" />
+      <Script type="text/javaScript" src="/static/timeline3/js/timeline-min.js"></Script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `var additionalOptions = {
+            script_path: '/static/timeline3/js',
+          }
+          
+          timeline = new TL.Timeline('timeline-embed',
+          'https://docs.google.com/spreadsheets/d/1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI/pubhtml',
+          additionalOptions);`,
+        }}
+      />
+      <div id="timeline-embed" style={{ width: '100%', height: '500px' }}></div>
       <Box>
         <Box size="md">
           <PortableTextBlockQuote fontSize="2xl" blocks={props.content} />

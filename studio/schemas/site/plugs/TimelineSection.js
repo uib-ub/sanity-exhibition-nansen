@@ -6,7 +6,7 @@ export default {
   titleEN: 'Timeline',
   type: 'object',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

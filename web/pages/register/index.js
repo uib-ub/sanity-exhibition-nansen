@@ -1,16 +1,16 @@
-import {getRegistry} from '../../lib/api'
+import { getRegistry } from '../../lib/api'
 import Layout from '../../components/Layout'
-import {Badge, Heading, Box, List, ListItem, useColorModeValue} from '@chakra-ui/react'
+import { Badge, Heading, Container, List, ListItem, useColorModeValue } from '@chakra-ui/react'
 import Link from '../../components/Link'
 
-export default function Register({data, preview}) {
+export default function Register({ data, preview }) {
   const tagColor = useColorModeValue('blackAlpha', 'red')
 
   return (
     <>
       <Layout preview={preview} site={data.siteSettings}>
-        <Box mx="5" maxW="6xl">
-          <Heading 
+        <Container my="5" maxW="6xl">
+          <Heading
             fontSize={['2xl', '3xl', '4xl', '5xl']}
             py="5"
             mb="5"
@@ -20,17 +20,13 @@ export default function Register({data, preview}) {
           >
             Register
           </Heading>
-          
+
           {data.items && (
-            <List 
-              py={['2',null, '5']}
-              sx={{ columnCount: [1, 1, 2, 3, 3] }}
-              fontSize="xl"
-            >
+            <List py={['2', null, '5']} sx={{ columnCount: [1, 1, 2, 3, 3] }} fontSize="xl">
               {data.items
                 .filter((item) => item.count > 0)
                 .map((item) => (
-                  <ListItem 
+                  <ListItem
                     key={item._id}
                     display="flex"
                     mb="1"
@@ -43,15 +39,12 @@ export default function Register({data, preview}) {
                       flexGrow: '1',
                       height: '1em',
                       order: '2',
-                      mt:'2px',
-                      alignSelf:'flex-start',
-                      justifySelf:'self-end'
+                      mt: '2px',
+                      alignSelf: 'flex-start',
+                      justifySelf: 'self-end',
                     }}
                   >
-                    <Link 
-                      href={`/id/${item._id}`}
-                      order="1"
-                    >
+                    <Link href={`/id/${item._id}`} order="1">
                       {item.label.no ?? 'Mangler norsk tittel'}
                     </Link>
                     <Badge
@@ -68,15 +61,15 @@ export default function Register({data, preview}) {
                 ))}
             </List>
           )}
-        </Box>
+        </Container>
       </Layout>
     </>
   )
 }
 
-export async function getStaticProps({preview = false}) {
+export async function getStaticProps({ preview = false }) {
   const data = await getRegistry(preview)
   return {
-    props: {data, preview},
+    props: { data, preview },
   }
 }

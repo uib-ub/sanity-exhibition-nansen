@@ -9,10 +9,8 @@ export default {
       title: 'Transferred',
       type: 'DigitalObject',
       options: {
-        jsonld: {
-          context: {
-            "@type": "@json"
-          }
+        semanticSanity: {
+          "@type": "@json"
         }
       },
     },
@@ -21,10 +19,8 @@ export default {
       title: 'Has sender',
       type: 'DigitalDevice',
       options: {
-        jsonld: {
-          context: {
-            "@type": "@json"
-          }
+        semanticSanity: {
+          "@type": "@json"
         }
       },
     },
@@ -33,10 +29,8 @@ export default {
       title: 'Timestamp',
       type: 'datetime',
       options: {
-        jsonld: {
-          context: {
-            "@type": "xsd:dateTime"
-          }
+        semanticSanity: {
+          "@type": "xsd:dateTime"
         }
       },
     },

@@ -5,7 +5,7 @@ export default {
   type: 'object',
   title: 'localeBlockReport',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

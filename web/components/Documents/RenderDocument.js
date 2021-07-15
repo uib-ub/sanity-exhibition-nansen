@@ -15,7 +15,7 @@ function resolveDocument(document) {
 }
 
 function RenderDocument(props) {
-  const {document} = props
+  const { document } = props
 
   if (!document) {
     console.error('Missing document type')
@@ -28,7 +28,9 @@ function RenderDocument(props) {
       <Alert status="error">
         <AlertIcon />
         <AlertTitle mr={2}>Missing section!</AlertTitle>
-        <AlertDescription>Add new section called <Code>{document._type}</Code>.</AlertDescription>
+        <AlertDescription>
+          Add new section called <Code>{document._type}</Code>.
+        </AlertDescription>
       </Alert>
     )
   } else {

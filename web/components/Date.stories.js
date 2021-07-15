@@ -8,9 +8,9 @@ export default {
     children: {
       control: {
         type: 'date',
-      }
-    }
-  }
+      },
+    },
+  },
 }
 
 const Template = (args) => <Date>{args.children}</Date>

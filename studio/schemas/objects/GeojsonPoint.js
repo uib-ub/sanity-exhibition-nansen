@@ -3,7 +3,7 @@ export default {
   type: 'object',
   title: 'Point',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

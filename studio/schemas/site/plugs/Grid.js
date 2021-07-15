@@ -23,7 +23,7 @@ export default {
     },
   ],
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

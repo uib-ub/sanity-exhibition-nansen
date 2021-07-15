@@ -3,7 +3,7 @@ export default {
   type: 'object',
   title: 'iFrame',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

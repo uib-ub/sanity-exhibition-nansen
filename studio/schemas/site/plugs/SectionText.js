@@ -5,7 +5,7 @@ export default {
   title: 'Text',
   type: 'object',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

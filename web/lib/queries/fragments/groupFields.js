@@ -1,5 +1,5 @@
 import groq from 'groq'
-import {activityStreamFields} from './activityStreamFields'
+import { activityStreamFields } from './activityStreamFields'
 
 export const groupFields = groq`
   _id,

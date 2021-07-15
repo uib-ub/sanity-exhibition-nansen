@@ -1,16 +1,16 @@
-import React, {useState, useEffect} from 'react'
-import MapGL, {Source, Layer} from 'react-map-gl'
-import {createGeojson, fitViewportToFeature} from './util'
+import React, { useState } from 'react'
+import MapGL, { Source, Layer } from 'react-map-gl'
+import { createGeojson, fitViewportToFeature } from './util'
 
 const token = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN
 
-export default function Map({data}) {
+export default function Map({ data }) {
   if (!data) {
     return null
   }
   const geojson = createGeojson(data)
-  const {latitude, longitude} = fitViewportToFeature(geojson, {
-    padding: {left: 20, top: 20, right: 20, bottom: 20},
+  const { latitude, longitude } = fitViewportToFeature(geojson, {
+    padding: { left: 20, top: 20, right: 20, bottom: 20 },
   })
 
   const [viewport, setViewport] = useState({

@@ -23,10 +23,8 @@ export default {
       to: [{type: 'IdentifierType'}],
       validation: (Rule) => Rule.required(),
       options: {
-        jsonld: {
-          context: {
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@type': '@id'
         }
       },
     },

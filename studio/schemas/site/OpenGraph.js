@@ -27,10 +27,8 @@ export default {
       descriptionEN: 'Facebook recommends 1200x630 (will be auto resized)',
       type: 'DigitalImageObject',
       options: {
-        jsonld: {
-          context: {
-            '@type': '@json'
-          }
+        semanticSanity: {
+          '@type': '@json'
         }
       },
     },

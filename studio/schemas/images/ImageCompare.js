@@ -8,7 +8,7 @@ export default {
   type: 'object',
   title: 'Compare images',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

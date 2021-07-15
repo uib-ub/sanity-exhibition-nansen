@@ -12,12 +12,12 @@ export function overlayDrafts(docs) {
     if (!doc._id) {
       throw new Error('Ensure that `_id` is included in query projection')
     }
-    
+
     const isDraft = doc._id.startsWith('drafts.')
     const id = isDraft ? doc._id.slice(7) : doc._id
     return isDraft || !map.has(id) ? map.set(id, doc) : map
   }, new Map())
-  
+
   return Array.from(overlayed.values())
 }
 
@@ -30,5 +30,4 @@ export const previewClient = createClient({
 })
 
 // Helper function for easily switching between normal client and preview client
-export const getClient = (usePreview) => 
-  usePreview ? previewClient : sanityClient
+export const getClient = (usePreview) => (usePreview ? previewClient : sanityClient)

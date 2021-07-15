@@ -3,7 +3,7 @@ export default {
   type: 'object',
   title: 'Social collection',
   options: {
-    jsonld: {
+    semanticSanity: {
       exclude: true
     }
   },

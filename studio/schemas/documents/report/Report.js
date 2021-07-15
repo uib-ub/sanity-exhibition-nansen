@@ -107,11 +107,9 @@ export default {
       ],
       validation: (Rule) => Rule.required(),
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -149,11 +147,9 @@ export default {
         {type: 'Sampling'}
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },
@@ -204,11 +200,9 @@ export default {
       of: [{type: 'DigitalImageObject'}],
       options: {
         layout: 'grid',
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -242,11 +236,9 @@ export default {
       type: 'array',
       of: [{type: 'file'}],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -276,11 +268,9 @@ export default {
       of: [{type: 'Report'}],
       options: {
         editModal: 'fullscreen',
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },

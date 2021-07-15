@@ -33,10 +33,7 @@ const theme = extendTheme({
       },
       "#__next": {
         display: 'grid',
-        direction: 'column',
-        h: '100%',
-        gridTemplateAreas: {base: '"header header header" "nav toggle main"', xl: '"header header header" "nav toggle main"'},
-        gridTemplateColumns: {base: "0px 0px 8fr", md: "auto auto 1fr", xl: "auto auto 1fr"},
+        gridTemplateAreas: {base: '"header" "main"', xl: '"header" "main"'},
       },
       ".active": {
         borderBottom: 'solid 2px',

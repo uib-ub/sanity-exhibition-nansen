@@ -24,11 +24,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       },
     },
@@ -46,11 +44,9 @@ export default {
       options: {
         filter: '_type == "Actor" && references($id)',
         filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'},
-        jsonld: {
-          context: {
-            '@container': '@set',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
         }
       }
     },
@@ -69,15 +65,15 @@ export default {
           options: {
             filter: '_type == "Actor" && references($id)',
             filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'},
-            jsonld: {
-              context: {
-                '@container': '@set',
-                '@type': '@id'
-              }
-            }
           }
         }
       ],
+      options: {
+        semanticSanity: {
+          '@container': '@set',
+          '@type': '@id'
+        }
+      }
     },
     referredToBy,
   ],

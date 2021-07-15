@@ -1,21 +1,15 @@
 import Link from 'next/link'
-import {imageBuilder} from '../../../lib/sanity'
+import { imageBuilder } from '../../../lib/sanity'
 import {
   Avatar,
-  AvatarGroup,
-  Badge,
   Box,
-  Grid,
   Heading,
   HStack,
-  List,
-  ListItem,
   Popover,
   PopoverTrigger,
   PopoverContent,
   PopoverHeader,
   PopoverBody,
-  PopoverFooter,
   PopoverArrow,
   PopoverCloseButton,
   Portal,
@@ -24,30 +18,30 @@ import {
   TagLeftIcon,
   TagLabel,
 } from '@chakra-ui/react'
-import {SunIcon, ArrowForwardIcon} from '@chakra-ui/icons'
+import { SunIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import Timespan from '../../Timespan'
 import PortableTextBlock from '../../PortableTextBlock'
 import Map from '../../Map'
 import HasType from '../../HasType'
-import {capitalize} from '../../../lib/utils'
+import { capitalize } from '../../../lib/utils'
 
-export default function Activity({data}) {
+export default function Activity({ data }) {
   if (!data) {
     return null
   }
 
-  if(data._type === 'BeginningOfExistence') {
+  if (data._type === 'BeginningOfExistence') {
     data._type = 'Skapt'
   }
-  if(data._type === 'Production') {
+  if (data._type === 'Production') {
     data._type = 'Produksjon'
   }
 
   return (
     <Box>
-      <Heading 
-        as="h4" 
-        fontSize="sm" 
+      <Heading
+        as="h4"
+        fontSize="sm"
         fontWeight="normal"
         pb="1"
         mb="2"
@@ -95,7 +89,9 @@ export default function Activity({data}) {
                     .url()}
                 />
                 <TagLabel>
-                  <Link href={`/id/${assignment.assignedActor._id}`}>{assignment.assignedActor.label.no}</Link>
+                  <Link href={`/id/${assignment.assignedActor._id}`}>
+                    {assignment.assignedActor.label.no}
+                  </Link>
                 </TagLabel>
               </Tag>
             ))}
@@ -109,11 +105,7 @@ export default function Activity({data}) {
               <PopoverTrigger>
                 <Avatar
                   name={data.target.label.no}
-                  src={imageBuilder
-                    .image(data.target.image)
-                    .height('300')
-                    .width('300')
-                    .url()}
+                  src={imageBuilder.image(data.target.image).height('300').width('300').url()}
                 />
               </PopoverTrigger>
               <Portal>
@@ -135,28 +127,26 @@ export default function Activity({data}) {
 
       {data.movedTo && (
         <p>
-          <span>
-            ➡️
-            <a href={`/id/${data.movedTo._id}`}>{data.movedTo.label.no}</a>
-          </span>
+          <span role="img">➡️</span>
+          <a href={`/id/${data.movedTo._id}`}>{data.movedTo.label.no}</a>
         </p>
       )}
 
       {data.observedDimension?.length > 0 &&
         data.observedDimension.map((dimension) => (
-          <span>
+          <span key={dimension._key}>
             <strong>{dimension.hasType}:</strong>
             {dimension.value} {dimension.hasUnit.no}
           </span>
         ))}
-    
+
       <Box>
         {/* TODO: FIX */}
         {data.tookPlaceAt?.length > 0 &&
           data.tookPlaceAt.map((place) => (
             <>
               {place.definedByGeoJSON && (
-                <div>
+                <div key={place._id}>
                   <Map data={place.definedByGeoJSON} />
                 </div>
               )}
@@ -171,6 +161,5 @@ export default function Activity({data}) {
         )}
       </Box>
     </Box>
-
   )
 }

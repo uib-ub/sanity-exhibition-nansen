@@ -22,10 +22,8 @@ export default {
   icon: FaGlasses,
   fieldsets: defaultFieldsets,
   options: {
-    jsonld: {
-      context: {
-        '@id': 'crm:E89_Propositional_Object'
-      }
+    semanticSanity: {
+      '@id': 'crm:E89_Propositional_Object'
     }
   },
   fields: [
@@ -48,11 +46,9 @@ export default {
         },
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },
@@ -67,11 +63,9 @@ export default {
         {type: 'Move'}
       ],
       options: {
-        jsonld: {
-          context: {
-            '@container': '@list',
-            '@type': '@id'
-          }
+        semanticSanity: {
+          '@container': '@list',
+          '@type': '@id'
         }
       },
     },
