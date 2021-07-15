@@ -19,6 +19,7 @@ import {
 } from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import IllustrationWithCaption from './IllustrationWithCaption'
 
 export default function SubStory(props) {
   if (props.disabled === true) {
@@ -88,15 +89,7 @@ export default function SubStory(props) {
             <DrawerBody>
               <Container maxW="2xl" centerContent>
                 {illustration?.illustration?.image && illustration.illustration.image && (
-                  <Image
-                    src={imageBuilder
-                      .image(illustration.illustration.image)
-                      .height(600)
-                      .width(800)
-                      .url()}
-                    alt={''}
-                    mb="5"
-                  />
+                  <IllustrationWithCaption {...illustration} />
                 )}
                 <PortableTextBlock fontSize={['md', 'xl']} blocks={content} />
                 <Button
