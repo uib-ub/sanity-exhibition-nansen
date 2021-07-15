@@ -1,17 +1,17 @@
-const defaults = {open: '«', close: '»', find: '"'}
+const defaults = { open: '«', close: '»', find: '"' }
 
 module.exports = function convertQuotationMarks(blocks, chars = defaults) {
   const characters = chars === defaults ? defaults : Object.assign({}, defaults, chars)
   const find = characters.find.replace(/([?!${}*:()|=^[\]/\\.+])/g, '\\$1')
   const pattern = new RegExp(find, 'g')
 
-  return blocks.map(block => {
+  return blocks.map((block) => {
     if (block._type !== 'block' || !block.children) {
       return block
     }
 
     let isOpen = false
-    const children = block.children.map(child => {
+    const children = block.children.map((child) => {
       if (child._type !== 'span' || !child.text) {
         return child
       }
@@ -22,9 +22,9 @@ module.exports = function convertQuotationMarks(blocks, chars = defaults) {
         return char
       })
 
-      return Object.assign({}, child, {text})
+      return Object.assign({}, child, { text })
     })
 
-    return Object.assign({}, block, {children})
+    return Object.assign({}, block, { children })
   })
 }

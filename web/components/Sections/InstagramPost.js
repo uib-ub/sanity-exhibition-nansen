@@ -1,8 +1,8 @@
-import {Box, Heading} from '@chakra-ui/react'
+import { Box, Heading } from '@chakra-ui/react'
 import InstagramEmbed from 'react-instagram-embed'
 
 export default function InstagramPost(props) {
-  const {url} = props
+  const { url } = props
   if (!url) {
     return <p>Missing URL for Instagram post</p>
   }

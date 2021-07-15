@@ -1,13 +1,36 @@
 import React from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import {Box, Button, Drawer, Container, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, DrawerCloseButton, Flex, Image, List, ListItem, Menu, MenuButton, MenuDivider, MenuList, MenuItem, Heading, Text, Icon, useDisclosure, useColorMode, useColorModeValue, VStack, Center, Spacer, DrawerFooter, Tag, Avatar, TagLabel, HStack} from '@chakra-ui/react'
-import {CloseIcon, MoonIcon, SunIcon, ChevronDownIcon} from '@chakra-ui/icons'
+import {
+  Box,
+  Button,
+  Drawer,
+  Container,
+  DrawerBody,
+  DrawerContent,
+  DrawerOverlay,
+  DrawerCloseButton,
+  Flex,
+  List,
+  ListItem,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuList,
+  MenuItem,
+  Heading,
+  Icon,
+  useDisclosure,
+  useColorMode,
+  VStack,
+  Center,
+  Spacer,
+} from '@chakra-ui/react'
+import { CloseIcon, MoonIcon, SunIcon, ChevronDownIcon } from '@chakra-ui/icons'
 import ActiveLink from '../Link/ActiveLink'
 import { HamburgerIcon } from '@chakra-ui/icons'
-import { romanize } from 'react-roman'
-import {imageBuilder} from '../../lib/sanity'
-import License from '../License'
+/* import { romanize } from 'react-roman'
+import { imageBuilder } from '../../lib/sanity'
+import License from '../License' */
 
 /* const MenuItem = ({children}) => (
   <Text mt={{base: 4, md: 0}} mr={6} mb='0' display='block'>
@@ -16,42 +39,27 @@ import License from '../License'
 ) */
 
 export default function Header(props) {
-  if(!props) {
+  if (!props) {
     return null
   }
 
-  const router = useRouter()
-  const {colorMode, toggleColorMode} = useColorMode()
+  const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
-  
-  const {data, ...rest} = props
-  const {title, logo, mainNavigation, footer, publisher, license} = data
+
+  const { data, ...rest } = props
+  const { title, /* logo, */ mainNavigation, footer /* publisher, license  */ } = data
 
   return (
-    <Container
-      pt='3'
-      maxW='full'
-      position='fixed'
-      bgColor='white'
-      zIndex='9999'
-      margin='auto'
-    >
-      <Flex
-        as='header'
-        pb='1'
-        borderBottom='solid 1px '
-        {...rest}
-      >
-        <Flex
-          direction='column'
-        >
-          <Heading 
-            fontSize={['lg', 'xl', '3xl', '3xl']} 
-            fontWeight={{base: 'normal', md: 'semibold'}} 
-            fontFamily='EB Garamond'
-            px={{base: '5', md: '0'}}
+    <Container pt="3" maxW="full" position="fixed" bgColor="white" zIndex="9999" margin="auto">
+      <Flex as="header" pb="1" borderBottom="solid 1px " {...rest}>
+        <Flex direction="column">
+          <Heading
+            fontSize={['lg', 'xl', '3xl', '3xl']}
+            fontWeight={{ base: 'normal', md: 'semibold' }}
+            fontFamily="EB Garamond"
+            px={{ base: '5', md: '0' }}
           >
-            <Link href='/'>
+            <Link href="/">
               <a>{title}</a>
             </Link>
           </Heading>
@@ -66,38 +74,37 @@ export default function Header(props) {
 
         <Spacer />
 
-        <Button 
-          display={{base: 'none', md:'inherit'}}
-          mt='2'
-          p='0' 
-          h='5' 
-          w='1' 
+        <Button
+          display={{ base: 'none', md: 'inherit' }}
+          mt="2"
+          p="0"
+          h="5"
+          w="1"
           onClick={toggleColorMode}
         >
           {colorMode === 'light' ? <MoonIcon w={3} h={3} /> : <SunIcon w={3} h={3} />}
         </Button>
-        
-        <Flex 
-          as='nav'
-        >
-          <Menu placement='bottom'>
-            <MenuButton as={Button} variant='link' color='gray.800' rightIcon={<ChevronDownIcon />}>
+
+        <Flex as="nav">
+          <Menu placement="bottom">
+            <MenuButton as={Button} variant="link" color="gray.800" rightIcon={<ChevronDownIcon />}>
               Innholdsfortegnelse
             </MenuButton>
-            <MenuList 
-              pl='10' 
-              as={List} 
-              styleType='lower-roman' 
-              spacing='1' 
+            <MenuList
+              pl="10"
+              as={List}
+              styleType="lower-roman"
+              spacing="1"
               fontSize={['md', 'md', 'lg', 'lg']}
             >
-              {mainNavigation?.items && mainNavigation.items.map((item) => (
-                <MenuItem as={ListItem} display='list-item' key={item._key}>
-                  <ActiveLink href={`/${item.route}`} activeClassName='active'>
-                    <a>{item.label}</a>
-                  </ActiveLink>
-                  
-                  {/* {item.children && (
+              {mainNavigation?.items &&
+                mainNavigation.items.map((item) => (
+                  <MenuItem as={ListItem} display="list-item" key={item._key}>
+                    <ActiveLink href={`/${item.route}`} activeClassName="active">
+                      <a>{item.label}</a>
+                    </ActiveLink>
+
+                    {/* {item.children && (
                     <MenuList styleType='circle' ml='4' fontSize={['sm', 'sm', 'md', 'md']}>
                       {item.children.map(child => (
                         <MenuItem key={child._key}>
@@ -108,24 +115,27 @@ export default function Header(props) {
                       ))}
                     </MenuList>
                   )} */}
-                </MenuItem>
-              ))}
+                  </MenuItem>
+                ))}
 
               <MenuDivider />
-              
-              {footer.navMenu?.items && footer.navMenu.items.map((item) => (
-                <MenuItem as={ListItem} display='list-item' sx={{listStyleType: 'disc'}} key={item._key}>
-                  <ActiveLink href={`/${item.route}`} activeClassName='active'>
-                    <a>{item.label}</a>
-                  </ActiveLink>
-                </MenuItem>
-              ))}
 
+              {footer.navMenu?.items &&
+                footer.navMenu.items.map((item) => (
+                  <MenuItem
+                    as={ListItem}
+                    display="list-item"
+                    sx={{ listStyleType: 'disc' }}
+                    key={item._key}
+                  >
+                    <ActiveLink href={`/${item.route}`} activeClassName="active">
+                      <a>{item.label}</a>
+                    </ActiveLink>
+                  </MenuItem>
+                ))}
             </MenuList>
           </Menu>
-
         </Flex>
-
 
         {/* <Box ml='-5' display={{base: 'none', md: 'inherit'}}>
           {publisher && publisher.map(p =>
@@ -146,61 +156,57 @@ export default function Header(props) {
         <HStack ml='-5' display={{base: 'none', md: 'inherit'}}>
           <License license={license} />
         </HStack> */}
-
       </Flex>
 
-      <Box
-        position='fixed'
-        bottom='5'
-        right='5'
-        zIndex='2000'
-      >
+      <Box position="fixed" bottom="5" right="5" zIndex="2000">
         <Button
-          w='12'
-          h='12'
-          display={{base: 'block', md:'none'}}
-          borderRadius='full'
-          colorScheme='red'
-          boxShadow='dark-lg'
-          alignSelf='flex-start'
+          w="12"
+          h="12"
+          display={{ base: 'block', md: 'none' }}
+          borderRadius="full"
+          colorScheme="red"
+          boxShadow="dark-lg"
+          alignSelf="flex-start"
           onClick={() => onOpen()}
-          leftIcon={<Icon color='white' h='12' w='8' ml='-2' as={HamburgerIcon} />}
+          leftIcon={<Icon color="white" h="12" w="8" ml="-2" as={HamburgerIcon} />}
         />
-        <Drawer 
-          placement='bottom' 
-          onClose={onClose} 
-          isOpen={isOpen} 
-          size='full' 
+        <Drawer
+          placement="bottom"
+          onClose={onClose}
+          isOpen={isOpen}
+          size="full"
           onOverlayClick={onClose}
-          motionPreset='scale'
+          motionPreset="scale"
         >
           <DrawerOverlay>
             <DrawerContent>
               <DrawerCloseButton />
               <DrawerBody>
-                <Center h='full' w='full'>
-                  <VStack align='stretch'>
-                    <Flex flexWrap='nowrap' direction='column'>
-                      <List styleType='lower-roman' spacing='1' fontSize={['lg', 'xl']}>
-                        {mainNavigation?.items && mainNavigation.items.map((item) => (
-                          <ListItem key={item._key}>
-                            <ActiveLink href={`/${item.route}`} activeClassName='active'>
-                              <a onClick={onClose}>{item.label}</a>
-                            </ActiveLink>
-                          </ListItem>
-                        ))}
+                <Center h="full" w="full">
+                  <VStack align="stretch">
+                    <Flex flexWrap="nowrap" direction="column">
+                      <List styleType="lower-roman" spacing="1" fontSize={['lg', 'xl']}>
+                        {mainNavigation?.items &&
+                          mainNavigation.items.map((item) => (
+                            <ListItem key={item._key}>
+                              <ActiveLink href={`/${item.route}`} activeClassName="active">
+                                <a onClick={onClose}>{item.label}</a>
+                              </ActiveLink>
+                            </ListItem>
+                          ))}
                       </List>
                     </Flex>
 
-                    <Flex mt='5' direction='column'>
-                      <List styleType='upper-latin' spacing='1' fontSize={['lg', 'xl']}>
-                        {footer.navMenu?.items && footer.navMenu.items.map((item) => (
-                          <ListItem key={item._key}>
-                            <ActiveLink href={`/${item.route}`} activeClassName='active'>
-                              <a onClick={onClose}>{item.label}</a>
-                            </ActiveLink>
-                          </ListItem>
-                        ))}
+                    <Flex mt="5" direction="column">
+                      <List styleType="upper-latin" spacing="1" fontSize={['lg', 'xl']}>
+                        {footer.navMenu?.items &&
+                          footer.navMenu.items.map((item) => (
+                            <ListItem key={item._key}>
+                              <ActiveLink href={`/${item.route}`} activeClassName="active">
+                                <a onClick={onClose}>{item.label}</a>
+                              </ActiveLink>
+                            </ListItem>
+                          ))}
                       </List>
                     </Flex>
                     {/* <Flex wrap='wrap' justifyContent='center' direction={{ base: 'column', md: 'row' }}>
@@ -236,22 +242,21 @@ export default function Header(props) {
                     </Flex> */}
                   </VStack>
                 </Center>
-                
               </DrawerBody>
             </DrawerContent>
           </DrawerOverlay>
           <Button
-            position='fixed'
-            bottom='5'
-            right='5'
-            w='12'
-            h='12'
-            borderRadius='full'
-            colorScheme='red'
-            boxShadow='dark-lg'
+            position="fixed"
+            bottom="5"
+            right="5"
+            w="12"
+            h="12"
+            borderRadius="full"
+            colorScheme="red"
+            boxShadow="dark-lg"
             onClick={() => onClose()}
-            zIndex='20000'
-            leftIcon={<Icon color='white' h='5' w='6' ml='2' as={CloseIcon} />}
+            zIndex="20000"
+            leftIcon={<Icon color="white" h="5" w="6" ml="2" as={CloseIcon} />}
           />
         </Drawer>
       </Box>

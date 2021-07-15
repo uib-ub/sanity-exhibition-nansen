@@ -1,4 +1,4 @@
-import {Grid, Box, Center, Heading} from '@chakra-ui/react'
+import { Grid, Box, Center, Heading } from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function TwoColumn(props) {

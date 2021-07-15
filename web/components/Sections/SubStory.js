@@ -1,22 +1,36 @@
-import {imageBuilder} from '../../lib/sanity'
-import {Button, Container, DrawerFooter, Drawer, DrawerContent, DrawerCloseButton, DrawerOverlay, DrawerBody, DrawerHeader, Flex, Box, Grid, Heading, Image, Badge, useDisclosure} from '@chakra-ui/react'
-import {useColorModeValue} from '@chakra-ui/react'
+import { imageBuilder } from '../../lib/sanity'
+import {
+  Button,
+  Container,
+  DrawerFooter,
+  Drawer,
+  DrawerContent,
+  DrawerCloseButton,
+  DrawerOverlay,
+  DrawerBody,
+  DrawerHeader,
+  Flex,
+  Box,
+  Grid,
+  Heading,
+  Image,
+  Badge,
+  useDisclosure,
+} from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 
 export default function SubStory(props) {
-  if(props.disabled === true) {
+  if (props.disabled === true) {
     return null
   }
 
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const bg = useColorModeValue('gray.800', 'gray.300')
-  const color = useColorModeValue('white', 'gray.800')
 
-  const {label, title, tagline, content, illustration} = props
+  const { label, title, tagline, content, illustration } = props
 
   return (
-    <Grid 
+    <Grid
       maxW="xl"
       py="0"
       my="10"
@@ -37,19 +51,12 @@ export default function SubStory(props) {
 
       <Box pt="2" alignSelf="start">
         {label && (
-          <Badge
-            variant="solid"
-            colorScheme="red"
-          >
+          <Badge variant="solid" colorScheme="red">
             {label}
           </Badge>
         )}
 
-        <Heading
-          fontSize={['xl', 'xl', 'xl', 'xl']} 
-        >
-          {title}
-        </Heading>
+        <Heading fontSize={['xl', 'xl', 'xl', 'xl']}>{title}</Heading>
 
         {tagline && (
           <Box>
@@ -58,20 +65,21 @@ export default function SubStory(props) {
         )}
       </Box>
 
-      <Button 
+      <Button
         colorScheme="teal"
         variant="link"
         onClick={onOpen}
-        rightIcon={<ArrowForwardIcon color="red.400" w={['10', null, '16', null]} h={['10', null, '20', null]} />}
+        rightIcon={
+          <ArrowForwardIcon
+            color="red.400"
+            w={['10', null, '16', null]}
+            h={['10', null, '20', null]}
+          />
+        }
         alignSelf="center"
       />
-      
-      <Drawer
-        size="xl"
-        isOpen={isOpen}
-        placement="right"
-        onClose={onClose}
-      >
+
+      <Drawer size="xl" isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
@@ -81,13 +89,17 @@ export default function SubStory(props) {
               <Container maxW="2xl" centerContent>
                 {illustration?.illustration?.image && illustration.illustration.image && (
                   <Image
-                    src={imageBuilder.image(illustration.illustration.image).height(600).width(800).url()}
+                    src={imageBuilder
+                      .image(illustration.illustration.image)
+                      .height(600)
+                      .width(800)
+                      .url()}
                     alt={''}
                     mb="5"
                   />
                 )}
                 <PortableTextBlock fontSize={['md', 'xl']} blocks={content} />
-                <Button 
+                <Button
                   my="16"
                   colorScheme="teal"
                   variant="link"

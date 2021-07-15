@@ -1,9 +1,9 @@
-import {getFrontpage} from '../lib/api'
+import { getFrontpage } from '../lib/api'
 import Layout from '../components/Layout'
 import RenderSections from '../components/Sections/RenderSection'
 import { Container } from '@chakra-ui/react'
 
-export default function Index({data, preview}) {
+export default function Index({ data, preview }) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
       <Container maxW="4xl" p="10">
@@ -13,9 +13,9 @@ export default function Index({data, preview}) {
   )
 }
 
-export async function getStaticProps({preview = false}) {
+export async function getStaticProps({ preview = false }) {
   const data = await getFrontpage(preview)
   return {
-    props: {data, preview},
+    props: { data, preview },
   }
 }

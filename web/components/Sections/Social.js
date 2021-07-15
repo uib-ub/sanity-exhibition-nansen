@@ -1,5 +1,5 @@
-import {Box, Center, Container, Heading, SkeletonCircle, SkeletonText} from '@chakra-ui/react'
-import {TwitterTweetEmbed} from 'react-twitter-embed'
+import { Box, Center, Container, Heading, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
+import { TwitterTweetEmbed } from 'react-twitter-embed'
 
 export default function Social(props) {
   const getId = (thePath) => thePath.substring(thePath.lastIndexOf('/') + 1)
@@ -11,7 +11,7 @@ export default function Social(props) {
         <Box w={['sm', 'md', 'xl']}>
           <TwitterTweetEmbed
             tweetId={getId(props.url)}
-            options={{width: '100%'}}
+            options={{ width: '100%' }}
             placeholder={
               <Box
                 w="xl"

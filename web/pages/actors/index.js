@@ -1,11 +1,11 @@
-import {imageBuilder} from '../../lib/sanity'
-import {getAllActors} from '../../lib/api'
-import {Grid, Avatar, Box, Heading, Flex, Badge, Container} from '@chakra-ui/react'
+import { imageBuilder } from '../../lib/sanity'
+import { getAllActors } from '../../lib/api'
+import { Grid, Avatar, Box, Heading, Flex, Badge, Container } from '@chakra-ui/react'
 import Layout from '../../components/Layout'
 import Link from '../../components/Link'
 import PortableTextBlock from '../../components/PortableTextBlock'
 
-export default function Actors({data, preview}) {
+export default function Actors({ data, preview }) {
   /* let actors = data.items.reduce((r, e) => {
     // get first letter of name of current element
     let group = e.label[0];
@@ -40,9 +40,7 @@ export default function Actors({data, preview}) {
                 />
                 <Box p={2}>
                   <Heading size="md">
-                    <Link href={`/id/${item._id}`}>
-                      {item.label.no ?? 'Mangler norsk navn'}
-                    </Link>
+                    <Link href={`/id/${item._id}`}>{item.label.no ?? 'Mangler norsk navn'}</Link>
                   </Heading>
                   <Box d="flex" alignItems="baseline">
                     {item.hasType &&
@@ -59,7 +57,7 @@ export default function Actors({data, preview}) {
                     )}
 
                     {item.referredToBy?.map((ref) => (
-                      <PortableTextBlock blocks={ref.body} />
+                      <PortableTextBlock key={ref._key} blocks={ref.body} />
                     ))}
                   </Box>
                 </Box>
@@ -70,9 +68,9 @@ export default function Actors({data, preview}) {
   )
 }
 
-export async function getStaticProps({preview = false}) {
+export async function getStaticProps({ preview = false }) {
   const data = await getAllActors(preview)
   return {
-    props: {data, preview},
+    props: { data, preview },
   }
 }

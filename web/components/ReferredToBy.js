@@ -1,6 +1,6 @@
-import {Box, Grid, Heading, Text} from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import PortableTextBlock from './PortableTextBlock'
-import {orderBy, head} from 'lodash'
+import { orderBy } from 'lodash'
 
 export default function ReferredToBy(props) {
   if (!props) {
@@ -8,7 +8,7 @@ export default function ReferredToBy(props) {
   }
 
   props.array?.map((obj) => (obj.lang = obj.language._identifiedByISO6393))
-  
+
   let sorted = []
   if (props.array) {
     sorted = orderBy(props?.array, ['lang'], ['desc'])
@@ -21,15 +21,15 @@ export default function ReferredToBy(props) {
           {/* <Box>
             {ref.hasType[0].label.no} - {ref.language.label.no}
           </Box> */}
-          <PortableTextBlock 
-            blocks={ref.body} 
-            fontFamily="Montserrat" 
-            fontWeight="light" 
-            fontSize={{base: 'md', sm: 'lg', md: 'lg', xl: 'xl'}}
+          <PortableTextBlock
+            blocks={ref.body}
+            fontFamily="Montserrat"
+            fontWeight="light"
+            fontSize={{ base: 'md', sm: 'lg', md: 'lg', xl: 'xl' }}
           />
         </Box>
       ))}
-      {props.description && (<PortableTextBlock description={props.description}/>)}
+      {props.description && <PortableTextBlock description={props.description} />}
     </>
   )
 }

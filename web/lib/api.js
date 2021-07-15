@@ -1,4 +1,4 @@
-import {sanityClient, previewClient} from './sanity.server'
+import { sanityClient, previewClient } from './sanity.server'
 import {
   actorsQuery,
   alertQuery,
@@ -6,23 +6,20 @@ import {
   registryQuery,
   frontpageQuery,
   idsQuery,
-  routeQuery, 
+  routeQuery,
   routesQuery,
   eventsQuery,
   humanMadeObjectsQuery,
   typeQuery,
-  publicDocumentTypes, 
+  publicDocumentTypes,
   contactCopyQuery,
-  physicalExhibitionQuery} from './queries'
-import {
-  humanMadeObjectFields, 
-  groupFields, 
-  pageFields,
-  siteSettings } from './queries/fragments'
+  physicalExhibitionQuery,
+} from './queries'
+import { humanMadeObjectFields, groupFields, pageFields, siteSettings } from './queries/fragments'
 
 const getClient = (preview) => (preview ? previewClient : sanityClient)
 
-const getUniques = (items) => {
+/* const getUniques = (items) => {
   const ids = new Set()
   return items.filter((item) => {
     if (ids.has(item._id ?? item._key)) {
@@ -32,7 +29,7 @@ const getUniques = (items) => {
       return true
     }
   })
-}
+} */
 
 export async function getFrontpage(preview) {
   const data = await getClient(preview).fetch(frontpageQuery)
@@ -46,30 +43,28 @@ export async function getRoutes(preview) {
 
 export async function getRoute(preview, id) {
   // Next passes an array based on the path. Join with / if array.
-  const joinID = (typeof id === 'string') ? id : id.join('/')
+  const joinID = typeof id === 'string' ? id : id.join('/')
 
   const data = await getClient(preview).fetch(
     JSON.parse(JSON.stringify(routeQuery)), // Too long query?
-    {joinID},
+    { joinID },
   )
   return data
 }
 
 export async function getEvents(preview) {
-  const data = await getClient(preview).fetch(
-    eventsQuery
-  )
+  const data = await getClient(preview).fetch(eventsQuery)
   return data
 }
 
 export async function getPreviewHumanMadeObjectByID(id) {
   const data = await previewClient.fetch(
-    `*[_id == $id || slug.current == $id || page._id == $id][0] {
+    `*[_id == $id || slug.current == $id || page._id == $id][0] {
       _id,
       _type,
       slug
     }`,
-    {id},
+    { id },
   )
   return data
 }
@@ -95,21 +90,15 @@ export async function getRegistry(preview) {
 }
 
 export async function getIdPaths(preview) {
-  const results = await getClient(preview).fetch(
-    idsQuery,
-    {publicDocumentTypes},
-  )
+  const results = await getClient(preview).fetch(idsQuery, { publicDocumentTypes })
   return results
 }
-  
+
 export async function getType(id, preview) {
-  const results = await getClient(preview).fetch(
-    typeQuery,
-    {id},
-  )
+  const results = await getClient(preview).fetch(typeQuery, { id })
   return results
 }
-  
+
 export async function getId(id, type, preview) {
   const results = await getClient(preview).fetch(
     `{
@@ -125,15 +114,13 @@ export async function getId(id, type, preview) {
       },
       ${siteSettings}
     }`,
-    {id},
+    { id },
   )
   return results
 }
 
 export async function getSiteSettings(preview) {
-  const results = await getClient(preview).fetch(
-    `{${siteSettings}}`
-  )
+  const results = await getClient(preview).fetch(`{${siteSettings}}`)
   return results
 }
 

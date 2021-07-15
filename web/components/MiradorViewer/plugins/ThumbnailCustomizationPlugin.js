@@ -11,11 +11,11 @@ class ThumbnailPlugin extends Component {
   render() {
     //accessing target component and its props
     const { TargetComponent, targetProps } = this.props
-    //copy classes 
+    //copy classes
     targetProps.classes = this.props.classes
     return (
       //return one set of thumbnails instead of two
-      <TargetComponent {...this.props.targetProps}/>
+      <TargetComponent {...this.props.targetProps} />
     )
   }
 }

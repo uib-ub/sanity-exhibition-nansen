@@ -17,7 +17,7 @@ import {
   useClipboard,
   Code,
 } from '@chakra-ui/react'
-import {BiDotsVerticalRounded} from 'react-icons/bi'
+import { BiDotsVerticalRounded } from 'react-icons/bi'
 import ReferredToBy from '../ReferredToBy'
 import Palette from '../Palette'
 import Depicts from '../Depicts'
@@ -28,20 +28,20 @@ import Subject from '../Subject'
 import CurrentOwner from '../CurrentOwner'
 import Description from '../Description'
 
-const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), {ssr: false})
+const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), { ssr: false })
 
 export default function HumanMadeObject(item) {
-  const {isOpen, onOpen, onClose} = useDisclosure()
-  const {hasCopied, onCopy} = useClipboard(JSON.stringify(item, null, 2))
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { hasCopied, onCopy } = useClipboard(JSON.stringify(item, null, 2))
 
   return (
     <Grid
       w="100%"
       p={5}
-      gridGap={{base: 0}}
+      gridGap={{ base: 0 }}
       alignContent="start"
-      gridTemplateAreas={{base: '"image" "metadata"'}}
-      gridTemplateColumns={{base: '1fr'}}
+      gridTemplateAreas={{ base: '"image" "metadata"' }}
+      gridTemplateColumns={{ base: '1fr' }}
     >
       <Container maxW="full" gridArea="metadata" p="0">
         <Heading fontFamily="EB Garamond" fontWeight="thin" mt={5} mb={5}>
@@ -52,10 +52,8 @@ export default function HumanMadeObject(item) {
           </Button>
         </Heading>
 
-        {item.description && 
-          <Description description={item.description} /> 
-        }
-        
+        {item.description && <Description description={item.description} />}
+
         {item?.referredToBy && (
           <Box>
             <ReferredToBy array={item.referredToBy} />
@@ -65,47 +63,29 @@ export default function HumanMadeObject(item) {
         {item.image?.palette && <Palette colors={item.image?.palette} />}
 
         <Grid as="dl" pt="4" templateColumns={['2fr', '2fr', '160px auto']}>
-          {item.hasType && 
-            <HasType types={item.hasType} />
-          }
+          {item.hasType && <HasType types={item.hasType} />}
 
-          {item.subject && 
-            <Subject subjects={item.subject} />
-          }
+          {item.subject && <Subject subjects={item.subject} />}
 
-          {item.depicts && 
-            <Depicts depicted={item.depicts} />
-          }
+          {item.depicts && <Depicts depicted={item.depicts} />}
 
+          {item.homepage && <Homepage homepage={item.homepage} />}
 
-          {item.homepage && 
-            <Homepage homepage={item.homepage} />
-          }
-
-          {item.hasCurrentOwner && 
-            <CurrentOwner owners={item.hasCurrentOwner} />
-          }
+          {item.hasCurrentOwner && <CurrentOwner owners={item.hasCurrentOwner} />}
         </Grid>
 
-        {item.activityStream && 
-          <ActivityStream stream={item.activityStream} />
-        }
+        {item.activityStream && <ActivityStream stream={item.activityStream} />}
       </Container>
 
       {item.subjectOfManifest && (
         <Box h="70vh" gridArea="image">
-          <MiradorWithNoSSR 
-            manifests={[{manifest: item.subjectOfManifest}]} 
-          />
+          <MiradorWithNoSSR manifests={[{ manifest: item.subjectOfManifest }]} />
         </Box>
       )}
 
       {item.manifest && !item.subjectOfManifest && (
         <Box h="70vh" gridArea="image">
-          <MiradorWithNoSSR 
-            hideWindowTitle="true" 
-            manifests={[{manifest: item.manifest}]} 
-          />
+          <MiradorWithNoSSR hideWindowTitle="true" manifests={[{ manifest: item.manifest }]} />
         </Box>
       )}
 
@@ -116,9 +96,7 @@ export default function HumanMadeObject(item) {
             <ModalCloseButton />
             <ModalBody>
               <Code w="full" fontSize="xs" p="2">
-                <pre>
-                  {JSON.stringify(item, null, 2)}
-                </pre>
+                <pre>{JSON.stringify(item, null, 2)}</pre>
               </Code>
             </ModalBody>
 

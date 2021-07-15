@@ -1,4 +1,4 @@
-import {WebMercatorViewport} from 'react-map-gl'
+import { WebMercatorViewport } from 'react-map-gl'
 import bbox from '@turf/bbox'
 var _ = require('lodash')
 
@@ -39,7 +39,7 @@ export const createGeojson = (data) => {
   let allFeatures = [...collection]
 
   if (extGeojson.length > 0) {
-    const {features} = JSON.parse(extGeojson)
+    const { features } = JSON.parse(extGeojson)
     allFeatures = [...allFeatures, ...features]
   }
 
@@ -69,14 +69,16 @@ const createCoordinates = (coordinates) => {
  */
 export const fitViewportToFeature = (feature, options) => {
   /** Invariants */
-  if (!feature) {throw Error('You must pass a feature to fitMapToFeature')}
+  if (!feature) {
+    throw Error('You must pass a feature to fitMapToFeature')
+  }
 
   /** Get bounding box of feature/collection */
   const bounds = bbox(feature)
 
   /** Setup WebMercatorViewport instances to fit bounds */
   // const { clientWidth, clientHeight } = map.getContainer();
-  const viewport = new WebMercatorViewport({width: 300, height: 200})
+  const viewport = new WebMercatorViewport({ width: 300, height: 200 })
 
   /** Edge case: if width is less than horizontal padding, remove padding */
   if (

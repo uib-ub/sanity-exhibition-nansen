@@ -4,17 +4,20 @@ import Timespan from '../../Timespan'
 
 export default function Leaving(props) {
   // console.log(props)
-  if(!props.separated) { 
+  if (!props.separated) {
     return null
   }
-  const {_id, _key, separated, separatedFrom, timespan, tookplaceAt} = props
-  const id = _id ?? _key
+  const { separated, separatedFrom, timespan } = props
 
   return (
     <>
       <Timespan display="inline-block" fontWeight="bolder" timespan={timespan} />
       <Box>
-        <Link href={`id/${separated._id}`}>{separated.label.no ?? 'Mangler norsk navn'}</Link> forlater <Link href={`id/${separatedFrom._id}`}>{separatedFrom.label.no  ?? 'Mangler norsk navn'}</Link>
+        <Link href={`id/${separated._id}`}>{separated.label.no ?? 'Mangler norsk navn'}</Link>{' '}
+        forlater{' '}
+        <Link href={`id/${separatedFrom._id}`}>
+          {separatedFrom.label.no ?? 'Mangler norsk navn'}
+        </Link>
       </Box>
     </>
   )

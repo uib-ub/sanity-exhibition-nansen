@@ -1,18 +1,17 @@
 import Link from '../Link'
-import {Image, Badge, Box, Container, Flex, Heading, SimpleGrid} from '@chakra-ui/react'
+import { Image, Badge, Box, Container, Flex, Heading, SimpleGrid } from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 import Cards from '../Cards'
-import {imageBuilder} from '../../lib/sanity'
+import { imageBuilder } from '../../lib/sanity'
 import RenderMergedActivityStreamList from '../ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'
 
 export default function Actor(item) {
-  if(!item) {return null}
+  if (!item) {
+    return null
+  }
 
   return (
-    <Container 
-      maxW="full"
-      my="5"
-    >
+    <Container maxW="full" my="5">
       <Flex pb="10">
         {item.image && (
           <Image
@@ -20,6 +19,7 @@ export default function Actor(item) {
             name={item.label.no}
             mr="5"
             src={imageBuilder.image(item.image).height('200').width('200').url()}
+            alt=""
           />
         )}
 
@@ -51,37 +51,41 @@ export default function Actor(item) {
         </Box>
       )}
 
-      {item.activityStream && 
+      {item.activityStream && (
         <>
-          <Heading as="h2" mb="3">Hendelser</Heading>
-          
+          <Heading as="h2" mb="3">
+            Hendelser
+          </Heading>
+
           <SimpleGrid
-            w="full" 
+            w="full"
             mb="5"
             columnGap="5"
             templateColumns={{
               base: '1fr',
-              md: 'auto 1fr'
+              md: 'auto 1fr',
             }}
           >
             <RenderMergedActivityStreamList stream={item.activityStream} />
           </SimpleGrid>
         </>
-      }
+      )}
 
+      {item.hasMember &&
+        item.hasMember.map((member) => (
+          <Link key={member._id} href={member._id}>
+            {member.label.no}
+          </Link>
+        ))}
 
-      {item.hasMember && item.hasMember.map((member) => (
-        <Link href={member._id}>
-          <a>{member.label.no}</a>
-        </Link>
-      ))}
-
-      {item.mentionedIn && 
+      {item.mentionedIn && (
         <>
-          <Heading as="h2" mb="3">Koblet til...</Heading>
+          <Heading as="h2" mb="3">
+            Koblet til...
+          </Heading>
           <Cards items={item.mentionedIn} />
         </>
-      }
+      )}
     </Container>
   )
 }
