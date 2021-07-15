@@ -18,8 +18,6 @@ export default function TableOfContent(props) {
       }
     })
 
-  console.log('Headings', headings)
-
   const getNestedHeadings = (headingElements) => {
     const nestedHeadings = []
 
@@ -42,15 +40,35 @@ export default function TableOfContent(props) {
   const list = getNestedHeadings(headings)
 
   return (
-    <List color="gray.500" listStyleType="disc">
+    <List className="toc" color="gray.500" listStyleType="disc">
       {list.map((heading) => (
         <ListItem key={heading.id}>
-          <Link href={`#${heading.id}`}>{heading.text}</Link>
+          <Link
+            href={`#${heading.id}`}
+            sx={{
+              '.toc:hover &': {
+                display: 'block',
+              },
+            }}
+            display="none"
+          >
+            {heading.text}
+          </Link>
           {heading.items.length > 0 && (
-            <List listStyleType="circle">
+            <List className="toc" listStyleType="circle">
               {heading.items.map((child) => (
                 <ListItem key={child.id}>
-                  <Link href={`#${child.id}`}>{child.text}</Link>
+                  <Link
+                    href={`#${child.id}`}
+                    sx={{
+                      '.toc:hover &': {
+                        display: 'block',
+                      },
+                    }}
+                    display="none"
+                  >
+                    {child.text}
+                  </Link>
                 </ListItem>
               ))}
             </List>

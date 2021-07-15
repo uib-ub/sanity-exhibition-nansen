@@ -1,5 +1,5 @@
 import { getRoute, getRoutes } from '../lib/api'
-import { Container, Text } from '@chakra-ui/react'
+import { Box, Container, Text } from '@chakra-ui/react'
 import Date from '../components/Date'
 import Layout from '../components/Layout'
 import Sections from '../components/Sections/Sections'
@@ -14,12 +14,15 @@ export default function Page({ data, preview }) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
       <Container maxWidth="4xl" centerContent>
-        <TableOfContent blocks={body} />
-
         {/* A Page  */}
         {content && <Sections sections={content} />}
 
         {/* If LinguisticDocument the content is in the body field */}
+        {body && (
+          <Box position="fixed" left="10" top="50vh">
+            <TableOfContent blocks={body} />
+          </Box>
+        )}
         {body && <PortableTextBlock blocks={body} />}
 
         <Text mt="5" color="gray.500" fontSize="sm">
