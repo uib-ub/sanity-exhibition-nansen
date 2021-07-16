@@ -7,9 +7,17 @@ export default function PageHeader(props) {
   }
 
   return (
-    <Container centerContent borderBottom="solid 1px" borderColor="gray.300" py="5" mb="8">
+    <Container
+      centerContent
+      pt="10"
+      pb="16"
+      mb="8"
+      maxW="xl"
+      backgroundImage="url('/img/taakeheimen-border.svg')"
+      backgroundPosition="bottom"
+      backgroundRepeat="no-repeat"
+    >
       <Heading
-        color="gray.700"
         // fontSize={['2xl', '3xl', '4xl', '5xl']}
         textTransform="uppercase"
       >

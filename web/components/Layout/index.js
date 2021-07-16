@@ -1,8 +1,8 @@
 import { Box } from '@chakra-ui/react'
 import Alert from '../Alert'
-// import Footer from './Footer'
 import Header from './Header'
 import Meta from './Meta'
+import Footer from './Footer'
 
 export default function Layout({ alert, preview, children, site }) {
   return (
@@ -19,9 +19,7 @@ export default function Layout({ alert, preview, children, site }) {
         {children}
       </Box>
 
-      {/* <Footer 
-        {...footer} 
-      /> */}
+      <Footer {...site.footer} license={site.license} publisher={site.publisher} />
     </>
   )
 }

@@ -21,16 +21,16 @@ import {
   Icon,
   useDisclosure,
   useColorMode,
+  useColorModeValue,
   VStack,
   Center,
   Spacer,
 } from '@chakra-ui/react'
-import { CloseIcon, MoonIcon, SunIcon, ChevronDownIcon } from '@chakra-ui/icons'
+import { CloseIcon, ChevronDownIcon } from '@chakra-ui/icons'
 import ActiveLink from '../Link/ActiveLink'
 import { HamburgerIcon } from '@chakra-ui/icons'
-/* import { romanize } from 'react-roman'
-import { imageBuilder } from '../../lib/sanity'
-import License from '../License' */
+import NightIcon from './NightIcon'
+import DayIcon from './DayIcon'
 
 /* const MenuItem = ({children}) => (
   <Text mt={{base: 4, md: 0}} mr={6} mb='0' display='block'>
@@ -46,11 +46,13 @@ export default function Header(props) {
   const { colorMode, toggleColorMode } = useColorMode()
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  const bg = useColorModeValue('white', 'gray.800')
+
   const { data, ...rest } = props
-  const { title, /* logo, */ mainNavigation, footer /* publisher, license  */ } = data
+  const { title, mainNavigation, footer } = data
 
   return (
-    <Container pt="3" maxW="full" position="fixed" bgColor="white" zIndex="9999" margin="auto">
+    <Container pt="3" maxW="full" position="fixed" bgColor={bg} zIndex="9999" margin="auto">
       <Flex as="header" pb="1" borderBottom="solid 1px " {...rest}>
         <Flex direction="column">
           <Heading
@@ -74,20 +76,9 @@ export default function Header(props) {
 
         <Spacer />
 
-        <Button
-          display={{ base: 'none', md: 'inherit' }}
-          mt="2"
-          p="0"
-          h="5"
-          w="1"
-          onClick={toggleColorMode}
-        >
-          {colorMode === 'light' ? <MoonIcon w={3} h={3} /> : <SunIcon w={3} h={3} />}
-        </Button>
-
         <Flex as="nav">
           <Menu placement="bottom">
-            <MenuButton as={Button} variant="link" color="gray.800" rightIcon={<ChevronDownIcon />}>
+            <MenuButton as={Button} variant="link" rightIcon={<ChevronDownIcon />}>
               Innholdsfortegnelse
             </MenuButton>
             <MenuList
@@ -105,16 +96,16 @@ export default function Header(props) {
                     </ActiveLink>
 
                     {/* {item.children && (
-                    <MenuList styleType='circle' ml='4' fontSize={['sm', 'sm', 'md', 'md']}>
+                      <MenuList styleType='circle' ml='4' fontSize={['sm', 'sm', 'md', 'md']}>
                       {item.children.map(child => (
                         <MenuItem key={child._key}>
-                          <ActiveLink href={`/${child.route}`} activeClassName='active'>
-                            <a>{child.label}</a>
-                          </ActiveLink>
+                        <ActiveLink href={`/${child.route}`} activeClassName='active'>
+                        <a>{child.label}</a>
+                        </ActiveLink>
                         </MenuItem>
-                      ))}
-                    </MenuList>
-                  )} */}
+                        ))}
+                        </MenuList>
+                      )} */}
                   </MenuItem>
                 ))}
 
@@ -137,12 +128,20 @@ export default function Header(props) {
           </Menu>
         </Flex>
 
-        {/* <Box ml='-5' display={{base: 'none', md: 'inherit'}}>
+        <Button display={{ base: 'none', md: 'inherit' }} px="0" ml="5" onClick={toggleColorMode}>
+          {colorMode === 'light' ? (
+            <Icon as={NightIcon} w={16} h={16} />
+          ) : (
+            <Icon as={DayIcon} w={16} h={16} color="white" />
+          )}
+        </Button>
+
+        {/*  <Box ml='-5' display={{ base: 'none', md: 'inherit' }}>
           {publisher && publisher.map(p =>
             <Container key={p._id} fontSize='xs' p='0' centerContent>
               <Image
                 boxSize='50px'
-                filter={inverse}
+                // filter={inverse}
                 src={imageBuilder
                   .image(p.image)
                   .height(50)
@@ -152,10 +151,7 @@ export default function Header(props) {
               <Link href={`/id/${p._id}`}>{p.label.no}</Link>
             </Container>
           )}
-        </Box>
-        <HStack ml='-5' display={{base: 'none', md: 'inherit'}}>
-          <License license={license} />
-        </HStack> */}
+        </Box> */}
       </Flex>
 
       <Box position="fixed" bottom="5" right="5" zIndex="2000">

@@ -1,4 +1,4 @@
-import {extendTheme} from '@chakra-ui/react'
+import { extendTheme } from '@chakra-ui/react'
 
 const theme = extendTheme({
   fonts: {
@@ -23,7 +23,7 @@ const theme = extendTheme({
       body: {
         margin: '0',
         padding: '0',
-      },      
+      },
       p: {
         fontSize: '1.3em',
         mb: '3',
@@ -33,7 +33,7 @@ const theme = extendTheme({
       },
       "#__next": {
         display: 'grid',
-        gridTemplateAreas: {base: '"header" "main"', xl: '"header" "main"'},
+        gridTemplateAreas: { base: '"header" "main" "footer"', xl: '"header" "main" "footer"' },
       },
       ".active": {
         borderBottom: 'solid 2px',
