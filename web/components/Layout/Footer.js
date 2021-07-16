@@ -58,7 +58,7 @@ export default function Footer(props) {
 
       <Image src="/img/taakeheimen-footer.svg" alt="" />
 
-      <Container maxW="4xl" p="0" sx={{ perspective: "492px" }}>
+      <Container maxW="4xl" p="0" sx={{ perspective: '492px' }}>
         {/* <Flex pb="0">
           <Spacer />
 
@@ -79,7 +79,7 @@ export default function Footer(props) {
 
         {publisher &&
           publisher.map((p) => (
-            <Container key={p._id} fontSize={["lg", null, "2xl", null]} p="0" centerContent>
+            <Container key={p._id} fontSize={['lg', null, '2xl', null]} p="0" centerContent>
               <Image
                 boxSize={{ base: '50px', md: '150px' }}
                 filter={inverse}
