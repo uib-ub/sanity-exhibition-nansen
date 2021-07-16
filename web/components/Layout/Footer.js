@@ -1,10 +1,11 @@
 import {
-  Container,
   Button,
+  Container,
   Flex,
   HStack,
   Image,
   useColorMode,
+  useColorModeValue,
   // Spacer,
   // Text,
 } from '@chakra-ui/react'
@@ -33,11 +34,22 @@ export default function Footer(props) {
   }
 
   const { colorMode, toggleColorMode } = useColorMode()
+  const inverse = useColorModeValue('invert(50%)', 'invert(70%)')
+  const color = useColorModeValue('gray.500', 'gray.400')
 
   const { content, /* navMenu,  */ license, publisher } = props
 
   return (
-    <Container as="footer" gridArea="footer" maxW="full" minH="100px" py="2" px="0" zIndex="100">
+    <Container
+      as="footer"
+      gridArea="footer"
+      maxW="full"
+      minH="100px"
+      py="2"
+      px="0"
+      zIndex="100"
+      color={color}
+    >
       <Flex pl="5">
         <Button variant="link" onClick={toggleColorMode}>
           {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
@@ -46,7 +58,7 @@ export default function Footer(props) {
 
       <Image src="/img/taakeheimen-footer.svg" alt="" />
 
-      <Container maxW="4xl" p="0">
+      <Container maxW="4xl" p="0" sx={{ perspective: "492px" }}>
         {/* <Flex pb="0">
           <Spacer />
 
@@ -62,18 +74,19 @@ export default function Footer(props) {
               </MenuItem>
             ))}
         </Flex> */}
+
         {content && <RenderSections sections={content} />}
 
         {publisher &&
           publisher.map((p) => (
-            <Container key={p._id} fontSize="xs" p="0" centerContent>
+            <Container key={p._id} fontSize={["lg", null, "2xl", null]} p="0" centerContent>
               <Image
-                boxSize="50px"
-                // filter={inverse}
-                src={imageBuilder.image(p.image).height(50).width(50).url()}
+                boxSize={{ base: '50px', md: '150px' }}
+                filter={inverse}
+                src={imageBuilder.image(p.image).height(150).width(150).url()}
               />
               <Link href={`/id/${p._id}`}>{p.label.no}</Link>
-              <HStack ml="-5" display={{ base: 'none', md: 'inherit' }}>
+              <HStack ml="-5">
                 <License license={license} />
               </HStack>
             </Container>

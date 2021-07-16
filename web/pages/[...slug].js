@@ -19,7 +19,12 @@ export default function Page({ data, preview }) {
 
         {/* If LinguisticDocument the content is in the body field */}
         {body && (
-          <Box position="fixed" left="10" top="50vh">
+          <Box
+            position="fixed"
+            left="10"
+            top="50vh"
+            display={{ base: 'none', md: 'inherit' }}
+          >
             <TableOfContent blocks={body} />
           </Box>
         )}

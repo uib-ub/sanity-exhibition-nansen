@@ -32,12 +32,6 @@ import { HamburgerIcon } from '@chakra-ui/icons'
 import NightIcon from './NightIcon'
 import DayIcon from './DayIcon'
 
-/* const MenuItem = ({children}) => (
-  <Text mt={{base: 4, md: 0}} mr={6} mb='0' display='block'>
-    {children}
-  </Text>
-) */
-
 export default function Header(props) {
   if (!props) {
     return null
@@ -59,7 +53,6 @@ export default function Header(props) {
             fontSize={['lg', 'xl', '3xl', '3xl']}
             fontWeight={{ base: 'normal', md: 'semibold' }}
             fontFamily="EB Garamond"
-            px={{ base: '5', md: '0' }}
           >
             <Link href="/">
               <a>{title}</a>
