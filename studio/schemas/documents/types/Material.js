@@ -1,7 +1,7 @@
-import {GiExplosiveMaterials} from 'react-icons/gi'
-import {label, altLabel} from '../../props'
-import {defaultFieldsets} from '../../fieldsets'
-import {coalesceLabel} from '../../helpers/helpers.js'
+import { GiExplosiveMaterials } from 'react-icons/gi'
+import { label, altLabel } from '../../props'
+import { defaultFieldsets } from '../../fieldsets'
+import { coalesceLabel } from '../../helpers'
 
 export default {
   name: 'Material',
@@ -15,7 +15,7 @@ export default {
       title: 'label',
     },
     prepare(selection) {
-      const {title} = selection
+      const { title } = selection
       return {
         title: coalesceLabel(title),
       }

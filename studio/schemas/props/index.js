@@ -1,17 +1,17 @@
 import React from 'react'
-import {BsFillQuestionCircleFill} from 'react-icons/bs'
-import {Link} from 'part:@sanity/base/router'
-import {licenseTypes} from '../vocabularies/defaultVocabularies'
+import { BsFillQuestionCircleFill } from 'react-icons/bs'
+import { Link } from 'part:@sanity/base/router'
+import { licenseTypes } from '../vocabularies/defaultVocabularies'
 import sanityClient from 'part:@sanity/base/client'
 
-const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
+const client = sanityClient.withConfig({ apiVersion: '2021-03-25' })
 
 export const sameAs = {
   name: 'sameAs',
   title: 'Samme som',
   titleEN: 'Same as',
   type: 'array',
-  of: [{type: 'url'}],
+  of: [{ type: 'url' }],
   options: {
     semanticSanity: {
       '@id': 'http://www.w3.org/2002/07/owl#sameAs',
@@ -30,8 +30,8 @@ export const editorialState = {
   initialValue: 'published',
   options: {
     list: [
-      {title: 'Til gjennomgang', value: 'review'},
-      {title: 'Publisert', value: 'published'},
+      { title: 'Til gjennomgang', value: 'review' },
+      { title: 'Publisert', value: 'published' },
     ],
     layout: 'radio',
     direction: 'horizontal',
@@ -47,8 +47,8 @@ export const accessState = {
   initialValue: 'open',
   options: {
     list: [
-      {title: 'Privat', value: 'secret'},
-      {title: 'Open', value: 'open'},
+      { title: 'Privat', value: 'secret' },
+      { title: 'Open', value: 'open' },
     ],
     layout: 'radio',
     direction: 'horizontal',
@@ -83,7 +83,7 @@ export const image = {
   },
 }
 
-export const digitallyShownBy = { 
+export const digitallyShownBy = {
   name: 'digitallyShownBy',
   title: 'Digitale bilder',
   titleEN: 'Digital images',
@@ -92,7 +92,7 @@ export const digitallyShownBy = {
   fieldset: 'representation',
   type: 'array',
   of: [
-    {type: 'DigitalImageObject'},
+    { type: 'DigitalImageObject' },
   ],
   options: {
     layout: 'grid',
@@ -158,7 +158,7 @@ export const preferredIdentifier = {
     Rule.required().custom(async (prefId) => {
       const docs = await client.fetch(
         `*[preferredIdentifier == "${prefId}" && !(_id in path("drafts.**"))] { preferredIdentifier }`,
-        {prefId},
+        { prefId },
       )
       return docs.length > 1 ? 'Value is not unique' : true
     }),
@@ -224,8 +224,8 @@ export const identifiedBy = {
   ),
   type: 'array',
   of: [
-    {type: 'Name'}, 
-    {type: 'Identifier'}
+    { type: 'Name' },
+    { type: 'Identifier' }
   ],
   options: {
     editModal: 'popup',
@@ -286,7 +286,7 @@ export const subject = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'Concept'}],
+      to: [{ type: 'Concept' }],
     },
   ],
   options: {
@@ -320,7 +320,7 @@ export const referredToBy = {
   ),
   type: 'array',
   of: [
-    {type: 'LinguisticObject'},
+    { type: 'LinguisticObject' },
   ],
   options: {
     editModal: 'fullscreen',
@@ -342,10 +342,10 @@ export const relation = {
     {
       type: 'reference',
       to: [
-        {type: 'HumanMadeObject'},
-        {type: 'Actor'},
-        {type: 'Event'},
-        {type: 'Activity'},
+        { type: 'HumanMadeObject' },
+        { type: 'Actor' },
+        { type: 'Event' },
+        { type: 'Activity' },
       ],
     },
   ],
@@ -382,8 +382,8 @@ export const presentAt = {
     {
       type: 'reference',
       to: [
-        {type: 'Event'}, 
-        {type: 'Activity'}
+        { type: 'Event' },
+        { type: 'Activity' }
       ],
     },
   ],
@@ -420,8 +420,8 @@ export const motivatedBy = {
     {
       type: 'reference',
       to: [
-        {type: 'Event'}, 
-        {type: 'Activity'}
+        { type: 'Event' },
+        { type: 'Activity' }
       ],
     },
   ],
@@ -458,7 +458,7 @@ export const hasCurrentOwner = {
     {
       type: 'reference',
       to: [
-        {type: 'Actor'}, 
+        { type: 'Actor' },
       ],
     },
   ],
@@ -501,7 +501,7 @@ export const hasFormerOrCurrentOwner = {
     {
       type: 'reference',
       to: [
-        {type: 'Actor'},
+        { type: 'Actor' },
       ],
     },
   ],
@@ -536,9 +536,9 @@ export const composedOf = {
   type: 'array',
   of: [
     {
-      type: 'reference', 
+      type: 'reference',
       to: [
-       {type: 'HumanMadeObject'}
+        { type: 'HumanMadeObject' }
       ]
     }
   ],
@@ -584,7 +584,7 @@ export const subjectOf = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'LinguisticDocument'}],
+      to: [{ type: 'LinguisticDocument' }],
     },
   ],
   options: {
@@ -620,9 +620,9 @@ export const depicts = {
     {
       type: 'reference',
       to: [
-        {type: 'HumanMadeObject'}, 
-        {type: 'Actor'},
-        {type: 'Concept'}
+        { type: 'HumanMadeObject' },
+        { type: 'Actor' },
+        { type: 'Concept' }
       ],
     },
   ],
@@ -659,9 +659,9 @@ export const represents = {
     {
       type: 'reference',
       to: [
-        {type: 'HumanMadeObject'}, 
-        {type: 'Actor'}, 
-        {type: 'Concept'}
+        { type: 'HumanMadeObject' },
+        { type: 'Actor' },
+        { type: 'Concept' }
       ],
     },
   ],
@@ -694,7 +694,7 @@ export const showsVisualObject = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'VisualObject'}],
+  of: [{ type: 'VisualObject' }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -724,7 +724,7 @@ export const carries = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'Work'}]}],
+  of: [{ type: 'reference', to: [{ type: 'Work' }] }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -754,7 +754,7 @@ export const measuredBy = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'Measurement'}],
+  of: [{ type: 'Measurement' }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -784,7 +784,7 @@ export const hasDimension = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'Dimension'}],
+  of: [{ type: 'Dimension' }],
   options: {
     semanticSanity: {
       '@container': '@list',
@@ -825,7 +825,7 @@ export const consistsOf = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'Material'}],
+      to: [{ type: 'Material' }],
     },
   ],
   options: {
@@ -874,7 +874,7 @@ export const usedGeneralTechnique = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'Technique'}],
+      to: [{ type: 'Technique' }],
     },
   ],
   options: {
@@ -920,7 +920,7 @@ export const usedSpecificTechnique = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'DesignOrProcedure'}]}],
+  of: [{ type: 'reference', to: [{ type: 'DesignOrProcedure' }] }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -961,7 +961,7 @@ export const usedObjectOfType = {
   of: [
     {
       type: 'reference',
-      to: [{type: 'ObjectType'}],
+      to: [{ type: 'ObjectType' }],
     },
   ],
   options: {
@@ -1007,7 +1007,7 @@ export const usedSpecificObject = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
+  of: [{ type: 'reference', to: [{ type: 'HumanMadeObject' }] }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -1021,7 +1021,7 @@ export const timespan = {
   title: 'Tidsspenn',
   titleEN: 'Timespan',
   type: 'array',
-  of: [{type: 'Timespan'}],
+  of: [{ type: 'Timespan' }],
   options: {
     editModal: 'fullscreen',
   },
@@ -1055,7 +1055,7 @@ export const contributionAssignedBy = {
   titleEN: 'Contribution assigned by',
   type: 'array',
   of: [
-    {type: 'ContributionAssignment'}
+    { type: 'ContributionAssignment' }
   ],
   options: {
     semanticSanity: {
@@ -1071,9 +1071,9 @@ export const carriedOutBy = {
   titleEN: 'Carried out by',
   type: 'array',
   of: [{
-    type: 'reference', 
-    to:[
-      {type: 'Actor'},
+    type: 'reference',
+    to: [
+      { type: 'Actor' },
     ]
   }],
   options: {
@@ -1089,7 +1089,7 @@ export const hadParticipant = {
   title: 'Hadde medvirkende',
   titleEN: 'Had participant',
   type: 'array',
-  of: [{type: 'ContributionAssignment'}],
+  of: [{ type: 'ContributionAssignment' }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -1119,7 +1119,7 @@ export const tookPlaceAt = {
     </span>
   ),
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'Place'}]}],
+  of: [{ type: 'reference', to: [{ type: 'Place' }] }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -1151,7 +1151,7 @@ export const hasIdentified = {
   title: 'Identifiserte tilstander',
   titleEN: 'Has identified condition states',
   type: 'array',
-  of: [{type: 'ConditionState'}],
+  of: [{ type: 'ConditionState' }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -1168,7 +1168,7 @@ export const valueSlider = {
   type: 'number',
   options: {
     layout: 'slider',
-    range: {min: 1, max: 100, step: 1},
+    range: { min: 1, max: 100, step: 1 },
   },
 }
 
@@ -1177,7 +1177,7 @@ export const language = {
   title: 'Språk',
   titleEN: 'Language',
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'Language'}]}],
+  of: [{ type: 'reference', to: [{ type: 'Language' }] }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -1193,13 +1193,13 @@ export const memberOf = {
   type: 'array',
   of: [
     {
-      type: 'reference', 
+      type: 'reference',
       to: [
-        {type: 'Actor'}
+        { type: 'Actor' }
       ],
       options: {
         filter: '_type == "Actor" && references($id)',
-        filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'}
+        filterParams: { id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a' }
       }
     }
   ],
@@ -1220,7 +1220,7 @@ export const hasMember = {
   title: 'Har deler',
   titleEN: 'Has member',
   type: 'array',
-  of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
+  of: [{ type: 'reference', to: [{ type: 'HumanMadeObject' }] }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -1236,8 +1236,8 @@ export const definedByGeoJSON = {
   description: 'Lag et GeoJSON objekt eller lim inn en hel GeoJSON fil.',
   type: 'array',
   of: [
-    {type: 'GeojsonFeatureCollection'}, 
-    {type: 'Geojson'}
+    { type: 'GeojsonFeatureCollection' },
+    { type: 'Geojson' }
   ],
   options: {
     semanticSanity: {
@@ -1255,9 +1255,9 @@ export const transferredTitleTo = {
   type: 'array',
   of: [
     {
-      type: 'reference', 
+      type: 'reference',
       to: [
-        {type: 'Actor'}
+        { type: 'Actor' }
       ]
     }
   ],
@@ -1277,9 +1277,9 @@ export const transferredTitleFrom = {
   type: 'array',
   of: [
     {
-      type: 'reference', 
+      type: 'reference',
       to: [
-        {type: 'Actor'}
+        { type: 'Actor' }
       ]
     }
   ],
@@ -1301,8 +1301,8 @@ export const transferredTitleOf = {
     {
       type: 'reference',
       to: [
-        {type: 'HumanMadeObject'}, 
-        {type: 'Collection'}
+        { type: 'HumanMadeObject' },
+        { type: 'Collection' }
       ],
     },
   ],
@@ -1324,8 +1324,8 @@ export const concerned = {
     {
       type: 'reference',
       to: [
-        {type: 'HumanMadeObject'}, 
-        {type: 'Collection'}
+        { type: 'HumanMadeObject' },
+        { type: 'Collection' }
       ],
     },
   ],
@@ -1342,7 +1342,7 @@ export const motivated = {
   title: 'Motiverte',
   titleEN: 'Motivated',
   type: 'array',
-  of: [{type: 'Treatment'}],
+  of: [{ type: 'Treatment' }],
   options: {
     semanticSanity: {
       '@container': '@set',
@@ -1386,4 +1386,13 @@ export const inDataset = {
       '@type': '@id'
     }
   },
+}
+
+export const shortDescription = {
+  name: 'shortDescription',
+  title: 'Kort beskrivelse',
+  titleEN: 'Short description',
+  description: 'En setning som beskriver denne tingen. For eksempel en persons livsrolle, virkested og leveår.',
+  type: 'text',
+  validation: (Rule) => Rule.max(100).warning('Korte og konsise beskrivelser er best!'),
 }

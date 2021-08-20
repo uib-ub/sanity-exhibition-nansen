@@ -1,6 +1,6 @@
-import {FaProjectDiagram} from 'react-icons/fa'
-import {editorialState, accessState, label, timespan, referredToBy, identifiedBy} from '../props'
-import {coalesceLabel} from '../helpers/helpers'
+import { FaProjectDiagram } from 'react-icons/fa'
+import { editorialState, accessState, label, timespan, referredToBy, identifiedBy } from '../props'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'Project',
@@ -11,17 +11,17 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false, columns: 2},
+      options: { collapsible: true, collapsed: false, columns: 2 },
     },
     {
       name: 'minimum',
       title: 'Basic metadata',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'relations',
       title: 'Relations to other stuff',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
   ],
   fields: [
@@ -63,9 +63,9 @@ export default {
         {
           type: 'reference',
           to: [
-            {type: 'HumanMadeObject'}, 
-            {type: 'Collection'}, 
-            {type: 'Actor'}, 
+            { type: 'HumanMadeObject' },
+            { type: 'Collection' },
+            { type: 'Actor' },
           ],
         },
       ],
@@ -81,7 +81,7 @@ export default {
       title: 'Underprosjekt',
       titleEN: 'Sub projects',
       type: 'array',
-      of: [{type: 'Project'}],
+      of: [{ type: 'Project' }],
       options: {
         editModal: 'fullscreen',
         semanticSanity: {
@@ -95,7 +95,7 @@ export default {
       title: 'Documented in',
       titleEN: 'Dokumentert i',
       type: 'array',
-      of: [{type: 'file'}],
+      of: [{ type: 'file' }],
       options: {
         semanticSanity: {
           exclude: true
@@ -112,7 +112,7 @@ export default {
       active: 'active',
     },
     prepare(selection) {
-      const {type, title, blocks, published, active} = selection
+      const { type, title, blocks, published, active } = selection
       const block = (blocks || []).find((block) => block._type === 'block')
       const secret = published === 'secret' ? '🔒' : ''
       const a = active ? 'Active' : 'Completed'
@@ -122,9 +122,9 @@ export default {
         subtitle: secret + ' ' + a + (coalesceLabel(type) || ''),
         description: block
           ? block.children
-              .filter((child) => child._type === 'span')
-              .map((span) => span.text)
-              .join('')
+            .filter((child) => child._type === 'span')
+            .map((span) => span.text)
+            .join('')
           : 'No description',
       }
     },
@@ -133,12 +133,12 @@ export default {
     {
       title: 'Title, A-Å',
       name: 'title',
-      by: [{field: 'label', direction: 'desc'}],
+      by: [{ field: 'label', direction: 'desc' }],
     },
     {
       title: 'Title, Å-A',
       name: 'title',
-      by: [{field: 'label', direction: 'asc'}],
+      by: [{ field: 'label', direction: 'asc' }],
     },
   ],
 }

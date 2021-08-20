@@ -1,6 +1,6 @@
-import {editorialState, accessState} from '../props'
-import {defaultFieldsets} from '../fieldsets'
-import { coalesceLabel } from '../helpers/helpers'
+import { editorialState, accessState } from '../props'
+import { defaultFieldsets } from '../fieldsets'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'LinguisticObject',
@@ -28,7 +28,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'TextType'}],
+          to: [{ type: 'TextType' }],
         },
       ],
       /* validation: (Rule) => Rule.required(), */
@@ -55,7 +55,7 @@ export default {
       title: 'Språk',
       titleEN: 'Language',
       type: 'reference',
-      to: [{type: 'Language'}],
+      to: [{ type: 'Language' }],
       validation: (Rule) => Rule.required(),
       options: {
         semanticSanity: {
@@ -94,7 +94,7 @@ export default {
       title: 'Dokumentert i',
       titleEN: 'Documented in',
       type: 'array',
-      of: [{type: 'file'}],
+      of: [{ type: 'file' }],
       options: {
         semanticSanity: {
           '@type': '@json'
@@ -109,14 +109,14 @@ export default {
       lang: 'language.label',
     },
     prepare(selection) {
-      const {type, blocks, lang} = selection
-      
+      const { type, blocks, lang } = selection
+
       return {
         title: blocks?.length
           ? blocks[0].children
-              .filter((child) => child._type === 'span')
-              .map((span) => span.text)
-              .join('')
+            .filter((child) => child._type === 'span')
+            .map((span) => span.text)
+            .join('')
           : 'No content',
         subtitle: `${type ? coalesceLabel(type) + ' på ' : ''} ${lang ? coalesceLabel(lang) : ''}`,
       }

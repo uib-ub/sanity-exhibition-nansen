@@ -1,5 +1,5 @@
-import {timespanAsString, coalesceLabel} from '../helpers/helpers'
-import {FaCalendar} from 'react-icons/fa'
+import { timespanAsString, coalesceLabel } from '../helpers'
+import { FaCalendar } from 'react-icons/fa'
 import {
   timespan,
   editorialState,
@@ -22,22 +22,22 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'minimum',
       title: 'Basic metadata',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'timelineMedium',
       title: 'Hovedbilde (brukt i tidslinke)',
-      options: {collapsible: true, collapsed: true},
+      options: { collapsible: true, collapsed: true },
     },
     {
       name: 'relations',
       title: 'Relations to other stuff',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
   ],
   fields: [
@@ -64,7 +64,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'EventType'}],
+          to: [{ type: 'EventType' }],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -82,7 +82,7 @@ export default {
       type: 'MediaObject',
       fieldset: 'timelineMedium',
       options: {
-        semanticSanity: {  
+        semanticSanity: {
           '@type': '@json'
         }
       },
@@ -111,7 +111,7 @@ export default {
       type: 'hasType.0.label',
     },
     prepare(selection) {
-      const {title, type, bb, eb, date, be, ee} = selection
+      const { title, type, bb, eb, date, be, ee } = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       console.log(type)
       return {

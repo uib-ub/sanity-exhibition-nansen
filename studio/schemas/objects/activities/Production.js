@@ -7,8 +7,8 @@ import {
   usedSpecificTechnique,
   featured,
 } from '../../props'
-import {defaultFieldsets} from '../../fieldsets'
-import {timespanAsString} from '../../helpers/helpers'
+import { defaultFieldsets } from '../../fieldsets'
+import { timespanAsString } from '../../helpers'
 
 var capitalize = require('capitalize')
 
@@ -25,7 +25,7 @@ export default {
       title: 'Underaktiviteter',
       titleEN: 'Sub activities',
       type: 'array',
-      of: [{type: 'Production'}],
+      of: [{ type: 'Production' }],
       options: {
         semanticSanity: {
           '@container': '@set',
@@ -41,7 +41,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'ActivityType'}],
+          to: [{ type: 'ActivityType' }],
         },
       ],
       options: {
@@ -61,7 +61,7 @@ export default {
       titleEN: 'Has modified',
       description: 'A production can modify an existing object',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
+      of: [{ type: 'reference', to: [{ type: 'HumanMadeObject' }] }],
       options: {
         semanticSanity: {
           '@container': '@set',
@@ -77,7 +77,7 @@ export default {
       titleEN: 'Employed',
       description: 'WIP, could be a API call to some source of authorities',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'Material'}]}],
+      of: [{ type: 'reference', to: [{ type: 'Material' }] }],
       options: {
         semanticSanity: {
           '@container': '@set',
@@ -98,7 +98,7 @@ export default {
       type: '_type',
     },
     prepare(selection) {
-      const {type, contributor, contributorName, bb, eb, date, be, ee} = selection
+      const { type, contributor, contributorName, bb, eb, date, be, ee } = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
 
       return {

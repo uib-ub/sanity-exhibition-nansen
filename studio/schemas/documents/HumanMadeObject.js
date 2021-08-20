@@ -1,7 +1,7 @@
 import React from 'react'
-import {Link} from 'part:@sanity/base/router'
+import { Link } from 'part:@sanity/base/router'
 import jsonata from 'jsonata'
-import {FaBookDead} from 'react-icons/fa'
+import { FaBookDead } from 'react-icons/fa'
 
 import {
   editorialState,
@@ -29,7 +29,7 @@ import {
   homepage,
   wasOutputOf,
 } from '../props'
-import {coalesceLabel} from '../helpers/helpers'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'HumanMadeObject',
@@ -46,42 +46,42 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false, columns: 2},
+      options: { collapsible: true, collapsed: false, columns: 2 },
     },
     {
       name: 'minimum',
       title: 'Basic metadata',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'mainImage',
       title: 'Hovedbilde',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'representation',
       title: 'Alle bilder',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'relations',
       title: 'Relations to other stuff',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'partsAndContent',
       title: 'Felt relatert til deler eller innhold',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'physicalDescription',
       title: 'Felt relatert til fysisk beskrivelse',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'ownership',
       title: 'Felt relatert til eierskap',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
   ],
   fields: [
@@ -116,7 +116,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'ObjectType'}],
+          to: [{ type: 'ObjectType' }],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -136,13 +136,13 @@ export default {
       fieldset: 'minimum',
       type: 'array',
       of: [
-        {type: 'BeginningOfExistence'},
-        {type: 'Production'},
-        {type: 'Transformation'},
-        {type: 'reference', to: [{type: 'Acquisition'}]},
-        {type: 'Move'},
-        {type: 'Activity'},
-        {type: 'Destruction'},
+        { type: 'BeginningOfExistence' },
+        { type: 'Production' },
+        { type: 'Transformation' },
+        { type: 'reference', to: [{ type: 'Acquisition' }] },
+        { type: 'Move' },
+        { type: 'Activity' },
+        { type: 'Destruction' },
       ],
       options: {
         semanticSanity: {
@@ -227,7 +227,7 @@ export default {
       published: 'accessState',
     },
     prepare(selection) {
-      const {title, id, type, blocks, media, published} = selection
+      const { title, id, type, blocks, media, published } = selection
       const expression = jsonata('nor[0]')
       const block = expression.evaluate(blocks)
       const secret = published === 'secret' ? '🔒' : ''
@@ -237,9 +237,9 @@ export default {
         subtitle: secret + (id ? id + ', ' : '') + coalesceLabel(type),
         description: block
           ? block.children
-              .filter((child) => child._type === 'span')
-              .map((span) => span.text)
-              .join('')
+            .filter((child) => child._type === 'span')
+            .map((span) => span.text)
+            .join('')
           : '',
         media: media,
       }
@@ -249,22 +249,22 @@ export default {
     {
       title: 'Tittel, A-Å',
       name: 'title',
-      by: [{field: 'label', direction: 'asc'}],
+      by: [{ field: 'label', direction: 'asc' }],
     },
     {
       title: 'Tittel, Å-A',
       name: 'title',
-      by: [{field: 'label', direction: 'desc'}],
+      by: [{ field: 'label', direction: 'desc' }],
     },
     {
       title: 'Foretrukket id, Synkende',
       name: 'preferredIdentifier',
-      by: [{field: 'preferredIdentifier', direction: 'desc'}],
+      by: [{ field: 'preferredIdentifier', direction: 'desc' }],
     },
     {
       title: 'Foretrukket id, Stigende',
       name: 'preferredIdentifier',
-      by: [{field: 'preferredIdentifier', direction: 'asc'}],
+      by: [{ field: 'preferredIdentifier', direction: 'asc' }],
     },
   ],
 }

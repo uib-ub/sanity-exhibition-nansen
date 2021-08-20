@@ -1,7 +1,7 @@
-import {FaLanguage} from 'react-icons/fa'
-import {label, altLabel} from '../../props'
-import {defaultFieldsets} from '../../fieldsets'
-import {coalesceLabel} from '../../helpers/helpers.js'
+import { FaLanguage } from 'react-icons/fa'
+import { label, altLabel } from '../../props'
+import { defaultFieldsets } from '../../fieldsets'
+import { coalesceLabel } from '../../helpers'
 
 export default {
   name: 'Language',
@@ -23,7 +23,7 @@ export default {
       title: 'label',
     },
     prepare(selection) {
-      const {title} = selection
+      const { title } = selection
       return {
         title: coalesceLabel(title),
       }

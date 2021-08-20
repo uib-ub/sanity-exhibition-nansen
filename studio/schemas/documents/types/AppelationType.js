@@ -1,7 +1,7 @@
-import {FaTag} from 'react-icons/fa'
-import {editorialState, accessState, label, altLabel, broader, domain} from '../../props'
-import {defaultFieldsets} from '../../fieldsets'
-import {coalesceLabel} from '../../helpers/helpers.js'
+import { FaTag } from 'react-icons/fa'
+import { editorialState, accessState, label, altLabel, broader, domain } from '../../props'
+import { defaultFieldsets } from '../../fieldsets'
+import { coalesceLabel } from '../../helpers'
 
 export default {
   name: 'AppelationType',
@@ -25,7 +25,7 @@ export default {
       titleEN: 'Activity stream',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'Creation'}],
+      of: [{ type: 'Creation' }],
       options: {
         semanticSanity: {
           '@container': '@list',
@@ -39,7 +39,7 @@ export default {
       title: 'label',
     },
     prepare(selection) {
-      const {title} = selection
+      const { title } = selection
       return {
         title: coalesceLabel(title),
       }

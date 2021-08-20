@@ -1,6 +1,6 @@
-import {referredToBy, timespan} from '../props'
-import {defaultFieldsets} from '../fieldsets'
-import { coalesceLabel } from '../helpers/helpers'
+import { referredToBy, timespan } from '../props'
+import { defaultFieldsets } from '../fieldsets'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'Identifier',
@@ -20,7 +20,7 @@ export default {
       title: 'Klassifisert som',
       titleEN: 'Classified as',
       type: 'reference',
-      to: [{type: 'IdentifierType'}],
+      to: [{ type: 'IdentifierType' }],
       validation: (Rule) => Rule.required(),
       options: {
         semanticSanity: {
@@ -37,7 +37,7 @@ export default {
       type: 'hasType.label',
     },
     prepare(selection) {
-      const {title, type} = selection
+      const { title, type } = selection
       return {
         title: title,
         subtitle: coalesceLabel(type),

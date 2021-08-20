@@ -1,6 +1,6 @@
-import {FaEmpire} from 'react-icons/fa'
-import {timespan, editorialState, accessState, label, referredToBy, tookPlaceAt} from '../props'
-import {coalesceLabel} from '../helpers/helpers'
+import { FaEmpire } from 'react-icons/fa'
+import { timespan, editorialState, accessState, label, referredToBy, tookPlaceAt } from '../props'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'Period',
@@ -15,22 +15,22 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'minimum',
       title: 'Basic metadata',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'timelineMedium',
       title: 'Hovedbilde (brukt i tidslinke)',
-      options: {collapsible: true, collapsed: true},
+      options: { collapsible: true, collapsed: true },
     },
     {
       name: 'relations',
       title: 'Relations to other stuff',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
   ],
   fields: [
@@ -63,10 +63,10 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'reference', 
+          type: 'reference',
           to: [
-            {type: 'Period'}, 
-            {type: 'Event'}
+            { type: 'Period' },
+            { type: 'Event' }
           ]
         }
       ],
@@ -97,7 +97,7 @@ export default {
       title: 'label',
     },
     prepare(selection) {
-      const {title, type} = selection
+      const { title, type } = selection
 
       return {
         title: coalesceLabel(title),
@@ -106,4 +106,3 @@ export default {
     }
   }
 }
- 

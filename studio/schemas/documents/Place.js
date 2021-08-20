@@ -1,4 +1,4 @@
-import {FaMapMarker} from 'react-icons/fa'
+import { FaMapMarker } from 'react-icons/fa'
 import {
   editorialState,
   accessState,
@@ -7,8 +7,8 @@ import {
   identifiedBy,
   definedByGeoJSON,
 } from '../props'
-import {defaultFieldsets} from '../fieldsets'
-import { coalesceLabel } from '../helpers/helpers'
+import { defaultFieldsets } from '../fieldsets'
+import { coalesceLabel } from '../helpers'
 // import {KulturnavInput} from '../components/kulturnavInput/KulturnavInput'
 
 export default {
@@ -34,7 +34,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'PlaceType'}],
+          to: [{ type: 'PlaceType' }],
         },
       ],
       options: {
@@ -60,7 +60,7 @@ export default {
       title: 'label',
     },
     prepare(selection) {
-      const {title} = selection
+      const { title } = selection
       return {
         title: coalesceLabel(title),
       }

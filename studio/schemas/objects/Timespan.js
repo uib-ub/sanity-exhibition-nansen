@@ -1,4 +1,4 @@
-import {timespanAsString} from '../helpers/helpers'
+import { timespanAsString } from '../helpers'
 
 export default {
   name: 'Timespan',
@@ -121,7 +121,7 @@ export default {
       blocks: 'description.nor',
     },
     prepare(selection) {
-      const {bb, eb, date, be, ee, blocks} = selection
+      const { bb, eb, date, be, ee, blocks } = selection
       const block = (blocks || []).find((block) => block._type === 'block')
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
 
@@ -129,9 +129,9 @@ export default {
         title: timespan,
         subtitle: block
           ? block.children
-              .filter((child) => child._type === 'span')
-              .map((span) => span.text)
-              .join('')
+            .filter((child) => child._type === 'span')
+            .map((span) => span.text)
+            .join('')
           : '',
       }
     },

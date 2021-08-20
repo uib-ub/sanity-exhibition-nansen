@@ -1,4 +1,4 @@
-import {FaUser} from 'react-icons/fa'
+import { FaUser } from 'react-icons/fa'
 import {
   editorialState,
   accessState,
@@ -10,8 +10,9 @@ import {
   wasOutputOf,
   inDataset,
   homepage,
+  shortDescription,
 } from '../props'
-import {coalesceLabel, timespanAsString} from '../helpers/helpers'
+import { coalesceLabel, timespanAsString } from '../helpers'
 
 export default {
   name: 'Actor',
@@ -26,28 +27,29 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false, columns: 2},
+      options: { collapsible: true, collapsed: false, columns: 2 },
     },
     {
       name: 'minimum',
       title: 'Basic metadata',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'representation',
       title: 'Hovedbilde og IIIF manifest',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'relations',
       title: 'Relations to other stuff',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
   ],
   fields: [
     editorialState,
     accessState,
     label,
+    shortDescription,
     homepage,
     {
       ...identifiedBy,
@@ -66,7 +68,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'ActorType'}],
+          to: [{ type: 'ActorType' }],
         },
       ],
       validation: Rule => Rule.min(1).warning('Du bør ha "Person" eller "Gruppe" som første type!'),
@@ -91,12 +93,12 @@ export default {
       descriptionEN: 'Add all known events this smuck did',
       type: 'array',
       of: [
-        {type: 'Birth'},
-        {type: 'reference', to: [{type: 'Activity'}, {type: 'Event'}]},
-        {type: 'Move'},
-        {type: 'Joining'},
-        {type: 'Leaving'},
-        {type: 'Death'},
+        { type: 'Birth' },
+        { type: 'reference', to: [{ type: 'Activity' }, { type: 'Event' }] },
+        { type: 'Move' },
+        { type: 'Joining' },
+        { type: 'Leaving' },
+        { type: 'Death' },
       ],
       options: {
         editModal: 'fullscreen',
@@ -122,7 +124,7 @@ export default {
       imported: 'wasOutputOf'
     },
     prepare(selection) {
-      const {title, type, media, imported, bb, eb, date, be, ee} = selection
+      const { title, type, media, imported, bb, eb, date, be, ee } = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       const wasImported = imported ? `Importert fra ${imported.hasSender.label}` : ''
 

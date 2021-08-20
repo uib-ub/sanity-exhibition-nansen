@@ -1,5 +1,5 @@
-import {timespanAsString, coalesceLabel} from '../helpers/helpers'
-import {MdLocalActivity} from 'react-icons/md'
+import { timespanAsString, coalesceLabel } from '../helpers'
+import { MdLocalActivity } from 'react-icons/md'
 import {
   timespan,
   referredToBy,
@@ -25,22 +25,22 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'minimum',
       title: 'Basic metadata',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'technique',
       title: 'Felt relatert til teknikk',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'purpose',
       title: 'Formål med aktiviteten',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
   ],
   fields: [
@@ -64,7 +64,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'ActivityType'}],
+          to: [{ type: 'ActivityType' }],
         },
       ],
       options: {
@@ -82,8 +82,8 @@ export default {
       titleEN: 'Target',
       type: 'reference',
       to: [
-        {type: 'Collection'}, 
-        {type: 'Actor'}
+        { type: 'Collection' },
+        { type: 'Actor' }
       ],
       options: {
         semanticSanity: {
@@ -98,7 +98,7 @@ export default {
       title: 'Underaktiviteter',
       titleEN: 'Sub activities',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'Activity'}]}],
+      of: [{ type: 'reference', to: [{ type: 'Activity' }] }],
       options: {
         semanticSanity: {
           '@container': '@list',
@@ -111,7 +111,7 @@ export default {
       title: 'Fortsatte',
       titleEN: 'Continued',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'Activity'}]}],
+      of: [{ type: 'reference', to: [{ type: 'Activity' }] }],
       options: {
         semanticSanity: {
           '@container': '@set',
@@ -124,7 +124,7 @@ export default {
       title: 'Ble fortsatt av',
       titleEN: 'Was continued by',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'Activity'}]}],
+      of: [{ type: 'reference', to: [{ type: 'Activity' }] }],
       options: {
         semanticSanity: {
           '@container': '@set',
@@ -142,11 +142,11 @@ export default {
         {
           type: 'reference',
           to: [
-            {type: 'HumanMadeObject'},
-            {type: 'Event'},
-            {type: 'Place'},
-            {type: 'Work'},
-            {type: 'Actor'}
+            { type: 'HumanMadeObject' },
+            { type: 'Event' },
+            { type: 'Place' },
+            { type: 'Work' },
+            { type: 'Actor' }
           ],
         },
       ],
@@ -183,7 +183,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'Concept'}],
+          to: [{ type: 'Concept' }],
         },
       ],
       options: {
@@ -204,12 +204,12 @@ export default {
         {
           type: 'reference',
           to: [
-            {type: 'DesignOrProcedure'},
-            {type: 'Event'},
-            {type: 'Report'},
-            {type: 'Acquisition'},
-            {type: 'Exhibition'},
-            {type: 'Project'},
+            { type: 'DesignOrProcedure' },
+            { type: 'Event' },
+            { type: 'Report' },
+            { type: 'Acquisition' },
+            { type: 'Exhibition' },
+            { type: 'Project' },
           ],
         },
       ],
@@ -227,7 +227,7 @@ export default {
       description: '',
       fieldset: 'purpose',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'HumanMadeObject'}]}],
+      of: [{ type: 'reference', to: [{ type: 'HumanMadeObject' }] }],
       options: {
         semanticSanity: {
           '@container': '@set',
@@ -247,7 +247,7 @@ export default {
       type: 'hasType.0.label',
     },
     prepare(selection) {
-      const {title, type, bb, eb, date, be, ee} = selection
+      const { title, type, bb, eb, date, be, ee } = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
 
       return {

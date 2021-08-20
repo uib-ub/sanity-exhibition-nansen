@@ -1,6 +1,6 @@
-import {digitallyShownBy, label, represents, referredToBy} from '../props'
-import {defaultFieldsets} from '../fieldsets'
-import { coalesceLabel } from '../helpers/helpers'
+import { digitallyShownBy, label, represents, referredToBy } from '../props'
+import { defaultFieldsets } from '../fieldsets'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'VisualObject',
@@ -15,7 +15,7 @@ export default {
       media: 'digitallyShownBy.0',
     },
     prepare(selection) {
-      const {title, media} = selection
+      const { title, media } = selection
 
       return {
         title: coalesceLabel(title),

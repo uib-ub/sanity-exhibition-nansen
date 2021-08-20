@@ -1,7 +1,7 @@
 import React from 'react'
-import {Link} from 'part:@sanity/base/router'
-import {BsFillQuestionCircleFill} from 'react-icons/bs'
-import {GiCrackedGlass} from 'react-icons/gi'
+import { Link } from 'part:@sanity/base/router'
+import { BsFillQuestionCircleFill } from 'react-icons/bs'
+import { GiCrackedGlass } from 'react-icons/gi'
 import {
   editorialState,
   accessState,
@@ -13,7 +13,7 @@ import {
   carriedOutBy,
   timespan,
 } from '../../props'
-import { coalesceLabel } from '../../helpers/helpers'
+import { coalesceLabel } from '../../helpers'
 
 /**
  * Report
@@ -33,22 +33,22 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false, columns: 2},
+      options: { collapsible: true, collapsed: false, columns: 2 },
     },
     {
       name: 'minimum',
       title: 'Basic metadata',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'relations',
       title: 'Relations to other stuff',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'partsAndContent',
       title: 'Felt relatert til deler eller innhold',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     /* {
       name: 'technique',
@@ -59,7 +59,7 @@ export default {
     {
       name: 'documentation',
       title: 'Dokumentasjon',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
   ],
   fields: [
@@ -102,7 +102,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'ReportType'}],
+          to: [{ type: 'ReportType' }],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -143,8 +143,8 @@ export default {
       ),
       type: 'array',
       of: [
-        {type: 'Measurement'}, 
-        {type: 'Sampling'}
+        { type: 'Measurement' },
+        { type: 'Sampling' }
       ],
       options: {
         semanticSanity: {
@@ -197,7 +197,7 @@ export default {
       ),
       fieldset: 'documentation',
       type: 'array',
-      of: [{type: 'DigitalImageObject'}],
+      of: [{ type: 'DigitalImageObject' }],
       options: {
         layout: 'grid',
         semanticSanity: {
@@ -234,7 +234,7 @@ export default {
       ),
       fieldset: 'documentation',
       type: 'array',
-      of: [{type: 'file'}],
+      of: [{ type: 'file' }],
       options: {
         semanticSanity: {
           '@container': '@set',
@@ -265,7 +265,7 @@ export default {
         </span>
       ),
       type: 'array',
-      of: [{type: 'Report'}],
+      of: [{ type: 'Report' }],
       options: {
         editModal: 'fullscreen',
         semanticSanity: {
@@ -283,7 +283,7 @@ export default {
       published: 'accessState',
     },
     prepare(selection) {
-      const {type, title, blocks, published} = selection
+      const { type, title, blocks, published } = selection
       const block = (blocks || []).find((block) => block._type === 'block')
       const secret = published === 'secret' ? '🔒' : ''
 
@@ -292,9 +292,9 @@ export default {
         subtitle: secret + coalesceLabel(type),
         description: block
           ? block.children
-              .filter((child) => child._type === 'span')
-              .map((span) => span.text)
-              .join('')
+            .filter((child) => child._type === 'span')
+            .map((span) => span.text)
+            .join('')
           : '',
       }
     },
@@ -303,12 +303,12 @@ export default {
     {
       title: 'Tittel, A-Å',
       name: 'title',
-      by: [{field: 'label', direction: 'desc'}],
+      by: [{ field: 'label', direction: 'desc' }],
     },
     {
       title: 'Tittel, Å-A',
       name: 'title',
-      by: [{field: 'label', direction: 'asc'}],
+      by: [{ field: 'label', direction: 'asc' }],
     },
   ],
 }

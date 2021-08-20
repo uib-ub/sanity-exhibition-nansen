@@ -1,5 +1,5 @@
-import { coalesceLabel } from '../helpers/helpers'
-import {label, definedByGeoJSON} from '../props'
+import { coalesceLabel } from '../helpers'
+import { label, definedByGeoJSON } from '../props'
 
 export default {
   name: 'Presence',
@@ -12,7 +12,7 @@ export default {
     {
       name: 'minimum',
       title: 'Minimumsregistrering',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
   ],
   fields: [
@@ -34,9 +34,9 @@ export default {
       title: 'Tidsspenn',
       titleEN: 'Timespan',
       type: 'array',
-      of: [{type: 'Timespan'}],
+      of: [{ type: 'Timespan' }],
       options: {
-      semanticSanity: { 
+        semanticSanity: {
           '@container': '@set',
           '@type': '@id'
         }
@@ -47,9 +47,9 @@ export default {
       title: 'Fant sted ved',
       titleEN: 'Took place at',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'Place'}]}],
+      of: [{ type: 'reference', to: [{ type: 'Place' }] }],
       options: {
-        semanticSanity: { 
+        semanticSanity: {
           '@container': '@set',
           '@type': '@id'
         }
@@ -62,7 +62,7 @@ export default {
       title: 'label',
     },
     prepare(selection) {
-      const {title} = selection
+      const { title } = selection
       return {
         title: coalesceLabel(title),
       }

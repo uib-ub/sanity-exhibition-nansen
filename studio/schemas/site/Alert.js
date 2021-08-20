@@ -1,4 +1,4 @@
-import {timespanAsString} from '../helpers/helpers'
+import { timespanAsString } from '../helpers'
 
 export default {
   name: 'Alert',
@@ -9,7 +9,7 @@ export default {
     {
       name: 'validPeriod',
       title: 'Gyldig fra og til dato',
-      options: {collapsible: false, collapsed: false, columns: 2},
+      options: { collapsible: false, collapsed: false, columns: 2 },
     },
   ],
   fields: [
@@ -70,7 +70,7 @@ export default {
       showAlert: 'showAlert',
     },
     prepare(selection) {
-      const {content, bb, ee, showAlert} = selection
+      const { content, bb, ee, showAlert } = selection
       const block = content[0]
       const eb = '',
         date = '',
@@ -81,9 +81,9 @@ export default {
       return {
         title: block
           ? block.children
-              .filter((child) => child._type === 'span')
-              .map((span) => span.text)
-              .join('')
+            .filter((child) => child._type === 'span')
+            .map((span) => span.text)
+            .join('')
           : '',
         subtitle: `${isPublic ? isPublic + ': ' : ''}${timespan}`,
       }

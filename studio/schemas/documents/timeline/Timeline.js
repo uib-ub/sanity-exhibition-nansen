@@ -1,7 +1,7 @@
-import {GiCalendar} from 'react-icons/gi'
-import {editorialState, accessState} from '../../props'
-import {defaultFieldsets} from '../../fieldsets'
-import { coalesceLabel } from '../../helpers/helpers'
+import { GiCalendar } from 'react-icons/gi'
+import { editorialState, accessState } from '../../props'
+import { defaultFieldsets } from '../../fieldsets'
+import { coalesceLabel } from '../../helpers'
 
 export default {
   name: 'Timeline',
@@ -34,8 +34,8 @@ export default {
       titleEN: 'Media',
       type: 'array',
       of: [
-        {type: 'MediaObject'}, 
-        {type: 'ExternalMediaObject'}
+        { type: 'MediaObject' },
+        { type: 'ExternalMediaObject' }
       ],
       validation: (Rule) => Rule.length(1).error('You should only register one media object'),
     },
@@ -48,8 +48,8 @@ export default {
       type: 'string',
       options: {
         list: [
-          {title: 'Human', value: 'human'},
-          {title: 'Cosmological', value: 'cosmological'},
+          { title: 'Human', value: 'human' },
+          { title: 'Cosmological', value: 'cosmological' },
         ],
         layout: 'radio',
       },
@@ -60,13 +60,13 @@ export default {
       titleEN: 'Era',
       description: 'Eras is used to label a span of time on the timeline navigation component.',
       type: 'array',
-      of: [{type: 'Era'}],
+      of: [{ type: 'Era' }],
       preview: {
         select: {
           title: 'headline',
         },
         prepare(selection) {
-          const {title} = selection
+          const { title } = selection
           return {
             title: title,
           }
@@ -81,9 +81,9 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'Event'}, {type: 'Activity'}],
+          to: [{ type: 'Event' }, { type: 'Activity' }],
         },
-        {type: 'TimelineSlide'},
+        { type: 'TimelineSlide' },
       ],
     },
   ],
@@ -92,7 +92,7 @@ export default {
       title: 'headline',
     },
     prepare(selection) {
-      const {title} = selection
+      const { title } = selection
       return {
         title: coalesceLabel(title),
       }

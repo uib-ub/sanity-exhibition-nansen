@@ -1,4 +1,4 @@
-import {FaGlasses} from 'react-icons/fa'
+import { FaGlasses } from 'react-icons/fa'
 import {
   editorialState,
   accessState,
@@ -8,8 +8,8 @@ import {
   language,
   tookPlaceAt,
 } from '../props'
-import {defaultFieldsets} from '../fieldsets'
-import {coalesceLabel} from '../helpers/helpers'
+import { defaultFieldsets } from '../fieldsets'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'Exhibition',
@@ -59,8 +59,8 @@ export default {
       description: 'Events and activities connected to this object',
       type: 'array',
       of: [
-        {type: 'Creation'}, 
-        {type: 'Move'}
+        { type: 'Creation' },
+        { type: 'Move' }
       ],
       options: {
         semanticSanity: {
@@ -76,7 +76,7 @@ export default {
       title: 'label',
     },
     prepare(selection) {
-      const {title} = selection
+      const { title } = selection
 
       return {
         title: coalesceLabel(title),

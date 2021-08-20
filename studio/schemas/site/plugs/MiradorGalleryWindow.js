@@ -1,4 +1,4 @@
-import {coalesceLabel} from '../../helpers/helpers'
+import { coalesceLabel } from '../../helpers'
 
 export default {
   title: 'Gallery manifest',
@@ -14,13 +14,13 @@ export default {
       name: 'internal',
       title: 'Internt objekt',
       titleEN: 'Internal object',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'external',
       title: 'Eksternt objekt',
       titleEN: 'External object',
-      options: {collapsible: true, collapsed: true},
+      options: { collapsible: true, collapsed: true },
     },
   ],
   initialValue: {
@@ -35,9 +35,9 @@ export default {
       type: 'string',
       options: {
         list: [
-          {title: 'Book', value: 'book'},
-          {title: 'Single', value: 'single'},
-          {title: 'Gallery', value: 'gallery'},
+          { title: 'Book', value: 'book' },
+          { title: 'Single', value: 'single' },
+          { title: 'Gallery', value: 'gallery' },
         ],
       },
     },
@@ -46,7 +46,7 @@ export default {
       title: 'Manifest',
       titleEN: 'Manifest',
       type: 'reference',
-      to: [{type: 'HumanMadeObject'}],
+      to: [{ type: 'HumanMadeObject' }],
       fieldset: 'internal',
     },
     {
@@ -75,7 +75,7 @@ export default {
       manifestUrl: 'manifestUrl',
       media: 'manifestRef.image',
     },
-    prepare({internalManifest, manifestUrl, media}) {
+    prepare({ internalManifest, manifestUrl, media }) {
       return {
         title: internalManifest ? coalesceLabel(internalManifest) : manifestUrl ? manifestUrl : '',
         media: media,

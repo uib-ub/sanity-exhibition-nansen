@@ -1,6 +1,6 @@
-import {carriedOutBy, timespan, tookPlaceAt, referredToBy, featured} from '../../props'
-import {defaultFieldsets} from '../../fieldsets'
-import {timespanAsString} from '../../helpers/helpers'
+import { carriedOutBy, timespan, tookPlaceAt, referredToBy, featured } from '../../props'
+import { defaultFieldsets } from '../../fieldsets'
+import { timespanAsString } from '../../helpers'
 
 var capitalize = require('capitalize')
 
@@ -22,7 +22,7 @@ export default {
       type: '_type',
     },
     prepare(selection) {
-      const {type, bb, eb, date, be, ee} = selection
+      const { type, bb, eb, date, be, ee } = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       return {
         title: `${capitalize(type)}`,

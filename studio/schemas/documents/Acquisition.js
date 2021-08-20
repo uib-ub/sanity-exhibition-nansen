@@ -1,5 +1,5 @@
-import {FaGifts} from 'react-icons/fa'
-import { coalesceLabel } from '../helpers/helpers'
+import { FaGifts } from 'react-icons/fa'
+import { coalesceLabel } from '../helpers'
 import {
   editorialState,
   accessState,
@@ -26,17 +26,17 @@ export default {
     {
       name: 'state',
       title: 'Status',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'minimum',
       title: 'Basic metadata',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
     {
       name: 'ownership',
       title: 'Felt relatert til eierskap',
-      options: {collapsible: true, collapsed: false},
+      options: { collapsible: true, collapsed: false },
     },
   ],
   fields: [
@@ -64,7 +64,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'AcquisitionType'}],
+          to: [{ type: 'AcquisitionType' }],
         },
       ],
       options: {
@@ -93,7 +93,7 @@ export default {
       titleEN: 'Sub acquisition',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'Acquisition'}],
+      of: [{ type: 'Acquisition' }],
       options: {
         editModal: 'fullscreen',
         semanticSanity: {
@@ -107,7 +107,7 @@ export default {
       title: 'Documented in',
       titleEN: 'Dokumentert i',
       type: 'array',
-      of: [{type: 'file'}],
+      of: [{ type: 'file' }],
       options: {
         editModal: 'fullscreen',
         semanticSanity: {
@@ -123,7 +123,7 @@ export default {
       published: 'accessState',
     },
     prepare(selection) {
-      const {type, title, published} = selection
+      const { type, title, published } = selection
       const secret = published === 'secret' ? '🔒' : ''
 
       return {

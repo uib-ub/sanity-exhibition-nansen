@@ -1,6 +1,6 @@
 import { now } from 'lodash'
-import { coalesceLabel, timespanAsString } from '../../helpers/helpers'
-import {timespan, tookPlaceAt, contributionAssignedBy, featured} from '../../props'
+import { coalesceLabel, timespanAsString } from '../../helpers'
+import { timespan, tookPlaceAt, contributionAssignedBy, featured } from '../../props'
 
 export default {
   name: 'BeginningOfExistence',
@@ -10,7 +10,7 @@ export default {
   fields: [
     featured,
     contributionAssignedBy,
-    timespan, 
+    timespan,
     tookPlaceAt
   ],
   preview: {
@@ -24,7 +24,7 @@ export default {
       ee: 'timespan.0.endOfTheEnd',
     },
     prepare(selection) {
-      const {contributor, contributorName, bb, eb, date, be, ee} = selection
+      const { contributor, contributorName, bb, eb, date, be, ee } = selection
 
       return {
         title: `Beginning of existence, by ${coalesceLabel(contributor) || contributorName || 'unknown'}`,

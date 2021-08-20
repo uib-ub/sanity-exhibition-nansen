@@ -1,4 +1,4 @@
-import {coalesceLabel} from '../helpers/helpers'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'Dimension',
@@ -11,11 +11,11 @@ export default {
       title: 'Klassifisert som',
       titleEN: 'Classified as',
       type: 'reference',
-      to: [{type: 'DimensionType'}],
+      to: [{ type: 'DimensionType' }],
       validation: (Rule) => Rule.required(),
       options: {
         semanticSanity: {
-            '@type': '@id'
+          '@type': '@id'
         }
       },
     },
@@ -36,7 +36,7 @@ export default {
       titleEN: 'Measurement unit',
       description: 'WIP, should use API',
       type: 'reference',
-      to: [{type: 'MeasurementUnit'}],
+      to: [{ type: 'MeasurementUnit' }],
       validation: (Rule) => Rule.required(),
     },
   ],
@@ -47,7 +47,7 @@ export default {
       unit: 'hasUnit.label',
     },
     prepare(selection) {
-      const {type, value, unit} = selection
+      const { type, value, unit } = selection
       return {
         title: `${coalesceLabel(type)}: ${value || ''} ${coalesceLabel(unit) || ''}`,
       }

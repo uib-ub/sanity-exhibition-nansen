@@ -1,4 +1,4 @@
-import {FaBox} from 'react-icons/fa'
+import { FaBox } from 'react-icons/fa'
 import {
   timespan,
   editorialState,
@@ -8,8 +8,8 @@ import {
   preferredIdentifier,
   identifiedBy,
 } from '../props'
-import {defaultFieldsets} from '../fieldsets'
-import { coalesceLabel } from '../helpers/helpers'
+import { defaultFieldsets } from '../fieldsets'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'Storage',
@@ -32,7 +32,7 @@ export default {
       title: 'Klassifisert som',
       titleEN: 'Classified as',
       type: 'reference',
-      to: [{type: 'StorageType'}],
+      to: [{ type: 'StorageType' }],
       validation: (Rule) => Rule.required(),
       options: {
         semanticSanity: {
@@ -63,9 +63,9 @@ export default {
         {
           type: 'reference',
           to: [
-            {type: 'Storage'}, 
-            {type: 'HumanMadeObject'}, 
-            {type: 'Collection'}
+            { type: 'Storage' },
+            { type: 'HumanMadeObject' },
+            { type: 'Collection' }
           ],
         },
       ],
@@ -84,7 +84,7 @@ export default {
       type: 'hasType.label',
     },
     prepare(selection) {
-      const {id, type} = selection
+      const { id, type } = selection
 
       return {
         title: `${id ? id : ''}`,

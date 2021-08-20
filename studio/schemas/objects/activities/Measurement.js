@@ -1,6 +1,6 @@
-import {timespan, referredToBy, tookPlaceAt, carriedOutBy, featured} from '../../props'
-import {defaultFieldsets} from '../../fieldsets'
-import {coalesceLabel} from '../../helpers/helpers'
+import { timespan, referredToBy, tookPlaceAt, carriedOutBy, featured } from '../../props'
+import { defaultFieldsets } from '../../fieldsets'
+import { coalesceLabel } from '../../helpers'
 
 export default {
   name: 'Measurement',
@@ -16,7 +16,7 @@ export default {
       titleEN: 'Dimension',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'Dimension'}],
+      of: [{ type: 'Dimension' }],
       options: {
         semanticSanity: {
           '@container': '@set',
@@ -59,19 +59,16 @@ export default {
       let d0, d1, d2
 
       if (dimension0) {
-        d0 = `${coalesceLabel(dimension0) + ': ' || ''}${value0 + ' ' || ''}${
-          coalesceLabel(unit0) || ''
-        }`
+        d0 = `${coalesceLabel(dimension0) + ': ' || ''}${value0 + ' ' || ''}${coalesceLabel(unit0) || ''
+          }`
       }
       if (dimension1) {
-        d1 = `${coalesceLabel(dimension1) + ': ' || ''}${value1 + ' ' || ''}${
-          coalesceLabel(unit1) || ''
-        }`
+        d1 = `${coalesceLabel(dimension1) + ': ' || ''}${value1 + ' ' || ''}${coalesceLabel(unit1) || ''
+          }`
       }
       if (dimension2) {
-        d2 = `${coalesceLabel(dimension2) + ': ' || ''}${value2 + ' ' || ''}${
-          coalesceLabel(unit2) || ''
-        }`
+        d2 = `${coalesceLabel(dimension2) + ': ' || ''}${value2 + ' ' || ''}${coalesceLabel(unit2) || ''
+          }`
       }
 
       return {

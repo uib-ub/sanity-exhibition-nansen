@@ -1,5 +1,5 @@
-import {defaultFieldsets} from '../fieldsets'
-import {coalesceLabel} from '../helpers/helpers'
+import { defaultFieldsets } from '../fieldsets'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'GeojsonFeatureCollection',
@@ -27,7 +27,7 @@ export default {
       title: 'Features',
       titleEN: 'Features',
       type: 'array',
-      of: [{type: 'GeojsonFeature'}],
+      of: [{ type: 'GeojsonFeature' }],
     },
   ],
   preview: {
@@ -35,7 +35,7 @@ export default {
       title: 'label',
     },
     prepare(selection) {
-      const {title} = selection
+      const { title } = selection
       const label = coalesceLabel(title)
 
       return {

@@ -1,8 +1,8 @@
 import React from "react"
-import {Link} from 'part:@sanity/base/router'
-import {BsFillQuestionCircleFill} from 'react-icons/bs'
-import {valueSlider} from '../props'
-import { coalesceLabel } from "../helpers/helpers"
+import { Link } from 'part:@sanity/base/router'
+import { BsFillQuestionCircleFill } from 'react-icons/bs'
+import { valueSlider } from '../props'
+import { coalesceLabel } from "../helpers"
 
 export default {
   name: 'ConditionState',
@@ -15,7 +15,7 @@ export default {
       title: 'Klassifisert som',
       titleEN: 'Classified as',
       type: 'reference',
-      to: [{type: 'ConditionType'}],
+      to: [{ type: 'ConditionType' }],
       validation: (Rule) => Rule.required(),
       options: {
         semanticSanity: {
@@ -30,11 +30,11 @@ export default {
       titleEN: 'Attributes',
       description: 'Eksempel på custom felt for spesialistvurderinger',
       type: 'array',
-      of: [{type: 'string'}],
+      of: [{ type: 'string' }],
       options: {
         list: [
-          {title: 'Missing', value: 'missing'},
-          {title: 'Partial remains', value: 'partialRemains'},
+          { title: 'Missing', value: 'missing' },
+          { title: 'Partial remains', value: 'partialRemains' },
         ],
         semanticSanity: {
           '@container': '@set',
@@ -68,7 +68,7 @@ export default {
         </span>
       ),
       type: 'array',
-      of: [{type: 'DigitalImageObject'}],
+      of: [{ type: 'DigitalImageObject' }],
       options: {
         layout: 'grid',
         semanticSanity: {
@@ -84,7 +84,7 @@ export default {
       value: 'value',
     },
     prepare(selection) {
-      const {type, value} = selection
+      const { type, value } = selection
       return {
         title: coalesceLabel(type) + ': ' + value + ' / 100',
       }

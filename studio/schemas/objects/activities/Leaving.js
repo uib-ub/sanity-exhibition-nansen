@@ -1,6 +1,6 @@
-import {timespan, tookPlaceAt, referredToBy, featured} from '../../props'
-import {defaultFieldsets} from '../../fieldsets'
-import { coalesceLabel, timespanAsString } from '../../helpers/helpers'
+import { timespan, tookPlaceAt, referredToBy, featured } from '../../props'
+import { defaultFieldsets } from '../../fieldsets'
+import { coalesceLabel, timespanAsString } from '../../helpers'
 
 var capitalize = require('capitalize')
 
@@ -20,7 +20,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'EventType'}],
+          to: [{ type: 'EventType' }],
         },
       ],
       options: {
@@ -37,13 +37,13 @@ export default {
       title: 'Forlot',
       titleEN: 'Left',
       description: 'Actor(s) that left this group',
-      type: 'reference', 
+      type: 'reference',
       to: [
-        {type: 'Actor'}
+        { type: 'Actor' }
       ],
       options: {
         filter: '_type == "Actor" && references($id)',
-        filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'},
+        filterParams: { id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a' },
         semanticSanity: {
           '@container': '@set',
           '@type': '@id'
@@ -58,13 +58,13 @@ export default {
       type: 'array',
       of: [
         {
-          type: 'reference', 
+          type: 'reference',
           to: [
-            {type: 'Actor'}
+            { type: 'Actor' }
           ],
           options: {
             filter: '_type == "Actor" && references($id)',
-            filterParams: {id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a'},
+            filterParams: { id: 'd4ad3e47-1498-4b95-9b7f-c25be386691a' },
           }
         }
       ],
@@ -88,7 +88,7 @@ export default {
       ee: 'timespan.0.endOfTheEnd',
     },
     prepare(selection) {
-      const {type, separatedFrom, bb, eb, date, be, ee} = selection
+      const { type, separatedFrom, bb, eb, date, be, ee } = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       return {
         title: `${capitalize(type)} ${separatedFrom ? coalesceLabel(separatedFrom) : ''}`,

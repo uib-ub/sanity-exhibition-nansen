@@ -1,7 +1,7 @@
-import {FaTag} from 'react-icons/fa'
-import {editorialState, accessState, label, altLabel, wasOutputOf, sameAs, identifiedBy, preferredIdentifier, inDataset} from '../../props'
-import {defaultFieldsets} from '../../fieldsets'
-import {coalesceLabel} from '../../helpers/helpers'
+import { FaTag } from 'react-icons/fa'
+import { editorialState, accessState, label, altLabel, wasOutputOf, sameAs, identifiedBy, preferredIdentifier, inDataset } from '../../props'
+import { defaultFieldsets } from '../../fieldsets'
+import { coalesceLabel } from '../../helpers'
 
 export default {
   name: 'Concept',
@@ -42,7 +42,7 @@ export default {
       titleEN: 'Activity stream',
       description: 'Events and activities connected to this object',
       type: 'array',
-      of: [{type: 'Creation'}],
+      of: [{ type: 'Creation' }],
       options: {
         semanticSanity: {
           '@container': '@list',
@@ -60,10 +60,10 @@ export default {
       imported: 'wasOutputOf'
     },
     prepare(selection) {
-      const {title, imported} = selection
+      const { title, imported } = selection
       return {
         title: coalesceLabel(title),
-        subtitle: imported ? `Importert fra ${imported.hasSender.label}`: 'Lokal'
+        subtitle: imported ? `Importert fra ${imported.hasSender.label}` : 'Lokal'
       }
     },
   },

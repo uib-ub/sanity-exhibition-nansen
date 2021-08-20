@@ -1,6 +1,6 @@
-import {timespan, referredToBy} from '../props'
-import {defaultFieldsets} from '../fieldsets'
-import { coalesceLabel } from '../helpers/helpers'
+import { timespan, referredToBy } from '../props'
+import { defaultFieldsets } from '../fieldsets'
+import { coalesceLabel } from '../helpers'
 
 export default {
   name: 'Name',
@@ -20,7 +20,7 @@ export default {
       title: 'Type',
       titleEN: 'Type',
       type: 'reference',
-      to: [{type: 'AppelationType'}],
+      to: [{ type: 'AppelationType' }],
       options: {
         semanticSanity: {
           '@type': '@id'
@@ -32,7 +32,7 @@ export default {
       title: 'Deler',
       titleEN: 'Part',
       type: 'array',
-      of: [{type: 'Name'}],
+      of: [{ type: 'Name' }],
       options: {
         semanticSanity: {
           '@container': '@set',
@@ -45,7 +45,7 @@ export default {
       title: 'Språk',
       titleEN: 'Language',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'Language'}]}],
+      of: [{ type: 'reference', to: [{ type: 'Language' }] }],
       options: {
         semanticSanity: {
           '@container': '@set',
@@ -63,7 +63,7 @@ export default {
       lang: 'language.0.label',
     },
     prepare(selection) {
-      const {title, type, lang} = selection
+      const { title, type, lang } = selection
       return {
         title: coalesceLabel(title),
         subtitle: `${type} ${lang ? 'på ' + coalesceLabel(lang) : ''}`,

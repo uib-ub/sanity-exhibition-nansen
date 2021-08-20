@@ -1,4 +1,4 @@
-import { coalesceLabel } from "../helpers/helpers"
+import { coalesceLabel } from "../helpers"
 
 export default {
   name: 'ContributionAssignment',
@@ -12,7 +12,7 @@ export default {
       titleEN: 'Actor',
       type: 'reference',
       to: [
-        {type: 'Actor'},
+        { type: 'Actor' },
       ],
       options: {
         semanticSanity: {
@@ -28,7 +28,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'Role'}],
+          to: [{ type: 'Role' }],
         },
       ],
       options: {
@@ -50,13 +50,13 @@ export default {
   preview: {
     select: {
       actor: 'assignedActor.label',
-      name:  'usedName.content',
+      name: 'usedName.content',
       role: 'role.0.label',
     },
     prepare(selection) {
-      const {actor, name, role} = selection
+      const { actor, name, role } = selection
       return {
-        title: actor || coalesceLabel(name),
+        title: actor || coalesceLabel(name),
         subtitle: `${role ? coalesceLabel(role) : ''}`,
       }
     },

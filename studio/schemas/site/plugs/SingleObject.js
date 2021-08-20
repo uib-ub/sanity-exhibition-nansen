@@ -1,4 +1,4 @@
-import { coalesceLabel } from "../../helpers/helpers"
+import { coalesceLabel } from "../../helpers"
 
 export default {
   name: 'SingleObject',
@@ -18,9 +18,9 @@ export default {
       type: 'string',
       options: {
         list: [
-          {title: 'Book', value: 'book'},
-          {title: 'Single', value: 'single'},
-          {title: 'Gallery', value: 'gallery'},
+          { title: 'Book', value: 'book' },
+          { title: 'Single', value: 'single' },
+          { title: 'Gallery', value: 'gallery' },
         ],
       },
     },
@@ -29,7 +29,7 @@ export default {
       title: 'Objekt',
       titleEN: 'Item',
       type: 'reference',
-      to: [{type: 'HumanMadeObject'}],
+      to: [{ type: 'HumanMadeObject' }],
     },
     {
       name: 'title',
@@ -55,7 +55,7 @@ export default {
       title: 'item.label',
       media: 'item.image',
     },
-    prepare({title, media}) {
+    prepare({ title, media }) {
       return {
         title: coalesceLabel(title),
         subtitle: 'Single Object',
