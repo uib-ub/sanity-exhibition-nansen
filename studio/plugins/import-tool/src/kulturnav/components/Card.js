@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import {
   Box,
   Card as SanityCard,
@@ -9,13 +9,13 @@ import {
   Inline,
   Stack
 } from '@sanity/ui'
-import {RiDownloadLine} from 'react-icons/ri'
-import {chooseItem} from '../apis'
-import { coalesceLabel } from '../../../../../schemas/helpers/helpers'
+import { RiDownloadLine } from 'react-icons/ri'
+import { chooseItem } from '../apis'
+import { coalesceLabel } from '../../../../../schemas/helpers'
 import { useImportType } from './SearchProvider'
 
-const Card = ({item}) => {
-  const {state: {importTo}
+const Card = ({ item }) => {
+  const { state: { importTo }
   } = useImportType()
 
   const [isFetching, setIsFetching] = useState(false)
@@ -38,31 +38,31 @@ const Card = ({item}) => {
     setButtonLabel('Imported!')
   }
 
-  const {uuid, entityType, caption, properties} = item
+  const { uuid, entityType, caption, properties } = item
 
   return (
-    <SanityCard style={{display: "flex", flexDirection: "column"}} key={uuid} padding={[2, 2, 3]} radius={2} shadow={1}>
+    <SanityCard style={{ display: "flex", flexDirection: "column" }} key={uuid} padding={[2, 2, 3]} radius={2} shadow={1}>
       {/* NOT EASILY AVAILABLE
       <Box>
         <img style={{width: "100%"}} src={hasThumbnail} />
       </Box> */}
-      <Box style={{flexGrow: "1"}} marginY={3}>
+      <Box style={{ flexGrow: "1" }} marginY={3}>
         <Heading size="1">
-          {caption.no || caption.sv || caption.en || 'Manglende caption?'}
+          {caption.no || caption.sv || caption.en || 'Manglende caption?'}
         </Heading>
         <Stack paddingY={2} space={3}>
           <Inline space={2}>
             <Badge tone="primary">{entityType}</Badge>
           </Inline>
-          
+
           <Text muted size={[1, 1, 1]}>
             <small>Datasett:</small><br />
             {coalesceLabel(properties['entity.dataset'][0].displayValue, 'no')}
           </Text>
-         
+
         </Stack>
       </Box>
-      <Stack style={{marginTop: "auto"}} style={{borderTop: "1px dotted gray"}} paddingTop={2} space={3}>
+      <Stack style={{ marginTop: "auto" }} style={{ borderTop: "1px dotted gray" }} paddingTop={2} space={3}>
         <Inline space={2}>
           <Button
             fontSize={[1, 1, 2]}

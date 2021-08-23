@@ -79,11 +79,12 @@ export default function Footer(props) {
 
         {publisher &&
           publisher.map((p) => (
-            <Container key={p._id} fontSize={['lg', null, '2xl', null]} p="0" centerContent>
+            <Container key={p._id} fontSize={['lg', null, 'xl', null]} p="0" centerContent>
               <Image
-                boxSize={{ base: '50px', md: '150px' }}
+                boxSize={{ base: '50px', md: '80px' }}
                 filter={inverse}
-                src={imageBuilder.image(p.image).height(150).width(150).url()}
+                src={imageBuilder.image(p.image).height(100).width(100).url()}
+                alt=""
               />
               <Link href={`/id/${p._id}`}>{p.label.no}</Link>
               <HStack ml="-5">
