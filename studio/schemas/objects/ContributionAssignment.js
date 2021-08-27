@@ -56,7 +56,7 @@ export default {
     prepare(selection) {
       const { actor, name, role } = selection
       return {
-        title: actor || coalesceLabel(name),
+        title: name || coalesceLabel(actor),
         subtitle: `${role ? coalesceLabel(role) : ''}`,
       }
     },
