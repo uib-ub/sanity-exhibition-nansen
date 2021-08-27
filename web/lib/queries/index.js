@@ -173,6 +173,24 @@ export const routeQuery = groq`
               canvasUrl,
             },
           },
+          _type == 'ActorCollection' => {
+            ...,
+            items[] {
+              "label": coalesce(title, item->label.no),
+              "description": coalesce(description, item->referredToBy[0].body),
+              "image": coalesce(image, item->image),
+              file,
+              item-> {
+                _id,
+                label,
+                shortDescription,
+                referredToBy[] {
+                  ...
+                },
+                image
+              }
+            }
+          },
           _type == 'SingleObject' => @{
             ...,
             view,
@@ -312,7 +330,27 @@ export const routeQuery = groq`
               ),
               canvasUrl,
             }
-          }
+          },
+          _type == 'ActorCollection' => @{
+            ...,
+            "test": "hei",
+            items[] {
+              ...,
+              _id,
+              title,
+              "label": coalesce(title, "test"),
+              description,
+              item-> {
+                _id,
+                label,
+                shortDescription,
+                referredToBy[] {
+                  ...
+                },
+                image
+              }
+            }
+          },
         }
       }
     },

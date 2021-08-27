@@ -80,11 +80,6 @@ export default {
       },
     },
     {
-      ...image,
-      fieldset: 'representation',
-    },
-    memberOf,
-    {
       name: 'activityStream',
       title: 'Aktivitetsstrøm',
       titleEN: 'Activity stream',
@@ -107,6 +102,11 @@ export default {
           '@type': '@id'
         }
       },
+    },
+    memberOf,
+    {
+      ...image,
+      fieldset: 'representation',
     },
     inDataset,
     wasOutputOf

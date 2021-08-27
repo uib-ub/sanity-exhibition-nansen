@@ -1,3 +1,4 @@
+export { default as ActorCollection } from './ActorCollection'
 export { default as BigText } from './BigText'
 export { default as ExhibitionElement } from './ExhibitionElement'
 export { default as Grid } from './Grid'

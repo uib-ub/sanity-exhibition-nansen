@@ -20,6 +20,7 @@ import {
   Video,
   IllustrationWithCaption,
   ExhibitionElement,
+  ActorCollection,
 } from './Sections'
 
 const BlockContent = require('@sanity/block-content-to-react')
@@ -127,6 +128,7 @@ export default function PortableTextBlock(props) {
         </pre>
       ),
       block: BlockRenderer,
+      ActorCollection: (props) => <ActorCollection {...props.node} />,
       BigText: (props) => <BigText {...props.node} />,
       ExhibitionElement: (props) => <ExhibitionElement {...props.node} />,
       Hero: (props) => <Hero {...props.node} />,

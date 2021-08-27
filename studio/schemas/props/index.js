@@ -55,6 +55,34 @@ export const accessState = {
   },
 }
 
+export const file = {
+  name: 'file',
+  title: 'Fil',
+  titleEN: 'File',
+  description: (
+    <span>
+      Last opp eller velg et bilde. Dette er bildet som brukes som forhåndsvisning.{' '}
+      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#image'}>
+        <BsFillQuestionCircleFill />
+      </Link>
+    </span>
+  ),
+  descriptionEN: (
+    <span>
+      Upload or choose a image. This image will be used for previews.{' '}
+      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#image'}>
+        <BsFillQuestionCircleFill />
+      </Link>
+    </span>
+  ),
+  type: 'file',
+  options: {
+    semanticSanity: {
+      '@type': '@json'
+    }
+  },
+}
+
 export const image = {
   name: 'image',
   title: 'Thumbnail',
@@ -1393,6 +1421,6 @@ export const shortDescription = {
   title: 'Kort beskrivelse',
   titleEN: 'Short description',
   description: 'En setning som beskriver denne tingen. For eksempel en persons livsrolle, virkested og leveår.',
-  type: 'text',
+  type: 'string',
   validation: (Rule) => Rule.max(100).warning('Korte og konsise beskrivelser er best!'),
 }
