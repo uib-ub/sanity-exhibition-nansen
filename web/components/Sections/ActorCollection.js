@@ -4,7 +4,9 @@ import PortableTextBlock from '../PortableTextBlock'
 
 export default function ActorCollection(props) {
   return (
-    <Box maxW={['lg', null, null, null, '2xl']}>
+    <Box maxW={['lg', null, null, '2xl']}>
+      <Heading fontSize={['xl', '2xl', '3xl', '3xl']}>{props.title}</Heading>
+      <PortableTextBlock blocks={props.description} />
       {props?.items?.map((item) => (
         <Box key={item._id} id={item._id}>
           {item.image && (

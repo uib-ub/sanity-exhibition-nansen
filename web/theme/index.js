@@ -31,14 +31,14 @@ const theme = extendTheme({
       blockquote: {
         color: 'red.600',
       },
-      "#__next": {
+      '#__next': {
         display: 'grid',
         gridTemplateAreas: { base: '"header" "main" "footer"', xl: '"header" "main" "footer"' },
       },
-      ".active": {
+      '.active': {
         borderBottom: 'solid 2px',
         borderColor: 'red.300',
-      }
+      },
     },
   },
 })

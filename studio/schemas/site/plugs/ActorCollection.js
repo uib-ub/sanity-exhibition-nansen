@@ -14,7 +14,7 @@ export default {
       titleEN: 'Disabled',
       type: 'boolean',
     },
-    /* {
+    {
       name: 'title',
       title: 'Tittel eller navn',
       titleEN: 'Heading',
@@ -25,7 +25,7 @@ export default {
       title: 'Beskrivelse',
       titleEN: 'Description',
       type: 'simpleBlockContent',
-    }, */
+    },
     {
       name: 'items',
       title: 'Aktører',
@@ -37,10 +37,11 @@ export default {
   ],
   preview: {
     select: {
+      title: 'title',
       items: 'items',
     },
-    prepare: ({ items }) => ({
-      title: 'Actor collection',
+    prepare: ({ items, title }) => ({
+      title: title,
       subtitle: `${items.length} actor(s)`,
     }),
   },
