@@ -18,12 +18,14 @@ export default function Page({ data, preview }) {
         {content && <Sections sections={content} />}
 
         {/* If LinguisticDocument the content is in the body field */}
+        {body && <PortableTextBlock blocks={body} />}
+
+        {/* Add TOC */}
         {body && (
           <Box position="fixed" left="10" top="50vh" display={{ base: 'none', md: 'inherit' }}>
             <TableOfContent blocks={body} />
           </Box>
         )}
-        {body && <PortableTextBlock blocks={body} />}
 
         <Text mt="5" color="gray.500" fontSize="sm">
           Oppdatert: <Date>{_updatedAt}</Date>

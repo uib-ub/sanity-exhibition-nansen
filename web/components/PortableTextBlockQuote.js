@@ -12,7 +12,7 @@ export default function PortableTextBlockQuote(props) {
 
   const BlockRenderer = (props) => {
     return (
-      <Text as="blockquote" fontSize={fontSize} fontWeight={fontWeight}>
+      <Text fontSize={fontSize} fontWeight={fontWeight}>
         {props.children}
       </Text>
     )

@@ -1,11 +1,13 @@
-import { Box, Heading, Image } from '@chakra-ui/react'
+import { Box, Heading, Image, Text } from '@chakra-ui/react'
 import { imageBuilder } from '../../lib/sanity'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function ActorCollection(props) {
   return (
-    <Box maxW={['lg', null, null, '2xl']}>
-      <Heading fontSize={['xl', '2xl', '3xl', '3xl']}>{props.title}</Heading>
+    <>
+      <Heading maxW={['xl', null, 'xl', null]} fontSize={['xl', '2xl', '3xl', '3xl']}>
+        {props.title}
+      </Heading>
       <PortableTextBlock blocks={props.description} />
       {props?.items?.map((item) => (
         <Box key={item._id} id={item._id}>
@@ -16,9 +18,10 @@ export default function ActorCollection(props) {
             />
           )}
           <Heading fontSize={['lg', 'xl', '2xl', null]}>{item.label}</Heading>
+          {item.item?.shortDescription && <Text>{item.item.shortDescription}</Text>}
           <PortableTextBlock blocks={item.description} />
         </Box>
       ))}
-    </Box>
+    </>
   )
 }

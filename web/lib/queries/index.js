@@ -333,12 +333,12 @@ export const routeQuery = groq`
           },
           _type == 'ActorCollection' => @{
             ...,
-            "test": "hei",
             items[] {
               ...,
               _id,
               title,
               "label": coalesce(title, "test"),
+              shortDescription,
               description,
               item-> {
                 _id,
