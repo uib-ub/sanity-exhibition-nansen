@@ -21,7 +21,7 @@ export default function Page({ data, preview }) {
         {/* If LinguisticDocument the content is in the body field */}
         {body && <PortableTextBlock blocks={body} />}
 
-        <Footnotes blocks={body} />
+        {body && <Footnotes blocks={body} />}
 
         {/* Add TOC */}
         {body && (

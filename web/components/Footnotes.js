@@ -12,7 +12,7 @@ function Footnotes({ blocks }) {
     // find all the footnote mark definitions
     .filter(({ _type }) => _type === 'footnote')
 
-  if (notes.length > 0) {
+  if (notes.length != 0) {
     return null
   }
 
