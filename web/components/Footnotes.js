@@ -12,6 +12,10 @@ function Footnotes({ blocks }) {
     // find all the footnote mark definitions
     .filter(({ _type }) => _type === 'footnote')
 
+  if (notes.length > 0) {
+    return null
+  }
+
   return (
     <ol>
       {notes.map(({ _key, text }) => (
