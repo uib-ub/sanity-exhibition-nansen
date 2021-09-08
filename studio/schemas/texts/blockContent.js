@@ -1,7 +1,11 @@
 import React from 'react'
+import { FaPaperclip } from 'react-icons/fa'
+import ExternalLinkRenderer from './ExternalLinkRenderer'
+import FootnoteRenderer from './FootnoteRenderer'
 
 const highlightIcon = () => <span style={{ fontWeight: 'bold' }}>H</span>
 const highlightRender = (props) => <span style={{ backgroundColor: 'yellow' }}>{props.children}</span>
+const footnoteIcon = () => <span style={{ fontWeight: 'bold' }}>F</span>
 
 export default {
   name: 'blockContent',
@@ -41,6 +45,9 @@ export default {
             name: 'link',
             type: 'object',
             title: 'External link',
+            blockEditor: {
+              render: ExternalLinkRenderer
+            },
             fields: [
               {
                 name: 'href',
@@ -60,6 +67,9 @@ export default {
             name: 'internalLink',
             type: 'object',
             title: 'Internal link',
+            blockEditor: {
+              icon: FaPaperclip
+            },
             fields: [
               {
                 name: 'reference',
@@ -77,6 +87,22 @@ export default {
               },
             ],
           },
+          {
+            name: 'footnote',
+            type: 'object',
+            title: 'Footnote',
+            blockEditor: {
+              icon: footnoteIcon,
+              render: FootnoteRenderer
+            },
+            fields: [
+              {
+                name: 'text',
+                type: 'array',
+                of: [{ type: 'block' }]
+              }
+            ]
+          }
         ],
       },
     },
@@ -94,6 +120,7 @@ export default {
       ],
     },
     { type: 'PageHeader' },
+    { type: 'Hero' },
     { type: 'BigText' },
     { type: 'SingleObject' },
     { type: 'MiradorGallery' },

@@ -105,6 +105,7 @@ export const image = {
   ),
   type: 'DigitalImageObject',
   options: {
+    hotspot: true,
     semanticSanity: {
       '@type': '@json'
     }
@@ -123,6 +124,7 @@ export const digitallyShownBy = {
     { type: 'DigitalImageObject' },
   ],
   options: {
+    hotspot: true,
     layout: 'grid',
     semanticSanity: {
       '@type': '@json'
