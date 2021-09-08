@@ -4,14 +4,14 @@ import PortableTextBlock from '../PortableTextBlock'
 
 export default function Quote(props) {
   return (
-    <Box as="figure" maxWidth={['xl', null, 'xl', null]}>
+    <Box as="figure" maxWidth={['xl', null, 'xl', null]} mx="auto">
       <blockquote>
-        <PortableTextBlockQuote fontSize="xl" blocks={props.content} />
+        <PortableTextBlockQuote fontSize="2xl" blocks={props.content} />
       </blockquote>
 
       {props.credit && (
         <figcaption>
-          <PortableTextBlock maxW="70%" textAlign="right" blocks={props.credit} />
+          <PortableTextBlock pl="20" textAlign="right" blocks={props.credit} />
         </figcaption>
       )}
     </Box>

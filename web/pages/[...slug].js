@@ -5,6 +5,7 @@ import Layout from '../components/Layout'
 import Sections from '../components/Sections/Sections'
 import PortableTextBlock from '../components/PortableTextBlock'
 import TableOfContent from '../components/TableOfContent'
+import Footnotes from '../components/Footnotes'
 
 export default function Page({ data, preview }) {
   const { content, body, _updatedAt } = data.route.page
@@ -19,6 +20,8 @@ export default function Page({ data, preview }) {
 
         {/* If LinguisticDocument the content is in the body field */}
         {body && <PortableTextBlock blocks={body} />}
+
+        <Footnotes blocks={body} />
 
         {/* Add TOC */}
         {body && (

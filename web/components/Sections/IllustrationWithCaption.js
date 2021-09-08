@@ -11,7 +11,7 @@ export default function IllustrationWithCaption(props) {
 
   return (
     <Grid
-      maxW={['xl', 'xl', 'xl', '6xl']}
+      maxW={['xl', '2xl', '4xl', '6xl']}
       my={{ base: '6', md: '16', xl: '20' }}
       borderBottom={{ base: 'solid 1px', md: 'none' }}
       borderColor="gray.300"

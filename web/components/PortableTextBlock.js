@@ -120,6 +120,20 @@ export default function PortableTextBlock(props) {
           <Link href={href}>{text}</Link>
         )
       },
+      footnote: ({ children, markKey }) => (
+        <span>
+          {children}
+          <sup>
+            {/* 
+              https://codesandbox.io/s/how-to-render-footnotes-in-portable-text-in-react-iupur?file=/src/index.js:254-650
+              If you want numbers here, you can reuse the reduce function from Footnotes.js
+              to e.g. an object with markKey as keys and the index as values.
+              {[markKey]: index}. 
+            */}
+            <a href={`#${markKey}`}>#</a>
+          </sup>
+        </span>
+      ),
     },
     types: {
       code: (props) => (
