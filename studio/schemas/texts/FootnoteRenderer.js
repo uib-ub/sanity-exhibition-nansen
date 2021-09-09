@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FaArrowCircleDown } from 'react-icons/fa'
+import { GiNailedFoot } from 'react-icons/gi'
 
 const FootnoteRenderer = props => (
   <span>
-    {props.children} <FaArrowCircleDown />
+    {props.children} <GiNailedFoot />
   </span>
 )
 

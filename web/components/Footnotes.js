@@ -1,3 +1,4 @@
+import { Container } from '@chakra-ui/react'
 import React from 'react'
 import PortableTextBlock from './PortableTextBlock'
 
@@ -12,19 +13,29 @@ function Footnotes({ blocks }) {
     // find all the footnote mark definitions
     .filter(({ _type }) => _type === 'footnote')
 
-  if (notes.length != 0) {
+  console.log(notes)
+
+  if (notes.length == 0) {
     return null
   }
 
   return (
-    <ol>
-      {notes.map(({ _key, text }) => (
-        // the _key is what markKey refers to in the main text component
-        <li id={`${_key}`} key={_key}>
-          <PortableTextBlock blocks={text} />
-        </li>
-      ))}
-    </ol>
+    <Container
+      maxWidth={['xl', null, 'xl', null]}
+      borderTopColor="blackAlpha.300"
+      borderTopWidth="1px"
+      mt="10"
+      pt="10"
+    >
+      <ol>
+        {notes.map(({ _key, text }) => (
+          // the _key is what markKey refers to in the main text component
+          <li id={`${_key}`} key={_key}>
+            <PortableTextBlock blocks={text} />
+          </li>
+        ))}
+      </ol>
+    </Container>
   )
 }
 
