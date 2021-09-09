@@ -15,6 +15,7 @@ import RenderSections from '../Sections/RenderSection'
 import License from '../License'
 import Link from '../Link'
 import { imageBuilder } from '../../lib/sanity'
+import React from 'react'
 
 /* const MenuItem = ({ children }) => (
   <Text
@@ -34,7 +35,6 @@ export default function Footer(props) {
   }
 
   const { colorMode, toggleColorMode } = useColorMode()
-  const inverse = useColorModeValue('invert(50%)', 'invert(70%)')
   const color = useColorModeValue('gray.500', 'gray.400')
 
   const { content, /* navMenu,  */ license, publisher } = props
@@ -77,21 +77,24 @@ export default function Footer(props) {
 
         {content && <RenderSections sections={content} />}
 
-        {publisher &&
-          publisher.map((p) => (
-            <Container key={p._id} fontSize={['lg', null, 'xl', null]} p="0" centerContent>
-              <Image
-                boxSize={{ base: '50px', md: '80px' }}
-                filter={inverse}
-                src={imageBuilder.image(p.image).height(100).width(100).url()}
-                alt=""
-              />
-              <Link href={`/id/${p._id}`}>{p.label.no}</Link>
-              <HStack ml="-5">
-                <License license={license} />
-              </HStack>
-            </Container>
-          ))}
+        <Container fontSize={['lg', null, 'xl', null]} p="0" centerContent>
+          {publisher &&
+            publisher.map((p) => (
+              <React.Fragment key={p._id}>
+                <Image
+                  boxSize={{ base: '50px', md: '100px' }}
+                  src={imageBuilder.image(p.image).height(100).width(100).url()}
+                  alt=""
+                />
+                <Link href={`/id/${p._id}`}>{p.label.no}</Link>
+              </React.Fragment>
+            ))}
+          {license && (
+            <HStack ml="-5">
+              <License license={license} />
+            </HStack>
+          )}
+        </Container>
       </Container>
     </Container>
   )

@@ -49,6 +49,7 @@ export default function Card(props) {
 
   const {
     _id,
+    _type,
     label,
     description,
     image,
@@ -58,6 +59,13 @@ export default function Card(props) {
     creation,
     hasCurrentOwner,
   } = props.item
+
+  const useId = (type) => {
+    if (type == 'LinguisticDocument') {
+      return '/'
+    }
+    return '/id/'
+  }
 
   const calculateSpans = (ratio) => {
     /* Dafault */
@@ -118,7 +126,7 @@ export default function Card(props) {
             fontSize={['xs', 'sm', 'md', 'md']}
             lineHeight="tight"
           >
-            <NextLink href={`/id/${encodeURIComponent(_id)}`} passHref>
+            <NextLink href={`${useId(_type)}${encodeURIComponent(_id)}`} passHref>
               <LinkOverlay>{label.no ?? label}</LinkOverlay>
             </NextLink>
           </Heading>

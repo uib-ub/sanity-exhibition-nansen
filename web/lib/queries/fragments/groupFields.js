@@ -2,9 +2,7 @@ import groq from 'groq'
 import { activityStreamFields } from './activityStreamFields'
 
 export const groupFields = groq`
-  _id,
-  _type,
-  label,
+  ...,
   hasType[]->{
     ...
   },
@@ -22,8 +20,13 @@ export const groupFields = groq`
     _type,
     label
   },
-  "mentionedIn": *[_type in ["HumanMadeObject"] && references(^._id)]{ 
-    _id,
+  "mentionedIn": *[_type in ["HumanMadeObject", "LinguisticDocument"] && references(^._id)]{ 
+    _type == "HumanMadeObject" => {
+      _id
+    },
+    _type == "LinguisticDocument" => {
+      "_id": *[_type == "Route" && references(^._id)][0].slug.current
+    },
     _type,
     label,
     preferredIdentifier,

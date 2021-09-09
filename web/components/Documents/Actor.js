@@ -1,5 +1,5 @@
 import Link from '../Link'
-import { Image, Badge, Box, Container, Flex, Heading, SimpleGrid } from '@chakra-ui/react'
+import { Image, Badge, Box, Container, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 import Cards from '../Cards'
 import { imageBuilder } from '../../lib/sanity'
@@ -11,22 +11,25 @@ export default function Actor(item) {
   }
 
   return (
-    <Container maxW="full" my="5">
+    <Container my="5" maxWidth="6xl">
       <Flex pb="10">
         {item.image && (
           <Image
-            boxSize="100"
+            boxSize="200"
             name={item.label.no}
             mr="5"
-            src={imageBuilder.image(item.image).height('200').width('200').url()}
+            src={imageBuilder.image(item.image).height('400').width('400').url()}
             alt=""
           />
         )}
 
         <Box pt="2">
-          <Heading fontSize={['2xl', '4xl', '5xl', '6xl']}>
+          <Heading fontSize={['2xl', '4xl', '4xl', '5xl']}>
             <a>{item.label.no}</a>
           </Heading>
+
+          {item.shortDescription && <Text>{item.shortDescription}</Text>}
+
           <Box d="flex" alignItems="baseline">
             {item.hasType &&
               item.hasType.map((type) => (
@@ -34,17 +37,12 @@ export default function Actor(item) {
                   {type.label?.no}
                 </Badge>
               ))}
-            {!item.hasType && (
-              <Badge borderRadius="full" px="2" colorScheme="teal">
-                Person
-              </Badge>
-            )}
           </Box>
         </Box>
       </Flex>
 
       {item.referredToBy && (
-        <Box maxW="2xl" mb="10">
+        <Box maxWidth={['xl', null, 'xl', null]} mb="10">
           {item.referredToBy?.map((ref) => (
             <PortableTextBlock key={ref._key} blocks={ref.body} />
           ))}
@@ -78,7 +76,7 @@ export default function Actor(item) {
           </Link>
         ))}
 
-      {item.mentionedIn && (
+      {item.mentionedIn.length != 0 && (
         <>
           <Heading as="h2" mb="3">
             Koblet til...
