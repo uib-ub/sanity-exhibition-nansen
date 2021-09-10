@@ -4,7 +4,7 @@ import { useColorModeValue } from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function Hero(props) {
-  if (props.disabled === true) {
+  if (!props || props.disabled === true) {
     return null
   }
 

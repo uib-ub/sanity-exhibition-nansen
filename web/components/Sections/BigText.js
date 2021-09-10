@@ -2,6 +2,10 @@ import { Box } from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function SectionText(props) {
+  if (!props || props.disabled === true) {
+    return null
+  }
+
   return (
     <Box maxW={['lg', null, null, null, '2xl']}>
       <PortableTextBlock

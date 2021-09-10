@@ -3,7 +3,7 @@ import { Flex, Grid, Box, Image } from '@chakra-ui/react'
 import Caption from './shared/caption'
 
 export default function IllustrationWithCaption(props) {
-  if (!props && !props.illustration) {
+  if ((!props && !props.illustration) || props.disabled === true) {
     return null
   }
 
@@ -12,7 +12,7 @@ export default function IllustrationWithCaption(props) {
   return (
     <Grid
       maxW={['xl', '2xl', '4xl', '6xl']}
-      my={{ base: '6', md: '16', xl: '20' }}
+      my={{ base: '6', md: '16', xl: '16' }}
       borderBottom={{ base: 'solid 1px', md: 'none' }}
       borderColor="gray.300"
       gridGap={5}

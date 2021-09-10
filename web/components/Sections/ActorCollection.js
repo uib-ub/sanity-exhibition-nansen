@@ -5,18 +5,23 @@ import { imageBuilder } from '../../lib/sanity'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function ActorCollection(props) {
+  if (!props || props.disabled === true) {
+    return null
+  }
+
   return (
     <React.Fragment key={props._id}>
-      <Heading maxW={['xl', null, 'xl', null]} mx="auto" fontSize={['xl', '2xl', '3xl', '3xl']}>
+      {/* <Heading maxW={['xl', null, 'xl', null]} mx="auto" fontSize={['xl', '2xl', '3xl', '3xl']}>
         {props.title}
       </Heading>
 
-      <PortableTextBlock blocks={props.description} />
+      <PortableTextBlock blocks={props.description} /> */}
 
       {props?.items?.map((item) => (
         <React.Fragment key={item._id}>
           {item.image && (
             <Image
+              mt="16"
               mb="5"
               src={imageBuilder.image(item.image).height(800).url()}
               alt={item.label || 'No label'}

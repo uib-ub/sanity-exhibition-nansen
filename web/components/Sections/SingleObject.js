@@ -5,7 +5,7 @@ import Caption from './shared/caption'
 const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), { ssr: false })
 
 export default function SingleObject(props) {
-  if (!props && !props.item) {
+  if ((!props && !props.item) || props.disabled === true) {
     return null
   }
 

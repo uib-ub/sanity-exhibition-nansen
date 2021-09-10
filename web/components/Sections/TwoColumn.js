@@ -2,6 +2,10 @@ import { Grid, Box, Center, Heading } from '@chakra-ui/react'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function TwoColumn(props) {
+  if (!props || props.disabled === true) {
+    return null
+  }
+
   return (
     <Box mt="10">
       <Center>

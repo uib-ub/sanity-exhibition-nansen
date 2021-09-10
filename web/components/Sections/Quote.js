@@ -3,6 +3,10 @@ import PortableTextBlockQuote from '../PortableTextBlockQuote'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function Quote(props) {
+  if (!props || props.disabled === true) {
+    return null
+  }
+
   return (
     <Box as="figure" maxWidth={['xl', null, 'xl', null]} mx="auto">
       <blockquote>

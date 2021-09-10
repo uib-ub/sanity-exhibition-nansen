@@ -9,6 +9,10 @@ import Caption from './shared/caption'
 // you'll often use just a few of them.
 
 export default function SingleLevelChart(props) {
+  if (!props || props.disabled === true) {
+    return null
+  }
+
   const { data, caption, label } = props
 
   return (

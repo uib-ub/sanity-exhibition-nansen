@@ -1,6 +1,10 @@
 import { AspectRatio, Container, Heading } from '@chakra-ui/react'
 
 export default function Video(props) {
+  if (!props || props.disabled === true) {
+    return null
+  }
+
   return (
     <>
       <Heading fontSize="xl">{props.title}</Heading>

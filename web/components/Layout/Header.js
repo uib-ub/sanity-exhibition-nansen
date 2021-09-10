@@ -25,12 +25,14 @@ import {
   VStack,
   Center,
   Spacer,
+  Image,
 } from '@chakra-ui/react'
 import { CloseIcon, ChevronDownIcon } from '@chakra-ui/icons'
 import ActiveLink from '../Link/ActiveLink'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import NightIcon from './NightIcon'
 import DayIcon from './DayIcon'
+import { imageBuilder } from '../../lib/sanity'
 
 export default function Header(props) {
   if (!props) {
@@ -43,28 +45,28 @@ export default function Header(props) {
   const bg = useColorModeValue('white', 'gray.800')
 
   const { data, ...rest } = props
-  const { title, mainNavigation, footer } = data
+  const { title, logo, mainNavigation, footer } = data
 
   return (
     <Container pt="3" maxW="full" position="fixed" bgColor={bg} zIndex="9999" margin="auto">
       <Flex as="header" pb="1" borderBottom="solid 1px " {...rest}>
-        <Flex direction="column">
+        <Flex direction="row" alignItems="center">
+          <Image
+            src={imageBuilder.image(logo).height(100).url()}
+            alt="site logo"
+            h={{ base: '20px' }}
+            mr="4"
+          />
           <Heading
             fontSize={['lg', 'xl', '3xl', '3xl']}
             fontWeight={{ base: 'normal', md: 'semibold' }}
             fontFamily="EB Garamond"
+            color="blackAlpha.800"
           >
             <Link href="/">
               <a>{title}</a>
             </Link>
           </Heading>
-          {/* <Image
-            src={imageBuilder.image(logo).height(100).flipHorizontal().url()} 
-            alt='site logo' 
-            mb={{base: '0', md: '10'}} 
-            h={{base: '25px', md: '100'}} 
-            filter={inverse}
-          /> */}
         </Flex>
 
         <Spacer />

@@ -2,6 +2,10 @@ import { Box, Center, Container, Heading, SkeletonCircle, SkeletonText } from '@
 import { TwitterTweetEmbed } from 'react-twitter-embed'
 
 export default function Social(props) {
+  if (!props || props.disabled === true) {
+    return null
+  }
+
   const getId = (thePath) => thePath.substring(thePath.lastIndexOf('/') + 1)
 
   return (

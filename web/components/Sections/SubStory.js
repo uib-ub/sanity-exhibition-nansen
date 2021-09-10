@@ -22,7 +22,7 @@ import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import IllustrationWithCaption from './IllustrationWithCaption'
 
 export default function SubStory(props) {
-  if (props.disabled === true) {
+  if (!props || props.disabled === true) {
     return null
   }
 

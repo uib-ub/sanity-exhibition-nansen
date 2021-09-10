@@ -5,7 +5,7 @@ import { Grid, Box, Heading, Image, LinkBox, LinkOverlay, Text } from '@chakra-u
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function Hero(props) {
-  if (props.disabled === true) {
+  if (!props || props.disabled === true) {
     return null
   }
 

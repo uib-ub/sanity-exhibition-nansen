@@ -2,6 +2,10 @@ import { Box } from '@chakra-ui/react'
 import SVG from 'react-inlinesvg'
 
 export default function SvgTitle(props) {
+  if (!props || props.disabled === true) {
+    return null
+  }
+
   const { content, title } = props
 
   return (

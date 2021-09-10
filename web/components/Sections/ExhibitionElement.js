@@ -4,7 +4,7 @@ import Source from './Source'
 import PortableTextBlock from '../PortableTextBlock'
 
 export default function SingleObject(props) {
-  if (!props && !props.item) {
+  if ((!props && !props.item) || props.disabled === true) {
     return null
   }
 

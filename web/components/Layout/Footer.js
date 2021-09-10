@@ -83,7 +83,8 @@ export default function Footer(props) {
               <React.Fragment key={p._id}>
                 <Image
                   boxSize={{ base: '50px', md: '100px' }}
-                  src={imageBuilder.image(p.image).height(100).width(100).url()}
+                  fit="contain"
+                  src={imageBuilder.image(p.image).height(100).fit('fillmax').url()}
                   alt=""
                 />
                 <Link href={`/id/${p._id}`}>{p.label.no}</Link>
