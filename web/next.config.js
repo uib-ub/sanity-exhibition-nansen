@@ -2,18 +2,9 @@ module.exports = {
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-        use: ["@svgr/webpack"],
-    });
+      use: ['@svgr/webpack'],
+    })
     return config
-  }
-  /* basePath: '/exhibition',
-  async redirects() {
-    return [
-      {
-        source: '/exhibition',
-        destination: '/exhibition/chk',
-        permanent: true,
-      },
-    ]
-  }, */
+  },
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
 }

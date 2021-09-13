@@ -1,10 +1,11 @@
-import { Button, Container, Flex, Image, useColorMode, useColorModeValue } from '@chakra-ui/react'
+import { Button, Container, Flex, useColorMode, useColorModeValue } from '@chakra-ui/react'
 // import ActiveLink from '../Link/ActiveLink'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import RenderSections from '../Sections/RenderSection'
 import License from '../License'
 import React from 'react'
 import Publisher from '../Publisher'
+import Image from '../Image'
 
 /* const MenuItem = ({ children }) => (
   <Text
@@ -45,7 +46,7 @@ export default function Footer(props) {
         </Button>
       </Flex>
 
-      <Image src="/img/taakeheimen-footer.svg" alt="" />
+      <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer.svg`} alt="" />
 
       <Container maxW="4xl" p="0" sx={{ perspective: '492px' }}>
         {/* <Flex pb="0">

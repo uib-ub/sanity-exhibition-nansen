@@ -13,7 +13,7 @@ export default function PageHeader(props) {
       pb="16"
       mb="8"
       maxW="xl"
-      backgroundImage="url('/img/taakeheimen-border.svg')"
+      backgroundImage={`url('${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-border.svg')`}
       backgroundPosition="bottom"
       backgroundRepeat="no-repeat"
     >
