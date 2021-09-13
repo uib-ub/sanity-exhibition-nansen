@@ -52,12 +52,6 @@ export default function Footer(props) {
         </Button>
       </Flex>
 
-      {/* <Image
-        layout="responsive"
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer.svg`}
-        alt=""
-      /> */}
-
       <Container maxW="4xl" p="0" sx={{ perspective: '492px' }}>
         {/* <Flex pb="0">
           <Spacer />

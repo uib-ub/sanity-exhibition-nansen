@@ -61,7 +61,6 @@ export default function Header(props) {
             fontSize={['lg', 'xl', '3xl', '3xl']}
             fontWeight={{ base: 'normal', md: 'semibold' }}
             fontFamily="EB Garamond"
-            color="blackAlpha.800"
           >
             <Link href="/">
               <a>{title}</a>

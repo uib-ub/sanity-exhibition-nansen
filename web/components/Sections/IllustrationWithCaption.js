@@ -1,7 +1,6 @@
 import { imageBuilder } from '../../lib/sanity'
-import { Flex, Grid, Box } from '@chakra-ui/react'
+import { Flex, Grid, Box, Image } from '@chakra-ui/react'
 import Caption from './shared/caption'
-import { Image } from '../Image'
 
 export default function IllustrationWithCaption(props) {
   if ((!props && !props.illustration) || props.disabled === true) {
