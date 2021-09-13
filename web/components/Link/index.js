@@ -7,8 +7,8 @@ export default function Link({ href, children }) {
   }
 
   return (
-    <ChakraLink as={NextLink} href={href}>
-      {children}
-    </ChakraLink>
+    <NextLink href={href} passHref>
+      <ChakraLink color="teal.600">{children}</ChakraLink>
+    </NextLink>
   )
 }

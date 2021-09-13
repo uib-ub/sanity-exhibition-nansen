@@ -1,7 +1,7 @@
 import React from 'react'
-import NextLink from 'next/link'
 import { kebabCase } from 'lodash'
-import { Heading, Link, Text } from '@chakra-ui/react'
+import Link from '../Link'
+import { Heading, Text } from '@chakra-ui/react'
 import {
   BigText,
   Hero,
@@ -103,11 +103,7 @@ export default function PortableTextBlock(props) {
         const { reference } = mark
         const href = `/id/${reference._ref}`
         const text = children.length ? children[0] : children
-        return (
-          <Link as={NextLink} href={href}>
-            {text}
-          </Link>
-        )
+        return <Link href={href}>{text}</Link>
       },
       link: ({ mark, children }) => {
         // console.log(children)
