@@ -5,7 +5,9 @@ import RenderSections from '../Sections/RenderSection'
 import License from '../License'
 import React from 'react'
 import Publisher from '../Publisher'
-import Image from '../Image'
+// import { Image } from '../Image'
+
+// import footerBorder from '../../public/img/taakeheimen-footer.svg'
 
 /* const MenuItem = ({ children }) => (
   <Text
@@ -35,10 +37,14 @@ export default function Footer(props) {
       gridArea="footer"
       maxW="full"
       minH="100px"
-      py="2"
+      mt="10"
+      py="6"
       px="0"
       zIndex="100"
       color={color}
+      backgroundImage={`url('${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer.svg')`}
+      backgroundPosition="50% 4%"
+      backgroundRepeat="no-repeat"
     >
       <Flex pl="5">
         <Button variant="link" onClick={toggleColorMode}>
@@ -46,7 +52,11 @@ export default function Footer(props) {
         </Button>
       </Flex>
 
-      <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer.svg`} alt="" />
+      {/* <Image
+        layout="responsive"
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer.svg`}
+        alt=""
+      /> */}
 
       <Container maxW="4xl" p="0" sx={{ perspective: '492px' }}>
         {/* <Flex pb="0">

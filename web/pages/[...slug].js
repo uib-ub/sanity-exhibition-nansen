@@ -30,7 +30,7 @@ export default function Page({ data, preview }) {
           </Box>
         )}
 
-        <Text mt="5" color="gray.500" fontSize="sm">
+        <Text mt="10" color="gray.500" fontSize="sm">
           Oppdatert: <Date>{_updatedAt}</Date>
         </Text>
       </Container>

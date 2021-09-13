@@ -1,7 +1,7 @@
 import { getPhysicalExhibitionCopy } from '../../lib/api'
 import Head from 'next/head'
 import { Container, Heading } from '@chakra-ui/react'
-import PortableTextBlock from '../../components/PortableTextBlock'
+import PortableTextBlock from '../../components/PT/PortableTextBlock'
 import Layout from '../../components/Layout'
 
 export default function PhysicalExhibition({ data, preview }) {

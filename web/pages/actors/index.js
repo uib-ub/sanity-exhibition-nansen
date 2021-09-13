@@ -3,7 +3,7 @@ import { getAllActors } from '../../lib/api'
 import { Grid, Avatar, Box, Heading, Flex, Badge, Container } from '@chakra-ui/react'
 import Layout from '../../components/Layout'
 import Link from '../../components/Link'
-import PortableTextBlock from '../../components/PortableTextBlock'
+import PortableTextBlock from '../../components/PT/PortableTextBlock'
 
 export default function Actors({ data, preview }) {
   /* let actors = data.items.reduce((r, e) => {
