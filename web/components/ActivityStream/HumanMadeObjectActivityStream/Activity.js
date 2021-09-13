@@ -20,7 +20,7 @@ import {
 } from '@chakra-ui/react'
 import { SunIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import Timespan from '../../Timespan'
-import PortableTextBlock from '../../PortableTextBlock'
+import PortableTextBlock from '../../PT/PortableTextBlock'
 import Map from '../../Map'
 import HasType from '../../HasType'
 import { capitalize } from '../../../lib/utils'

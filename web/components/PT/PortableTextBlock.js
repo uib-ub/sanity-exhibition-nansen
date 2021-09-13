@@ -21,7 +21,9 @@ import {
   IllustrationWithCaption,
   ExhibitionElement,
   ActorCollection,
-} from './Sections'
+} from '../Sections'
+import ActorInsert from './Inserts/ActorInsert'
+import PlaceInsert from './Inserts/PlaceInsert'
 
 const BlockContent = require('@sanity/block-content-to-react')
 
@@ -160,16 +162,8 @@ export default function PortableTextBlock(props) {
       TimelineSection: (props) => <TimelineSection {...props.node} />,
       TwoColumn: (props) => <TwoColumn {...props.node} />,
       Video: (props) => <Video {...props.node} />,
-      Place: (props) => (
-        <div>
-          <h2>Demo: referanse til dokument i en Portable Text blokk</h2>
-          <p>
-            <Link as={NextLink} href={`/id/${props.node._id}`}>
-              {props.node.label.no}
-            </Link>
-          </p>
-        </div>
-      ),
+      Actor: (props) => <ActorInsert {...props.node} />,
+      Place: (props) => <PlaceInsert {...props.node} />,
     },
   }
 

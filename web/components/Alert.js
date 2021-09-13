@@ -1,6 +1,6 @@
 import { Flex } from '@chakra-ui/react'
 import Link from './Link'
-import PortableTextBlock from './PortableTextBlock'
+import PortableTextBlock from './PT/PortableTextBlock'
 
 export default function Alert({ alert, preview }) {
   if (!alert && preview === false) {

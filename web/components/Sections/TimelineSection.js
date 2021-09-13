@@ -1,7 +1,7 @@
 import Script from 'next/script'
 import { Container, Box } from '@chakra-ui/react'
-import PortableTextBlockQuote from '../PortableTextBlockQuote'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlockQuote from '../PT/PortableTextBlockQuote'
+import PortableTextBlock from '../PT/PortableTextBlock'
 
 /*
   NOT WORKING

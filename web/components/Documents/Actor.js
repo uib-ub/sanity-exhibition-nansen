@@ -1,6 +1,6 @@
 import Link from '../Link'
 import { Image, Badge, Box, Container, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 import Cards from '../Cards'
 import { imageBuilder } from '../../lib/sanity'
 import RenderMergedActivityStreamList from '../ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'

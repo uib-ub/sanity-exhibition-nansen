@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react'
-import PortableTextBlock from './PortableTextBlock'
+import PortableTextBlock from './PT/PortableTextBlock'
 import { orderBy } from 'lodash'
 
 export default function ReferredToBy(props) {

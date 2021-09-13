@@ -2,7 +2,7 @@ import { imageBuilder } from '../../lib/sanity'
 import { romanize } from 'react-roman'
 import NextLink from 'next/link'
 import { Grid, Box, Heading, Image, LinkBox, LinkOverlay, Text } from '@chakra-ui/react'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function Hero(props) {
   if (!props || props.disabled === true) {

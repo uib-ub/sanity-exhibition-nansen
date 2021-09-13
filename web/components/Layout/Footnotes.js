@@ -1,6 +1,6 @@
 import { Container } from '@chakra-ui/react'
 import React from 'react'
-import PortableTextBlock from './PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 
 function Footnotes({ blocks }) {
   const notes = blocks
@@ -13,7 +13,7 @@ function Footnotes({ blocks }) {
     // find all the footnote mark definitions
     .filter(({ _type }) => _type === 'footnote')
 
-  console.log(notes)
+  /* console.log(notes) */
 
   if (notes.length == 0) {
     return null

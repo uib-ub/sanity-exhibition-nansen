@@ -1,5 +1,5 @@
 import { Container, Heading } from '@chakra-ui/react'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function PageHeader(props) {
   if (!props || props.disabled === true) {

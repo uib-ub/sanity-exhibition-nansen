@@ -1,7 +1,7 @@
 import { imageBuilder } from '../../lib/sanity'
 import { Box, Grid, Flex, Heading, Spacer, Image } from '@chakra-ui/react'
 import Source from './Source'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function SingleObject(props) {
   if ((!props && !props.item) || props.disabled === true) {

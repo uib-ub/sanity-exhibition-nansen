@@ -17,7 +17,7 @@ import {
   Badge,
   useDisclosure,
 } from '@chakra-ui/react'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import IllustrationWithCaption from './IllustrationWithCaption'
 

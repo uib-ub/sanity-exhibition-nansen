@@ -32,7 +32,7 @@ import { imageBuilder } from '../../lib/sanity'
 import { BiDotsVerticalRounded } from 'react-icons/bi'
 import { FiExternalLink } from 'react-icons/fi'
 import { VscJson } from 'react-icons/vsc'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 import CardImage from './CardImage'
 import Timespan from '../Timespan'
 

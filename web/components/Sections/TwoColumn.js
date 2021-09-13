@@ -1,5 +1,5 @@
 import { Grid, Box, Center, Heading } from '@chakra-ui/react'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function TwoColumn(props) {
   if (!props || props.disabled === true) {

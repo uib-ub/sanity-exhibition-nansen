@@ -11,6 +11,16 @@ export const pageFields = groq`
   },
   content[] {
     ...,
+    _type == 'reference' => @->{
+      _id,
+      label,
+      shortDescription,
+      image,
+      memberOf[]->{
+        _id,
+        label
+      }
+    },
     _type == 'MiradorGallery' => @{
       ...,
       items[] {
@@ -24,13 +34,13 @@ export const pageFields = groq`
         "manifest": coalesce(subjectOfManifest, manifestUrl),
         canvasUrl,
       }
-    }
+    },
     _type == 'Grid' => @{
       ...,
       items[] {
         ...,
         "route": landingPageRoute->.slug.current
       }
-    }
+    },
   }
 `

@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function SectionText(props) {
   if (!props || props.disabled === true) {

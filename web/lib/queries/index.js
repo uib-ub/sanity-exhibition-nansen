@@ -143,6 +143,18 @@ export const routeQuery = groq`
         },
         body[] {
           ...,
+          _type == 'reference' => @->{
+            _id,
+            _type,
+            label,
+            shortDescription,
+            image,
+            memberOf[]->{
+              _id,
+              label,
+              image
+            }
+          },
           _type == 'PageHeader' => @{
             ...,
             "palette": illustration.image.asset->.metadata.palette{
@@ -245,9 +257,7 @@ export const routeQuery = groq`
               _type == 'MiradorGallery' => {
                 ...,
                 items[] {
-                  _id,
-                  label,
-                  view,
+                  ...,
                   "owner": manifestRef->.hasCurrentOwner[]->{
                     _id,
                     label

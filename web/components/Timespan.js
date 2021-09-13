@@ -1,5 +1,5 @@
 import { Box } from '@chakra-ui/react'
-import PortableTextBlock from './PortableTextBlock'
+import PortableTextBlock from './PT/PortableTextBlock'
 
 const formatDate = (date) => {
   return new Date(date).toLocaleDateString()

@@ -3,9 +3,9 @@ import { Box, Container, Text } from '@chakra-ui/react'
 import Date from '../components/Date'
 import Layout from '../components/Layout'
 import Sections from '../components/Sections/Sections'
-import PortableTextBlock from '../components/PortableTextBlock'
-import TableOfContent from '../components/TableOfContent'
-import Footnotes from '../components/Footnotes'
+import PortableTextBlock from '../components/PT/PortableTextBlock'
+import TableOfContent from '../components/Layout/TableOfContent'
+import Footnotes from '../components/Layout/Footnotes'
 
 export default function Page({ data, preview }) {
   const { content, body, _updatedAt } = data.route.page

@@ -1,5 +1,5 @@
 import { Box, Container, Heading } from '@chakra-ui/react'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 import Cards from '../Cards'
 
 export default function Concept(item) {

@@ -1,6 +1,6 @@
 import { Flex, Heading, Spacer, Icon } from '@chakra-ui/react'
 import { BsInfoCircle } from 'react-icons/bs'
-import PortableTextBlock from '../../PortableTextBlock'
+import PortableTextBlock from '../../PT/PortableTextBlock'
 import Source from '../Source'
 
 export default function Caption(props) {

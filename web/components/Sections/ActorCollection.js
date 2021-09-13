@@ -2,7 +2,7 @@ import React from 'react'
 import { kebabCase } from 'lodash'
 import { Heading, Image, Text } from '@chakra-ui/react'
 import { imageBuilder } from '../../lib/sanity'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function ActorCollection(props) {
   if (!props || props.disabled === true) {

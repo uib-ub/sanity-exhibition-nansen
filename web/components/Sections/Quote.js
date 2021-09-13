@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
-import PortableTextBlockQuote from '../PortableTextBlockQuote'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlockQuote from '../PT/PortableTextBlockQuote'
+import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function Quote(props) {
   if (!props || props.disabled === true) {

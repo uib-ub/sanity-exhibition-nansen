@@ -1,7 +1,7 @@
 import { imageBuilder } from '../../lib/sanity'
 import { Grid, Box, Heading, Image, Badge } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/react'
-import PortableTextBlock from '../PortableTextBlock'
+import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function Hero(props) {
   if (!props || props.disabled === true) {

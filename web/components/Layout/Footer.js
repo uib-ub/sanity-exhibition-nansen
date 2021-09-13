@@ -1,21 +1,10 @@
-import {
-  Button,
-  Container,
-  Flex,
-  HStack,
-  Image,
-  useColorMode,
-  useColorModeValue,
-  // Spacer,
-  // Text,
-} from '@chakra-ui/react'
+import { Button, Container, Flex, Image, useColorMode, useColorModeValue } from '@chakra-ui/react'
 // import ActiveLink from '../Link/ActiveLink'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import RenderSections from '../Sections/RenderSection'
 import License from '../License'
-import Link from '../Link'
-import { imageBuilder } from '../../lib/sanity'
 import React from 'react'
+import Publisher from '../Publisher'
 
 /* const MenuItem = ({ children }) => (
   <Text
@@ -78,23 +67,8 @@ export default function Footer(props) {
         {content && <RenderSections sections={content} />}
 
         <Container fontSize={['lg', null, 'xl', null]} p="0" centerContent>
-          {publisher &&
-            publisher.map((p) => (
-              <React.Fragment key={p._id}>
-                <Image
-                  boxSize={{ base: '50px', md: '100px' }}
-                  fit="contain"
-                  src={imageBuilder.image(p.image).height(100).fit('fillmax').url()}
-                  alt=""
-                />
-                <Link href={`/id/${p._id}`}>{p.label.no}</Link>
-              </React.Fragment>
-            ))}
-          {license && (
-            <HStack ml="-5">
-              <License license={license} />
-            </HStack>
-          )}
+          {publisher && <Publisher publishers={publisher} />}
+          {license && <License license={license} />}
         </Container>
       </Container>
     </Container>
