@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react'
+import { Box, useColorModeValue } from '@chakra-ui/react'
 import { ResponsivePie } from '@nivo/pie'
 import Caption from './shared/caption'
 
@@ -13,6 +13,10 @@ export default function SingleLevelChart(props) {
     return null
   }
 
+  const theme = {
+    textColor: useColorModeValue('#222', '#fff'),
+  }
+
   const { data, caption, label } = props
 
   return (
@@ -20,15 +24,17 @@ export default function SingleLevelChart(props) {
       <Box h="sm">
         <ResponsivePie
           data={JSON.parse(data.code)}
+          theme={theme}
           margin={{ top: 10, right: 160, bottom: 10, left: 160 }}
+          startAngle={-25}
           innerRadius={0.5}
           padAngle={1}
           cornerRadius={3}
           activeOuterRadiusOffset={8}
           borderWidth={1}
           borderColor={{ from: 'color', modifiers: [['darker', 0.2]] }}
-          arcLinkLabelsSkipAngle={10}
-          arcLinkLabelsTextColor="#333333"
+          arcLinkLabelsSkipAngle={8}
+          // arcLinkLabelsTextColor={labelColor}
           arcLinkLabelsThickness={2}
           arcLinkLabelsColor={{ from: 'color' }}
           arcLabelsSkipAngle={10}
