@@ -102,7 +102,14 @@ export default function MiradorViewer(props) {
   const mode = useColorModeValue('light', 'dark')
   const ID = `mirador-${nanoid()}`
 
-  const { variant, manifests, workspaceControlPanel = false, gridArea, catalog } = props
+  const {
+    variant,
+    manifests,
+    workspaceControlPanel = false,
+    gridArea,
+    catalog,
+    height = '50vh',
+  } = props
 
   const { variantSettings, plugins } = getVariant(variant)
   const windows = manifests ? mergeManifestAndVariant(manifests, variantSettings) : null
@@ -172,7 +179,7 @@ export default function MiradorViewer(props) {
   }, [mode])
 
   return (
-    <Box h="50vh" position="relative" gridArea={gridArea} bgColor="#eeeeee">
+    <Box h={height} position="relative" gridArea={gridArea} bgColor="#eeeeee">
       <Box h="100%" id={ID} />
     </Box>
   )

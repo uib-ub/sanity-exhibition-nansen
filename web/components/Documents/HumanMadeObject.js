@@ -78,14 +78,18 @@ export default function HumanMadeObject(item) {
       </Container>
 
       {item.subjectOfManifest && (
-        <Box h="70vh" gridArea="image">
-          <MiradorWithNoSSR manifests={[{ manifest: item.subjectOfManifest }]} />
+        <Box gridArea="image">
+          <MiradorWithNoSSR manifests={[{ manifest: item.subjectOfManifest }]} height="70vh" />
         </Box>
       )}
 
       {item.manifest && !item.subjectOfManifest && (
-        <Box h="70vh" gridArea="image">
-          <MiradorWithNoSSR hideWindowTitle="true" manifests={[{ manifest: item.manifest }]} />
+        <Box gridArea="image">
+          <MiradorWithNoSSR
+            hideWindowTitle="true"
+            manifests={[{ manifest: item.manifest }]}
+            height="70vh"
+          />
         </Box>
       )}
 
