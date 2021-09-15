@@ -23,7 +23,8 @@
     "leaflet-input",
     "media",
     "dashboard-widget-vercel",
-    "@seidhr/sanity-plugin-dashboard-widget-muna-docs"
+    "@seidhr/sanity-plugin-dashboard-widget-muna-docs",
+    "iframe-pane"
   ],
   "env": {
     "development": {

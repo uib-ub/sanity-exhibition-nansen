@@ -33,7 +33,10 @@ const theme = extendTheme({
       },
       '#__next': {
         display: 'grid',
-        gridTemplateAreas: { base: '"header" "main" "footer"', xl: '"header" "main" "footer"' },
+        gridTemplateAreas: {
+          base: '"alert" "header" "main" "footer"',
+          xl: '"alert" "header" "main" "footer"',
+        },
       },
       '.active': {
         borderBottom: 'solid 2px',

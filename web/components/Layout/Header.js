@@ -48,7 +48,7 @@ export default function Header(props) {
   const { title, /* logo, */ mainNavigation, footer } = data
 
   return (
-    <Container pt="3" maxW="full" position="fixed" bgColor={bg} zIndex="9999" margin="auto">
+    <Container pt="3" maxW="full" bgColor={bg} margin="auto">
       <Flex as="header" pb="1" borderBottom="solid 1px " {...rest}>
         <Flex direction="row" alignItems="center">
           {/* <Image

@@ -1315,7 +1315,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@popperjs/core@^2.10.1", "@popperjs/core@^2.5.4":
+"@popperjs/core@^2.10.1", "@popperjs/core@^2.5.4", "@popperjs/core@^2.9.2":
   version "2.10.1"
   resolved "https://registry.npmjs.org/@popperjs/core/-/core-2.10.1.tgz#728ecd95ab207aab8a9a4e421f0422db329232be"
   integrity sha512-HnUhk1Sy9IuKrxEMdIRCxpIqPw6BFsbYSEUO9p/hNw5sMld/+3OLMWQP80F8/db9qsv3qUjs7ZR5bS/R+iinXw==
@@ -1327,6 +1327,14 @@
   dependencies:
     "@reach/utils" "0.13.2"
     tslib "^2.1.0"
+
+"@reach/auto-id@^0.15.3":
+  version "0.15.3"
+  resolved "https://registry.npmjs.org/@reach/auto-id/-/auto-id-0.15.3.tgz#23b6ae8de3bf7520044c95a85c992ae46cdcef9c"
+  integrity sha512-lbLUI9mrn74qVis141ib0Rsyhgk+gzUMtpplRmjy06cUWDFZyiBATNWMUxN5T+0fU4tpfgcjkAuPeTCCGThKtQ==
+  dependencies:
+    "@reach/utils" "0.15.3"
+    tslib "^2.3.0"
 
 "@reach/auto-id@^0.16.0":
   version "0.16.0"
@@ -1344,6 +1352,14 @@
     "@types/warning" "^3.0.0"
     tslib "^2.1.0"
     warning "^4.0.3"
+
+"@reach/utils@0.15.3":
+  version "0.15.3"
+  resolved "https://registry.npmjs.org/@reach/utils/-/utils-0.15.3.tgz#200f42adba9d1463b1c6a75ee2aaf9f0cba84f9d"
+  integrity sha512-HFyjw8LZ4/RRk5bcMpDAeEc3aOeLR/vWRDsljlE3cHI5GfFlZcG3DDLSW8C2ba74RCFp/4X3Nz0nOrd4JdkZ1w==
+  dependencies:
+    tiny-warning "^1.0.3"
+    tslib "^2.3.0"
 
 "@reach/utils@0.16.0":
   version "0.16.0"
@@ -1802,7 +1818,7 @@
   resolved "https://registry.npmjs.org/@sanity/icons/-/icons-1.0.2.tgz#cc53a33bd4727e4ad171e4fd4a462e9f0ef287b4"
   integrity sha512-sb3NzRrpFbfSptL4v0J0FYYgn8XNmE4h8amTAuwPiNEP0P10fBRTuFUL3sKJ2BU0jBX0R6awEjVsay2Iu+2klA==
 
-"@sanity/icons@^1.1.4", "@sanity/icons@^1.1.7":
+"@sanity/icons@^1.1.2", "@sanity/icons@^1.1.4", "@sanity/icons@^1.1.7":
   version "1.1.7"
   resolved "https://registry.npmjs.org/@sanity/icons/-/icons-1.1.7.tgz#f2b6f2d9b68965b6f26975c0d5528ae75e1472d8"
   integrity sha512-5KbAhNowjO94UjIrsaaKCGNLdHs+ek+RF5Bc+XRELOi1TFR0GBG3Wo7LK30df2ajA7TW6HwERLbPQB3sJyMRMQ==
@@ -2048,6 +2064,22 @@
     "@reach/auto-id" "^0.16.0"
     "@sanity/color" "^2.1.5"
     "@sanity/icons" "^1.1.7"
+    framer-motion "^4.1.17"
+    popper-max-size-modifier "^0.2.0"
+    react-is "^17.0.2"
+    react-popper "^2.2.5"
+    react-refractor "^2.1.4"
+
+"@sanity/ui@^0.34.1":
+  version "0.34.8"
+  resolved "https://registry.npmjs.org/@sanity/ui/-/ui-0.34.8.tgz#75cb0b5dd3e52bf3e5adc4ee5928d85b9e98881d"
+  integrity sha512-Dzu5bHc1DCbTGGKq0dL7mk8StqsbdFxbcQMNMDx7L4KZwPR4DpofeWvfPVupAdADF9eSLr84emPNFksnQYlS8w==
+  dependencies:
+    "@juggle/resize-observer" "^3.3.1"
+    "@popperjs/core" "^2.9.2"
+    "@reach/auto-id" "^0.15.3"
+    "@sanity/color" "^2.1.4"
+    "@sanity/icons" "^1.1.4"
     framer-motion "^4.1.17"
     popper-max-size-modifier "^0.2.0"
     react-is "^17.0.2"
@@ -10007,7 +10039,7 @@ prop-types-exact@^1.2.0:
     object.assign "^4.1.0"
     reflect.ownkeys "^0.2.0"
 
-prop-types@^15.0.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.0.0, prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -11356,6 +11388,15 @@ sanity-plugin-graph-view@^1.0.4:
     polished "^4.0.1"
     react-force-graph "^1.37.0"
     uuid "^8.3.1"
+
+sanity-plugin-iframe-pane@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/sanity-plugin-iframe-pane/-/sanity-plugin-iframe-pane-1.0.6.tgz#b0186ec324a2c2b6b1301a43c81f969a4e8debec"
+  integrity sha512-m/84p28vM6uTb+e/9pk+uVtaucy3G7xsTSFTDaQvRnbTu1d3fd29/OR7XoR8kQu66gcXjCUzRME4hFM56BPNzA==
+  dependencies:
+    "@sanity/icons" "^1.1.2"
+    "@sanity/ui" "^0.34.1"
+    prop-types "15.7.2"
 
 sanity-plugin-leaflet-input@^1.0.1:
   version "1.0.1"

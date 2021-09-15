@@ -1,12 +1,12 @@
 import S from '@sanity/desk-tool/structure-builder'
 // import PreviewIFrame from '../../src/components/previewIFrame'
-import {FaCog, FaSitemap, FaRoute} from 'react-icons/fa'
-import {MdMenu} from 'react-icons/md'
-import {FcHome, FcTemplate} from 'react-icons/fc'
-import {RiSideBarFill} from 'react-icons/ri'
-import {AiFillAlert} from 'react-icons/ai'
-import {FaGlasses} from 'react-icons/fa'
-import {BsFileRichtext} from 'react-icons/bs'
+import { FaCog, FaSitemap, FaRoute } from 'react-icons/fa'
+import { MdMenu } from 'react-icons/md'
+import { FcHome, FcTemplate } from 'react-icons/fc'
+import { RiSideBarFill } from 'react-icons/ri'
+import { AiFillAlert } from 'react-icons/ai'
+import { FaGlasses } from 'react-icons/fa'
+import { BsFileRichtext } from 'react-icons/bs'
 import blog from './blog'
 
 export default S.listItem()
@@ -32,10 +32,10 @@ export default S.listItem()
           .schemaType('Page')
           .child(
             S.documentList('Page')
-            .title('Sider')
-            .menuItems(S.documentTypeList('Page').getMenuItems())
-            .filter('_type == "Page" && !(_id match "**frontpage")'),
-            ),
+              .title('Sider')
+              .menuItems(S.documentTypeList('Page').getMenuItems())
+              .filter('_type == "Page" && !(_id match "**frontpage")'),
+          ),
         S.listItem()
           .title('Tekster')
           .icon(BsFileRichtext)
@@ -58,7 +58,7 @@ export default S.listItem()
                           .schemaType('LinguisticDocument')
                           .title('Tekster')
                           .filter('_type == "LinguisticDocument" && $catId in hasType[]._ref')
-                          .params({catId}),
+                          .params({ catId }),
                       ),
                   ),
                 S.listItem().title('Upubliserte tekster').icon(FaGlasses).child(
@@ -98,10 +98,10 @@ export default S.listItem()
           .child(
             S.documentTypeList('Route')
               .title('Stier')
-              .child(
-                (documentId) => S.document().documentId(documentId).schemaType('Route'),
-                // .views([S.view.form(), PreviewIFrame()])
-              ),
+            /*               .child(
+                            (documentId) => S.document().documentId(documentId).schemaType('Route'),
+                            // .views([S.view.form(), PreviewIFrame()])
+                          ), */
           ),
         S.divider(),
         S.listItem()
@@ -110,7 +110,7 @@ export default S.listItem()
           .schemaType('NavigationMenu')
           .child(
             S.documentTypeList('NavigationMenu')
-            .title('Navigasjonsmenyer')
+              .title('Navigasjonsmenyer')
           ),
         S.listItem()
           .title('Innholdsfortegnelser')
@@ -130,5 +130,5 @@ export default S.listItem()
           .title('Nettsideinnstillinger')
           .icon(FaCog)
           .child(S.editor().id('siteSettings').schemaType('SiteSettings').documentId('site-settings')),
-        ]),
+      ]),
   )

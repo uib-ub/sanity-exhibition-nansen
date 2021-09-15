@@ -27,9 +27,9 @@ function RenderDocument(props) {
     return (
       <Alert status="error">
         <AlertIcon />
-        <AlertTitle mr={2}>Missing section!</AlertTitle>
+        <AlertTitle mr={2}>Missing Document!</AlertTitle>
         <AlertDescription>
-          Add new section called <Code>{document._type}</Code>.
+          Add new document called <Code>{document._type}</Code>.
         </AlertDescription>
       </Alert>
     )

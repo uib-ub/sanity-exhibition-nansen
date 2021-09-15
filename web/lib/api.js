@@ -1,4 +1,4 @@
-import { sanityClient, previewClient } from './sanity.server'
+import { getClient, previewClient } from './sanity.server'
 import {
   actorsQuery,
   alertQuery,
@@ -6,7 +6,6 @@ import {
   registryQuery,
   frontpageQuery,
   idsQuery,
-  routeQuery,
   routesQuery,
   eventsQuery,
   humanMadeObjectsQuery,
@@ -15,9 +14,7 @@ import {
   contactCopyQuery,
   physicalExhibitionQuery,
 } from './queries'
-import { humanMadeObjectFields, groupFields, pageFields, siteSettings } from './queries/fragments'
-
-const getClient = (preview) => (preview ? previewClient : sanityClient)
+import { siteSettings } from './queries/fragments'
 
 /* const getUniques = (items) => {
   const ids = new Set()
@@ -36,19 +33,8 @@ export async function getFrontpage(preview) {
   return data
 }
 
-export async function getRoutes(preview) {
-  const data = await getClient(preview).fetch(routesQuery)
-  return data
-}
-
-export async function getRoute(preview, id) {
-  // Next passes an array based on the path. Join with / if array.
-  const joinID = typeof id === 'string' ? id : id.join('/')
-
-  const data = await getClient(preview).fetch(
-    JSON.parse(JSON.stringify(routeQuery)), // Too long query?
-    { joinID },
-  )
+export async function getRoutes() {
+  const data = await getClient().fetch(routesQuery)
   return data
 }
 
@@ -96,26 +82,6 @@ export async function getIdPaths(preview) {
 
 export async function getType(id, preview) {
   const results = await getClient(preview).fetch(typeQuery, { id })
-  return results
-}
-
-export async function getId(id, type, preview) {
-  const results = await getClient(preview).fetch(
-    `{
-      "item": *[_id == $id][0] {
-        ${type._type === 'HumanMadeObject' ? humanMadeObjectFields : ''}
-        ${type._type === 'Actor' ? groupFields : ''}
-        ${type._type === 'Group' ? groupFields : ''}
-        ${type._type === 'Place' ? groupFields : ''}
-        ${type._type === 'Concept' ? groupFields : ''}
-        ${type._type === 'ObjectType' ? groupFields : ''}
-        ${type._type === 'Event' ? groupFields : ''}
-        ${type._type === 'Page' ? pageFields : ''}
-      },
-      ${siteSettings}
-    }`,
-    { id },
-  )
   return results
 }
 

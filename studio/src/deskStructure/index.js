@@ -1,19 +1,22 @@
 import S from '@sanity/desk-tool/structure-builder'
-import {FaGlasses, FaMapMarkedAlt} from 'react-icons/fa'
-import {GiBoltSpellCast} from 'react-icons/gi'
-import {TiUser} from 'react-icons/ti'
-import {BsFileRichtext} from 'react-icons/bs'
-import {FcTimeline} from 'react-icons/fc'
-import {MdEvent} from 'react-icons/md'
+import { FaGlasses, FaMapMarkedAlt } from 'react-icons/fa'
+import { GiBoltSpellCast } from 'react-icons/gi'
+import { TiUser } from 'react-icons/ti'
+import { BsFileRichtext } from 'react-icons/bs'
+import { FcTimeline } from 'react-icons/fc'
+import { MdEvent } from 'react-icons/md'
 import pageBuilder from './pageBuilder'
 import management from './management'
 import humanMadeObject from './humanMadeObject'
 import types from './types'
 import React from 'react'
-import {Spinner, Container, Box} from '@sanity/ui'
+import { Spinner, Container, Box } from '@sanity/ui'
 import Preview from 'part:@sanity/base/preview'
-import QueryContainer from 'part:@sanity/base/query-container';
-import schema from 'part:@sanity/base/schema';
+import QueryContainer from 'part:@sanity/base/query-container'
+import schema from 'part:@sanity/base/schema'
+import Iframe from 'sanity-plugin-iframe-pane'
+import resolveProductionUrl from '../parts/resolveProductionUrl'
+import { publicDocumentTypes } from '../../../web/lib/queries'
 
 const hiddenDocTypes = (listItem) =>
   ![
@@ -99,9 +102,21 @@ const Incoming = ({ document }) => (
   </Container>
 );
 
-export const getDefaultDocumentNode = () => {
-  // Give all documents the JSON preview, 
-  // as well as the default form view
+export const getDefaultDocumentNode = ({ schemaType }) => {
+  // If frontend has pages for this schemaType. Can also take documentId as first arg.  
+  if (publicDocumentTypes.includes(schemaType)) {
+    return S.document().views([
+      S.view.form(),
+      S.view
+        .component(Iframe)
+        .options({
+          url: (doc) => resolveProductionUrl(doc),
+        })
+        .title('Preview'),
+      S.view.component(Incoming).title('Innkommende')
+    ])
+  }
+  // Return default tabs
   return S.document().views([
     S.view.form(),
     S.view.component(Incoming).title('Innkommende')
@@ -140,9 +155,9 @@ export default () =>
                         .schemaType('Actor')
                         .title('Aktører')
                         .filter('_type == "Actor" && $actorTypeId in hasType[]._ref')
-                        .params({actorTypeId})
+                        .params({ actorTypeId })
                         .initialValueTemplates([
-                          S.initialValueTemplateItem('actorWithType', {actorTypeId})
+                          S.initialValueTemplateItem('actorWithType', { actorTypeId })
                         ])
                     ),
                 ),
@@ -193,7 +208,7 @@ export default () =>
                         .schemaType('Place')
                         .title('Steder')
                         .filter('_type == "Place" && $catId in hasType[]._ref')
-                        .params({catId}),
+                        .params({ catId }),
                     ),
                 ),
               S.listItem()
@@ -227,7 +242,7 @@ export default () =>
                         .schemaType('LinguisticDocument')
                         .title('Tekster')
                         .filter('_type == "LinguisticDocument" && $catId in hasType[]._ref')
-                        .params({catId}),
+                        .params({ catId }),
                     ),
                 ),
               S.listItem().title('Upubliserte tekster').icon(FaGlasses).child(
@@ -272,7 +287,7 @@ export default () =>
                         .schemaType('Event')
                         .title('Hendelser')
                         .filter('_type == "Event" && $catId in hasType[]._ref')
-                        .params({catId}),
+                        .params({ catId }),
                     ),
                 ),
               S.listItem()
@@ -304,7 +319,7 @@ export default () =>
                         .schemaType('Activity')
                         .title('Aktiviteter')
                         .filter('_type == "Activity" && $catId in hasType[]._ref')
-                        .params({catId}),
+                        .params({ catId }),
                     ),
                 ),
               S.listItem()
@@ -318,25 +333,25 @@ export default () =>
         .icon(FcTimeline)
         .child(
           S.list()
-          .title('Tidslinjer')
-          .items([
-            S.listItem().title('Upubliserte tidslinjer').icon(FcTimeline).child(
-              // List out all categories
-              S.documentTypeList('Timeline')
-              .title('Upubliserte tidslinjer')
-              .filter('_type == "Timeline" && accessState == "secret"'),
+            .title('Tidslinjer')
+            .items([
+              S.listItem().title('Upubliserte tidslinjer').icon(FcTimeline).child(
+                // List out all categories
+                S.documentTypeList('Timeline')
+                  .title('Upubliserte tidslinjer')
+                  .filter('_type == "Timeline" && accessState == "secret"'),
               ),
               S.listItem().title('Til gjennomgang').icon(FcTimeline).child(
                 // List out all categories
                 S.documentTypeList('Timeline')
-                .title('Til gjennomgang')
-                .filter('_type == "Timeline" && editorialState == "review"'),
-                ),
-                S.listItem()
+                  .title('Til gjennomgang')
+                  .filter('_type == "Timeline" && editorialState == "review"'),
+              ),
+              S.listItem()
                 .title('Alle tidslinjer')
                 .icon(FcTimeline)
                 .child(S.documentTypeList('Timeline').title('Alle tidslinjer')),
-              ]),
+            ]),
         ),
       // This returns an array of all the document types
       // defined in schema.js. We filter out those that we have

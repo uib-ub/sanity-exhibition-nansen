@@ -1,14 +1,14 @@
 import { Box } from '@chakra-ui/react'
-import Alert from '../Alert'
+import Alert from './Alert'
 import Header from './Header'
 import Meta from './Meta'
 import Footer from './Footer'
 
-export default function Layout({ alert, preview, children, site }) {
+export default function Layout({ preview, children, site }) {
   return (
     <>
       <Meta />
-      <Alert preview={(alert, preview)} />
+      {preview && <Alert gridArea={{ base: 'alert' }} />}
 
       <Header gridArea={{ base: 'header' }} data={{ ...site }} />
 

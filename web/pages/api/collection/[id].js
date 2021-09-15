@@ -1,5 +1,6 @@
 import { sanityClient, previewClient } from '../../../lib/sanity.server'
 const getClient = (preview) => (preview ? previewClient : sanityClient)
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH
 
 const domain = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -31,7 +32,7 @@ export default async function handler(req, res) {
         "type": "Collection",
         label,
         "items":*[_type == "HumanMadeObject" && ^._id in hasCurrentOwner[]._ref] {
-          "id": coalesce(subjectOfManifest, "${domain}/api/manifest/" + _id),
+          "id": coalesce(subjectOfManifest, "${domain}${basePath}/api/manifest/" + _id),
           "type": "Manifest",
           label
         }                

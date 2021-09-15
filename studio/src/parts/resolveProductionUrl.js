@@ -1,20 +1,25 @@
-export default function resolveProductionUrl(document) {
+import { publicDocumentTypes } from "../../../web/lib/queries"
 
-  const publicDocumentTypes = [
-    'HumanMadeObject',
-    'Actor',
-    'Page',
-    'Route'
-  ]
+// Any random string, must match SANITY_PREVIEW_SECRET in the Next.js .env.local file
+const previewSecret = process.env.SANITY_STUDIO_PREVIEW_SECRET
 
-  if(!publicDocumentTypes.includes(document._type)) {
+const basePath = `/exhibition/nansen-og-bergenserne`
+const remoteUrl = `https://exhibition-nansen.vercel.app`
+const localUrl = `http://localhost:3000`
+
+export default function resolveProductionUrl(doc) {
+  const baseUrl = window.location.hostname === 'localhost' ? localUrl : remoteUrl
+
+  const previewUrl = new URL(baseUrl)
+  const checkType = ["Route", ...publicDocumentTypes]
+
+  if (!checkType.includes(doc._type)) {
     return null
   }
 
-  const id = document._type === "Route" ? document.slug.current : document._id
-  const url = process.env.NODE_ENV === "production"
-      ? `https://exhibition-nansen.vercel.app/api/preview?slug=${id}&secret=${process.env.SANITY_STUDIO_PREVIEW_SECRET}`
-      : `http://localhost:3000/api/preview?slug=${id}&secret=${process.env.SANITY_STUDIO_PREVIEW_SECRET}`;
-  
-  return url
+  previewUrl.pathname = `${basePath}/api/preview`
+  previewUrl.searchParams.append(`secret`, previewSecret)
+  previewUrl.searchParams.append(`slug`, doc._type === "Route" ? doc?.slug?.current : `id/${doc._id}` ?? `/`)
+
+  return previewUrl.toString()
 }
