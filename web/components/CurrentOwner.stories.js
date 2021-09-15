@@ -1,6 +1,7 @@
 import React from 'react'
 import CurrentOwner from './CurrentOwner'
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'CurrentOwner',
   component: CurrentOwner,

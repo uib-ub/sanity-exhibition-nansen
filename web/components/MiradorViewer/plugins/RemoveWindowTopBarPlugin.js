@@ -7,6 +7,7 @@ class RemoveWindowTopBarPlugin extends Component {
   }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   component: RemoveWindowTopBarPlugin,
   target: 'WindowTopBar',

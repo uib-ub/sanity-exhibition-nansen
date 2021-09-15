@@ -1,6 +1,7 @@
 import React from 'react'
 import Date from './Date'
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'Date',
   component: Date,

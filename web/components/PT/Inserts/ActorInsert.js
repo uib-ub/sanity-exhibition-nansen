@@ -11,19 +11,16 @@ export default function ActorInsert(props) {
   const { _id, label, image, shortDescription, memberOf } = props
 
   return (
-    <Box
-      maxWidth={['xl', null, 'xl', null]}
-      borderColor="gray.300"
-      borderWidth="thin"
-      // backgroundColor="gray.300"
-      mb="5"
-    >
+    <Box maxWidth={['xl', null, 'xl', null]} mb="5">
       <Flex>
-        <Image
-          boxSize="150px"
-          src={imageBuilder.image(image).width(150).height(150).url()}
-          mr="4"
-        />
+        {image && (
+          <Image
+            alt=""
+            boxSize="150px"
+            src={imageBuilder.image(image).width(150).height(150).url()}
+            mr="4"
+          />
+        )}
         <Box my="3">
           <Heading size="lg" mb="1">
             <Link href={`/id/${_id}`}>{label.no}</Link>
@@ -33,6 +30,7 @@ export default function ActorInsert(props) {
               <Flex key={org._id} alignItems="center">
                 {org.image && (
                   <Image
+                    alt=""
                     boxSize="25px"
                     src={imageBuilder.image(org.image).width(25).height(25).url()}
                     mr="2"

@@ -20,6 +20,7 @@ class ThumbnailPlugin extends Component {
   }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   component: ThumbnailPlugin,
   target: 'IIIFThumbnail',

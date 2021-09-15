@@ -1,6 +1,7 @@
 import React from 'react'
 import Cards from '.'
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   title: 'Cards',
   component: Cards,

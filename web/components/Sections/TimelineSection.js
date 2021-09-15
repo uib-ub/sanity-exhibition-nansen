@@ -1,7 +1,7 @@
-import Script from 'next/script'
-import { Container, Box } from '@chakra-ui/react'
-import PortableTextBlockQuote from '../PT/PortableTextBlockQuote'
-import PortableTextBlock from '../PT/PortableTextBlock'
+// import Script from 'next/script'
+import { Container, Heading } from '@chakra-ui/react'
+// import PortableTextBlockQuote from '../PT/PortableTextBlockQuote'
+// import PortableTextBlock from '../PT/PortableTextBlock'
 
 /*
   NOT WORKING
@@ -157,7 +157,8 @@ export default function TimelineSection(props) {
 
   return (
     <Container maxW="4xl" marginTop="10">
-      <link title="timeline-styles" rel="stylesheet" href="/static/timeline3/css/timeline.css" />
+      <Heading>WIP! Timeline does not work.</Heading>
+      {/* <link title="timeline-styles" rel="stylesheet" href="/static/timeline3/css/timeline.css" />
       <Script type="text/javaScript" src="/static/timeline3/js/timeline-min.js"></Script>
       <script
         dangerouslySetInnerHTML={{
@@ -180,7 +181,7 @@ export default function TimelineSection(props) {
         <Box size="xl">
           <PortableTextBlock blocks={props.credit} />
         </Box>
-      )}
+      )} */}
     </Container>
   )
 }

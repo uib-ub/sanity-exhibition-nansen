@@ -114,69 +114,68 @@ export default function MiradorViewer(props) {
   const { variantSettings, plugins } = getVariant(variant)
   const windows = manifests ? mergeManifestAndVariant(manifests, variantSettings) : null
 
-  let config = {
-    id: ID,
-    windows: windows ?? null,
-    catalog: catalog ? [{ manifestId: catalog }] : null,
-    createGenerateClassNameOptions: {
-      productionPrefix: ID,
-    },
-    workspaceControlPanel: {
-      enabled: workspaceControlPanel,
-    },
-    window: {
-      defaultView: 'book',
-    },
-    workspace: {
-      showZoomControls: false, // Remove default zoom and add plugin
-    },
-    selectedTheme: mode,
-    themes: {
-      dark: {
-        palette: {
-          type: 'dark',
-          primary: {
-            main: '#789a5b',
-          },
-          secondary: {
-            main: '#789a5b',
-          },
-          shades: {
-            dark: '#000000',
-            main: '#424242',
-            light: '#616161',
-          },
-        },
-      },
-      light: {
-        palette: {
-          type: 'light',
-          primary: {
-            main: '#789a5b',
-          },
-          secondary: {
-            main: '#789a5b',
-          },
-        },
-      },
-    },
-    galleryView: {
-      height: 220,
-    },
-    thumbnailNavigation: {
-      defaultPosition: 'off',
-    },
-    osdConfig: {
-      // Config used for OpenSeadragon
-      gestureSettingsMouse: {
-        scrollToZoom: false,
-      },
-    },
-  }
-
   useEffect(() => {
+    let config = {
+      id: ID,
+      windows: windows ?? null,
+      catalog: catalog ? [{ manifestId: catalog }] : null,
+      createGenerateClassNameOptions: {
+        productionPrefix: ID,
+      },
+      workspaceControlPanel: {
+        enabled: workspaceControlPanel,
+      },
+      window: {
+        defaultView: 'book',
+      },
+      workspace: {
+        showZoomControls: false, // Remove default zoom and add plugin
+      },
+      selectedTheme: mode,
+      themes: {
+        dark: {
+          palette: {
+            type: 'dark',
+            primary: {
+              main: '#789a5b',
+            },
+            secondary: {
+              main: '#789a5b',
+            },
+            shades: {
+              dark: '#000000',
+              main: '#424242',
+              light: '#616161',
+            },
+          },
+        },
+        light: {
+          palette: {
+            type: 'light',
+            primary: {
+              main: '#789a5b',
+            },
+            secondary: {
+              main: '#789a5b',
+            },
+          },
+        },
+      },
+      galleryView: {
+        height: 220,
+      },
+      thumbnailNavigation: {
+        defaultPosition: 'off',
+      },
+      osdConfig: {
+        // Config used for OpenSeadragon
+        gestureSettingsMouse: {
+          scrollToZoom: false,
+        },
+      },
+    }
     const miradorInstance = mirador.viewer(config, plugins) // eslint-disable-line
-  }, [mode])
+  }, [ID, catalog, mode, plugins, windows, workspaceControlPanel])
 
   return (
     <Box h={height} position="relative" gridArea={gridArea} bgColor="#eeeeee">

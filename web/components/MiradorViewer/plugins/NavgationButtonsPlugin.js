@@ -103,6 +103,7 @@ const mapDispatchToProps = (dispatch, { windowId }) => ({
   setPreviousCanvas: () => dispatch(actions.setPreviousCanvas(windowId)),
 })
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   component: withStyles(styles)(NavigationButtonsPlugin),
   mapStateToProps: mapStateToProps,

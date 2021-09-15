@@ -210,6 +210,7 @@ const mapStateToProps = (state, { windowId }) => ({
   windowViewProperties: getViewer(state, { windowId }),
 })
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   component: withStyles(styles)(ZoomButtonsPlugin),
   mapStateToProps: mapStateToProps,

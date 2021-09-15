@@ -7,6 +7,7 @@ class RemoveNavPlugin extends Component {
   }
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   component: RemoveNavPlugin,
   target: 'ViewerNavigation',
