@@ -1,4 +1,5 @@
 import groq from 'groq'
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH
 
 export const humanMadeObjectFields = groq`
   _id,
@@ -28,7 +29,7 @@ export const humanMadeObjectFields = groq`
   subjectOfManifest,
   "manifest": coalesce(
     subjectOfManifest, 
-    "/api/manifest/" + _id
+    "${basePath}/api/manifest/" + _id
   ),
   preferredIdentifier,
   identifiedBy[] {

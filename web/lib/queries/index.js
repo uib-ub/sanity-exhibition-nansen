@@ -1,5 +1,6 @@
 import { groq } from 'next-sanity'
 import { activityStreamFields, siteSettings } from './fragments'
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH
 
 /**
  * Enum of Classes that should generate pages
@@ -9,11 +10,11 @@ import { activityStreamFields, siteSettings } from './fragments'
 export const publicDocumentTypes = [
   'HumanMadeObject',
   'Actor',
-  'Group',
   'Concept',
   'ObjectType',
   'Place',
   'Event',
+  'LinguisticDocument',
 ]
 
 export const actorsQuery = groq`
@@ -130,7 +131,7 @@ export const routesQuery = groq`
 
 export const routeQuery = groq`
   {
-    "route": *[ _type == "Route" && slug.current == $joinID ][0] {
+    "route": *[ _type == "Route" && slug.current == $slug ] {
       ...,
       page->{
         ...,
@@ -216,7 +217,7 @@ export const routeQuery = groq`
               "manifest": coalesce(
                 subjectOfManifest, 
                 manifestUrl,
-                "/api/manifest/" + _id
+                "${basePath}/api/manifest/" + _id
               ),
               canvasUrl,
             }
@@ -237,7 +238,7 @@ export const routeQuery = groq`
                   "manifest": coalesce(
                     subjectOfManifest, 
                     manifestUrl,
-                    "/api/manifest/" + _id
+                    "${basePath}/api/manifest/" + _id
                   ),
                   canvasUrl,
                 }
@@ -283,7 +284,7 @@ export const routeQuery = groq`
                   "manifest": coalesce(
                     subjectOfManifest, 
                     manifestUrl,
-                    "/api/manifest/" + _id
+                    "${basePath}/api/manifest/" + _id
                   ),
                   canvasUrl,
                 }
@@ -336,7 +337,7 @@ export const routeQuery = groq`
               "manifest": coalesce(
                 subjectOfManifest, 
                 manifestUrl,
-                "/api/manifest/" + _id
+                "${basePath}/api/manifest/" + _id
               ),
               canvasUrl,
             }
