@@ -16,7 +16,7 @@ import QueryContainer from 'part:@sanity/base/query-container'
 import schema from 'part:@sanity/base/schema'
 import Iframe from 'sanity-plugin-iframe-pane'
 import resolveProductionUrl from '../parts/resolveProductionUrl'
-import { publicDocumentTypes } from '../../../web/lib/queries'
+import { publicDocumentTypes } from "../publicDocumentTypes"
 
 const hiddenDocTypes = (listItem) =>
   ![

@@ -1,4 +1,4 @@
-import { publicDocumentTypes } from "../../../web/lib/queries"
+import { publicDocumentTypes } from "../publicDocumentTypes"
 
 // Any random string, must match SANITY_PREVIEW_SECRET in the Next.js .env.local file
 const previewSecret = process.env.SANITY_STUDIO_PREVIEW_SECRET
