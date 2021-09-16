@@ -1,16 +1,16 @@
-import {nanoid} from 'nanoid'
+import { nanoid } from 'nanoid'
 import { getDocument } from './getDocument'
 import sanityClient from 'part:@sanity/base/client'
 
-const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
+const client = sanityClient.withConfig({ apiVersion: '2021-03-25' })
 
 const createDoc = async (doc, importTo) => {
-  if(!doc) return {success: false}
-  
+  if (!doc) return { success: false }
+
   let importDoc = doc
-  
-  if(importTo) {
-    importDoc._type =  importTo
+
+  if (importTo) {
+    importDoc._type = importTo
   }
 
   const transaction = client.transaction()
@@ -29,7 +29,7 @@ const createDoc = async (doc, importTo) => {
 
 export const chooseItem = async (item, importTo) => {
   const doc = getDocument(item)
-  console.log(importTo)
+  // console.log(importTo)
   /* TODO
     Important to include iiif manifest in asset metadata as the asset could be reused else where in the dataset */
   /* const assetMeta = {

@@ -1,13 +1,19 @@
-import {nanoid} from 'nanoid'
+import { nanoid } from 'nanoid'
 import { mapLanguage } from '../../shared/mapLanguage'
 import { mapTypes } from '../../shared/mapTypes'
 
 const getLabel = (item) => {
+  const { caption, properties } = item
+  const { ['*']: k, ...restCaption } = caption
+  const { ['*']: k2, ...restName } = properties['entity.name'][0].value
+
+  console.log(restCaption, restName)
+
   return {
     label: {
       _type: "LocaleString",
-      ...item.caption ?? '',
-      ...item.properties['entity.name'][0]?.value ?? ''
+      ...restCaption ?? '',
+      ...restName ?? '',
     }
   }
 }
@@ -85,7 +91,7 @@ export const getDocument = (item) => {
         ...getDescription(desc)
       ]
     }),
-    ...(item.entityType != 'Concept' && {hasType: mapTypes([item.entityType])}),
+    ...(item.entityType != 'Concept' && { hasType: mapTypes([item.entityType]) }),
     // Which dataset does this belongs?
     ...(item.properties['entity.dataset'] && {
       inDataset: {
