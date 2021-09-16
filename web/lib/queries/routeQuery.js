@@ -54,7 +54,7 @@ export const routeQuery = groq`
               "manifest": coalesce(
                 manifestRef->.subjectOfManifest, 
                 manifestUrl,
-                "/api/manifest/" + manifestRef->._id
+                "${basePath}/api/manifest/" + manifestRef->._id
               ),
               canvasUrl,
             },
@@ -139,7 +139,7 @@ export const routeQuery = groq`
                   "manifest": coalesce(
                     manifestRef->.subjectOfManifest, 
                     manifestUrl,
-                    "/api/manifest/" + manifestRef->._id
+                    "${basePath}/api/manifest/" + manifestRef->._id
                   ),
                   canvasUrl,
                 },
@@ -192,7 +192,7 @@ export const routeQuery = groq`
               "manifest": coalesce(
                 manifestRef->.subjectOfManifest, 
                 manifestUrl,
-                "/api/manifest/" + manifestRef->._id
+                "${basePath}/api/manifest/" + manifestRef->._id
               ),
               canvasUrl,
             },
