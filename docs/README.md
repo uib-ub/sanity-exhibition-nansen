@@ -31,3 +31,9 @@ Studio henter og lagrer data hos Sanity og det er derfor ikke nødvendig å ha e
 ### Web
 
 `web` inneholder en [Next.js](https://nextjs.org/) applikasjon. Next.js er valgt fordi den kombinerer statisk genererte sider, klient-side applikasjoner eller en kombinasjon.
+
+## Deployment
+
+WIP!
+
+![](./diagrams/deployment.svg)

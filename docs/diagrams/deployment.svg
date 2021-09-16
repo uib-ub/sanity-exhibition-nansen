@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="809px" preserveAspectRatio="none" style="width:754px;height:809px;background:#FFFFFF;" version="1.1" viewBox="0 0 754 809" width="754px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="268" x="236.5" y="17.4023">Deployment Diagram for Muna</text><!--MD5=[2169e2ba97fc11945987f08918aa5115]
+cluster vercel--><rect fill="#FFFFFF" height="341" style="stroke:#A2A2A2;stroke-width:1.5;" width="502" x="7" y="376.1992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="50" x="233" y="393.668">Vercel</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="23" x="246.5" y="408.6445">[???]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="260" y="424.7109"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="216" y="441.1992">Vercel cloud</text><!--MD5=[8732ada0ac3d982aaf760ffd06e5f6c2]
+cluster bb2--><rect fill="#FFFFFF" height="257" style="stroke:#A2A2A2;stroke-width:1.5;" width="239" x="15" y="452.1992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="133" x="66" y="469.668">bigbank-web***</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="20" x="226" y="469.668">x4</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="39" x="207" y="484.6445">[Node]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="246" y="500.7109"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223" x="23" y="517.1992">A web server residing in the web</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="191" x="55" y="533.6875">server farm, accessed via F5</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="161" y="550.1758">BIG-IP LTMs.</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="132" y="568.6641">Location</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="42" x="199" y="568.6641">Cloud</text><line style="stroke:#000000;stroke-width:1.5;" x1="128" x2="246" y1="555.1289" y2="555.1289"/><line style="stroke:#000000;stroke-width:1.5;" x1="128" x2="246" y1="571.6172" y2="571.6172"/><line style="stroke:#000000;stroke-width:1.5;" x1="128" x2="128" y1="555.1289" y2="571.6172"/><line style="stroke:#000000;stroke-width:1.5;" x1="194" x2="194" y1="555.1289" y2="571.6172"/><line style="stroke:#000000;stroke-width:1.5;" x1="246" x2="246" y1="555.1289" y2="571.6172"/><!--MD5=[695ea72c28552bd61b3a841849883ad7]
+cluster bb3--><rect fill="#FFFFFF" height="257" style="stroke:#A2A2A2;stroke-width:1.5;" width="239" x="262" y="452.1992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="133" x="313" y="469.668">bigbank-web***</text><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="20" x="473" y="469.668">x5</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="39" x="454" y="484.6445">[Node]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="493" y="500.7109"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223" x="270" y="517.1992">A web server residing in the web</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="191" x="302" y="533.6875">server farm, accessed via F5</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="408" y="550.1758">BIG-IP LTMs.</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="379" y="568.6641">Location</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="42" x="446" y="568.6641">Cloud</text><line style="stroke:#000000;stroke-width:1.5;" x1="375" x2="493" y1="555.1289" y2="555.1289"/><line style="stroke:#000000;stroke-width:1.5;" x1="375" x2="493" y1="571.6172" y2="571.6172"/><line style="stroke:#000000;stroke-width:1.5;" x1="375" x2="375" y1="555.1289" y2="571.6172"/><line style="stroke:#000000;stroke-width:1.5;" x1="441" x2="441" y1="555.1289" y2="571.6172"/><line style="stroke:#000000;stroke-width:1.5;" x1="493" x2="493" y1="555.1289" y2="571.6172"/><!--MD5=[9015f15a3729514c86a438a9dbb528fb]
+cluster sanity--><rect fill="#FFFFFF" height="284" style="stroke:#A2A2A2;stroke-width:1.5;" width="231" x="517" y="28.1992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="49" x="608" y="45.668">Sanity</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="23" x="621" y="60.6445">[???]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="634.5" y="76.7109"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="91" x="587" y="93.1992">Google cloud</text><!--MD5=[6a5612aa8bae1ff700d3fc970b978ae0]
+cluster sanitydb01--><rect fill="#FFFFFF" height="200" style="stroke:#A2A2A2;stroke-width:1.5;" width="215" x="525" y="104.1992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="103" x="533" y="121.668">sanity-db01</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="72" x="533" y="136.6445">[PostgreSQL]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="537" y="152.7109"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199" x="533" y="169.1992">The primary database server.</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="58" x="537" y="187.6875">Location</text><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="53" x="604" y="187.6875">London</text><line style="stroke:#000000;stroke-width:1.5;" x1="533" x2="662" y1="174.1523" y2="174.1523"/><line style="stroke:#000000;stroke-width:1.5;" x1="533" x2="662" y1="190.6406" y2="190.6406"/><line style="stroke:#000000;stroke-width:1.5;" x1="533" x2="533" y1="174.1523" y2="190.6406"/><line style="stroke:#000000;stroke-width:1.5;" x1="599" x2="599" y1="174.1523" y2="190.6406"/><line style="stroke:#000000;stroke-width:1.5;" x1="662" x2="662" y1="174.1523" y2="190.6406"/><!--MD5=[ad98df24f76285b14ecbe510560c3fd2]
+cluster editor_device--><rect fill="#FFFFFF" height="251" style="stroke:#A2A2A2;stroke-width:1.5;" width="248" x="7" y="73.1992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="146" x="58" y="90.668">Editor's computer</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="211" x="25.5" y="105.6445">[Mircosoft Windows, Apple macOS or</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="84" x="89" y="119.7773">mobile device]</text><!--MD5=[40fb275774b3f96bc9164c72eff21553]
+cluster editor_browser--><rect fill="#FFFFFF" height="185" style="stroke:#A2A2A2;stroke-width:1.5;" width="232" x="15" y="131.1992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="105" x="78.5" y="148.668">Web Browser</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="188" x="37" y="163.6445">[Google Chrome, Mozilla Firefox,</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="179" x="41.5" y="177.7773">Apple Safari or Microsoft Edge]</text><!--MD5=[1d637574dbb1df8721c8d8582a81e026]
+cluster user_device--><rect fill="#FFFFFF" height="251" style="stroke:#A2A2A2;stroke-width:1.5;" width="246" x="263" y="73.1992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="150" x="311" y="90.668">Visitor's computer</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="211" x="280.5" y="105.6445">[Mircosoft Windows, Apple macOS or</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="84" x="344" y="119.7773">mobile device]</text><!--MD5=[4a847362a43a6a9bd2f185fa8ebb8133]
+cluster user_browser--><rect fill="#FFFFFF" height="185" style="stroke:#A2A2A2;stroke-width:1.5;" width="230" x="271" y="131.1992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="105" x="333.5" y="148.668">Web Browser</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="188" x="292" y="163.6445">[Google Chrome, Mozilla Firefox,</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="179" x="296.5" y="177.7773">Apple Safari or Microsoft Edge]</text><!--MD5=[aa5e5be5da887ee0ca7e627d6e9a99d0]
+entity editor_web--><rect fill="#438DD5" height="118.9297" style="stroke:#3C7FC0;stroke-width:1.5;" width="216" x="23" y="582.1992"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="193" x="34.5" y="607.668">Single Page Application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="126" x="68" y="622.6445">[JavaScript and React]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="133" y="638.7109"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="42" y="655.1992">Provides all of the content</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="38.5" y="671.6875">editing functionality to the</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196" x="33" y="688.1758">editor via their web browser.</text><!--MD5=[49c1c732d7a4b5ec2e9391f31b5da12f]
+entity user_web--><rect fill="#438DD5" height="118.9297" style="stroke:#3C7FC0;stroke-width:1.5;" width="216" x="277" y="582.1992"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="193" x="288.5" y="607.668">Single Page Application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="126" x="322" y="622.6445">[JavaScript and React]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="387" y="638.7109"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="296" y="655.1992">Provides all of the content</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="292.5" y="671.6875">editing functionality to the</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196" x="287" y="688.1758">editor via their web browser.</text><!--MD5=[7468467f3b6b392f1d176d828c753b77]
+entity db--><path d="M536.5,211.1992 C536.5,201.1992 632,201.1992 632,201.1992 C632,201.1992 727.5,201.1992 727.5,211.1992 L727.5,286.1523 C727.5,296.1523 632,296.1523 632,296.1523 C632,296.1523 536.5,296.1523 536.5,286.1523 L536.5,211.1992 " fill="#438DD5" style="stroke:#3C7FC0;stroke-width:1.5;"/><path d="M536.5,211.1992 C536.5,221.1992 632,221.1992 632,221.1992 C632,221.1992 727.5,221.1992 727.5,211.1992 " fill="none" style="stroke:#3C7FC0;stroke-width:1.5;"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="75" x="594.5" y="240.668">Database</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="171" x="546.5" y="255.6445">[Relational Database Schema]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="634" y="271.7109"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="584.5" y="288.1992">Stores content</text><!--MD5=[2eaf6ef1808c42e4a457469ceaf5fb2c]
+entity editor_spa--><rect fill="#438DD5" height="118.9297" style="stroke:#3C7FC0;stroke-width:1.5;" width="216" x="23" y="189.1992"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="193" x="34.5" y="214.668">Single Page Application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="126" x="68" y="229.6445">[JavaScript and React]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="133" y="245.7109"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="42" y="262.1992">Provides all of the content</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181" x="38.5" y="278.6875">editing functionality to the</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="196" x="33" y="295.1758">editor via their web browser.</text><!--MD5=[ba99e7ff49c654ac984e927aea4bc5c1]
+entity user_spa--><rect fill="#438DD5" height="118.9297" style="stroke:#3C7FC0;stroke-width:1.5;" width="213" x="279.5" y="189.1992"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="193" x="289.5" y="214.668">Single Page Application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="126" x="323" y="229.6445">[JavaScript and React]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="388" y="245.7109"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="297.5" y="262.1992">Provides the user with the</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138" x="315" y="278.6875">content to their web</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="60" x="356" y="295.1758">browser.</text><!--MD5=[9e51211386fb296a7aae58c21fcbc2e6]
+reverse link editor_spa to editor_web--><path d="M131,316.8422 C131,391.7181 131,510.7997 131,582.0944 " fill="none" id="editor_spa-backto-editor_web" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="131,308.3874,128,316.3874,134,316.3874,131,308.3874" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="150" x="132" y="350.8008">Delivers to the editors's</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="79" x="167.5" y="364.9336">web browser</text><!--MD5=[5a20d0261da731ef5654c1dde95d95c6]
+reverse link user_spa to user_web--><path d="M385.8266,316.8422 C385.6361,391.7181 385.3331,510.7997 385.1517,582.0944 " fill="none" id="user_spa-backto-user_web" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="385.8481,308.3874,382.8277,316.3797,388.8277,316.3951,385.8481,308.3874" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="140" x="386" y="350.8008">Delivers to the users's</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="79" x="418.5" y="364.9336">web browser</text><rect fill="#FFFFFF" height="63.4648" rx="5" ry="5" style="stroke:#FFFFFF;stroke-width:1.0;" width="105" x="627" y="730.1992"/><rect height="16.4883" style="stroke:none;stroke-width:1.0;fill:none;" width="93" x="633" y="737.1992"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="633" y="750.7344">Legend</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="688" y="750.7344"/><rect fill="#438DD5" height="16.4883" style="stroke:none;stroke-width:1.0;" width="93" x="633" y="753.6875"/><text fill="#3C7FC0" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="637" y="767.2227">▯</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="649" y="767.2227"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="653" y="767.2227">container</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="726" y="767.2227"/><rect fill="#FFFFFF" height="16.4883" style="stroke:none;stroke-width:1.0;" width="93" x="633" y="770.1758"/><text fill="#A2A2A2" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="8" x="637" y="783.7109">▯</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="649" y="783.7109"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="35" x="653" y="783.7109">node</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="696" y="783.7109"/><line style="stroke:#00000000;stroke-width:1.0;" x1="633" x2="726" y1="737.1992" y2="737.1992"/><line style="stroke:#00000000;stroke-width:1.0;" x1="633" x2="726" y1="753.6875" y2="753.6875"/><line style="stroke:#00000000;stroke-width:1.0;" x1="633" x2="726" y1="770.1758" y2="770.1758"/><line style="stroke:#00000000;stroke-width:1.0;" x1="633" x2="726" y1="786.6641" y2="786.6641"/><line style="stroke:#00000000;stroke-width:1.0;" x1="633" x2="633" y1="737.1992" y2="786.6641"/><line style="stroke:#00000000;stroke-width:1.0;" x1="726" x2="726" y1="737.1992" y2="786.6641"/><!--MD5=[eb0a0108aa540614b825b57e5cbbe41a]
+@startuml "deployment"
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Deployment.puml
+
+AddElementTag("fallback", $bgColor="#c0c0c0")
+AddRelTag("fallback", $textColor="#c0c0c0", $lineColor="#438DD5")
+
+WithoutPropertyHeader()
+
+' calculated legend is used (activated in last line)
+' LAYOUT_WITH_LEGEND()
+
+title Deployment Diagram for Muna
+
+Deployment_Node(vercel, "Vercel", "???", "Vercel cloud"){
+    AddProperty("Location", "Cloud")
+    Deployment_Node_R(bb2, "bigbank-web***\tx4", "Node", "A web server residing in the web server farm, accessed via F5 BIG-IP LTMs."){
+      Container(editor_web, "Single Page Application", "JavaScript and React", "Provides all of the content editing functionality to the editor via their web browser.")
+    }
+    AddProperty("Location", "Cloud")
+    Deployment_Node_R(bb3, "bigbank-web***\tx5", "Node", "A web server residing in the web server farm, accessed via F5 BIG-IP LTMs."){
+      Container(user_web, "Single Page Application", "JavaScript and React", "Provides all of the content editing functionality to the editor via their web browser.")
+    }
+}
+
+Deployment_Node(sanity, "Sanity", "???", "Google cloud"){
+    AddProperty("Location", "London")
+    Deployment_Node_L(sanitydb01, "sanity-db01", "PostgreSQL", "The primary database server."){
+      ContainerDb(db, "Database", "Relational Database Schema", "Stores content")
+    }
+}
+
+Deployment_Node(editor_device, "Editor's computer", "Mircosoft Windows, Apple macOS or mobile device"){
+    Deployment_Node(editor_browser, "Web Browser", "Google Chrome, Mozilla Firefox, Apple Safari or Microsoft Edge"){
+        Container(editor_spa, "Single Page Application", "JavaScript and React", "Provides all of the content editing functionality to the editor via their web browser.")
+    }
+}
+
+Deployment_Node(user_device, "Visitor's computer", "Mircosoft Windows, Apple macOS or mobile device"){
+    Deployment_Node(user_browser, "Web Browser", "Google Chrome, Mozilla Firefox, Apple Safari or Microsoft Edge"){
+        Container(user_spa, "Single Page Application", "JavaScript and React", "Provides the user with the content to their web browser.")
+    }
+}
+
+Rel_U(editor_web, editor_spa, "Delivers to the editors's web browser")
+Rel_U(user_web, user_spa, "Delivers to the users's web browser")
+
+SHOW_LEGEND()
+@enduml
+
+@startuml "deployment"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam LegendBorderColor transparent
+skinparam LegendBackgroundColor transparent
+skinparam LegendFontColor #FFFFFF
+
+skinparam shadowing<<legendArea>> false
+skinparam rectangle<<legendArea>> {
+    backgroundcolor #00000000
+    bordercolor #00000000
+}
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam queue {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam actor {
+    StereotypeFontSize 12
+    shadowing false
+    style awesome
+}
+
+skinparam person {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam package {
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontStyle plain
+    BackgroundColor transparent
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontColor #444444
+    BorderColor #444444
+    BackgroundColor transparent
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam database<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam queue<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam actor<<person>> {
+    StereotypeFontColor #08427B
+    FontColor #08427B
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam person<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam database<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_person>> {
+    StereotypeFontColor #686868
+    FontColor #686868
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam person<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam queue<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam actor<<system>> {
+    StereotypeFontColor #1168BD
+    FontColor #1168BD
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam person<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_system>> {
+    StereotypeFontColor #999999
+    FontColor #999999
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam person<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+sprite $person [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000025788300000000005886410000000000000
+000000000007DFFFFFFD9643347BFFFFFFFB400000000000
+0000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFB1000000000
+000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD200000000
+00000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE10000000
+0000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000
+000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5000000
+000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000
+000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF200000
+00000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF600000
+00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF800000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00000EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF700000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+0000008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3000000
+000000014555555555555555555555555555555300000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+sprite $person2 [48x48/16] {
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000002578888300000000005888864100000000000
+0000000007DFFFFFFFFD9643347BFFFFFFFFFB4000000000
+00000004EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB10000000
+0000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD2000000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+00003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+0000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF50000
+0003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD0000
+0009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+0009FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF2000
+0003FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFD0000
+0000BFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF50000
+00003FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFB00000
+000006FFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFE100000
+0000007FFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFD2000000
+00000004EFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFB10000000
+0000000007DF8FFFFFFFFFFFFFFFFFFFFFF8FB4000000000
+000000000002578888888888888888888864100000000000
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam queue<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam actor<<container>> {
+    StereotypeFontColor #438DD5
+    FontColor #438DD5
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam person<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam database<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam queue<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam actor<<external_container>> {
+    StereotypeFontColor #B3B3B3
+    FontColor #B3B3B3
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam person<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<node>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #FFFFFF
+    BorderColor #A2A2A2
+}
+skinparam database<<node>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #FFFFFF
+    BorderColor #A2A2A2
+}
+skinparam queue<<node>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #FFFFFF
+    BorderColor #A2A2A2
+}
+skinparam actor<<node>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #FFFFFF
+    BorderColor #A2A2A2
+}
+skinparam person<<node>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #FFFFFF
+    BorderColor #A2A2A2
+}
+
+
+skinparam rectangle<<node>> {
+    FontStyle normal
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<fallback>> {
+    BackgroundColor #c0c0c0
+}
+skinparam database<<fallback>> {
+    BackgroundColor #c0c0c0
+}
+skinparam queue<<fallback>> {
+    BackgroundColor #c0c0c0
+}
+skinparam actor<<fallback>> {
+    StereotypeFontColor #c0c0c0
+    FontColor #c0c0c0
+    BackgroundColor #c0c0c0
+}
+skinparam person<<fallback>> {
+    BackgroundColor #c0c0c0
+}
+
+
+skinparam arrow<<fallback>> {
+    Color 438DD5;text:c0c0c0
+}
+
+
+
+
+
+title Deployment Diagram for Muna
+
+rectangle "==Vercel\n<size:12>[???]</size>\n\nVercel cloud" <<node>> as vercel {
+    
+    rectangle "==bigbank-web***\tx4\r<size:12>[Node]</size>\r\rA web server residing in the web\nserver farm, accessed via F5\nBIG-IP LTMs.\r| Location |= Cloud |" <<node>> as bb2 {
+      rectangle "==Single Page Application\n//<size:12>[JavaScript and React]</size>//\n\n Provides all of the content editing functionality to the editor via their web browser." <<container>> as editor_web 
+    }
+    
+    rectangle "==bigbank-web***\tx5\r<size:12>[Node]</size>\r\rA web server residing in the web\nserver farm, accessed via F5\nBIG-IP LTMs.\r| Location |= Cloud |" <<node>> as bb3 {
+      rectangle "==Single Page Application\n//<size:12>[JavaScript and React]</size>//\n\n Provides all of the content editing functionality to the editor via their web browser." <<container>> as user_web 
+    }
+}
+
+rectangle "==Sanity\n<size:12>[???]</size>\n\nGoogle cloud" <<node>> as sanity {
+    
+    rectangle "==sanity-db01\l<size:12>[PostgreSQL]</size>\l\lThe primary database server.\l| Location |= London |" <<node>> as sanitydb01 {
+      database "==Database\n//<size:12>[Relational Database Schema]</size>//\n\n Stores content" <<container>> as db 
+    }
+}
+
+rectangle "==Editor's computer\n<size:12>[Mircosoft Windows, Apple macOS or</size>\n<size:12>mobile device]</size>" <<node>> as editor_device {
+    rectangle "==Web Browser\n<size:12>[Google Chrome, Mozilla Firefox,</size>\n<size:12>Apple Safari or Microsoft Edge]</size>" <<node>> as editor_browser {
+        rectangle "==Single Page Application\n//<size:12>[JavaScript and React]</size>//\n\n Provides all of the content editing functionality to the editor via their web browser." <<container>> as editor_spa 
+    }
+}
+
+rectangle "==Visitor's computer\n<size:12>[Mircosoft Windows, Apple macOS or</size>\n<size:12>mobile device]</size>" <<node>> as user_device {
+    rectangle "==Web Browser\n<size:12>[Google Chrome, Mozilla Firefox,</size>\n<size:12>Apple Safari or Microsoft Edge]</size>" <<node>> as user_browser {
+        rectangle "==Single Page Application\n//<size:12>[JavaScript and React]</size>//\n\n Provides the user with the content to their web browser." <<container>> as user_spa 
+    }
+}
+
+editor_web -UP->> editor_spa : **Delivers to the editors's web browser**
+user_web -UP->> user_spa : **Delivers to the users's web browser**
+
+hide stereotype
+legend right
+<#00000000,#00000000>|<color:#000000>**Legend**</color> |
+|<#438DD5><color:#3C7FC0> <U+25AF></color> <color:#FFFFFF> container </color> |
+|<#FFFFFF><color:#A2A2A2> <U+25AF></color> <color:#000000> node </color> |
+endlegend
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 14:40:07 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: US-ASCII
+Language: nb
+Country: NO
+--></g></svg>
