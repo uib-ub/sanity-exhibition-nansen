@@ -13,20 +13,35 @@ WithoutPropertyHeader()
 
 title Deployment Diagram for Muna
 
-Deployment_Node(vercel, "Vercel", "???", "Vercel cloud"){
+Deployment_Node(vercel, "Vercel", "Node", "Vercel cloud"){
     AddProperty("Location", "Cloud")
-    Deployment_Node_R(bb2, "bigbank-web***\tx4", "Node", "A web server residing in the web server farm, accessed via F5 BIG-IP LTMs."){
-      Container(editor_web, "Single Page Application", "JavaScript and React", "Provides all of the content editing functionality to the editor via their web browser.")
+    Deployment_Node_R(vercel_studio, "studio", "Node"){
+      Deployment_Node_R(vercel_studio_server, "studio_server", "Node"){
+        Container(vercel_studio_spa, "Single Page Application", "JavaScript and React", "Provides all of the content editing functionality to the editor via their web browser.")
+      }
     }
     AddProperty("Location", "Cloud")
-    Deployment_Node_R(bb3, "bigbank-web***\tx5", "Node", "A web server residing in the web server farm, accessed via F5 BIG-IP LTMs."){
-      Container(user_web, "Single Page Application", "JavaScript and React", "Provides all of the content editing functionality to the editor via their web browser.")
+    Deployment_Node_R(vercel_web, "web", "Node"){
+      Deployment_Node_R(vercel_web_server, "web_server", "Node"){
+        Container(vercel_web_next_app, "Next Application", "JavaScript and React", "Provides the Next app to the visitors web browser.")
+        Container(vercel_web_next_app_api, "Next API", "JavaScript and React", "Provides manifests to the visitors app via their web browser.")
+      }
+    }
+    AddProperty("Location", "Cloud")
+    Deployment_Node_R(vercel_manifest, "marcus manifest", "Node"){
+      Deployment_Node_R(vercel_manifest_server, "manifest_server", "Node"){
+        Container(vercel_manifest_next_app_api, "Next API", "JavaScript and React", "Provides manifests to the visitors app via their web browser.")
+      }
     }
 }
 
-Deployment_Node(sanity, "Sanity", "???", "Google cloud"){
-    AddProperty("Location", "London")
-    Deployment_Node_L(sanitydb01, "sanity-db01", "PostgreSQL", "The primary database server."){
+Deployment_Node(sanity, "Sanity", "Go", "Google Cloud"){
+    AddProperty("Location", "Cloud")
+    Deployment_Node_R(sanity_API, "sanity-api", "Node", "An API residing in the Google Cloud."){
+      Container(sanitydb_api, "Single Page Application", "JavaScript and React", "Provides all of the content editing functionality to the editor via their web browser.")
+    }
+    AddProperty("Location", "Google Cloud")
+    Deployment_Node_L(sanitydb, "sanity-db", "PostgreSQL", "The primary database server."){
       ContainerDb(db, "Database", "Relational Database Schema", "Stores content")
     }
 }
@@ -43,8 +58,13 @@ Deployment_Node(user_device, "Visitor's computer", "Mircosoft Windows, Apple mac
     }
 }
 
-Rel_U(editor_web, editor_spa, "Delivers to the editors's web browser")
-Rel_U(user_web, user_spa, "Delivers to the users's web browser")
+Rel_D(vercel_studio_spa, editor_spa, "Delivers the app to the editors's web browser")
+Rel_D(vercel_web_next_app, user_spa, "Delivers the app to the users's web browser")
+Rel_D(vercel_web_next_app_api, user_spa, "Delivers data to the users's web browser")
+Rel_D(sanitydb_api, vercel_web_next_app, "Delivers data to the web app build step")
+Rel_D(vercel_manifest_next_app_api, user_spa, "Delivers manifests to the web app build step")
+Rel_D(sanitydb_api, editor_spa, "Delivers data to the editor's SPA")
+Rel_R(db, sanitydb_api, "Delivers data to the api")
 
 SHOW_LEGEND()
 @enduml
