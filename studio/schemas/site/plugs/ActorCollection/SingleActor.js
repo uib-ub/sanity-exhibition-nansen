@@ -1,5 +1,5 @@
-import { coalesceLabel } from "../../helpers"
-import { file, image } from "../../props"
+import { coalesceLabel } from "../../../helpers"
+import { file, image } from "../../../props"
 
 export default {
   name: 'SingleActor',
@@ -14,8 +14,15 @@ export default {
     {
       name: 'disabled',
       title: 'Avslått?',
-      titleEN: 'Disabled',
+      titleEN: 'Disabled?',
       type: 'boolean',
+    },
+    {
+      name: 'showPersonalInformation',
+      title: 'Vis personlig informasjon?',
+      titleEN: 'Show personal information?',
+      type: 'boolean',
+      initialValue: false
     },
     {
       name: 'item',

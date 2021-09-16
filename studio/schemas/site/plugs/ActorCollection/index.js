@@ -15,6 +15,20 @@ export default {
       type: 'boolean',
     },
     {
+      name: 'view',
+      title: 'Visningsvalg',
+      titleEN: 'View choice',
+      description: 'Velg enkeltside-visning eller galleri med alle objektets bilder. Bokvisning er standard.',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Profile', value: 'profile' },
+          { title: 'Compact', value: 'compact' },
+          { title: 'Card', value: 'card' },
+        ],
+      },
+    },
+    {
       name: 'title',
       title: 'Tittel eller navn',
       titleEN: 'Heading',

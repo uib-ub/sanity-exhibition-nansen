@@ -1,24 +1,15 @@
-import React from 'react'
-import { kebabCase } from 'lodash'
 import { Heading, Image, Text } from '@chakra-ui/react'
-import { imageBuilder } from '../../lib/sanity'
-import PortableTextBlock from '../PT/PortableTextBlock'
+import React from 'react'
+import { imageBuilder } from '../../../lib/sanity'
+import PortableTextBlock from '../../PT/PortableTextBlock'
+import { kebabCase } from 'lodash'
+import Link from '../../Link'
 
-export default function ActorCollection(props) {
-  if (!props || props.disabled === true) {
-    return null
-  }
-
+export default function Profile({ data }) {
   return (
-    <React.Fragment key={props._id}>
-      {/* <Heading maxW={['xl', null, 'xl', null]} mx="auto" fontSize={['xl', '2xl', '3xl', '3xl']}>
-        {props.title}
-      </Heading>
-
-      <PortableTextBlock blocks={props.description} /> */}
-
-      {props?.items?.map((item) => (
-        <React.Fragment key={item._id}>
+    <>
+      {data.map((item) => (
+        <React.Fragment key={item.item._id}>
           {item.image && (
             <Image
               mt="16"
@@ -35,7 +26,7 @@ export default function ActorCollection(props) {
             mx="auto"
             fontSize={['xl', '2xl', '3xl', null]}
           >
-            {item.label}
+            <Link href={`/id/${item.item._id}`}>{item.label}</Link>
           </Heading>
 
           {item.item?.shortDescription && (
@@ -46,6 +37,6 @@ export default function ActorCollection(props) {
           <PortableTextBlock blocks={item.description} />
         </React.Fragment>
       ))}
-    </React.Fragment>
+    </>
   )
 }

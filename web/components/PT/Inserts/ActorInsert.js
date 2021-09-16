@@ -22,18 +22,18 @@ export default function ActorInsert(props) {
           />
         )}
         <Box my="3">
-          <Heading size="lg" mb="1">
+          <Heading size="md" mb="1">
             <Link href={`/id/${_id}`}>{label.no}</Link>
           </Heading>
           {memberOf &&
             memberOf.map((org) => (
-              <Flex key={org._id} alignItems="center">
+              <Flex key={org._id} alignItems="center" pb="2">
                 {org.image && (
                   <Image
                     alt=""
-                    boxSize="25px"
-                    src={imageBuilder.image(org.image).width(25).height(25).url()}
-                    mr="2"
+                    w="35px"
+                    src={imageBuilder.image(org.image).width(35).fit('max').url()}
+                    mr="3"
                   />
                 )}
                 <Heading size="sm">{org.label.no}</Heading>

@@ -1,4 +1,4 @@
-import { Box, useColorModeValue } from '@chakra-ui/react'
+import { Box, Container, useColorModeValue } from '@chakra-ui/react'
 import { ResponsivePie } from '@nivo/pie'
 import Caption from './shared/caption'
 
@@ -20,8 +20,8 @@ export default function SingleLevelChart(props) {
   const { data, caption, label } = props
 
   return (
-    <Box as="figure" maxW={['lg', null, null, null, 'xl']}>
-      <Box h="sm">
+    <Container as="figure" maxW={['lg', null, null, null, 'xl']} centerContent>
+      <Box h="sm" w="full">
         <ResponsivePie
           data={JSON.parse(data.code)}
           theme={theme}
@@ -64,6 +64,6 @@ export default function SingleLevelChart(props) {
       <figcaption>
         <Caption title={label} content={caption} />
       </figcaption>
-    </Box>
+    </Container>
   )
 }

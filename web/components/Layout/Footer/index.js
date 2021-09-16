@@ -1,10 +1,10 @@
 import { Button, Container, Flex, useColorMode, useColorModeValue } from '@chakra-ui/react'
 // import ActiveLink from '../Link/ActiveLink'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
-import RenderSections from '../Sections/RenderSection'
-import License from '../License'
+import RenderSections from '../../Sections/RenderSection'
+import License from '../../License'
 import React from 'react'
-import Publisher from '../Publisher'
+import Publisher from './Publisher'
 // import { Image } from '../Image'
 
 // import footerBorder from '../../public/img/taakeheimen-footer.svg'
@@ -52,7 +52,7 @@ export default function Footer(props) {
         </Button>
       </Flex>
 
-      <Container maxW="4xl" p="0" sx={{ perspective: '492px' }}>
+      <Container maxW="4xl" px="4" pt="6%" centerContent>
         {/* <Flex pb="0">
           <Spacer />
 
