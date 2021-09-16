@@ -1,0 +1,50 @@
+@startuml
+  !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Deployment.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Deployment.puml
+
+AddElementTag("fallback", $bgColor="#c0c0c0")
+AddRelTag("fallback", $textColor="#c0c0c0", $lineColor="#438DD5")
+
+WithoutPropertyHeader()
+
+' calculated legend is used (activated in last line)
+' LAYOUT_WITH_LEGEND()
+
+title Deployment Diagram for Muna
+
+Deployment_Node(vercel, "Vercel", "???", "Vercel cloud"){
+    AddProperty("Location", "Cloud")
+    Deployment_Node_R(bb2, "bigbank-web***\tx4", "Node", "A web server residing in the web server farm, accessed via F5 BIG-IP LTMs."){
+      Container(editor_web, "Single Page Application", "JavaScript and React", "Provides all of the content editing functionality to the editor via their web browser.")
+    }
+    AddProperty("Location", "Cloud")
+    Deployment_Node_R(bb3, "bigbank-web***\tx5", "Node", "A web server residing in the web server farm, accessed via F5 BIG-IP LTMs."){
+      Container(user_web, "Single Page Application", "JavaScript and React", "Provides all of the content editing functionality to the editor via their web browser.")
+    }
+}
+
+Deployment_Node(sanity, "Sanity", "???", "Google cloud"){
+    AddProperty("Location", "London")
+    Deployment_Node_L(sanitydb01, "sanity-db01", "PostgreSQL", "The primary database server."){
+      ContainerDb(db, "Database", "Relational Database Schema", "Stores content")
+    }
+}
+
+Deployment_Node(editor_device, "Editor's computer", "Mircosoft Windows, Apple macOS or mobile device"){
+    Deployment_Node(editor_browser, "Web Browser", "Google Chrome, Mozilla Firefox, Apple Safari or Microsoft Edge"){
+        Container(editor_spa, "Single Page Application", "JavaScript and React", "Provides all of the content editing functionality to the editor via their web browser.")
+    }
+}
+
+Deployment_Node(user_device, "Visitor's computer", "Mircosoft Windows, Apple macOS or mobile device"){
+    Deployment_Node(user_browser, "Web Browser", "Google Chrome, Mozilla Firefox, Apple Safari or Microsoft Edge"){
+        Container(user_spa, "Single Page Application", "JavaScript and React", "Provides the user with the content to their web browser.")
+    }
+}
+
+Rel_U(editor_web, editor_spa, "Delivers to the editors's web browser")
+Rel_U(user_web, user_spa, "Delivers to the users's web browser")
+
+SHOW_LEGEND()
+@enduml

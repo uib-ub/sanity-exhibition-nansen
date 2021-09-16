@@ -1,0 +1,23 @@
+@startuml "container_studio"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
+
+LAYOUT_TOP_DOWN()
+'LAYOUT_AS_SKETCH()
+LAYOUT_WITH_LEGEND()
+
+Person(editor, "Editor", "Creator of website.")
+
+System_Boundary(c1, "studio", "React SPA"){
+    
+    Container(studio, "Studio", "React 16+", "Allows editor to create content.")
+
+}
+ContainerDb_Ext(sanity_db, "Sanity Cloud Storage", "Google Cloud", "Stores metadata and files.")
+
+Rel(editor, studio, "Uses", "HTTPS")
+
+Rel_R(studio, sanity_db, "Reads from and writes to", "HTTPS")
+
+@enduml

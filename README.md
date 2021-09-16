@@ -2,19 +2,9 @@
 
 Universitetsbiblioteket i Bergens repositorium for Sanity.io redigeringsklient og Next.js frontend. Nansen utstillingen er et samarbeid mellom biblioteket og prosjektet [Arven etter Nansen](https://arvenetternansen.com/). Utstillingen ble laget i perioden 2020-21. 
 
-## Struktur
+## Documentation
 
-Repositoriet består av to mapper, `studio` og `web`. `studio` inneholder koden for å kjøre [Sanity Studio](https://www.sanity.io/docs/sanity-studio). Studio er en SPA React applikasjon, open source og kan tilpasses. Datamodellen lages i `studio/schemas` og defineres av bruker, se [Content modelling](https://www.sanity.io/docs/content-modelling) og [Schema types](https://www.sanity.io/docs/schema-types) for detaljer.
-
-Studio er utvidet med én større plugin. `import-tool` er en "tool" som lar brukere søke i Marcus.uib.no, NB.no og Kulturnav.org. Objekter eller autoritetsdata kan importeres til Studio der de kan refereres til i tekst eller i andre sammenhenger.
-
-Studio henter og lagrer data hos Sanity og det er derfor ikke nødvendig å ha en lokal database for utvikling eller tyngre driftsopplegg for produksjon.
-
-`web` inneholder en [Next.js](https://nextjs.org/) applikasjon. Next.js er valgt fordi den kombinerer statisk genererte sider, klient-side applikasjoner eller en kombinasjon.
-
-## Sanity Manage
-
-[Sanity Manage](https://www.sanity.io/manage)
+See [the docs](./docs/README.md)
 
 ## Deployment
 
