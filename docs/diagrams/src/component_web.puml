@@ -21,27 +21,33 @@ Container(frontend, "Next frontend", "Javascript and React", "Provides all conte
 ContainerDb_Ext(sanity_db, "Sanity Cloud Storage", "Google Cloud", "Stores metadata and files.", SANITY)
 
 Container(marcusManifest, "Marcus manifest", "Next", "Temporary API for Marcus IIIF manifests.", NEXT)
-ContainerDb(sparql, "Marcus SPARQL endpoint", "Fuseki", "Data endpoint for Marcus.")
+ContainerDb(sparql, "SPARQL endpoint", "Fuseki", "Data endpoint for Marcus.")
 
 Container_Boundary(next, "Next app", "", NEXT) {
 
     Container_Boundary(app, "Pages") {
-        Component(pages, "/items", "Route", "Serves static pages.")
-        Component(id, "/[id]", "Route", "Serves static pages.")
-
+        Component(pages, "/items", "Route", "Serves static page.")
+        Component(id, "/[id]", "Route", "Serves static page based on id variable.")
     }
 
     Container_Boundary(api, "Server side API") {
         Component(api_manifest, "/api/manifest/[id]", "Route", "Fetch basic metadata and connected images by id from Sanity DB")
-
     }
+    Container_Boundary(components, "Components") {
+        Component(mirador_viewer, "/miradorViewer", "React", "Fetch basic metadata and connected images by id from Sanity DB")
+    }
+    
+    Rel_D(app, components, "Uses", "JSON/HTTPS")
+    Rel_D(id, mirador_viewer, "Uses", "JSON/HTTPS")
+    Rel_D(mirador_viewer, api_manifest, "Uses", "JSON/HTTPS")
+
 }
 
 
 'Rel_L(frontend, sanity_db, "Uses", "JSON/HTTPS")
 Rel_D(frontend, api, "Uses", "JSON/HTTPS")
 Rel_D(frontend, app, "Uses", "JSON/HTTPS")
-Rel_D(frontend, marcusManifest, "Fetches manifests", "JSON/HTTPS")
+Rel_D(mirador_viewer, marcusManifest, "Fetches Marcus manifests", "JSON/HTTPS")
 Rel_D(marcusManifest, sparql, "Fetches data", "JSON/HTTPS")
 Rel(api_manifest, sanity_db, "Uses", "JSON/HTTPS")
 
