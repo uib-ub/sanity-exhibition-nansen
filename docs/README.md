@@ -1,6 +1,6 @@
 # Muna system
 
-WIP! Nansen is based on the Muna software architecture. Muna is documented using the [C4 model](https://c4model.com/).
+WIP! Muna software architecture. Muna is documented using the [C4 model](https://c4model.com/).
 
 ## Context
 
