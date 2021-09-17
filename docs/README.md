@@ -28,12 +28,12 @@ The database is not Open Source and runs in the Google Cloud. The Studio communi
 
 [Sanity Manage](https://www.sanity.io/manage)
 
-![](./diagrams/sanity_manage.svg)
+![](./diagrams/container_sanity_manage.svg)
 ### Web
 
 `web` contains a [Next.js](https://nextjs.org/) application. Next.js was chosen because it supports SSR, SSG and client side rendering and lets the app combine all three strategies.
 
-![](./diagrams/web.svg)
+![](./diagrams/container_web.svg)
 ## Deployment
 
 WIP!

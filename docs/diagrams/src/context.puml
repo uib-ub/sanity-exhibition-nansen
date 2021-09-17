@@ -37,7 +37,7 @@ System(proxy, "Proxy", "Reverse proxy for serving Nansen with UiB domain.")
 
 System(deployment, "Vercel", "Deploys studio and website.", "VERCEL")
 
-System_Ext(marcusManifest, "Marcus manifest", "Temporary API for Marcus IIIF manifests.", "NEXT")
+System(marcusManifest, "Marcus manifest", "Temporary API for Marcus IIIF manifests.", "NEXT")
 
 System(git, "GitHub", "Version control", "GITHUB")
 
