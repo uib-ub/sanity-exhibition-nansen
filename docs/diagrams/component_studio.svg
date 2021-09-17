@@ -1,0 +1,762 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="874px" preserveAspectRatio="none" style="width:744px;height:874px;background:#FFFFFF;" version="1.1" viewBox="0 0 744 874" width="744px" zoomAndPan="magnify"><defs/><g><text fill="#000000" font-family="sans-serif" font-size="18" lengthAdjust="spacing" textLength="328" x="201.5" y="17.4023">Component diagram for Sanity Studio</text><!--MD5=[7442f3b126ee602ae02566c1a49e158a]
+cluster api--><rect fill="#FFFFFF" height="204" style="stroke:#444444;stroke-width:1.0;stroke-dasharray:7.0,7.0;" width="512" x="56.25" y="258.6992"/><text fill="#444444" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="130" x="247.25" y="276.168">SPA Application</text><text fill="#444444" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="63" x="280.75" y="291.1445">[Container]</text><!--MD5=[30860e21ba0e39165c540f9e23fe2d63]
+entity sign--><rect fill="#85BBF0" height="102.4414" style="stroke:#78A8D8;stroke-width:1.5;" width="200" x="80.25" y="327.6992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="143" x="108.75" y="353.168">Sign In Controller</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="40" x="160.25" y="368.1445">[React]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="182.25" y="384.2109"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="94.25" y="400.6992">Allows users to sign in to</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="143.25" y="417.1875">the Studio.</text><!--MD5=[7d95986b1a7257a223a95834a13edd2e]
+entity import_tool--><rect fill="#85BBF0" height="118.9297" style="stroke:#78A8D8;stroke-width:1.5;" width="209" x="316" y="319.1992"/><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="91" x="375" y="344.668">Import tool</text><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="40" x="400.5" y="359.6445">[React]</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="422.5" y="375.7109"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="351" y="392.1992">Plugin for importing</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="185" x="326" y="408.6875">external resources into the</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="396.5" y="425.1758">Studio.</text><!--MD5=[33573e971ff506c0f246109ca3fd77bd]
+entity spa--><rect fill="#438DD5" height="118.9297" style="stroke:#3C7FC0;stroke-width:1.5;" width="213" x="524" y="40.1992"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="193" x="534" y="65.668">Single Page Application</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="126" x="567.5" y="80.6445">[Javascript and React]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="632.5" y="96.7109"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130" x="565.5" y="113.1992">Provides all editing</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="178" x="539.5" y="129.6875">functionality to editors via</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128" x="566.5" y="146.1758">their web browser.</text><!--MD5=[3d74be2a757051a7059b41e555fce061]
+entity sanity_db--><path d="M205,37.1992 C205,27.1992 305.5,27.1992 305.5,27.1992 C305.5,27.1992 406,27.1992 406,37.1992 L406,162.1523 C406,172.1523 305.5,172.1523 305.5,172.1523 C305.5,172.1523 205,172.1523 205,162.1523 L205,37.1992 " fill="#B3B3B3" style="stroke:#A6A6A6;stroke-width:1.5;"/><path d="M205,37.1992 C205,47.1992 305.5,47.1992 305.5,47.1992 C305.5,47.1992 406,47.1992 406,37.1992 " fill="none" style="stroke:#A6A6A6;stroke-width:1.5;"/><image height="50" width="50" x="280.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABjklEQVR4Xu2YzU7CQBRGeSoTJa4NaHwNxY2LwsqXplI0rpBLwEzOtGXa3tuZxjnJ2c39+SgNtLNZJpPJdGVXvB5CrY6yPjpcsqvsNzpcaIj79SpOIC6iJeeYwuHacp4J5eLWG2wh56qzDQzCOqEqXrxzTbJWnWtBeL4O1jTJOjUkxMnHuTe0z2DWU55X4y9IzVXh2RC+N29eH8oaFdwgbphqwG8AF6c8rwKDbB9u7IZZ4gU5y3PJwwCuu+XddAJx+SZZlyRc+po/T/M0g3HRPsrfHPaNAhcb4mfMe0s+US6kIeeMglWYchHpCnERDaPeQ+Xxu86FhlguI4Zxka8Il+sqeyaBfMJcNET2SY7QK8a6pOHykw0iMMAkg+yL1em5hiFMgvDJjfJ8F9w+h+f7uEG+FB93owYRWRMCe5gHETiwTta0IVeR9Zce0YOEBKrON3ebZiEucKCV5kEEDrWQM02oNv5gTTnPHC6gIWeMxuHj3Vumj9U6YggXLhaqvMhmr6Rof9Pe/19AJpP55/wCwk7g9HfTvaAAAAAASUVORK5CYII=" y="51.1992"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="168" x="221.5" y="116.668">Sanity Cloud Storage</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="85" x="263" y="131.6445">[Google Cloud]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="307.5" y="147.7109"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="177" x="219" y="164.1992">Stores metadata and files.</text><!--MD5=[e29493a8775effcafa538aa0485107d1]
+entity auth--><rect fill="#B3B3B3" height="133.9531" style="stroke:#A6A6A6;stroke-width:1.5;" width="203" x="7" y="548.6992"/><image height="48" width="48" x="84.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAIAAADYYG7QAAAB5ElEQVR4Xu2YsZLCMAxE+f/fUXMNDQ0NDQ1NmjQ0NGloqLgde86ElWQrYZhkbvIqJsjrjWUpTnayMnZ8YWk2Qy02Qy3+haGfMDwywARDx+Pxfr8/J4Ihh8OBtXyihvb7PU81BQxnRYeoodvtlqUvl8vj8XifzgZhCM6/MZwVHUKGkKwyB+51GIbXtD4IQ3BxDxHWtQgZmrF1NBBhXYu2obLsnwMpVlc0DKF0WTXR9/25CgJ4TKLZCxqGTN3g4puJhiDHvVMzhP7Beong9iylQNTbUs2QWU3X65XjfBDM41P1cdwI19DpdGKlRLzFid9OIc6hf7iGzO7XdR2FYUpcHBL4oe3iIqukfkZhBdtQUMXcJXqHmffmtQDDkFfqtM5eOp4qrV72zRZgGAruRLMjZHRmzfowW4BhKEfDFvpbGaxr1Zwjo92POwhky6OawmQpQyUJFCamodWlzNuti21qCZe9OZNuembZ61XM2IYkrILFwMp/vTGKc/dPlY46wZY2xjUkzk5c7OEq/vFDtwCTecNrhmTWLRbMBTZLfUzDkLcJFjvCytoO+RnzdDyV4Ek8ZKi0gLW8KMraXqWl+uSKEG+nUUPyweeYYLIyEwwVXh+k3tF/8cgAcwx9lc1Qi81Qi81Qi18VHxRxhtGvjgAAAABJRU5ErkJggg==" y="558.6992"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="183" x="17" y="622.168">Google Authentication</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="85" x="66" y="637.1445">[Google Cloud]</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="110.5" y="653.2109"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150" x="35.5" y="669.6992">Authenticates editors.</text><!--MD5=[e2ca8134d4d6579ee847ece18521a18e]
+entity marcus--><rect fill="#999999" height="71.8203" style="stroke:#8A8A8A;stroke-width:1.5;" width="141" x="245" y="579.6992"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="60" x="285.5" y="605.168">Marcus</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="317.5" y="622.0781"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="259" y="638.5664">Content provider</text><!--MD5=[869122dbb59a4f5702fe9cdcd390c614]
+entity kulturnav--><rect fill="#999999" height="71.8203" style="stroke:#8A8A8A;stroke-width:1.5;" width="141" x="421" y="579.6992"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="80" x="451.5" y="605.168">Kulturnav</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="493.5" y="622.0781"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="435" y="638.5664">Content provider</text><!--MD5=[29e43f0d87d4a5e4fc25a2c204ebb0f3]
+entity nb--><rect fill="#999999" height="71.8203" style="stroke:#8A8A8A;stroke-width:1.5;" width="141" x="597" y="579.6992"/><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="47" x="644" y="605.168">NB.no</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="669.5" y="622.0781"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="117" x="611" y="638.5664">Content provider</text><!--MD5=[10c2457638a95e38b5d87a5d20a81c8c]
+link import_tool to sanity_db--><path d="M395.841,318.9042 C379.045,278.4482 356.539,224.2372 338.161,179.9722 " fill="none" id="import_tool-to-sanity_db" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="335.015,172.3942,335.3114,180.9331,340.8529,178.6327,335.015,172.3942" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="30" x="361.25" y="222.8008">Uses</text><!--MD5=[cc6e701350592b60920a324fb448bbde]
+link import_tool to marcus--><path d="M394.025,438.3932 C375.481,479.8962 351.045,534.5872 334.335,571.9842 " fill="none" id="import_tool-to-marcus" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="330.892,579.6912,336.895,573.6114,331.4171,571.1634,330.892,579.6912" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="49" x="372.25" y="499.8008">Imports</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="46" x="373.75" y="513.9336">[HTTPS]</text><!--MD5=[ce03490f95923a2a4bf4a1a880a51bb0]
+link import_tool to kulturnav--><path d="M437.983,438.3932 C450.522,479.8962 467.046,534.5872 478.345,571.9842 " fill="none" id="import_tool-to-kulturnav" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="480.673,579.6912,481.2321,571.1655,475.4883,572.9001,480.673,579.6912" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="49" x="463.25" y="499.8008">Imports</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="46" x="464.75" y="513.9336">[HTTPS]</text><!--MD5=[72e6538a4afd9ff6e5f89c0cb2220dab]
+link import_tool to nb--><path d="M481.941,438.3932 C526.294,480.5912 584.975,536.4222 624.312,573.8472 " fill="none" id="import_tool-to-nb" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="630.454,579.6912,626.7261,572.0034,622.5903,576.3503,630.454,579.6912" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="49" x="566.25" y="499.8008">Imports</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="46" x="567.75" y="513.9336">[HTTPS]</text><!--MD5=[8d00e1f70b11306d90ba31f906661b1d]
+reverse link sanity_db to spa--><path d="M414.281,99.6992 C449.63,99.6992 488.779,99.6992 523.929,99.6992 " fill="none" id="sanity_db-backto-spa" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="405.856,99.6992,413.856,102.6992,413.856,96.6992,405.856,99.6992" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="30" x="449" y="78.3008">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="80" x="424" y="92.4336">[JSON/HTTPS]</text><!--MD5=[b20751f21bc3c5e56073fe913b5ac5ab]
+link spa to api--><path d="M615.405,159.4442 C605.2915,199.4642 591.7723,252.9615 580.6498,296.9745 C577.8691,307.9777 575.2383,318.3882 572.8479,327.8471 C571.6527,332.5766 570.5177,337.0682 569.4541,341.2771 C569.1882,342.3293 568.9267,343.3638 568.6699,344.38 C568.5415,344.8881 568.4143,345.3916 568.2882,345.8904 " fill="none" id="spa-to-api" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="568.2882,345.8904,573.1569,338.8692,567.3397,337.3992,568.2882,345.8904" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="30" x="629.25" y="215.8008">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="80" x="604.25" y="229.9336">[JSON/HTTPS]</text><!--MD5=[0b4537366c46ce983a36229d7d90ca4d]
+link sign to auth--><path d="M164.893,429.8242 C155.025,462.0322 142.032,504.4402 130.979,540.5142 " fill="none" id="sign-to-auth" style="stroke:#666666;stroke-width:1.0;"/><polygon fill="#666666" points="128.507,548.5832,133.7181,541.8124,127.9812,540.0554,128.507,548.5832" style="stroke:#666666;stroke-width:1.0;"/><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="30" x="173.25" y="499.8008">Uses</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="80" x="148.25" y="513.9336">[JSON/HTTPS]</text><rect fill="#FFFFFF" height="162.3945" rx="5" ry="5" style="stroke:#FFFFFF;stroke-width:1.0;" width="159" x="563" y="695.6523"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="51" x="569" y="716.1875">Legend</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="624" y="716.1875"/><rect fill="#08427B" height="16.4883" style="stroke:none;stroke-width:1.0;" width="147" x="569" y="719.1406"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="48" x="573" y="732.6758">person</text><rect fill="#1168BD" height="16.4883" style="stroke:none;stroke-width:1.0;" width="147" x="569" y="735.6289"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="47" x="573" y="749.1641">system</text><rect fill="#438DD5" height="16.4883" style="stroke:none;stroke-width:1.0;" width="147" x="569" y="752.1172"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="65" x="573" y="765.6523">container</text><rect fill="#85BBF0" height="16.4883" style="stroke:none;stroke-width:1.0;" width="147" x="569" y="768.6055"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="78" x="573" y="782.1406">component</text><rect fill="#686868" height="16.4883" style="stroke:none;stroke-width:1.0;" width="147" x="569" y="785.0938"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109" x="573" y="798.6289">external person</text><rect fill="#999999" height="16.4883" style="stroke:none;stroke-width:1.0;" width="147" x="569" y="801.582"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="108" x="573" y="815.1172">external system</text><rect fill="#B3B3B3" height="16.4883" style="stroke:none;stroke-width:1.0;" width="147" x="569" y="818.0703"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="573" y="831.6055">external container</text><rect fill="#CCCCCC" height="16.4883" style="stroke:none;stroke-width:1.0;" width="147" x="569" y="834.5586"/><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="139" x="573" y="848.0938">external component</text><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="716" y1="702.6523" y2="702.6523"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="716" y1="719.1406" y2="719.1406"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="716" y1="735.6289" y2="735.6289"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="716" y1="752.1172" y2="752.1172"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="716" y1="768.6055" y2="768.6055"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="716" y1="785.0938" y2="785.0938"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="716" y1="801.582" y2="801.582"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="716" y1="818.0703" y2="818.0703"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="716" y1="834.5586" y2="834.5586"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="716" y1="851.0469" y2="851.0469"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="569" x2="569" y1="702.6523" y2="851.0469"/><line style="stroke:#FFFFFF;stroke-width:1.0;" x1="716" x2="716" y1="702.6523" y2="851.0469"/><!--MD5=[837d8a057417fe834cac17aab717181c]
+@startuml "component_studio"
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+' uncomment the following line and comment the first to use locally
+' !include C4_Component.puml
+
+!define SANITY img:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACeklEQVRoQ+2ZQU5bQQyGPe8hVWkT0mOgqlUldskNkos06aaLwIojlGzbHgTBCYA1C9hwiUYEWkQSI0cMekomE9vjlwBK1jO2P//2eObFwRv5uTfCARuQl6bkRpGQIje9DnKVogxW+3/MEmliSAIQAq0ZACWBpAIUoTLn4MPhb3U86o2WEEUgrToqkLIgPJAGRgwyaDUw+/SV29PqdVIYMcjfVgNzBkgokGHvGyJzBq8dhBMAtzQ5trzkIkVIjenGLIN858tc2Ugc0+ZlQBJ7OhAAmC0viVOfgX/733E0mUT7iGtXDULePYxzDqrKGWClShIITMaQf94FbtbURxhjYxrIk4OPJ+ciO4y4xEtEATw3e8BN7hzUjs9E9sTRRjaIHMdAij7WoZAIhILlwniwSp7Bu6NTsR+pWmIHUpBQQOS0btxXYhCNKrHs0vV926C3VCB0cWQ/BQU1ktJbKhCKrSwYBw7qJ/LTTw3iE23RM7OiaXooGcQHMWg3EQ0LzjmA+jF/0JqBzGZ10GoiQlonSXqmNJA5sHZDJRgXZmUgWsVePEgRLHZgvCqQ2JB9VSC3vS5OAGF8dTE3Ps1BrF5yoUFftF29voTBw+h52cpB6D3y3ui5W1Rm5SCUQs2TN6R0qSAU6LLyksLc7XVxHLgNUEL8SWauCBfEF3dMnWGvu3TqkypcCPIpHogcVQQ394VLSweRKqOFkvabWBEKbLjfQYx/INTGP90nhVCVVjHCMspMA5EMQgbw4AcO/98nKTANxAFUD/V/jqpKa9l0llBtZRlUfv5KjiPZwKKg41/aHdT6+j8+Qz5LA5GoYrF2A2KRRUsbG0Uss2lh6xFkswBC9e0BzQAAAABJRU5ErkJggg==
+!define VERCEL img:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABU0lEQVRoQ+2ZWwqDMBBFR92j4joU3IKgCxFdo6akoNjSVmcyNxWZgF+dPM49yfw0ISJHNxiJgVzMohm5mBAyI2YElIBdLVCw4mXNiDg60EQzAgpWvKwZORudc478l6bp2SmiOqgRf/h5np8HSxK/FW5AQbyJ/UDCwECqqqK+719AvKF3OC1HMJBvB0ZZgYD8Sn0YBirLUkvEtk50ENTDVwc58wYQ7VgVZN9uj+6O9ltRBTljA9WO1UDquqau645EwNqxGgjXxkqkdcVUQKQQHmYcRyqKgmXyU/HfQbTacTBIiI01WY12HATCabdHdyf0rQSBaNjQasdikKZpqG3bo6BZv2dZRsuysOZs3U/6/4i2jdB2LDKCgvAw0zRRnudsK5cDkbZjEQg7rggTDCRCyKwtzAgrrgjFZiRCyKwtzAgrrgjFZiRCyKwtzAgrrgjFtzHyAKakjAEBm5CuAAAAAElFTkSuQmCC
+!define NEXT img:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABm0lEQVRoQ92Z25LDMAhDt///0dtJpu4kDhgBimPaZ0x0LPCtrz/+7x9I+QJiXCGshIj4kbC0jkyCrHgNLKQpMugugCOYW5d3wAyIEBAKMhvADYOAPAkBA1kgq0A0IFXvCGQ1iCGMBrIqxAYjaq4IIsJIICu7oTZ/D1IF4uJKZZATzBGkkhuXEnsahPH9PUdLlHEjIyYz9rSv/ALIbggbZEvqcZfhyG0gHhgqiGcGpVtdZlNdHgR1hQWyr1p3ONKcs3IvC7IJ94jzxA6fh9iONAdQgWic+cY1A2TUL8uD9KdTrVdKgCAwJUGkEisDYrlSCgSFsfac4SM4+9CINLVWYiVAEFfKgFgw5qanBJxuiOghzzr9IrNKa/CPmN8FiboSWTBYrnzz9JcipDSitdyPY8CoIFFXInBZkJMJmWtqRDzLlYtuCWSmK9ElGQZ5CgbpUXHyNUfQOzejvDyuqHotkJnOWM0/1IqAPAHTl5ip0ww41A5Sv4xSO26wsD44cCJQRJP8Dyk4rXc5NB2EvbKFAJqI1GDBOY9L1G+/AToZcCqjfA/hAAAAAElFTkSuQmCC
+!define GITHUB img:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACZElEQVRoQ+2YzUpCURDHJ/AZJNBcSJJIubBoUSs3iZCvEO0qyTfwI30Hoy8JcxFucivUE0RPIRYhIgjuXBhXuGCXe87MnHO4qFx3cubMf37zn+Px3o3ZbDaDNfhs+CBL5qLvyJIZAr4ja+1Ir9eDw4MDEuPvYECKowYZGa3NYJCq5xpnAkoLRBfASaUDpATy3e/Dfiql5YJosyoMG8S0C25AT40GnOZyrEaxQLyAsKs/yWTgpdUiw5BBvISwq6/c3MBVPk+C0QKx5rlSLsP93R1JTBT03GxCNpsFt2ZRzwwJROSGU4TrGnU/BQYFkRVHEeBYJdLaSybh/eNDmkoZJJ1Ow2u7zakTjdVpmhQEGxWvHLE6gGmtDAgGowyCdQidI0GA6ngpgVwXClAslVRrle4zDqKa0ASdSPvi8hKqtZqrhNCRZQSRnRMfxMQIiXKoTIPvyMo4sptIwHA4FNa7FvcIdsvquKVyPiw9pQvRLtS0Kzr/7bRATDqDQWBaUpDRaASJeBydFB1nxuMx7MRi2hrs5xG7aFkH3zodODo+di2uVCzC48MDWrgzAGsWCmIldBaNwWCilDFaBMHyoYfdTuYU/vz6gkgkMl92rvV/fiAQCEg7vhUKwXQ6JbtiDETkivXGMRQOw/nZGXS7XfQpbrFyqisUCLIjImeoIm6tp4Bw8pPOiKyTHDGOI9y8bBC3MeMeTFM5FnWVQGSFUDtJfelH/UVQBrEEJpMJbEej/7RUQaj7RGBaIHbS23odatXq/Cu1INsRajzmjBEQTMSLdR/Eiy5zNHxHON3yItZ3xIsuczT+ANqRwHq+fLT7AAAAAElFTkSuQmCC
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+' uncomment the following line and comment the first to use locally
+' !include C4_Container.puml
+!include DEVICONS/google_cloud_platform.puml
+
+LAYOUT_WITH_LEGEND()
+
+title Component diagram for Sanity Studio
+
+Container(spa, "Single Page Application", "Javascript and React", "Provides all editing functionality to editors via their web browser.")
+ContainerDb_Ext(sanity_db, "Sanity Cloud Storage", "Google Cloud", "Stores metadata and files.", "SANITY")
+Container_Ext(auth, "Google Authentication", "Google Cloud", "Authenticates editors.", "google_cloud_platform")
+
+System_Ext(marcus, "Marcus", "Content provider")
+System_Ext(kulturnav, "Kulturnav", "Content provider")
+System_Ext(nb, "NB.no", "Content provider")
+
+Container_Boundary(api, "SPA Application", "SANITY") {
+    Component(sign, "Sign In Controller", "React", "Allows users to sign in to the Studio.")
+    Component(import_tool, "Import tool", "React", "Plugin for importing external resources into the Studio.")
+
+    Rel(import_tool, sanity_db, "Uses")
+
+}
+
+Rel_D(import_tool, marcus, "Imports", "HTTPS")
+Rel_D(import_tool, kulturnav, "Imports", "HTTPS")
+Rel_D(import_tool, nb, "Imports", "HTTPS")
+Rel_L(spa, sanity_db, "Uses", "JSON/HTTPS")
+Rel_D(spa, api, "Uses", "JSON/HTTPS")
+Rel(sign, auth, "Uses", "JSON/HTTPS")
+
+@enduml
+
+@startuml "component_studio"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+skinparam LegendBorderColor transparent
+skinparam LegendBackgroundColor transparent
+skinparam LegendFontColor #FFFFFF
+
+skinparam shadowing<<legendArea>> false
+skinparam rectangle<<legendArea>> {
+    backgroundcolor #00000000
+    bordercolor #00000000
+}
+
+skinparam rectangle {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam database {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam queue {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam arrow {
+    Color #666666
+    FontColor #666666
+    FontSize 12
+}
+
+skinparam actor {
+    StereotypeFontSize 12
+    shadowing false
+    style awesome
+}
+
+skinparam person {
+    StereotypeFontSize 12
+    shadowing false
+}
+
+skinparam package {
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontStyle plain
+    BackgroundColor transparent
+}
+
+skinparam rectangle<<boundary>> {
+    Shadowing false
+    StereotypeFontSize 6
+    StereotypeFontColor transparent
+    FontColor #444444
+    BorderColor #444444
+    BackgroundColor transparent
+    BorderStyle dashed
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam database<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam queue<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam actor<<person>> {
+    StereotypeFontColor #08427B
+    FontColor #08427B
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+skinparam person<<person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #08427B
+    BorderColor #073B6F
+}
+
+
+skinparam rectangle<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam database<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_person>> {
+    StereotypeFontColor #686868
+    FontColor #686868
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+skinparam person<<external_person>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #686868
+    BorderColor #8A8A8A
+}
+
+
+skinparam rectangle<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam database<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam queue<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam actor<<system>> {
+    StereotypeFontColor #1168BD
+    FontColor #1168BD
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+skinparam person<<system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #1168BD
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam database<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam queue<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam actor<<external_system>> {
+    StereotypeFontColor #999999
+    FontColor #999999
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+skinparam person<<external_system>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #999999
+    BorderColor #8A8A8A
+}
+
+
+
+
+
+sprite $person [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000025788300000000005886410000000000000
+000000000007DFFFFFFD9643347BFFFFFFFB400000000000
+0000000004EFFFFFFFFFFFFFFFFFFFFFFFFFFB1000000000
+000000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFD200000000
+00000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE10000000
+0000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0000000
+000000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5000000
+000003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD000000
+000009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF200000
+00000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF600000
+00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF800000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+00001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA00000
+00000EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF700000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+0000008FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD3000000
+000000014555555555555555555555555555555300000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+sprite $person2 [48x48/16] {
+0000000000000000000049BCCA7200000000000000000000
+0000000000000000006EFFFFFFFFB3000000000000000000
+00000000000000001CFFFFFFFFFFFF700000000000000000
+0000000000000001EFFFFFFFFFFFFFF80000000000000000
+000000000000000CFFFFFFFFFFFFFFFF6000000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+00000000000001FFFFFFFFFFFFFFFFFFF900000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFF00000000000000
+0000000000000BFFFFFFFFFFFFFFFFFFFF40000000000000
+0000000000000EFFFFFFFFFFFFFFFFFFFF70000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000FFFFFFFFFFFFFFFFFFFFF80000000000000
+0000000000000DFFFFFFFFFFFFFFFFFFFF60000000000000
+0000000000000AFFFFFFFFFFFFFFFFFFFF40000000000000
+00000000000006FFFFFFFFFFFFFFFFFFFE00000000000000
+00000000000000EFFFFFFFFFFFFFFFFFF800000000000000
+000000000000007FFFFFFFFFFFFFFFFFF100000000000000
+000000000000000BFFFFFFFFFFFFFFFF5000000000000000
+0000000000000001DFFFFFFFFFFFFFF70000000000000000
+00000000000000000BFFFFFFFFFFFF500000000000000000
+0000000000000000005DFFFFFFFFA1000000000000000000
+0000000000000000000037ABB96100000000000000000000
+000000000002578888300000000005888864100000000000
+0000000007DFFFFFFFFD9643347BFFFFFFFFFB4000000000
+00000004EFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB10000000
+0000007FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD2000000
+000006FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE100000
+00003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB00000
+0000BFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF50000
+0003FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD0000
+0009FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF2000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB000
+001FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA000
+000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF8000
+000DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF6000
+0009FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFF2000
+0003FFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFFD0000
+0000BFFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFF50000
+00003FFFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFFB00000
+000006FFFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFFE100000
+0000007FFFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFFD2000000
+00000004EFFF8FFFFFFFFFFFFFFFFFFFFFF8FFFB10000000
+0000000007DF8FFFFFFFFFFFFFFFFFFFFFF8FB4000000000
+000000000002578888888888888888888864100000000000
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam database<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam queue<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam actor<<container>> {
+    StereotypeFontColor #438DD5
+    FontColor #438DD5
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+skinparam person<<container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #438DD5
+    BorderColor #3C7FC0
+}
+
+
+skinparam rectangle<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam database<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam queue<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam actor<<external_container>> {
+    StereotypeFontColor #B3B3B3
+    FontColor #B3B3B3
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+skinparam person<<external_container>> {
+    StereotypeFontColor #FFFFFF
+    FontColor #FFFFFF
+    BackgroundColor #B3B3B3
+    BorderColor #A6A6A6
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+skinparam rectangle<<component>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #85BBF0
+    BorderColor #78A8D8
+}
+skinparam database<<component>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #85BBF0
+    BorderColor #78A8D8
+}
+skinparam queue<<component>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #85BBF0
+    BorderColor #78A8D8
+}
+skinparam actor<<component>> {
+    StereotypeFontColor #85BBF0
+    FontColor #85BBF0
+    BackgroundColor #85BBF0
+    BorderColor #78A8D8
+}
+skinparam person<<component>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #85BBF0
+    BorderColor #78A8D8
+}
+
+
+skinparam rectangle<<external_component>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #CCCCCC
+    BorderColor #BFBFBF
+}
+skinparam database<<external_component>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #CCCCCC
+    BorderColor #BFBFBF
+}
+skinparam queue<<external_component>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #CCCCCC
+    BorderColor #BFBFBF
+}
+skinparam actor<<external_component>> {
+    StereotypeFontColor #CCCCCC
+    FontColor #CCCCCC
+    BackgroundColor #CCCCCC
+    BorderColor #BFBFBF
+}
+skinparam person<<external_component>> {
+    StereotypeFontColor #000000
+    FontColor #000000
+    BackgroundColor #CCCCCC
+    BorderColor #BFBFBF
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sprite $google_cloud_platform [48x48/16] {
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000001111111111111100000000000000000
+000000000000004DFFFFFFFFFFFFFFFFD300000000000000
+00000000000002FFFFFFFFFFFFFFFFFFFF20000000000000
+0000000000000BFF7EFFFFFFFFFFFFE7FFB0000000000000
+0000000000004FFE2CFFFFFFFFFFFFC2EFF4000000000000
+000000000000DFFFFFFFFFFFFFFFFFFFFFFD000000000000
+000000000007FFFFFFFFFFFFFFFFFFFFFFFF700000000000
+00000000001FFFFFFF966666666669FFFFFFF10000000000
+00000000009FFFFFFD000000000000DFFFFFF90000000000
+0000000003FFFFFFF40000000000004FFFFFFF3000000000
+000000000CFFFFFFA00000000000000AFFFFFFC000000000
+000000005FFFFFFF2000000000000002FFFFFFF500000000
+00000000EFFFFFF80000028CC82000008FFFFFFE00000000
+00000008FFFFFFE000004FFFFFF400000EFFFFFF70000000
+0000001FFFFFFF500002FFFFFFFF200005FFFFFFF1000000
+000000AFFFFFFC000009FFFFFFFF800000CFFFFFF9000000
+000000FFA6FFF300000CFFFFFFFFC000003FFF6BFF000000
+000000FFA6FFF300000CFFFFFFFFC000003FFF6AFF000000
+000000AFFFFFFC000009FFFFFFFF800000CFFFFFF9000000
+0000002FFFFFFF500002FFFFFFFF200005FFFFFFF1000000
+00000008FFFFFFE000005FFFFFF500000EFFFFFF80000000
+00000000EFFFFFF80000029CC82000008FFFFFFE00000000
+000000005FFFFFFF2000000000000001FFFFFFF500000000
+000000000CFFFFFFA00000000000000AFFFFFFC000000000
+0000000003FFFFFFF30000000000003FFFFFFF3000000000
+0000000000AFFFFFFC000000000000CFFFFFF90000000000
+00000000001FFFFFFF966666666669FFFFFFF10000000000
+000000000007FFFFFFFFFFFFFFFFFFFFFFFF700000000000
+000000000000DFFFFFFFFFFFFFFFFFFFFFFD000000000000
+0000000000005FFE2CFFFFFFFFFFFFC2EFF4000000000000
+0000000000000BFF7EFFFFFFFFFFFFE7FFB0000000000000
+00000000000002FFFFFFFFFFFFFFFFFFFF20000000000000
+000000000000004DFFFFFFFFFFFFFFFFD400000000000000
+000000000000000001111111101111100000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+000000000000000000000000000000000000000000000000
+}
+
+
+skinparam folderBackgroundColor<<DEV GOOGLE_CLOUD_PLATFORM>> White
+
+hide stereotype
+legend right
+|<color:#000000>**Legend**</color> |
+|<#08427B> person |
+|<#1168BD> system |
+|<#438DD5> container |
+|<#85BBF0> component |
+|<#686868> external person |
+|<#999999> external system |
+|<#B3B3B3> external container |
+|<#CCCCCC> external component |
+endlegend
+
+title Component diagram for Sanity Studio
+
+rectangle "==Single Page Application\n//<size:12>[Javascript and React]</size>//\n\n Provides all editing functionality to editors via their web browser." <<container>> as spa 
+database "<img:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACeklEQVRoQ+2ZQU5bQQyGPe8hVWkT0mOgqlUldskNkos06aaLwIojlGzbHgTBCYA1C9hwiUYEWkQSI0cMekomE9vjlwBK1jO2P//2eObFwRv5uTfCARuQl6bkRpGQIje9DnKVogxW+3/MEmliSAIQAq0ZACWBpAIUoTLn4MPhb3U86o2WEEUgrToqkLIgPJAGRgwyaDUw+/SV29PqdVIYMcjfVgNzBkgokGHvGyJzBq8dhBMAtzQ5trzkIkVIjenGLIN858tc2Ugc0+ZlQBJ7OhAAmC0viVOfgX/733E0mUT7iGtXDULePYxzDqrKGWClShIITMaQf94FbtbURxhjYxrIk4OPJ+ciO4y4xEtEATw3e8BN7hzUjs9E9sTRRjaIHMdAij7WoZAIhILlwniwSp7Bu6NTsR+pWmIHUpBQQOS0btxXYhCNKrHs0vV926C3VCB0cWQ/BQU1ktJbKhCKrSwYBw7qJ/LTTw3iE23RM7OiaXooGcQHMWg3EQ0LzjmA+jF/0JqBzGZ10GoiQlonSXqmNJA5sHZDJRgXZmUgWsVePEgRLHZgvCqQ2JB9VSC3vS5OAGF8dTE3Ps1BrF5yoUFftF29voTBw+h52cpB6D3y3ui5W1Rm5SCUQs2TN6R0qSAU6LLyksLc7XVxHLgNUEL8SWauCBfEF3dMnWGvu3TqkypcCPIpHogcVQQ394VLSweRKqOFkvabWBEKbLjfQYx/INTGP90nhVCVVjHCMspMA5EMQgbw4AcO/98nKTANxAFUD/V/jqpKa9l0llBtZRlUfv5KjiPZwKKg41/aHdT6+j8+Qz5LA5GoYrF2A2KRRUsbG0Uss2lh6xFkswBC9e0BzQAAAABJRU5ErkJggg==>\n==Sanity Cloud Storage\n//<size:12>[Google Cloud]</size>//\n\n Stores metadata and files." <<external_container>> as sanity_db 
+rectangle "<$google_cloud_platform>\n==Google Authentication\n//<size:12>[Google Cloud]</size>//\n\n Authenticates editors." <<external_container>> as auth 
+
+rectangle "==Marcus\n\n Content provider" <<external_system>> as marcus 
+rectangle "==Kulturnav\n\n Content provider" <<external_system>> as kulturnav 
+rectangle "==NB.no\n\n Content provider" <<external_system>> as nb 
+
+rectangle "==SPA Application\n<size:12>[Container]</size>" <<img:data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACeklEQVRoQ>><<2ZQU5bQQyGPe8hVWkT0mOgqlUldskNkos06aaLwIojlGzbHgTBCYA1C9hwiUYEWkQSI0cMekomE9vjlwBK1jO2P//2eObFwRv5uTfCARuQl6bkRpGQIje9DnKVogxW>><<3/MEmliSAIQAq0ZACWBpAIUoTLn4MPhb3U86o2WEEUgrToqkLIgPJAGRgwyaDUw>><</SV29PqdVIYMcjfVgNzBkgokGHvGyJzBq8dhBMAtzQ5trzkIkVIjenGLIN858tc2Ugc0>><<ZlQBJ7OhAAmC0viVOfgX/733E0mUT7iGtXDULePYxzDqrKGWClShIITMaQf94FbtbURxhjYxrIk4OPJ>><<ciO4y4xEtEATw3e8BN7hzUjs9E9sTRRjaIHMdAij7WoZAIhILlwniwSp7Bu6NTsR>><<pWmIHUpBQQOS0btxXYhCNKrHs0vV926C3VCB0cWQ/BQU1ktJbKhCKrSwYBw7qJ/LTTw3iE23RM7OiaXooGcQHMWg3EQ0LzjmA>><<jF/0JqBzGZ10GoiQlonSXqmNJA5sHZDJRgXZmUgWsVePEgRLHZgvCqQ2JB9VSC3vS5OAGF8dTE3Ps1BrF5yoUFftF29voTBw>><<h52cpB6D3y3ui5W1Rm5SCUQs2TN6R0qSAU6LLyksLc7XVxHLgNUEL8SWauCBfEF3dMnWGvu3TqkypcCPIpHogcVQQ394VLSweRKqOFkvabWBEKbLjfQYx/INTGP90nhVCVVjHCMspMA5EMQgbw4AcO/98nKTANxAFUD/V/jqpKa9l0llBtZRlUfv5KjiPZwKKg41/aHdT6>><<j8>><<Qz5LA5GoYrF2A2KRRUsbG0Uss2lh6xFkswBC9e0BzQAAAABJRU5ErkJggg==>><<boundary>> as api  {
+    rectangle "==Sign In Controller\n//<size:12>[React]</size>//\n\n Allows users to sign in to the Studio." <<component>> as sign 
+    rectangle "==Import tool\n//<size:12>[React]</size>//\n\n Plugin for importing external resources into the Studio." <<component>> as import_tool 
+
+    import_tool - ->> sanity_db : **Uses**
+
+}
+
+import_tool -DOWN->> marcus : **Imports**\n//<size:12>[HTTPS]</size>//
+import_tool -DOWN->> kulturnav : **Imports**\n//<size:12>[HTTPS]</size>//
+import_tool -DOWN->> nb : **Imports**\n//<size:12>[HTTPS]</size>//
+spa -LEFT->> sanity_db : **Uses**\n//<size:12>[JSON/HTTPS]</size>//
+spa -DOWN->> api : **Uses**\n//<size:12>[JSON/HTTPS]</size>//
+sign - ->> auth : **Uses**\n//<size:12>[JSON/HTTPS]</size>//
+
+@enduml
+
+PlantUML version 1.2021.7(Sun May 23 14:40:07 CEST 2021)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: US-ASCII
+Language: nb
+Country: NO
+--></g></svg>

@@ -24,6 +24,13 @@ The database is not Open Source and runs in the Google Cloud. The Studio communi
 
 ![](./diagrams/container_studio.svg)
 
+#### Component
+
+Documentation of custom Studio plugins.
+
+![](./diagrams/component_studio.svg)
+
+
 ### Sanity Manage
 
 [Sanity Manage](https://www.sanity.io/manage)
