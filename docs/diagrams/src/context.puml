@@ -30,7 +30,7 @@ Person(developer, "Developer", "Developer of system.")
 System(studio, "Sanity Studio", "Allows editors to create content.", "SANITY")
 
 SystemDb_Ext(sanity, "Sanity Cloud Storage", "Proprietary DB on top of Google Cloud PostgreSQL. Serves images with IIIF Image API and files from buckets.", "SANITY")
-SystemDb_Ext(sanityManage, "Sanity Manage", "Sanity backend for projects, datasets, configs and access.", "SANITY")
+System_Ext(sanityManage, "Sanity Manage", "Sanity backend for projects, datasets, configs and access.", "SANITY")
 
 System(website, "Website", "Frontend with static generated pages and APIs.", "NEXT")
 System(proxy, "Proxy", "Reverse proxy for serving Nansen with UiB domain.")
