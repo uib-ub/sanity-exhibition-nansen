@@ -17,7 +17,7 @@ LAYOUT_WITH_LEGEND()
 
 title Component diagram for Sanity Studio
 
-Container(spa, "Sanity Studio SPA", "Javascript and React", "Provides all editing functionality to editors via their web browser.")
+Container(spa, "Sanity Studio SPA", "Javascript and React", "Provides all editing functionality to editors via their web browser.", SANITY)
 ContainerDb_Ext(sanity_db, "Sanity Cloud Storage", "Google Cloud", "Stores metadata and files.", "SANITY")
 Container_Ext(auth, "Google Authentication", "Google Cloud", "Authenticates editors.", "google_cloud_platform")
 
@@ -28,16 +28,34 @@ System_Ext(nb, "NB.no", "Content provider")
 Container_Boundary(api, "SPA Application", "SANITY") {
     Component(sign, "Sign In Controller", "React", "Allows users to sign in to the Studio.")
     Component(import_tool, "Import tool", "React", "Plugin for importing external resources into the Studio.")
+    Component(preview, "Desk preview", "React", "Preview tab addition to desk forms.")
+    Component(resolveProductionUrl, "resolveProductionUrl", "React", "Sends correct id to preview api along with secret.")
 
     Rel(import_tool, sanity_db, "Uses")
-
+    Rel(preview, resolveProductionUrl, "Uses")
+    Rel(sign, auth, "Uses", "JSON/HTTPS")
 }
 
-Rel_D(import_tool, marcus, "Imports", "HTTPS")
-Rel_D(import_tool, kulturnav, "Imports", "HTTPS")
-Rel_D(import_tool, nb, "Imports", "HTTPS")
-Rel_L(spa, sanity_db, "Uses", "JSON/HTTPS")
-Rel_D(spa, api, "Uses", "JSON/HTTPS")
-Rel(sign, auth, "Uses", "JSON/HTTPS")
+Container_Boundary(next, "Next app", "", NEXT) {
+
+    Container_Boundary(app, "Preview fetch") {
+        Component(overlay, "/*", "Route", "Serves static page.")
+    }
+
+    Container_Boundary(next_api, "Server side API") {
+        Component(api_preview, "/api/preview?token=[]&slug=[]", "Route", "Validates token and sets preview variable to true")
+        Component(api_exit_preview, "/api/exit-preview", "Route", "Sets preview variable to false")
+    }
+    Rel_R(api_preview, overlay, "Redirects", "JSON/HTTPS")
+    Rel_U(overlay, preview, "Streams changes", "JSON/HTTPS")
+}
+
+Rel_U(import_tool, marcus, "Imports", "HTTPS")
+Rel_U(import_tool, kulturnav, "Imports", "HTTPS")
+Rel_U(import_tool, nb, "Imports", "HTTPS")
+Rel_R(spa, sanity_db, "Uses", "JSON/HTTPS")
+Rel_D(overlay, sanity_db, "Uses", "JSON/HTTPS")
+Rel_R(resolveProductionUrl, api_preview, "Uses", "JSON/HTTPS")
+Rel_U(spa, api, "Uses", "JSON/HTTPS")
 
 @enduml

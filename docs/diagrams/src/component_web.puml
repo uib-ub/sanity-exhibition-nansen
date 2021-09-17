@@ -33,11 +33,20 @@ Container_Boundary(next, "Next app", "", NEXT) {
     Container_Boundary(api, "Server side API") {
         Component(api_manifest, "/api/manifest/[id]", "Route", "Fetch basic metadata and connected images by id from Sanity DB")
     }
+
     Container_Boundary(components, "Components") {
         Component(mirador_viewer, "/miradorViewer", "React", "Fetch basic metadata and connected images by id from Sanity DB")
     }
+
+    Container_Boundary(functions, "Functions") {
+        Component(getStaticProps, "getStaticProps", "function", "Static Generation: Fetch data at build time.")
+        Component(getStaticPaths, "getStaticPaths", "function", "Static Generation: Specify dynamic routes to pre-render pages based on data.")
+        Component(getServerSideProps, "getServerSideProps", "function", "Server-side Rendering: Fetch data on each request.")
+    }
     
     Rel_D(app, components, "Uses", "JSON/HTTPS")
+    Rel_R(app, getStaticPaths, "Lists paths to generate", "JSON/HTTPS")
+    Rel_D(getStaticPaths, getStaticProps, "Builds static page", "JSON/HTTPS")
     Rel_D(id, mirador_viewer, "Uses", "JSON/HTTPS")
     Rel_D(mirador_viewer, api_manifest, "Uses", "JSON/HTTPS")
 
