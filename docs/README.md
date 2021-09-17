@@ -46,3 +46,7 @@ Documentation of custom Studio plugins.
 WIP!
 
 ![](./diagrams/deployment.svg)
+
+### Vercel 
+
+![](./diagrams/container_vercel.svg)
