@@ -25,7 +25,7 @@ System_Boundary(c1, "Sanity", "React SPA"){
 
 }
 Container_Ext(manage, "Manage", "React 16+", "Controls access, environment variales and tokens.", "SANITY")
-ContainerDb_Ext(sanity_db, "Sanity Cloud Storage", "Google Cloud", "Stores metadata and files.", "SANITY")
+'ContainerDb_Ext(sanity_db, "Sanity Cloud Storage", "Google Cloud", "Stores metadata and files.", "SANITY")
 Container_Ext(auth, "Google Authentication", "Google Cloud", "Authenticates editors.", "google_cloud_platform")
 
 Rel_U(studio, auth, "Authenticates", "HTTPS")
@@ -35,6 +35,6 @@ Rel_U(editor, studio, "Uses", "HTTPS")
 Rel_U(admin, manage, "Uses", "HTTPS")
 Rel_U(developer, manage, "Uses", "HTTPS")
 
-Rel_R(studio, sanity_db, "Reads from and writes to", "HTTPS")
+'Rel_R(studio, sanity_db, "Reads from and writes to", "HTTPS")
 
 @enduml
