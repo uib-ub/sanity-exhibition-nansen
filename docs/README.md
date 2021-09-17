@@ -41,6 +41,10 @@ Documentation of custom Studio plugins.
 `web` contains a [Next.js](https://nextjs.org/) application. Next.js was chosen because it supports SSR, SSG and client side rendering and lets the app combine all three strategies.
 
 ![](./diagrams/container_web.svg)
+
+#### Component
+
+![](./diagrams/component_web.svg)
 ## Deployment
 
 WIP!
