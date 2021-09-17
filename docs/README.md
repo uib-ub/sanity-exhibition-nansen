@@ -12,15 +12,15 @@ Software architecture overview.
 
 Software systems that makes up the whole Muna software architecture.
 
-Repositoriet består av to mapper, `studio` og `web`. `studio` inneholder koden for å kjøre [Sanity Studio](https://www.sanity.io/docs/sanity-studio). 
+The repository contains two folders, `studio` and `web`. `studio` contains the code for running the [Sanity Studio](https://www.sanity.io/docs/sanity-studio). 
 
 ### Studio
 
-Studio er en SPA React applikasjon, open source og kan tilpasses. Datamodellen lages i `studio/schemas` og defineres av bruker, se [Content modelling](https://www.sanity.io/docs/content-modelling) og [Schema types](https://www.sanity.io/docs/schema-types) for detaljer.
+The Studio is a React Single Page Application. It is Open Source and can be customized with plugins and React components. The data model is defined in `studio/schemas`. The studio comes without a schema as default, but there are starter schemas, see [Content modelling](https://www.sanity.io/docs/content-modelling) and [Schema types](https://www.sanity.io/docs/schema-types) for details.
 
-Studio er utvidet med én større plugin. `import-tool` er en "tool" som lar brukere søke i Marcus.uib.no, NB.no og Kulturnav.org. Objekter eller autoritetsdata kan importeres til Studio der de kan refereres til i tekst eller i andre sammenhenger.
+The Studio have one major custom plugin. The `import-tool` is a "tool" for searching Marcus.uib.no, NB.no and Kulturnav.org. Objects or authority data can be imported to the Studio where they can be refered to in text and from othere documents in the studio.
 
-Studio henter og lagrer data hos Sanity og det er derfor ikke nødvendig å ha en lokal database for utvikling eller tyngre driftsopplegg for produksjon.
+The database is not Open Source and runs in the Google Cloud. The Studio communicates with the backend via an API. It is not necessary to run a local database when developing. Theres is also no need to run a production database.
 
 ![](./diagrams/container_studio.svg)
 
@@ -28,10 +28,12 @@ Studio henter og lagrer data hos Sanity og det er derfor ikke nødvendig å ha e
 
 [Sanity Manage](https://www.sanity.io/manage)
 
+![](./diagrams/sanity_manage.svg)
 ### Web
 
-`web` inneholder en [Next.js](https://nextjs.org/) applikasjon. Next.js er valgt fordi den kombinerer statisk genererte sider, klient-side applikasjoner eller en kombinasjon.
+`web` contains a [Next.js](https://nextjs.org/) application. Next.js was chosen because it supports SSR, SSG and client side rendering and lets the app combine all three strategies.
 
+![](./diagrams/web.svg)
 ## Deployment
 
 WIP!
