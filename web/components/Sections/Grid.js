@@ -30,7 +30,7 @@ export default function Hero(props) {
                 mb="2"
                 objectFit="cover"
                 objectPosition="0% 100%"
-                src={imageBuilder.image(item.illustration.image).height(500).width(500).url()}
+                src={imageBuilder.image(item.illustration.image).height(1000).width(1000).url()}
                 alt={''}
               />
             )}

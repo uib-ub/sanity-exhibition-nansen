@@ -34,7 +34,8 @@ export default function PortableTextBlock(props) {
 
   const {
     blocks,
-    fontSize = { base: 'lg', sm: 'xl', md: 'xl', xl: 'xl' },
+    fontSize = { base: 'lg', sm: 'xl', md: '2xl', xl: '2xl' },
+    maxW = ['xl', null, '2xl', null],
     lineHeight = ['1.25', '1.3'],
     fontWeight = 'normal',
     fontFamily,
@@ -64,13 +65,7 @@ export default function PortableTextBlock(props) {
       // TODO: This is prone to breaking when there is both hX and strong
       const id = kebabCase(props.children)
       return (
-        <Heading
-          id={id}
-          maxWidth={['xl', null, 'xl', null]}
-          margin="auto"
-          as={level}
-          fontSize={getFontSize(level)}
-        >
+        <Heading id={id} maxW={maxW} margin="auto" as={level} fontSize={getFontSize(level)}>
           {props.children}
         </Heading>
       )
@@ -82,7 +77,7 @@ export default function PortableTextBlock(props) {
 
     return (
       <Text
-        maxWidth={['xl', null, 'xl', null]}
+        maxW={maxW}
         fontSize={fontSize}
         lineHeight={lineHeight}
         fontWeight={fontWeight}

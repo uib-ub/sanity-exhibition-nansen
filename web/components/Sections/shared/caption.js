@@ -11,13 +11,7 @@ export default function Caption(props) {
   const { title, content, source, sourceItem } = props
 
   return (
-    <Flex
-      direction="column"
-      fontFamily="Montserrat"
-      gridArea="metadata"
-      pr="10"
-      overflowY={{ xl: 'scroll' }}
-    >
+    <Flex direction="column" fontFamily="Montserrat" pr="10" overflowY={{ xl: 'scroll' }}>
       <Heading
         fontFamily="Montserrat"
         fontWeight="semibold"
@@ -31,6 +25,7 @@ export default function Caption(props) {
       {content && (
         <PortableTextBlock
           fontSize={{ base: 'sm', sm: 'sm', md: 'md', xl: 'md' }}
+          maxW={['xl', null, '2xl', null]}
           fontWeight="200"
           mx="inherit"
           blocks={content}

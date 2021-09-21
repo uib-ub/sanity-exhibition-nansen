@@ -20,7 +20,7 @@ export default function SingleLevelChart(props) {
   const { data, caption, label } = props
 
   return (
-    <Container as="figure" maxW={['lg', null, null, null, 'xl']} centerContent>
+    <Container as="figure" maxW={['lg', null, null, null, 'xl']} p="0" centerContent>
       <Box h="sm" w="full">
         <ResponsivePie
           data={JSON.parse(data.code)}
