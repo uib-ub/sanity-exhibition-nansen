@@ -1,5 +1,5 @@
 import { imageBuilder } from '../../lib/sanity'
-import { Grid, Box, Heading, Image, Badge } from '@chakra-ui/react'
+import { Container, Divider, Grid, Box, Heading, Image, Badge } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
 
@@ -10,62 +10,59 @@ export default function Hero(props) {
 
   const bg = useColorModeValue('gray.800', 'gray.300')
   const color = useColorModeValue('white', 'gray.800')
-  const height = '50vh'
+  const height = '70vh'
 
   const image = props.illustration.image
 
   return (
-    <Grid
-      templateAreas={{ md: '"hero"', base: '"hero" "text"' }}
-      templateRows={{ md: 'auto', base: 'auto auto' }}
-      maxW="full"
-      mb="10"
-      h={height}
-      boxSizing="border-box"
-    >
-      <Box
-        gridArea={{ md: 'hero', base: 'text' }}
-        d="flex"
-        color={color}
-        p={['0', '0']}
-        zIndex="1"
-        /* selfalign="center"
-        justifyContent="center" */
-        alignItems="flex-end"
-        placeItems="flex-end"
+    <>
+      <Grid
+        templateAreas={{ md: '"hero "text"', base: '"hero" "text"' }}
+        templateRows={{ md: 'auto auto', base: 'auto auto' }}
+        maxW="full"
+        mb="10"
+        h={height}
+        my={[4, 4, 4, 4]}
       >
-        <Box
-          w={{ base: 'full', md: 'md' }}
-          px={['2', '4']}
-          pt={['2', '4']}
-          /* backgroundColor={bg} */
-          sx={{ backdropFilter: 'invert(.2) blur(16px)' }}
+        <Box borderColor="gray.800" borderWidth="20px" mb="2">
+          <Image
+            gridArea="hero"
+            objectFit="cover"
+            objectPosition="50% 50%"
+            h={'100%'}
+            width="100%"
+            justifyContent="flex-end"
+            overflow="hidden"
+            src={imageBuilder.image(image).height(1000).width(2000).url()}
+            alt={''}
+          />
+        </Box>
+        <Container
+          maxW="full"
+          gridArea={{ md: 'text', base: 'text' }}
+          d="flex"
+          /* color={color} */
+          zIndex="1"
+          centerContent
         >
-          <Badge backgroundColor={bg} color={color}>
-            {props.label}
-          </Badge>
+          {props.label && (
+            <Badge backgroundColor={bg} color={color}>
+              {props.label}
+            </Badge>
+          )}
 
-          <Heading fontSize={['xl', '4xl', '4xl', '6xl']}>{props.title}</Heading>
+          <Heading fontSize={['xl', '4xl', '4xl', '6xl']} textTransform="uppercase">
+            {props.title}
+          </Heading>
 
           {props?.tagline && (
             <Box>
-              <PortableTextBlock fontSize={['md', 'xl']} blocks={props.tagline} />
+              <PortableTextBlock fontSize={['2xl', '3xl']} blocks={props.tagline} />
             </Box>
           )}
-        </Box>
-      </Box>
-
-      <Image
-        gridArea="hero"
-        objectFit="cover"
-        objectPosition="0% 100%"
-        h="100%"
-        width="100%"
-        justifyContent="flex-end"
-        overflow="hidden"
-        src={imageBuilder.image(image).height(500).width(1000).url()}
-        alt={''}
-      />
-    </Grid>
+        </Container>
+      </Grid>
+      <Divider opacity="1" mb="6" />
+    </>
   )
 }

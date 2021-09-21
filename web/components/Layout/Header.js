@@ -58,7 +58,7 @@ export default function Header(props) {
             mr="4"
           /> */}
           <Heading
-            fontSize={['lg', 'xl', '3xl', '3xl']}
+            fontSize={['lg', 'xl', '2xl', '2xl']}
             fontWeight={{ base: 'normal', md: 'semibold' }}
             fontFamily="EB Garamond"
           >
