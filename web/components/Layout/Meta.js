@@ -33,6 +33,10 @@ export default function Meta() {
         <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
         <meta name="description" content={'A statically generated blog example using Next.js.'} />
         {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
+        <meta
+          name="google-site-verification"
+          content="hy7CN2_apzktnGzz6OakK7D-JByUVjhT8l2CenEGWKI"
+        />
       </Head>
     </React.Fragment>
   )
