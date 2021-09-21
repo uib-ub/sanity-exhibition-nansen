@@ -7,7 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import * as schema from './'
 
 const allParts = Object.values(schema).map((part) => {
-  return {...part, fields: part.fields}
+  return { ...part }
 })
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
