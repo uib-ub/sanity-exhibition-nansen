@@ -15,6 +15,7 @@ import {
   Heading,
   Image,
   Badge,
+  Text,
   useDisclosure,
 } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
@@ -38,16 +39,18 @@ export default function SubStory(props) {
       mx="auto"
       borderY="1px solid"
       borderColor="red.200"
-      templateColumns="2fr 4fr 1fr"
+      templateColumns="auto 6fr 1fr"
       gap="2"
       color="gray.500"
     >
       <Flex alignSelf="center">
-        <Image
-          maxW="100%"
-          src={imageBuilder.image(illustration.illustration.image).fit('fill').height(500).url()}
-          alt={''}
-        />
+        {illustration && illustration.illustration && (
+          <Image
+            maxW="100%"
+            src={imageBuilder.image(illustration.illustration.image).fit('fill').height(500).url()}
+            alt={''}
+          />
+        )}
       </Flex>
 
       <Box pt="2" alignSelf="start">
@@ -57,7 +60,7 @@ export default function SubStory(props) {
           </Badge>
         )}
 
-        <Heading fontSize={['xl', 'xl', 'xl', 'xl']}>{title}</Heading>
+        {title && <Heading fontSize={['xl', 'xl', 'xl', 'xl']}>{title}</Heading>}
 
         {tagline && (
           <Box>
@@ -91,7 +94,11 @@ export default function SubStory(props) {
                 {illustration?.illustration?.image && illustration.illustration.image && (
                   <IllustrationWithCaption {...illustration} />
                 )}
-                <PortableTextBlock fontSize={['md', 'xl']} blocks={content} />
+                {content ? (
+                  <PortableTextBlock fontSize={['md', 'xl']} blocks={content} />
+                ) : (
+                  <Text>Missing content</Text>
+                )}
                 <Button
                   my="16"
                   colorScheme="teal"
