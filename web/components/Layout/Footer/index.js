@@ -71,7 +71,7 @@ export default function Footer(props) {
 
         {content && <RenderSections sections={content} />}
 
-        <Container fontSize={['lg', null, 'xl', null]} p="0" centerContent>
+        <Container fontSize={['md', null, 'lg', null]} p="0" centerContent>
           {publisher && <Publisher publishers={publisher} />}
           {license && <License license={license} />}
         </Container>
