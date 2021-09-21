@@ -6,7 +6,7 @@ import { Container } from '@chakra-ui/react'
 export default function Index({ data, preview }) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
-      <Container maxW="4xl" p="10">
+      <Container maxW="full">
         {data.frontpage.content && <RenderSections sections={data.frontpage.content} />}
       </Container>
     </Layout>

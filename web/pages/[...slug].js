@@ -43,7 +43,7 @@ export default function Page({ data, preview }) {
   return (
     <Layout preview={preview} site={page?.siteSettings}>
       {/*  <pre>{JSON.stringify(previewData, null, 2)}</pre> */}
-      <Container maxWidth="4xl" centerContent>
+      <Container maxWidth="full" centerContent>
         {/* A Page  */}
         {page?.route?.page?.content && <Sections sections={page.route.page.content} />}
 
