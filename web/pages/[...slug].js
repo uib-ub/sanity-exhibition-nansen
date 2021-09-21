@@ -1,3 +1,7 @@
+import Head from 'next/head'
+import { usePreviewSubscription } from '../lib/sanity'
+import { routeQuery } from '../lib/queries/routeQuery'
+import { getClient } from '../lib/sanity.server'
 import { getRoutes } from '../lib/api'
 import { Box, Container, Text } from '@chakra-ui/react'
 import Date from '../components/Date'
@@ -6,9 +10,6 @@ import Sections from '../components/Sections/Sections'
 import PortableTextBlock from '../components/PT/PortableTextBlock'
 import TableOfContent from '../components/Layout/TableOfContent'
 import Footnotes from '../components/Layout/Footnotes'
-import { usePreviewSubscription } from '../lib/sanity'
-import { routeQuery } from '../lib/queries/routeQuery'
-import { getClient } from '../lib/sanity.server'
 
 /**
  * Helper function to return the correct version of the document
@@ -42,10 +43,14 @@ export default function Page({ data, preview }) {
   // It'll be completely blank when they start!
   return (
     <Layout preview={preview} site={page?.siteSettings}>
-      {/*  <pre>{JSON.stringify(previewData, null, 2)}</pre> */}
+      {/* <pre>{JSON.stringify(page, null, 2)}</pre> */}
+      <Head>
+        <title>{page.route[0].page.label + ' - ' + page.siteSettings.title}</title>
+      </Head>
+
       <Container maxWidth="full" centerContent>
         {/* A Page  */}
-        {page?.route?.page?.content && <Sections sections={page.route.page.content} />}
+        {page?.route[0]?.page?.content && <Sections sections={page.route[0].page.content} />}
 
         {/* If LinguisticDocument the content is in the body field */}
         {page?.route[0]?.page?.body && <PortableTextBlock blocks={page.route[0].page.body} />}
@@ -53,9 +58,9 @@ export default function Page({ data, preview }) {
         {page?.route[0]?.page?.body && <Footnotes blocks={page.route[0].page.body} />}
 
         {/* Add TOC */}
-        {page?.route?.page?.body && (
+        {page?.route[0]?.page?.body && (
           <Box position="fixed" left="10" top="50vh" display={{ base: 'none', md: 'inherit' }}>
-            <TableOfContent blocks={page?.route.page.body} />
+            <TableOfContent blocks={page?.route[0].page.body} />
           </Box>
         )}
 
