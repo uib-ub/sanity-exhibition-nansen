@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Image, Text } from '@chakra-ui/react'
+import { Container, Box, Flex, Heading, Image, Text } from '@chakra-ui/react'
 import { imageBuilder } from '../../../lib/sanity'
 import Link from '../../Link'
 
@@ -11,7 +11,7 @@ export default function ActorInsert(props) {
   const { _id, label, image, shortDescription, memberOf } = props
 
   return (
-    <Box maxWidth={['xl', null, 'xl', null]} mb="5">
+    <Container maxW={['xl', null, '2xl', null]} mb="5">
       <Flex>
         {image && (
           <Image
@@ -42,6 +42,6 @@ export default function ActorInsert(props) {
           {shortDescription && <Text fontSize="lg">{shortDescription}</Text>}
         </Box>
       </Flex>
-    </Box>
+    </Container>
   )
 }
