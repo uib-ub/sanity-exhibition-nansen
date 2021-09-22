@@ -1,6 +1,6 @@
 const defaults = { open: '«', close: '»', find: '"' }
 
-module.exports = function convertQuotationMarks(blocks, chars = defaults) {
+export const convertQuotationMarks = (blocks, chars = defaults) => {
   const characters = chars === defaults ? defaults : Object.assign({}, defaults, chars)
   const find = characters.find.replace(/([?!${}*:()|=^[\]/\\.+])/g, '\\$1')
   const pattern = new RegExp(find, 'g')
