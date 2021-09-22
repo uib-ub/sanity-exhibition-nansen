@@ -1,4 +1,5 @@
-import { Heading, Link, Wrap, WrapItem } from '@chakra-ui/react'
+import { Heading, Wrap, WrapItem } from '@chakra-ui/react'
+import Link from './Link'
 
 export default function CurrentOwner({ owners }) {
   if (!owners) {

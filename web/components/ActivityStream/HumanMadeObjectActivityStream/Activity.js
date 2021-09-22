@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '../../Link'
 import { imageBuilder } from '../../../lib/sanity'
 import {
   Avatar,
@@ -128,7 +128,7 @@ export default function Activity({ data }) {
       {data.movedTo && (
         <p>
           <span role="img">➡️</span>
-          <a href={`/id/${data.movedTo._id}`}>{data.movedTo.label.no}</a>
+          <Link href={`/id/${data.movedTo._id}`}>{data.movedTo.label.no}</Link>
         </p>
       )}
 

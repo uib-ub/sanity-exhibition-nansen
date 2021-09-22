@@ -1,5 +1,6 @@
-import { Box, Link, Image, Flex } from '@chakra-ui/react'
+import { Box, Image, Flex } from '@chakra-ui/react'
 import { imageBuilder } from '../../../lib/sanity'
+import Link from '../../Link'
 
 export default function Publisher({ publishers }) {
   if (!publishers) {
