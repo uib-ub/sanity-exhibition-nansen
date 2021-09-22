@@ -3,13 +3,13 @@ import { usePreviewSubscription } from '../lib/sanity'
 import { routeQuery } from '../lib/queries/routeQuery'
 import { getClient } from '../lib/sanity.server'
 import { getRoutes } from '../lib/api'
-import { Box, Container, Text } from '@chakra-ui/react'
+import { Container, Text } from '@chakra-ui/react'
 import Date from '../components/Date'
 import Layout from '../components/Layout'
 import Sections from '../components/Sections/Sections'
 import PortableTextBlock from '../components/PT/PortableTextBlock'
-import TableOfContent from '../components/Layout/TableOfContent'
 import Footnotes from '../components/Layout/Footnotes'
+// import TableOfContent from '../components/Layout/TableOfContent'
 
 /**
  * Helper function to return the correct version of the document
@@ -58,11 +58,11 @@ export default function Page({ data, preview }) {
         {page?.route[0]?.page?.body && <Footnotes blocks={page.route[0].page.body} />}
 
         {/* Add TOC */}
-        {page?.route[0]?.page?.body && (
+        {/* {page?.route[0]?.page?.body && (
           <Box position="fixed" left="10" top="50vh" display={{ base: 'none', md: 'inherit' }}>
             <TableOfContent blocks={page?.route[0].page.body} />
           </Box>
-        )}
+        )} */}
 
         <Text mt="10" color="gray.500" fontSize="sm">
           Oppdatert: <Date>{page?.route[0]?.page?._updatedAt}</Date>
