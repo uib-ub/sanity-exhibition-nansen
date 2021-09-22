@@ -1,9 +1,11 @@
+import Image from 'next/image'
+import Head from 'next/head'
 import Link from '../Link'
-import { Image, Badge, Box, Container, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react'
+import { Badge, Box, Container, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
 import Cards from '../Cards'
-import { imageBuilder } from '../../lib/sanity'
 import RenderMergedActivityStreamList from '../ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'
+import { getNextSanityImage } from '../../lib/sanity.server'
 
 export default function Actor(item) {
   if (!item) {
@@ -12,15 +14,14 @@ export default function Actor(item) {
 
   return (
     <Container my="5" maxWidth="6xl">
+      <Head>
+        <title>{item.label.no}</title>
+      </Head>
       <Flex pb="10">
         {item.image && (
-          <Image
-            boxSize="200"
-            name={item.label.no}
-            mr="5"
-            src={imageBuilder.image(item.image).height('400').width('400').url()}
-            alt=""
-          />
+          <Box mr="4" w="300px" position="relative">
+            <Image alt={item.label.no} {...getNextSanityImage(item.image)} layout="responsive" />
+          </Box>
         )}
 
         <Box pt="2">
@@ -42,7 +43,7 @@ export default function Actor(item) {
       </Flex>
 
       {item.referredToBy && (
-        <Box maxWidth={['xl', null, 'xl', null]} mb="10">
+        <Box maxWidth={['xl', null, '2xl', null]} mb="10">
           {item.referredToBy?.map((ref) => (
             <PortableTextBlock key={ref._key} blocks={ref.body} />
           ))}

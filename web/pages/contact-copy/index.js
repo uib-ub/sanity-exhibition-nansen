@@ -1,7 +1,9 @@
+import Image from 'next/image'
+import Link from '../../components/Link'
 import { getContactCopy } from '../../lib/api'
 import Head from 'next/head'
-import { Box, Container, Image, Link, Heading, SimpleGrid, List, ListItem } from '@chakra-ui/react'
-import { imageBuilder } from '../../lib/sanity'
+import { Box, Container, Heading, SimpleGrid, List, ListItem } from '@chakra-ui/react'
+import { getNextSanityImage } from '../../lib/sanity.server'
 
 export default function ContactCopy({ data }) {
   const { tags, siteSettings } = data
@@ -33,17 +35,7 @@ export default function ContactCopy({ data }) {
                 {tag.images &&
                   tag.images.map((image) => (
                     <Box key={image._id}>
-                      <Image
-                        w="full"
-                        h="250"
-                        m="auto"
-                        mb="3"
-                        backgroundColor="#111"
-                        objectFit="scale-down"
-                        objectPosition="center"
-                        src={imageBuilder.image(image).height('250').fit('fill').url()}
-                        alt={image.description}
-                      />
+                      <Image alt="" {...getNextSanityImage(image)} layout="responsive" />
                       <Heading fontSize="md">{image.description ?? ''}</Heading>
                       <List listStyleType="none">
                         <ListItem fontSize="sm">{image.altText ?? ''}</ListItem>

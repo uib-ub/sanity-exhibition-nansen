@@ -1,8 +1,9 @@
-import { Heading, Flex, Image, Text, Box } from '@chakra-ui/react'
-import { imageBuilder } from '../../../lib/sanity'
+import Image from 'next/image'
+import { Heading, Flex, Text, Box } from '@chakra-ui/react'
 import PortableTextBlock from '../../PT/PortableTextBlock'
 import { kebabCase } from 'lodash'
 import Link from '../../Link'
+import { getNextSanityImage } from '../../../lib/sanity.server'
 
 export default function Compact({ data }) {
   return (
@@ -10,13 +11,17 @@ export default function Compact({ data }) {
       {data.map((item) => (
         <Flex key={item.item._id} p="4" my="5" bg="lightgray" direction="row">
           {item.image && (
-            <Image
-              mb="3"
-              mr="5"
-              boxSize="200"
-              src={imageBuilder.image(item.image).width(200).height(200).url()}
-              alt={item.label || 'No label'}
-            />
+            <Box mr="4" mb="3">
+              <Image
+                alt={item.label || 'No label'}
+                {...getNextSanityImage(item.image)}
+                layout="fill"
+                /* sizes="(max-width: 800px) 100vw, 800px" */
+                objectFit="cover"
+                width={200}
+                height={200}
+              />
+            </Box>
           )}
           <Box>
             <Heading

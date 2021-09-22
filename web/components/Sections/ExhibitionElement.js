@@ -1,7 +1,8 @@
-import { imageBuilder } from '../../lib/sanity'
-import { Box, Grid, Flex, Heading, Spacer, Image } from '@chakra-ui/react'
+import Image from 'next/image'
+import { Box, Grid, Flex, Heading, Spacer } from '@chakra-ui/react'
 import Source from './Source'
 import PortableTextBlock from '../PT/PortableTextBlock'
+import { getNextSanityImage } from '../../lib/sanity.server'
 
 export default function SingleObject(props) {
   if ((!props && !props.item) || props.disabled === true) {
@@ -25,7 +26,7 @@ export default function SingleObject(props) {
       <Box gridArea="content">
         {item?.image && (
           <Box mb="10" maxH="50vh">
-            <Image src={imageBuilder.image(item.image).fit('fill').height(500).url()} alt={''} />
+            <Image alt={title ?? ''} {...getNextSanityImage(item.image)} layout="responsive" />
             <Source {...item} />
           </Box>
         )}
@@ -77,13 +78,10 @@ export default function SingleObject(props) {
           />
         )}
 
+        {/* TODO: Fix grid and image size */}
         {forseesUseOf?.image && (
-          <Box>
-            <Image
-              maxW="full"
-              src={imageBuilder.image(forseesUseOf.image).fit('fill').width(500).url()}
-              alt={''}
-            />
+          <Box maxW="full" position="relative">
+            <Image alt={''} {...getNextSanityImage(forseesUseOf.image)} layout="responsive" />
           </Box>
         )}
       </Box>

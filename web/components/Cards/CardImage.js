@@ -1,5 +1,5 @@
-import { imageBuilder } from '../../lib/sanity'
-import { Image } from '@chakra-ui/react'
+import Image from 'next/image'
+import { getNextSanityImage } from '../../lib/sanity.server'
 
 export default function ItemImage(props) {
   if (!props && props.url) {
@@ -8,14 +8,5 @@ export default function ItemImage(props) {
 
   const { label, url } = props
 
-  return (
-    <Image
-      w="full"
-      m="auto"
-      objectFit="scale-down"
-      objectPosition="center"
-      src={imageBuilder.image(url).fit('fill').url()}
-      alt={label ?? ''}
-    />
-  )
+  return <Image alt={label ?? ''} {...getNextSanityImage(url)} layout="responsive" />
 }

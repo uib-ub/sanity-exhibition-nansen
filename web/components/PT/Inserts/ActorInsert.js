@@ -1,6 +1,7 @@
-import { Container, Box, Flex, Heading, Image, Text } from '@chakra-ui/react'
-import { imageBuilder } from '../../../lib/sanity'
+import Image from 'next/image'
+import { Container, Box, Flex, Heading, Text } from '@chakra-ui/react'
 import Link from '../../Link'
+import { getNextSanityImage } from '../../../lib/sanity.server'
 
 export default function ActorInsert(props) {
   if (!props) {
@@ -8,35 +9,46 @@ export default function ActorInsert(props) {
   }
   /* console.log(props) */
 
-  const { _id, label, image, shortDescription, memberOf } = props
+  const { _id, label, shortDescription, memberOf } = props
 
   return (
     <Container maxW={['xl', null, '2xl', null]} mb="5">
       <Flex>
-        {image && (
-          <Image
-            alt=""
-            boxSize="150px"
-            src={imageBuilder.image(image).width(150).height(150).url()}
-            mr="4"
-          />
-        )}
+        {/* {image && (
+          <Box mr="4">
+            <Image
+              alt={label.no}
+              {...getNextSanityImage(image)}
+              layout="intrinsic"
+              objectFit="cover"
+              width={300}
+              height={300}
+            />
+          </Box>
+        )} */}
         <Box my="3">
           <Heading size="md" mb="1">
             <Link href={`/id/${_id}`}>{label.no}</Link>
           </Heading>
           {memberOf &&
             memberOf.map((org) => (
-              <Flex key={org._id} alignItems="center" pb="2">
+              <Flex key={org._id} alignItems="center" pb="1">
                 {org.image && (
-                  <Image
-                    alt=""
-                    w="35px"
-                    src={imageBuilder.image(org.image).width(35).fit('max').url()}
-                    mr="3"
-                  />
+                  <Box mr="2">
+                    <Image
+                      alt={label.no}
+                      {...getNextSanityImage(org.image)}
+                      layout="fixed"
+                      /* sizes="(max-width: 800px) 100vw, 800px" */
+                      objectFit="cover"
+                      width={30}
+                      height={30}
+                    />
+                  </Box>
                 )}
-                <Heading size="sm">{org.label.no}</Heading>
+                <Heading size="sm" display="block">
+                  {org.label.no}
+                </Heading>
               </Flex>
             ))}
           {shortDescription && <Text fontSize="lg">{shortDescription}</Text>}

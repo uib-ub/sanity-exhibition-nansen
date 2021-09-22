@@ -1,5 +1,6 @@
-import { Box, Heading, Image, Text } from '@chakra-ui/react'
-import { imageBuilder } from '../../../lib/sanity'
+import Image from 'next/image'
+import { Box, Heading, Text } from '@chakra-ui/react'
+import { getNextSanityImage } from '../../../lib/sanity.server'
 import PortableTextBlock from '../../PT/PortableTextBlock'
 import { kebabCase } from 'lodash'
 import Link from '../../Link'
@@ -10,11 +11,13 @@ export default function ActorCollectionCard({ data }) {
       {data.map((item) => (
         <Box key={item.item._id} p="4" bg="lightgray" borderRadius="5" boxShadow="md">
           {item.image && (
-            <Image
-              mb="3"
-              src={imageBuilder.image(item.image).height(800).url()}
-              alt={item.label || 'No label'}
-            />
+            <Box mb="3" position="relative">
+              <Image
+                alt={item.label || 'No label'}
+                {...getNextSanityImage(item.image)}
+                layout="responsive"
+              />
+            </Box>
           )}
 
           <Heading

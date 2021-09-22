@@ -1,9 +1,10 @@
-import { Heading, Image, Text } from '@chakra-ui/react'
+import Image from 'next/image'
+import { Box, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
-import { imageBuilder } from '../../../lib/sanity'
 import PortableTextBlock from '../../PT/PortableTextBlock'
 import { kebabCase } from 'lodash'
 import Link from '../../Link'
+import { getNextSanityImage } from '../../../lib/sanity.server'
 
 export default function Profile({ data }) {
   return (
@@ -11,12 +12,9 @@ export default function Profile({ data }) {
       {data.map((item) => (
         <React.Fragment key={item.item._id}>
           {item.image && (
-            <Image
-              mt="16"
-              mb="5"
-              src={imageBuilder.image(item.image).height(800).url()}
-              alt={item.label || 'No label'}
-            />
+            <Box mb="5" mt="26">
+              <Image {...getNextSanityImage(item.image)} alt={item.label.no} layout="responsive" />
+            </Box>
           )}
 
           <Heading
