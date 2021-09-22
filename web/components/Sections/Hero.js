@@ -1,7 +1,8 @@
-import { imageBuilder } from '../../lib/sanity'
-import { Container, Divider, Box, Heading, Image, Badge } from '@chakra-ui/react'
+import Image from 'next/image'
+import { Container, Divider, Box, Heading, Badge } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
+import { getNextSanityImage } from '../../lib/sanity.server'
 
 export default function Hero(props) {
   if (!props || props.disabled === true) {
@@ -10,24 +11,21 @@ export default function Hero(props) {
 
   const bg = useColorModeValue('gray.800', 'gray.300')
   const color = useColorModeValue('white', 'gray.800')
-  const height = '70vh'
 
   const image = props.illustration.image
 
   return (
     <>
-      <Box borderColor="gray.800" borderWidth="20px" mb="2" mt="4">
-        <Image
-          objectFit="cover"
-          objectPosition="50% 50%"
-          minH="55vh"
-          maxH={height}
-          width="100%"
-          justifyContent="flex-end"
-          overflow="hidden"
-          src={imageBuilder.image(image).height(1000).width(2000).url()}
-          alt={''}
-        />
+      <Box
+        borderColor="gray.800"
+        borderWidth="20px"
+        mb="2"
+        mt="4"
+        maxW="full"
+        h={['50vh', null, null, '65vh', null]}
+        position="relative"
+      >
+        {image && <Image alt="" {...getNextSanityImage(image)} layout="fill" objectFit="cover" />}
       </Box>
       <Container
         maxW="full"

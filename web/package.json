@@ -34,6 +34,7 @@
     "next": "^11.1.2",
     "next-images": "^1.8.1",
     "next-sanity": "^0.4.0",
+    "next-sanity-image": "^3.1.6",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-headroom": "^3.1.0",

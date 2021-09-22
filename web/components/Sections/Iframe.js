@@ -7,7 +7,7 @@ export default function Iframe(props) {
   }
 
   return (
-    <Container maxW={['xl', 'xl', 'xl', '6xl']} my="10" px="0">
+    <Container maxW={['xl', 'xl', 'xl', '2xl']} my="10" px="0">
       <Container maxW="full" backgroundColor="white" px="0" mb="4" position="relative">
         <AspectRatio ratio={4 / 3}>
           <iframe src={props.url} allowFullScreen aria-hidden="false" tabIndex="0" />

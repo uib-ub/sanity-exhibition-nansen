@@ -1,6 +1,7 @@
-import { imageBuilder } from '../../lib/sanity'
-import { Flex, Grid, Box, Image, Container } from '@chakra-ui/react'
+import Image from 'next/image'
+import { Flex, Grid, Box, Container } from '@chakra-ui/react'
 import Caption from './shared/caption'
+import { getNextSanityImage } from '../../lib/sanity.server'
 
 export default function IllustrationWithCaption(props) {
   if ((!props && !props.illustration) || props.disabled === true) {
@@ -10,9 +11,9 @@ export default function IllustrationWithCaption(props) {
   const { title, content, illustration, source } = props
 
   return (
-    <Container maxW={['xl', '2xl', '5xl', '5xl']} centerContent>
+    <Container maxW={['xl', '2xl', '4xl', '5xl']} centerContent>
       <Grid
-        w="full"
+        maxW={['xl', '2xl', '4xl', '5xl']}
         my={{ base: '6', md: '16', xl: '16' }}
         borderBottom={{ base: 'solid 1px', md: 'none' }}
         borderColor="gray.300"
@@ -22,13 +23,15 @@ export default function IllustrationWithCaption(props) {
         gridTemplateRows="1fr auto"
       >
         {illustration ? (
-          <Box maxH="55vh" w="100%" gridArea="image" bgColor="gray.200">
-            <Image
-              boxSize="full"
-              fit="contain"
-              src={imageBuilder.image(illustration.image).fit('fillmax').height(800).url()}
-              alt={''}
-            />
+          <Box minH="40vh" w="100%" gridArea="image" bgColor="gray.200" position="relative">
+            {illustration && (
+              <Image
+                alt=""
+                {...getNextSanityImage(illustration.image)}
+                layout="fill"
+                objectFit="contain"
+              />
+            )}
           </Box>
         ) : (
           <Flex gridArea="image">Mangler illustrasjon</Flex>

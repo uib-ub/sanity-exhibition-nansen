@@ -9957,6 +9957,13 @@ next-images@^1.8.1:
     file-loader "^6.2.0"
     url-loader "^4.1.0"
 
+next-sanity-image@^3.1.6:
+  version "3.1.6"
+  resolved "https://registry.yarnpkg.com/next-sanity-image/-/next-sanity-image-3.1.6.tgz#618781754f31636a42339c479958ecd5e009bdc1"
+  integrity sha512-+DWafmOyS/9EA1tpR/bh2wmz6vBWLm9x1z1i8VJbC54mkqsoODX9xwVX270FL5eazaqPYQjEpnnZkXuv6cwGXw==
+  dependencies:
+    "@sanity/image-url" "^0.140.22"
+
 next-sanity@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/next-sanity/-/next-sanity-0.4.0.tgz#497bb4f07c14de5903707da4b3831c388c65b308"

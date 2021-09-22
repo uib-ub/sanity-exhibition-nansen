@@ -22,7 +22,7 @@ export default function Profile({ data }) {
           <Heading
             id={kebabCase(item.label)}
             as="h3"
-            maxW={['xl', null, 'xl', null]}
+            maxW={['xl', null, '2xl', null]}
             mx="auto"
             fontSize={['xl', '2xl', '3xl', null]}
           >
@@ -30,7 +30,7 @@ export default function Profile({ data }) {
           </Heading>
 
           {item.item?.shortDescription && (
-            <Text maxW={['xl', null, 'xl', null]} mx="auto">
+            <Text maxW={['xl', null, '2xl', null]} mx="auto">
               {item.item.shortDescription}
             </Text>
           )}

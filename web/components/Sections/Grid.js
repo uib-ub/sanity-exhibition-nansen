@@ -1,8 +1,9 @@
-import { imageBuilder } from '../../lib/sanity'
 import { romanize } from 'react-roman'
 import NextLink from 'next/link'
-import { Grid, Box, Heading, Image, LinkBox, LinkOverlay, Text } from '@chakra-ui/react'
+import { Grid, Box, Heading, LinkBox, LinkOverlay, Text } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
+import Image from 'next/image'
+import { getNextSanityImage } from '../../lib/sanity.server'
 
 export default function Hero(props) {
   if (!props || props.disabled === true) {
@@ -27,11 +28,13 @@ export default function Hero(props) {
             </Text>
             {item.illustration && (
               <Image
-                mb="2"
+                alt=""
+                {...getNextSanityImage(item.illustration.image)}
+                layout="intrinsic"
+                /* sizes="(max-width: 800px) 100vw, 800px" */
                 objectFit="cover"
-                objectPosition="0% 100%"
-                src={imageBuilder.image(item.illustration.image).height(1000).width(1000).url()}
-                alt={''}
+                width={500}
+                height={500}
               />
             )}
 
