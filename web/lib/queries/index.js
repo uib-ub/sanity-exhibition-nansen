@@ -170,7 +170,7 @@ export const typeQuery = groq`
 `
 
 export const eventsQuery = groq`{
-  "items": [
+  "documents": [
     ...*[_type in ["Activity", "Event"]]{
       ...,
       _id,
@@ -188,8 +188,12 @@ export const eventsQuery = groq`{
         label
       },
     },
-    ...*[defined(activityStream)].activityStream[featured == true]{
-      ${activityStreamFields}
+  ],
+  "objects": [
+    ...*[defined(activityStream) && count(activityStream) > 0] {
+      activityStream[featured == true]{
+        ${activityStreamFields}
+      }
     }
   ],
   ${siteSettings}

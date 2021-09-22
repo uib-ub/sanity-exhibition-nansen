@@ -38,9 +38,24 @@ export async function getRoutes() {
   return data
 }
 
+/**
+ * Fetch Activity and Event documents and activityStream objects
+ * @param {boolean} preview
+ * @returns {object}
+ */
 export async function getEvents(preview) {
   const data = await getClient(preview).fetch(eventsQuery)
-  return data
+
+  const activityStreamsObjects = data.objects
+    .map((o) => o.activityStream)
+    .filter((o) => o.length != 0)
+
+  const activityStream = {
+    items: [...data.documents, ...activityStreamsObjects[0]],
+    siteSettings: data.siteSettings,
+  }
+
+  return activityStream
 }
 
 export async function getPreviewHumanMadeObjectByID(id) {

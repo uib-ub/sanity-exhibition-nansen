@@ -34,7 +34,7 @@ export default function PortableTextBlock(props) {
 
   const {
     blocks,
-    fontSize = { base: 'lg', sm: 'xl', md: '2xl', xl: '2xl' },
+    fontSize = { base: 'lg', sm: 'xl', md: 'xl', xl: '2xl' },
     maxW = ['xl', null, '2xl', null],
     lineHeight = ['1.25', '1.3'],
     fontWeight = 'normal',

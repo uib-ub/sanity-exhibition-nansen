@@ -1,16 +1,16 @@
-import {orderBy} from 'lodash'
-import {getEvents} from '../lib/api'
-import Layout from '../components/Layout'
-import {Container, Heading, useColorModeValue, SimpleGrid} from '@chakra-ui/react'
-import RenderMergedActivityStreamList from '../components/ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'
+import { orderBy } from 'lodash'
+import { getEvents } from '../../lib/api'
+import Layout from '../../components/Layout'
+import { Container, Heading, useColorModeValue, SimpleGrid } from '@chakra-ui/react'
+import RenderMergedActivityStreamList from '../../components/ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'
 
-export default function Events({data, preview}) {
+export default function Events({ data, preview }) {
   const tagColor = useColorModeValue('blackAlpha', 'red')
 
   return (
     <Layout preview={preview} site={data.siteSettings}>
       <Container my="5" maxWidth="6xl">
-        <Heading 
+        <Heading
           fontSize={['2xl', '3xl', '4xl', '5xl']}
           py="5"
           mb="5"
@@ -20,9 +20,9 @@ export default function Events({data, preview}) {
         >
           Hendelser
         </Heading>
-        
+
         {data.items &&
-          <SimpleGrid 
+          <SimpleGrid
             w="full"
             columnGap="5"
             templateColumns={{
@@ -39,11 +39,11 @@ export default function Events({data, preview}) {
   )
 }
 
-export async function getStaticProps({preview = false}) {
+export async function getStaticProps({ preview = false }) {
   let data = await getEvents(preview)
   data.items = orderBy(data.items, ['timespan[0].orderDate'])
 
   return {
-    props: {data, preview},
+    props: { data, preview },
   }
 }

@@ -16,6 +16,7 @@ function resolveEvents(event) {
 
 function RenderMergedActivityStreamList(props) {
   const { stream } = props
+  console.log(stream)
 
   const filteredStream = stream.filter((x) => x._type)
 
