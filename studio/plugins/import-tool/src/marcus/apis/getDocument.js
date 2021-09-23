@@ -1,7 +1,7 @@
-import {nanoid} from 'nanoid'
-import {parse} from 'date-fns'
-import {mapLicenses} from '../../shared/mapLicenses'
-import {mapOwner} from '../../shared/mapOwner'
+import { nanoid } from 'nanoid'
+import { parse } from 'date-fns'
+import { mapLicenses } from '../../shared/mapLicenses'
+import { mapOwner } from '../../shared/mapOwner'
 
 export default function getDocument(item, types, assetID) {
   const parseDate = (date) => {
@@ -14,56 +14,56 @@ export default function getDocument(item, types, assetID) {
 
   const subject = item.subject
     ? [
-        ...item.subject.map((s) => {
-          return {
-            _type: 'Concept',
-            _id: s.identifier,
-            _rev: nanoid(),
-            accessState: 'open',
-            editorialState: 'published',
-            label: {
-              _type: 'LocaleString',
-              no: Array.isArray(s.prefLabel) === false ? s.prefLabel : s.prefLabel[0],
-            },
-          }
-        }),
-      ]
+      ...item.subject.map((s) => {
+        return {
+          _type: 'Concept',
+          _id: s.identifier,
+          _rev: nanoid(),
+          accessState: 'open',
+          editorialState: 'published',
+          label: {
+            _type: 'LocaleString',
+            no: Array.isArray(s.prefLabel) === false ? s.prefLabel : s.prefLabel[0],
+          },
+        }
+      }),
+    ]
     : []
 
   const maker = item.maker
     ? [
-        ...item.maker.map((s) => {
-          return {
-            _type: 'Actor',
-            _id: s.identifier,
-            _rev: nanoid(),
-            accessState: 'open',
-            editorialState: 'published',
-            label: {
-              _type: "LocaleString",
-              no: Array.isArray(s.name) === false ? s.name : s.name[0]
-            },
-          }
-        }),
-      ]
+      ...item.maker.map((s) => {
+        return {
+          _type: 'Actor',
+          _id: s.identifier,
+          _rev: nanoid(),
+          accessState: 'open',
+          editorialState: 'published',
+          label: {
+            _type: "LocaleString",
+            no: Array.isArray(s.name) === false ? s.name : s.name[0]
+          },
+        }
+      }),
+    ]
     : []
 
   const depicts = item.depicts
     ? [
-        ...item.depicts.map((s) => {
-          return {
-            _type: 'Actor',
-            _id: s.identifier,
-            _rev: nanoid(),
-            accessState: 'open',
-            editorialState: 'published',
-            label: {
-              _type: "LocaleString",
-              no: Array.isArray(s.name) === false ? s.name : s.name[0]
-            },
-          }
-        }),
-      ]
+      ...item.depicts.map((s) => {
+        return {
+          _type: 'Actor',
+          _id: s.identifier,
+          _rev: nanoid(),
+          accessState: 'open',
+          editorialState: 'published',
+          label: {
+            _type: "LocaleString",
+            no: Array.isArray(s.name) === false ? s.name : s.name[0]
+          },
+        }
+      }),
+    ]
     : []
 
   const activityStream = [
@@ -89,9 +89,9 @@ export default function getDocument(item, types, assetID) {
           {
             _key: nanoid(),
             _type: 'Timespan',
-            ...(item.madeAfter?.value ? {beginOfTheBegin: parseDate(item.madeAfter?.value)} : ''),
-            ...(item.madeBefore?.value ? {endOfTheEnd: parseDate(item.madeBefore?.value)} : ''),
-            ...(item.created?.value ? {date: parseDate(item.created?.value)} : ''),
+            ...(item.madeAfter?.value ? { beginOfTheBegin: item.madeAfter?.value } : ''),
+            ...(item.madeBefore?.value ? { endOfTheEnd: item.madeBefore?.value } : ''),
+            ...(item.created?.value ? { date: parseDate(item.created?.value) } : ''),
           },
         ],
       }),
@@ -197,7 +197,7 @@ export default function getDocument(item, types, assetID) {
         ],
       }),
       hasCurrentOwner: mapOwner(item.identifier),
-      ...(types.length > 0 && {hasType: types}),
+      ...(types.length > 0 && { hasType: types }),
       wasOutputOf: {
         _type: 'DataTransferEvent',
         _key: nanoid(),

@@ -1,6 +1,6 @@
 import sanityClient from 'part:@sanity/base/client'
 
-const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
+const client = sanityClient.withConfig({ apiVersion: '2021-03-25' })
 
 export const getImageBlob = async (url) => {
   // eslint-disable-next-line no-undef
@@ -13,7 +13,7 @@ export const getImageBlob = async (url) => {
       return new ReadableStream({
         async start(controller) {
           while (true) {
-            const {done, value} = await reader.read()
+            const { done, value } = await reader.read()
 
             // When no more data needs to be consumed, break the reading
             if (done) {
@@ -40,7 +40,7 @@ export const getImageBlob = async (url) => {
 
 export const uploadImageBlob = async (blob, filename) => {
   const res = client.assets
-    .upload('image', blob, {contentType: blob.type, filename: `${filename}`})
+    .upload('image', blob, { contentType: blob.type, filename: `${filename}` })
     .then((document) => {
       console.log('The image was uploaded!', document)
       return document
@@ -66,10 +66,10 @@ export const patchAssetMeta = async (id, meta) => {
 
 export const createDoc = async (docs) => {
   const transaction = client.transaction()
-  const {doc, depicts, subject, maker} = docs
+  const { doc, depicts, subject, maker } = docs
 
-  transaction.createOrReplace(doc)
-  
+  transaction.createIfNotExists(doc)
+
   const rest = [...depicts, ...subject, ...maker]
   rest.forEach((arr) => {
     transaction.createIfNotExists(arr)
