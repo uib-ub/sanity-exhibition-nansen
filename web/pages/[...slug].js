@@ -48,7 +48,7 @@ export default function Page({ data, preview }) {
         <title>{page.route[0].page.label + ' - ' + page.siteSettings.title}</title>
       </Head>
 
-      <Container maxWidth="full" centerContent>
+      <Container maxWidth="full">
         {/* A Page  */}
         {page?.route[0]?.page?.content && <Sections sections={page.route[0].page.content} />}
 
