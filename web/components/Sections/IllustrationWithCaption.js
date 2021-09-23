@@ -11,9 +11,9 @@ export default function IllustrationWithCaption(props) {
   const { title, content, illustration, source } = props
 
   return (
-    <Container maxW={['xl', '2xl', '4xl', '5xl']} centerContent>
+    <Container maxW={['xl', '2xl', '5xl', '8xl']} centerContent>
       <Grid
-        maxW={['xl', '2xl', '4xl', '5xl']}
+        maxW={['xl', '2xl', '5xl', '8xl']}
         my={{ base: '6', md: '16', xl: '16' }}
         borderBottom={{ base: 'solid 1px', md: 'none' }}
         borderColor="gray.300"
@@ -23,7 +23,7 @@ export default function IllustrationWithCaption(props) {
         gridTemplateRows="1fr auto"
       >
         {illustration ? (
-          <Box minH="40vh" w="100%" gridArea="image" bgColor="gray.200" position="relative">
+          <Box minH="60vh" w="100%" gridArea="image" bgColor="gray.200" position="relative">
             {illustration && (
               <Image
                 alt=""
