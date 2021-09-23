@@ -11,17 +11,15 @@ export default function ActorCollectionCard({ data }) {
       {data.map((item) => (
         <Box
           key={item.item._id}
-          p="3"
           borderRadius="5"
           boxShadow="lg"
           borderColor="gray.300"
           borderWidth="thin"
-          bg="gray.900"
-          color="white"
         >
           {item.image && (
-            <Box mb="3" position="relative">
+            <Box mb="3" position="relative" borderTopRadius="5">
               <Image
+                borderTopRadius="5"
                 alt={item.label || 'No label'}
                 {...getNextSanityImage(item.image)}
                 layout="responsive"
@@ -29,22 +27,24 @@ export default function ActorCollectionCard({ data }) {
             </Box>
           )}
 
-          <Heading
-            id={kebabCase(item.label)}
-            as="h3"
-            maxW={['xl', null, 'xl', null]}
-            mx="auto"
-            fontSize={['xl', '2xl', '3xl', null]}
-          >
-            <Link href={`/id/${item.item._id}`}>{item.label}</Link>
-          </Heading>
+          <Box px="3">
+            <Heading
+              id={kebabCase(item.label)}
+              as="h3"
+              maxW={['xl', null, 'xl', null]}
+              mx="auto"
+              fontSize={['xl', '2xl', '3xl', null]}
+            >
+              <Link href={`/id/${item.item._id}`}>{item.label}</Link>
+            </Heading>
 
-          {item.item?.shortDescription && (
-            <Text maxW={['xl', null, 'xl', null]} mx="auto">
-              {item.item.shortDescription}
-            </Text>
-          )}
-          <PortableTextBlock blocks={item.description} />
+            {item.item?.shortDescription && (
+              <Text maxW={['xl', null, 'xl', null]} mx="auto">
+                {item.item.shortDescription}
+              </Text>
+            )}
+            <PortableTextBlock fontSize={['sm', 'lg', null, null]} blocks={item.description} />
+          </Box>
         </Box>
       ))}
     </>

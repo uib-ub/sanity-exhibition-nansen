@@ -12,7 +12,7 @@ export default function ActorCollectionCards({ children }) {
       autoFlow="column"
       gap={5}
       autoColumns="300px"
-      templateRows="auto auto"
+      templateRows="auto"
       overflowX="scroll"
       py="4"
       borderRightWidth="2px"
