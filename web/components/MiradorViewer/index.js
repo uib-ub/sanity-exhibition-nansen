@@ -108,7 +108,7 @@ export default function MiradorViewer(props) {
     workspaceControlPanel = false,
     gridArea,
     catalog,
-    height = '50vh',
+    height = '60vh',
   } = props
 
   const { variantSettings, plugins } = getVariant(variant)
@@ -174,7 +174,11 @@ export default function MiradorViewer(props) {
         },
       },
     }
-    const miradorInstance = mirador.viewer(config, plugins) // eslint-disable-line
+    let miradorInstance = mirador.viewer(config, plugins) // eslint-disable-line
+    return () => {
+      console.log(`unmounting... ${ID}`)
+      miradorInstance = null
+    }
   }, [ID, catalog, mode, plugins, windows, workspaceControlPanel])
 
   return (
