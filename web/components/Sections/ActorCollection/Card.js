@@ -9,7 +9,16 @@ export default function ActorCollectionCard({ data }) {
   return (
     <>
       {data.map((item) => (
-        <Box key={item.item._id} p="4" bg="lightgray" borderRadius="5" boxShadow="md">
+        <Box
+          key={item.item._id}
+          p="3"
+          borderRadius="5"
+          boxShadow="lg"
+          borderColor="gray.300"
+          borderWidth="thin"
+          bg="gray.900"
+          color="white"
+        >
           {item.image && (
             <Box mb="3" position="relative">
               <Image
