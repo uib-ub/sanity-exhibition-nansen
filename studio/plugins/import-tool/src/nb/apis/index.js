@@ -1,9 +1,9 @@
 import sanityClient from 'part:@sanity/base/client'
-import {getDocument} from './getDocument'
+import { getDocument } from './getDocument'
 import { getImageBlob, patchAssetMeta, setAssetRef, uploadImageBlob } from '../../shared/storeFunctions'
 import { getCustomImageSizeFromNB } from './getCustomImageSizeFromNB'
 
-const client = sanityClient.withConfig({apiVersion: '2021-03-25'})
+const client = sanityClient.withConfig({ apiVersion: '2021-03-25' })
 
 export const chooseItem = async (item) => {
   const imageUrl = item._links.thumbnail_custom.href
@@ -24,21 +24,21 @@ export const chooseItem = async (item) => {
   }
 
   const createDoc = async (doc) => {
-    const res = client.createOrReplace(doc).then((result) => {
+    const res = client.createIfNotExists(doc).then((result) => {
       console.log(`${result._id} was imported!`)
       return result
     })
     return res
   }
-  
+
   try {
-      // Prepare json conforming to the Muna schema
+    // Prepare json conforming to the Muna schema
     const doc = await getDocument(item)
-    
+
     // Get a custom sized thumbnail from NB and create a blob
     const imageResonse = await getImageBlob(getCustomImageSizeFromNB(imageUrl))
     // Upload asset blog
-    const asset = await uploadImageBlob(imageResonse)
+    const asset = await uploadImageBlob(imageResonse, item.id)
     // Add metadata to asset
     await patchAssetMeta(asset._id, assetMeta)
 
