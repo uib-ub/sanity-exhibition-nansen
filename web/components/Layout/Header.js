@@ -59,7 +59,7 @@ export default function Header(props) {
           /> */}
           <Heading
             fontSize={['lg', 'xl', '2xl', '2xl']}
-            fontWeight={{ base: 'normal', md: 'semibold' }}
+            fontWeight={{ base: 'normal' }}
             fontFamily="EB Garamond"
           >
             <Link href="/">
@@ -72,8 +72,15 @@ export default function Header(props) {
 
         <Flex as="nav">
           <Menu placement="bottom">
-            <MenuButton as={Button} variant="link" rightIcon={<ChevronDownIcon />}>
-              Innholdsfortegnelse
+            <MenuButton
+              as={Button}
+              variant="link"
+              color="gray.900"
+              /* fontWeight={{ base: 'normal' }} */
+              textTransform="uppercase"
+              rightIcon={<ChevronDownIcon />}
+            >
+              Meny
             </MenuButton>
             <MenuList
               pl="10"
@@ -81,6 +88,7 @@ export default function Header(props) {
               styleType="lower-roman"
               spacing="1"
               fontSize={['md', 'md', 'lg', 'lg']}
+              zIndex="9999"
             >
               {mainNavigation?.items &&
                 mainNavigation.items.map((item) => (
