@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Head from 'next/head'
 import Link from '../Link'
 import { Badge, Box, Container, Flex, Heading, SimpleGrid, Text } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
@@ -14,9 +13,6 @@ export default function Actor(item) {
 
   return (
     <Container my="5" maxWidth="6xl">
-      <Head>
-        <title>{item.label.no}</title>
-      </Head>
       <Flex pb="10">
         {item.image && (
           <Box mr="4" w="300px" position="relative">
