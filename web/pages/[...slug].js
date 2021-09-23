@@ -64,9 +64,17 @@ export default function Page({ data, preview }) {
           </Box>
         )} */}
 
-        <Text mt="10" color="gray.500" fontSize="sm">
-          Oppdatert: <Date>{page?.route[0]?.page?._updatedAt}</Date>
-        </Text>
+        <Container
+          maxWidth={['xl', null, 'xl', null]}
+          borderTopColor="blackAlpha.300"
+          borderTopWidth="1px"
+          mt="10"
+          centerContent
+        >
+          <Text mt="10" color="gray.500" fontSize="sm">
+            Oppdatert: <Date>{page?.route[0]?.page?._updatedAt}</Date>
+          </Text>
+        </Container>
       </Container>
     </Layout>
   )
