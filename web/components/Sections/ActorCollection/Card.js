@@ -9,17 +9,10 @@ export default function ActorCollectionCard({ data }) {
   return (
     <>
       {data.map((item) => (
-        <Box
-          key={item.item._id}
-          borderRadius="5"
-          boxShadow="lg"
-          borderColor="gray.300"
-          borderWidth="thin"
-        >
+        <Box key={item.item._id}>
           {item.image && (
-            <Box mb="3" position="relative" borderTopRadius="5">
+            <Box mb="3" position="relative" px="8">
               <Image
-                borderTopRadius="5"
                 alt={item.label || 'No label'}
                 {...getNextSanityImage(item.image)}
                 layout="responsive"

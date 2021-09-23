@@ -11,7 +11,7 @@ export default function ActorCollection(props) {
   }
 
   return (
-    <Container maxW={['xl', '2xl', '4xl', '6xl']} my="10">
+    <Container maxW="95vw" my="10" p="0" bg="gray.300" centerContent>
       {/* <Heading maxW={['xl', null, 'xl', null]} mx="auto" fontSize={['xl', '2xl', '3xl', '3xl']}>
         {props.title}
       </Heading>

@@ -7,16 +7,14 @@ export default function ActorCollectionCards({ children }) {
 
   return (
     <Grid
-      maxW={['xl', '2xl', '4xl', '5xl']}
+      maxW="100%"
       as="section"
       autoFlow="column"
       gap={5}
-      autoColumns="300px"
+      autoColumns="280px"
       templateRows="auto"
       overflowX="scroll"
       py="4"
-      borderRightWidth="2px"
-      borderRightColor="gray.400"
     >
       {children}
     </Grid>

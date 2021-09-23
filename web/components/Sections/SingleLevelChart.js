@@ -20,12 +20,12 @@ export default function SingleLevelChart(props) {
   const { data, caption, label } = props
 
   return (
-    <Container as="figure" maxW={['lg', null, null, null, 'xl']} p="0" centerContent>
-      <Box h="sm" w="full">
+    <Container as="figure" maxW={['xl', '2xl', '4xl', '5xl']} my="12" p="0" centerContent>
+      <Box h="sm" w={['xl', '2xl', '4xl', '5xl']} mb="6">
         <ResponsivePie
           data={JSON.parse(data.code)}
           theme={theme}
-          margin={{ top: 10, right: 160, bottom: 10, left: 160 }}
+          margin={{ top: 30, right: 0, bottom: 30, left: 0 }}
           startAngle={-25}
           innerRadius={0.5}
           padAngle={1}
