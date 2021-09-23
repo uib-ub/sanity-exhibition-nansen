@@ -12,8 +12,7 @@ export default async function handler(req, res) {
       ]`,
     )
 
-    const joinedValues = response.map((id) => `"${id}"`).join(' ')
-    return joinedValues
+    return response.map((id) => `"${id}"`).join(' ')
   }
 
   async function getObject(ids) {
@@ -23,8 +22,8 @@ export default async function handler(req, res) {
       SELECT ?url ?title
       WHERE {
         GRAPH ?g {
-        ?url dct:identifier ?ids ;
-              dct:title ?title .
+          ?url dct:identifier ?ids ;
+            dct:title ?title .
           VALUES ?ids { ${ids} }
         }
       }
