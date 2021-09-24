@@ -13,7 +13,7 @@ function Footnotes({ blocks }) {
     // find all the footnote mark definitions
     .filter(({ _type }) => _type === 'footnote')
 
-  /* console.log(notes) */
+  // console.log(JSON.stringify(notes, null, 2))
 
   if (notes.length == 0) {
     return null
@@ -31,7 +31,7 @@ function Footnotes({ blocks }) {
         {notes.map(({ _key, text }) => (
           // the _key is what markKey refers to in the main text component
           <li id={`${_key}`} key={_key}>
-            <PortableTextBlock blocks={text} />
+            <PortableTextBlock fontSize={['md', null, 'lg', null]} blocks={text} />
           </li>
         ))}
       </ol>
