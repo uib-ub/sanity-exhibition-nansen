@@ -1,4 +1,3 @@
-import { imageBuilder } from '../../lib/sanity'
 import {
   Button,
   Container,
@@ -11,15 +10,13 @@ import {
   DrawerHeader,
   Flex,
   Box,
-  Grid,
-  Heading,
-  Image,
-  Badge,
+  Icon,
   Text,
   useDisclosure,
 } from '@chakra-ui/react'
+import { ArrowBackIcon } from '@chakra-ui/icons'
+import { ImEye } from 'react-icons/im'
 import PortableTextBlock from '../PT/PortableTextBlock'
-import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 import IllustrationWithCaption from './IllustrationWithCaption'
 
 export default function SubStory(props) {
@@ -29,59 +26,52 @@ export default function SubStory(props) {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const { label, title, tagline, content, illustration } = props
+  const { /* label, */ title, tagline, content, illustration } = props
 
   return (
-    <Grid
-      maxW="xl"
-      py="0"
+    <Container
+      maxW="full"
+      p="0"
       my="10"
       mx="auto"
-      borderY="1px solid"
+      borderBottom="1px solid"
       borderColor="red.200"
-      templateColumns="auto 6fr 1fr"
-      gap="2"
       color="gray.500"
     >
-      <Flex alignSelf="center">
-        {illustration && illustration.illustration && (
-          <Image
-            maxW="100%"
-            src={imageBuilder.image(illustration.illustration.image).fit('fill').height(500).url()}
-            alt={''}
-          />
-        )}
-      </Flex>
+      <Flex alignItems="flex-end" justifyContent="flex-end">
+        {/*  <Box pt="2">
+          {label && (
+            <Badge variant="solid" colorScheme="red">
+              {label}
+            </Badge>
+          )}
 
-      <Box pt="2" alignSelf="start">
-        {label && (
-          <Badge variant="solid" colorScheme="red">
-            {label}
-          </Badge>
-        )}
-
-        {title && <Heading fontSize={['xl', 'xl', 'xl', 'xl']}>{title}</Heading>}
+          {title && <Heading fontSize={['xl', 'xl', 'xl', 'xl']}>{title}</Heading>}
+          </Box> */}
 
         {tagline && (
-          <Box>
-            <PortableTextBlock fontSize={['md', 'lg']} blocks={tagline} />
+          <Box alignSelf="baseline">
+            <PortableTextBlock noOfLines={1} maxW="full" fontSize={['md', 'lg']} blocks={tagline} />
           </Box>
         )}
-      </Box>
 
-      <Button
-        colorScheme="teal"
-        variant="link"
-        onClick={onOpen}
-        rightIcon={
-          <ArrowForwardIcon
-            color="red.400"
-            w={['10', null, '16', null]}
-            h={['10', null, '20', null]}
+        {/* {illustration && illustration.illustration && (
+          <Image
+            src={imageBuilder.image(illustration.illustration.image).fit('fill').height(200).url()}
+            alt={''}
           />
-        }
-        alignSelf="center"
-      />
+        )} */}
+        <Button
+          alignSelf="baseline"
+          colorScheme="blackAlpha"
+          variant="link"
+          onClick={onOpen}
+          ml="4"
+          rightIcon={<Icon as={ImEye} w={8} h={8} />}
+        >
+          Les mer
+        </Button>
+      </Flex>
 
       <Drawer size="xl" isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay>
@@ -114,6 +104,6 @@ export default function SubStory(props) {
           </DrawerContent>
         </DrawerOverlay>
       </Drawer>
-    </Grid>
+    </Container>
   )
 }
