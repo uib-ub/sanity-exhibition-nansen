@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
-import { Container, Grid, Flex } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import Caption from './shared/caption'
+import WrapperGrid from './WrapperGrid'
 
 const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), { ssr: false })
 
@@ -12,34 +13,23 @@ export default function SingleObject(props) {
   const { title, description, item, canvasUrl } = props
 
   return (
-    <Container maxW={['xl', 'xl', '2xl', '8xl']} centerContent>
-      <Grid
-        maxW={['xl', 'xl', '2xl', '8xl']}
-        my={{ base: '6', md: '16', xl: '20' }}
-        borderBottom={{ base: 'solid 1px', md: 'none' }}
-        borderColor="gray.300"
-        gridGap={5}
-        gridTemplateAreas={{ base: '"image" "metadata"', xl: '"image metadata"' }}
-        gridTemplateColumns={{ base: '3xl', xl: '10fr 4fr' }}
-        gridTemplateRows="1fr auto"
-      >
-        {item?.manifest ? (
-          <MiradorWithNoSSR
-            gridArea="image"
-            variant="basic"
-            manifests={[
-              {
-                manifest: item.manifest,
-                ...(canvasUrl && { canvasUrl: canvasUrl }),
-              },
-            ]}
-          />
-        ) : (
-          <Flex gridArea="image">Mangler manifest</Flex>
-        )}
+    <WrapperGrid>
+      {item?.manifest ? (
+        <MiradorWithNoSSR
+          gridArea="image"
+          variant="basic"
+          manifests={[
+            {
+              manifest: item.manifest,
+              ...(canvasUrl && { canvasUrl: canvasUrl }),
+            },
+          ]}
+        />
+      ) : (
+        <Flex gridArea="image">Mangler manifest</Flex>
+      )}
 
-        <Caption title={title} content={description} sourceItem={item} />
-      </Grid>
-    </Container>
+      <Caption title={title} content={description} sourceItem={item} />
+    </WrapperGrid>
   )
 }

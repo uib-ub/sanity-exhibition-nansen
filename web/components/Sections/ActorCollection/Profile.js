@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Box, Heading, Text } from '@chakra-ui/react'
+import { Container, Heading, Text } from '@chakra-ui/react'
 import React from 'react'
 import PortableTextBlock from '../../PT/PortableTextBlock'
 import { kebabCase } from 'lodash'
@@ -12,9 +12,9 @@ export default function Profile({ data }) {
       {data.map((item) => (
         <React.Fragment key={item.item._id}>
           {item.image && (
-            <Box mb="5" mt="26">
-              <Image {...getNextSanityImage(item.image)} alt={item.label.no} layout="responsive" />
-            </Box>
+            <Container maxW={['xl', '2xl', '4xl', '4xl']} mb="5" mt="26">
+              <Image {...getNextSanityImage(item.image)} alt={item.label.no} layout="intrinsic" />
+            </Container>
           )}
 
           <Heading

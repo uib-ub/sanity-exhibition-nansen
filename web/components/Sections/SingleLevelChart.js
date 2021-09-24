@@ -1,6 +1,7 @@
 import { Box, Container, useColorModeValue } from '@chakra-ui/react'
 import { ResponsivePie } from '@nivo/pie'
 import Caption from './shared/caption'
+import Wrapper from './Wrapper'
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -18,14 +19,13 @@ export default function SingleLevelChart(props) {
   }
 
   const { data, caption, label } = props
-
   return (
-    <Container as="figure" maxW={['xl', '2xl', '4xl', '5xl']} my="12" p="0" centerContent>
-      <Box h="sm" w={['xl', '2xl', '4xl', '5xl']} mb="6">
+    <Wrapper>
+      <Box h="40vh" w={['sm', 'md', 'lg', 'xl']} mb="6">
         <ResponsivePie
           data={JSON.parse(data.code)}
           theme={theme}
-          margin={{ top: 30, right: 0, bottom: 30, left: 0 }}
+          margin={{ top: 0, right: 140, bottom: 0, left: 140 }}
           startAngle={-25}
           innerRadius={0.5}
           padAngle={1}
@@ -61,9 +61,9 @@ export default function SingleLevelChart(props) {
           ]}
         />
       </Box>
-      <figcaption>
+      <Container as="figcaption" px="0" maxW={['xl', null, '2xl', null]}>
         <Caption title={label} content={caption} />
-      </figcaption>
-    </Container>
+      </Container>
+    </Wrapper>
   )
 }

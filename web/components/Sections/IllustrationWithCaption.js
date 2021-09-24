@@ -1,7 +1,8 @@
 import Image from 'next/image'
-import { Flex, Grid, Box, Container } from '@chakra-ui/react'
+import { Flex, Box } from '@chakra-ui/react'
 import Caption from './shared/caption'
 import { getNextSanityImage } from '../../lib/sanity.server'
+import WrapperGrid from './WrapperGrid'
 
 export default function IllustrationWithCaption(props) {
   if ((!props && !props.illustration) || props.disabled === true) {
@@ -11,34 +12,23 @@ export default function IllustrationWithCaption(props) {
   const { title, content, illustration, source } = props
 
   return (
-    <Container maxW={['xl', '2xl', '5xl', '8xl']} centerContent>
-      <Grid
-        maxW={['xl', '2xl', '5xl', '8xl']}
-        my={{ base: '6', md: '16', xl: '16' }}
-        borderBottom={{ base: 'solid 1px', md: 'none' }}
-        borderColor="gray.300"
-        gridGap={[2, 2, 3, 3, 5]}
-        gridTemplateAreas={{ base: '"image" "metadata"', xl: '"image metadata"' }}
-        gridTemplateColumns={{ base: '3xl', xl: '10fr 4fr' }}
-        gridTemplateRows="1fr auto"
-      >
-        {illustration ? (
-          <Box minH="60vh" w="100%" gridArea="image" bgColor="gray.200" position="relative">
-            {illustration && (
-              <Image
-                alt=""
-                {...getNextSanityImage(illustration.image)}
-                layout="fill"
-                objectFit="contain"
-              />
-            )}
-          </Box>
-        ) : (
-          <Flex gridArea="image">Mangler illustrasjon</Flex>
-        )}
+    <WrapperGrid>
+      {illustration ? (
+        <Box minH="60vh" w="100%" gridArea="image" bgColor="gray.200" position="relative">
+          {illustration && (
+            <Image
+              alt=""
+              {...getNextSanityImage(illustration.image)}
+              layout="fill"
+              objectFit="contain"
+            />
+          )}
+        </Box>
+      ) : (
+        <Flex gridArea="image">Mangler illustrasjon</Flex>
+      )}
 
-        <Caption title={title} content={content} source={source} />
-      </Grid>
-    </Container>
+      <Caption title={title} content={content} source={source} />
+    </WrapperGrid>
   )
 }

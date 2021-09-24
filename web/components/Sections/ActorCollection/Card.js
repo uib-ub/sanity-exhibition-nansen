@@ -9,9 +9,9 @@ export default function ActorCollectionCard({ data }) {
   return (
     <>
       {data.map((item) => (
-        <Box key={item.item._id}>
+        <Box key={item.item._id} mr="4" last={{ mr: '0' }}>
           {item.image && (
-            <Box mb="3" position="relative" px="8">
+            <Box mb="3" w="11em" position="relative">
               <Image
                 alt={item.label || 'No label'}
                 {...getNextSanityImage(item.image)}
