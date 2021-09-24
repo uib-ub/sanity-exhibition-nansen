@@ -14,7 +14,7 @@ export default function IllustrationWithCaption(props) {
   return (
     <WrapperGrid>
       {illustration ? (
-        <Box minH="60vh" w="100%" gridArea="image" bgColor="gray.200" position="relative">
+        <Box minH="50vh" w="100%" gridArea="image" bgColor="gray.200" position="relative">
           {illustration && (
             <Image
               alt=""
