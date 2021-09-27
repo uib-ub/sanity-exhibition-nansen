@@ -14,7 +14,11 @@ export default function PageHeader(props) {
 
       {props?.subtitle && <PortableTextBlock blocks={props.subtitle} />}
 
-      <Image src={`${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-border.svg`} alt="" />
+      <Image
+        mt="10"
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-border.svg`}
+        alt=""
+      />
     </Container>
   )
 }
