@@ -1,5 +1,4 @@
 import { Box } from '@chakra-ui/react'
-import PortableTextBlockQuote from '../PT/PortableTextBlockQuote'
 import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function Quote(props) {
@@ -8,10 +7,14 @@ export default function Quote(props) {
   }
 
   return (
-    <Box as="figure" maxWidth={['xl', null, 'xl', null]} mx="auto">
-      <blockquote>
-        <PortableTextBlockQuote fontSize="2xl" blocks={props.content} />
-      </blockquote>
+    <Box as="figure" maxWidth={['sm', 'lg', 'xl', null]} mx="auto" my="6" px={{ xs: 4, sm: 4 }}>
+      <Box as="blockquote">
+        <PortableTextBlock
+          fontSize={['lg', null, '2xl', null]}
+          blocks={props.content}
+          color="red"
+        />
+      </Box>
 
       {props.credit && (
         <figcaption>
