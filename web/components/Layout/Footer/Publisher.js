@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import { Box, Flex } from '@chakra-ui/react'
+import NextImage from 'next/image'
+import { Box, Flex, Image } from '@chakra-ui/react'
 import { getNextSanityImage } from '../../../lib/sanity.server'
 
 import Link from '../../Link'
@@ -11,19 +11,18 @@ export default function Publisher({ publishers }) {
 
   return (
     <Flex maxW="xl" marginBottom={5}>
+      <Box m="6" minW="100px" maxW={['100px', null, '150px', null]}>
+        <Image
+          alt=""
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH}/img/75ar-med-tanker.svg`}
+          w="full"
+        />
+      </Box>
       {publishers &&
         publishers.map((p) => (
-          <Box key={p._id} m="6" maxW="150px">
+          <Box key={p._id} m="4" maxW={['100px', null, '150px', null]}>
             <Link href={`/id/${p._id}`}>
-              <Image
-                alt=""
-                {...getNextSanityImage(p.image)}
-                layout="intrinsic"
-                /* sizes="(max-width: 800px) 100vw, 800px" */
-                objectFit="contain"
-                width={150}
-                height={150}
-              />
+              <NextImage alt="" {...getNextSanityImage(p.image)} layout="intrinsic" />
             </Link>
             {/* <Link href={`/id/${p._id}`}>{p.label.no}</Link> */}
           </Box>

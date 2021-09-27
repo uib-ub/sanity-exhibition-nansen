@@ -37,13 +37,13 @@ export default function Footer(props) {
       gridArea="footer"
       maxW="full"
       minH="100px"
-      mt="10"
+      mt={['0', null, '8', null]}
       py="6"
       px="0"
       zIndex="100"
       color={color}
       backgroundImage={`url('${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer.svg')`}
-      backgroundPosition="50% 4%"
+      backgroundPosition={['50% 10%', '50% 8%', '50% 4%', null]}
       backgroundRepeat="no-repeat"
     >
       <Flex pl="5">
@@ -52,7 +52,7 @@ export default function Footer(props) {
         </Button>
       </Flex>
 
-      <Container maxW="4xl" px="4" pt="6%" centerContent>
+      <Container maxW="4xl" px="4" pt={['12%', '8%', '6%', null]} centerContent>
         {/* <Flex pb="0">
           <Spacer />
 
@@ -71,7 +71,7 @@ export default function Footer(props) {
 
         {content && <RenderSections sections={content} />}
 
-        <Container fontSize={['md', null, 'lg', null]} p="0" centerContent>
+        <Container p="0" centerContent>
           {publisher && <Publisher publishers={publisher} />}
           {license && <License license={license} />}
         </Container>
