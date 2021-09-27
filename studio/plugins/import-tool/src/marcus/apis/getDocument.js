@@ -12,6 +12,8 @@ export default function getDocument(item, types, assetID) {
     return parsedDate
   }
 
+  const description = Array.isArray(item.description) ? item.description : [item.description]
+
   const subject = item.subject
     ? [
       ...item.subject.map((s) => {
@@ -137,9 +139,9 @@ export default function getDocument(item, types, assetID) {
       ...(Object.keys(activityStream[0]).length > 2 && {
         activityStream,
       }),
-      ...(item.description && {
+      ...(description && {
         referredToBy: [
-          {
+          ...description.map(d => ({
             _key: nanoid(),
             _type: 'LinguisticObject',
             accessState: 'open',
@@ -154,7 +156,7 @@ export default function getDocument(item, types, assetID) {
                   {
                     _type: 'span',
                     _key: nanoid(),
-                    text: item.description,
+                    text: d,
                     marks: [],
                   },
                 ],
@@ -171,7 +173,7 @@ export default function getDocument(item, types, assetID) {
               _ref: 'e81f617f-b767-4e7c-8495-93b745f47aa0',
               _type: 'reference',
             },
-          },
+          })),
         ],
       }),
       ...(item.subject && {
