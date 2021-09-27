@@ -50,8 +50,8 @@ export default function SubStory(props) {
           </Box> */}
 
         {tagline && (
-          <Box alignSelf="baseline">
-            <PortableTextBlock noOfLines={1} maxW="full" fontSize={['md', 'lg']} blocks={tagline} />
+          <Box alignSelf="baseline" mr={{ xs: 6 }}>
+            <PortableTextBlock noOfLines={1} fontSize={['md', 'lg']} blocks={tagline} />
           </Box>
         )}
 
@@ -67,6 +67,7 @@ export default function SubStory(props) {
           variant="link"
           onClick={onOpen}
           ml="4"
+          mr={{ sm: 4 }}
           rightIcon={<Icon as={ImEye} w={8} h={8} />}
         >
           Les mer
