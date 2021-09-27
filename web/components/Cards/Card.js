@@ -1,16 +1,16 @@
 import NextLink from 'next/link'
 import {
-  Code,
   Heading,
   HStack,
-  Icon,
-  IconButton,
   Image,
   Flex,
   Text,
   GridItem,
   Box,
   Tag,
+  /* Code,
+  Icon,
+  IconButton,
   Menu,
   MenuButton,
   MenuList,
@@ -21,17 +21,17 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  Link,
+  Link, */
   LinkBox,
   LinkOverlay,
   Spacer,
-  useDisclosure,
+  //useDisclosure,
   useColorModeValue,
 } from '@chakra-ui/react'
 import { imageBuilder } from '../../lib/sanity'
-import { BiDotsVerticalRounded } from 'react-icons/bi'
+/* import { BiDotsVerticalRounded } from 'react-icons/bi'
 import { FiExternalLink } from 'react-icons/fi'
-import { VscJson } from 'react-icons/vsc'
+import { VscJson } from 'react-icons/vsc' */
 import PortableTextBlock from '../PT/PortableTextBlock'
 import CardImage from './CardImage'
 import Timespan from '../Timespan'
@@ -45,7 +45,7 @@ export default function Card(props) {
   const color = useColorModeValue('gray.600', 'gray.200')
   const borderColor = useColorModeValue('gray.200', 'gray.700')
   const tagColor = useColorModeValue('blackAlpha', 'red')
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  //const { isOpen, onOpen, onClose } = useDisclosure()
 
   const {
     _id,
@@ -53,7 +53,7 @@ export default function Card(props) {
     label,
     description,
     image,
-    homepage,
+    //homepage,
     hasType,
     aspectRatio,
     creation,
@@ -194,7 +194,7 @@ export default function Card(props) {
             />
           )}
 
-          <Menu>
+          {/* <Menu>
             <MenuButton
               alignSelf="flex-start"
               as={IconButton}
@@ -235,7 +235,7 @@ export default function Card(props) {
                 </Code>
               </ModalBody>
             </ModalContent>
-          </Modal>
+          </Modal> */}
         </Flex>
       </LinkBox>
     </GridItem>
