@@ -12,15 +12,17 @@ export default function Caption(props) {
 
   return (
     <Flex direction="column" fontFamily="Montserrat" pr="10" overflowY={{ xl: 'scroll' }}>
-      <Heading
-        fontFamily="Montserrat"
-        fontWeight="semibold"
-        color="red.600"
-        fontSize={{ base: 'sm', sm: 'sm', md: 'md', xl: 'md' }}
-        mb={1}
-      >
-        {title}
-      </Heading>
+      {title && (
+        <Heading
+          fontFamily="Montserrat"
+          fontWeight="semibold"
+          color="red.600"
+          fontSize={{ base: 'sm', sm: 'sm', md: 'md', xl: 'md' }}
+          mb={1}
+        >
+          {title}
+        </Heading>
+      )}
 
       {content && (
         <PortableTextBlock
