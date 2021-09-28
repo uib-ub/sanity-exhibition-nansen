@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { imageBuilder } from '../../lib/sanity'
 import { getAllActors } from '../../lib/api'
 import { Grid, Avatar, Box, Heading, Flex, Badge, Container } from '@chakra-ui/react'
@@ -23,6 +24,10 @@ export default function Actors({ data, preview }) {
 
   return (
     <Layout preview={preview} site={data.siteSettings}>
+      <Head>
+        <title>Aktører</title>
+      </Head>
+
       <Container maxW="xl">
         <Heading>Aktører</Heading>
       </Container>
