@@ -1,25 +1,17 @@
-import React from 'react'
-import BlockContent from '@sanity/block-content-to-react'
-
-const Preview = ({value: {blocks}}) => <BlockContent blocks={blocks} />
+import { BiGrid } from 'react-icons/bi'
 
 export default {
   name: 'Grid',
   type: 'object',
   title: 'Rutenett',
   titleEN: 'Grid',
-  preview: {
-    select: {
-      blocks: 'subtitle',
-    },
-    component: Preview,
-  },
   description: 'Et rutenett (grid) med tekstinnhold',
+  icon: BiGrid,
   fieldsets: [
     {
       name: 'subtitle',
       title: 'Undertittel',
-      options: {collapsible: true, collapsed: true},
+      options: { collapsible: true, collapsed: true },
     },
   ],
   options: {
@@ -110,7 +102,7 @@ export default {
               descriptionEN: 'Rerefence to a route in the dataset',
               fieldset: 'link',
               type: 'reference',
-              to: [{type: 'Route'}],
+              to: [{ type: 'Route' }],
             },
             {
               name: 'route',
@@ -148,7 +140,7 @@ export default {
     select: {
       title: 'title'
     },
-    prepare({title}) {
+    prepare({ title }) {
       return {
         title,
         subtitle: 'Grid'
