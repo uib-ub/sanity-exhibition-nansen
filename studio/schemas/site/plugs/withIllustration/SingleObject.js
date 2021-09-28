@@ -1,4 +1,4 @@
-import { coalesceLabel } from "../../helpers"
+import { coalesceLabel } from "../../../helpers"
 
 export default {
   name: 'SingleObject',

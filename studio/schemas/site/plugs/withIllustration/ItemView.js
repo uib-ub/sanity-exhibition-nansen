@@ -1,14 +1,8 @@
-import { coalesceLabel } from '../../helpers'
-
 export default {
-  title: 'Gallery manifest',
-  name: 'MiradorGalleryWindow',
   type: 'object',
-  options: {
-    semanticSanity: {
-      exclude: true
-    }
-  },
+  name: 'ItemView',
+  title: 'Visning',
+  titleEN: 'Item view',
   fieldsets: [
     {
       name: 'internal',
@@ -23,10 +17,30 @@ export default {
       options: { collapsible: true, collapsed: true },
     },
   ],
-  initialValue: {
-    view: 'book'
+  options: {
+    semanticSanity: {
+      exclude: true
+    }
   },
   fields: [
+    {
+      name: 'disabled',
+      title: 'Avslått?',
+      titleEN: 'Disabled',
+      type: 'boolean',
+    },
+    {
+      name: 'title',
+      title: 'Tittel',
+      titleEN: 'Heading',
+      type: 'string',
+    },
+    {
+      name: 'description',
+      title: 'Beskrivelse',
+      titleEN: 'Description',
+      type: 'simpleBlockContent',
+    },
     {
       name: 'view',
       title: 'Visningsvalg',
@@ -35,6 +49,7 @@ export default {
       type: 'string',
       options: {
         list: [
+          { title: 'Zoom', value: 'zoom' },
           { title: 'Book', value: 'book' },
           { title: 'Single', value: 'single' },
           { title: 'Gallery', value: 'gallery' },
@@ -50,6 +65,18 @@ export default {
       fieldset: 'internal',
     },
     {
+      name: 'canvasUrl',
+      title: 'Canvas URL',
+      titleEN: 'Canvas URL',
+      type: 'url',
+    },
+    {
+      name: 'image',
+      title: 'Illustrasjonsbilde',
+      titleEN: 'Illustration',
+      type: 'IllustrationWithCaption',
+    },
+    {
       name: 'manifestUrl',
       title: 'Manifest adresse',
       titleEN: 'Manifest URL',
@@ -57,28 +84,25 @@ export default {
       fieldset: 'external',
     },
     {
-      name: 'canvasUrl',
-      title: 'Canvas URL',
-      titleEN: 'Canvas URL',
-      type: 'url',
+      name: 'source',
+      title: 'Kilde',
+      description: 'Legg til kilde eller kreditering',
+      titleEN: 'Source',
+      type: 'simpleBlockContent',
     },
-    /* {
-      name: 'canvasNumber',
-      title: 'Canvas nummer',
-      titleEN: 'Canvas number',
-      type: 'number',
-    }, */
   ],
   preview: {
     select: {
-      internalManifest: 'manifestRef.label',
-      manifestUrl: 'manifestUrl',
-      media: 'manifestRef.image',
+      title: 'title',
+      subtitle: 'label',
+      media: 'illustration',
+      disabled: 'disabled',
     },
-    prepare({ internalManifest, manifestUrl, media }) {
+    prepare({ title, media, disabled }) {
       return {
-        title: internalManifest ? coalesceLabel(internalManifest) : manifestUrl ? manifestUrl : '',
-        media: media,
+        title: title,
+        subtitle: `${disabled ? 'Avslått: ' : ''}Illustrasjon`,
+        media: media?.image,
       }
     },
   },

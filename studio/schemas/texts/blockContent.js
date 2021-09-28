@@ -125,6 +125,7 @@ export default {
     { type: 'SingleObject' },
     { type: 'MiradorGallery' },
     { type: 'IllustrationWithCaption' },
+    { type: 'Gallery' },
     { type: 'SubStory' },
     { type: 'ActorCollection' },
     { type: 'InstagramPost' },
