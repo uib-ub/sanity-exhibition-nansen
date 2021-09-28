@@ -1,3 +1,5 @@
+import React from 'react'
+import { Link } from 'part:@sanity/base/router'
 import { timespanAsString, coalesceLabel } from '../helpers'
 import { FaCalendar } from 'react-icons/fa'
 import {
@@ -60,6 +62,15 @@ export default {
       name: 'hasType',
       title: 'Klassifisert som',
       titleEN: 'Classified as',
+      description: (
+        <span>
+          Hendelsestype som f.eks. Soppsanking. Legg til{' '}
+          <Link target="blank" href={'/desk/andreTyper;EventType'}>
+            ny hendelsestype
+          </Link>
+          .
+        </span>
+      ),
       type: 'array',
       of: [
         {
