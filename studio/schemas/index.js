@@ -113,6 +113,7 @@ export { default as TocSection } from './site/TocSection.js'
 // Plugs
 export { default as Hero } from './site/plugs/Hero'
 export { default as ExhibitionElement } from './site/plugs/ExhibitionElement'
+export { default as EventSection } from './site/plugs/EventSection'
 export { default as SectionText } from './site/plugs/SectionText'
 export { default as TextWithIllustration } from './site/plugs/TextWithIllustration'
 export { default as Iframe } from './site/plugs/Iframe'

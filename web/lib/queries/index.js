@@ -86,10 +86,16 @@ export const frontpageQuery = groq`
             canvasUrl,
           },
         },
-        _type == 'SingleObject'  && disabled != true => @{
+        _type in ['SingleObject', 'EventSection'] && disabled != true => @{
           ...,
           item-> {
-          "manifest": coalesce(subjectOfManifest, manifestUrl),
+            _id,
+            label,
+            referredToBy[] {
+              ...
+            },
+            image,
+            "manifest": coalesce(subjectOfManifest, manifestUrl),
             canvasUrl,
           }
         },

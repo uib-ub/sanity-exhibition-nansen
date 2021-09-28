@@ -20,7 +20,7 @@ export default {
       title: 'Vinduer',
       titleEN: 'Items',
       type: 'array',
-      of: [{type: 'MiradorGalleryWindow'}],
+      of: [{ type: 'MiradorGalleryWindow' }],
     },
     {
       name: 'title',
@@ -40,10 +40,12 @@ export default {
       title: 'title',
       media: 'items.0.manifestRef.image'
     },
-    prepare: ({title, media}) => ({
+    prepare: ({ title, media }) => ({
       title: title,
-      subtitle: `Mirador galleri`,
-      media: media ? media : '' 
+      subtitle: `Mirador galleri, ${items.length} document`,
+      media: media ? media : ''
     }),
   },
 }
+
+
