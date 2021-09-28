@@ -123,7 +123,7 @@ export default function PortableTextBlock(props) {
               to e.g. an object with markKey as keys and the index as values.
               {[markKey]: index}. 
             */}
-            <a href={`#${markKey}`}>#</a>
+            <a href={`#${markKey}`}>*</a>
           </sup>
         </span>
       ),
