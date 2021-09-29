@@ -1,7 +1,8 @@
-import Image from 'next/image'
-import { Flex, Box } from '@chakra-ui/react'
-import Caption from './shared/caption'
+import { Heading, Flex, Box, Icon, Image, Spacer } from '@chakra-ui/react'
 import { getNextSanityImage } from '../../lib/sanity.server'
+import PortableTextBlock from '../PT/PortableTextBlock'
+import { BsInfoCircle } from 'react-icons/bs'
+import { imageBuilder } from '../../lib/sanity'
 
 export default function ItemView(props) {
   if (!props || props.disabled === true) {
@@ -11,22 +12,65 @@ export default function ItemView(props) {
   const { title, description, image, source } = props
 
   return (
-    <Box px="4" width="100%">
-      <Box h="60vh" w="100%" position="relative">
+    <Box px="4" direction="column" position="relative" alignSelf="start" flex="0 0 auto">
+      <Box>
         {image && (
           <Image
+            maxH="50vh"
             alt=""
-            {...getNextSanityImage(image)}
-            layout="responsive"
-            width={600}
-            height={600}
-            objectFit="contain"
+            src={imageBuilder.image(image).fit('crop').height(500).url()}
+            fit="contain"
           />
         )}
         {!image && <Flex>Mangler illustrasjon</Flex>}
       </Box>
 
-      <Caption title={title} content={description} source={source} />
+      <Flex fontFamily="Montserrat" flex="0 1 auto" mt="3" direction="column">
+        {title && (
+          <Heading
+            fontFamily="Montserrat"
+            fontWeight="semibold"
+            color="red.600"
+            fontSize={{ base: 'sm', sm: 'sm', md: 'md', xl: 'md' }}
+            mb={1}
+          >
+            {title}
+          </Heading>
+        )}
+
+        {description && (
+          <PortableTextBlock
+            fontSize={{ base: 'sm', sm: 'sm', md: 'md', xl: 'md' }}
+            fontWeight="200"
+            mx="inherit"
+            maxW="sm"
+            blocks={description}
+          />
+        )}
+
+        <Spacer />
+
+        {source && (
+          <Flex
+            color="gray.500"
+            fontSize={{ base: 'xs', sm: 'xs', md: 'sm', xl: 'sm' }}
+            pb={{ base: '2', md: '0' }}
+            mb="0"
+            flex="0 0 auto"
+          >
+            <Icon as={BsInfoCircle} mr="2" mt="1" />
+            <PortableTextBlock
+              color="gray.500"
+              fontSize={{ base: 'xs', sm: 'xs', md: 'sm', xl: 'sm' }}
+              mb="0"
+              mx="0"
+              maxW="sm"
+              blocks={source}
+            />
+          </Flex>
+        )}
+      </Flex>
+      {/* <pre>{JSON.stringify(props, null, 2)}</pre> */}
     </Box>
   )
 }

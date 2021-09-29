@@ -54,12 +54,20 @@ export default {
     select: {
       title: 'title',
       subtitle: 'label',
+      block: 'content.0',
       media: 'illustration.illustration',
       disabled: 'disabled',
     },
-    prepare({title, media, disabled}) {
+    prepare({ title, media, disabled, block }) {
+      const description = block
+        ? block.children
+          .filter((child) => child._type === 'span')
+          .map((span) => span.text)
+          .join('')
+        : ''
+
       return {
-        title: `${disabled ? 'Avslått' : title}`,
+        title: `${disabled ? 'Avslått: ' : ''}${title ?? description}`,
         subtitle: 'Underfortelling',
         media: media?.image,
       }

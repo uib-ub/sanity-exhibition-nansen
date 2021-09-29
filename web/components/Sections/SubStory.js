@@ -34,11 +34,12 @@ export default function SubStory(props) {
       p="0"
       my="10"
       mx="auto"
+      borderTop="1px solid"
       borderBottom="1px solid"
       borderColor="red.200"
       color="gray.500"
     >
-      <Flex alignItems="flex-end" justifyContent="flex-end">
+      <Flex pt="2" alignItems="flex-end" justifyContent="flex-end">
         {/*  <Box pt="2">
           {label && (
             <Badge variant="solid" colorScheme="red">

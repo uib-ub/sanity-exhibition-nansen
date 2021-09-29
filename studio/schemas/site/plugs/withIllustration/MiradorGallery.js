@@ -43,7 +43,7 @@ export default {
     },
     prepare: ({ title, media, items }) => ({
       title: title,
-      subtitle: `Mirador galleri, ${items?.length ?? 'Ingen'} dokument`,
+      subtitle: `Mirador galleri, ${items?.length ?? '??'} dokument`,
       media: media ? media : ''
     }),
   },

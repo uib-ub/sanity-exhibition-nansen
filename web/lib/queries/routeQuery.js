@@ -43,7 +43,6 @@ export const routeQuery = groq`
               "image": coalesce(
                 manifestRef->.image,
                 image,
-                manifestUrl
               ),
               "manifest": coalesce(
                 manifestRef->.subjectOfManifest, 

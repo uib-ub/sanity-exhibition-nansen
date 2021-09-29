@@ -36,8 +36,8 @@ export default {
       items: 'items'
     },
     prepare: ({ title, media, items }) => ({
-      title: title ?? 'Uten tittel',
-      subtitle: `Galleri, ${items?.length ?? 'Ingen'} dokument`,
+      title: title ?? 'Galleri uten tittel',
+      subtitle: `Galleri, ${items?.length ?? '??'} dokument`,
       media: media ? media : ''
     }),
   },

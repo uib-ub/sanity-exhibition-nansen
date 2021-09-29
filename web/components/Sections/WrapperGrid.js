@@ -16,6 +16,7 @@ export default function WrapperGrid({ children }) {
       gridTemplateColumns={{ base: 'auto', xl: '10fr 3fr' }}
       gridTemplateRows="1fr auto"
       mx="auto"
+      px="5"
     >
       {children}
     </Grid>
