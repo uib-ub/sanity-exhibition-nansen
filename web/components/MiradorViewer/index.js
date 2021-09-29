@@ -176,7 +176,7 @@ export default function MiradorViewer(props) {
     }
     let miradorInstance = mirador.viewer(config, plugins) // eslint-disable-line
     return () => {
-      console.log(`unmounting... ${ID}`)
+      // console.log(`unmounting... ${ID}`)
       miradorInstance = null
     }
   }, [ID, catalog, mode, plugins, windows, workspaceControlPanel])
