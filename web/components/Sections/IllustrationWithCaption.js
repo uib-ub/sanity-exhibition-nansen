@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Flex, Box } from '@chakra-ui/react'
-import Caption from './shared/caption'
+import Caption from './shared/Caption'
 import { getNextSanityImage } from '../../lib/sanity.server'
 import WrapperGrid from './WrapperGrid'
 

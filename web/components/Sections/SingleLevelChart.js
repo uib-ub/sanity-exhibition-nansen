@@ -1,6 +1,6 @@
 import { Box, Container, useColorModeValue } from '@chakra-ui/react'
 import { ResponsivePie } from '@nivo/pie'
-import Caption from './shared/caption'
+import Caption from './shared/Caption'
 import Wrapper from './Wrapper'
 
 // make sure parent container have a defined height when using

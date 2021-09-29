@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import { Flex } from '@chakra-ui/react'
-import Caption from './shared/caption'
+import Caption from './shared/Caption'
 import WrapperGrid from './WrapperGrid'
 
 const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), { ssr: false })
