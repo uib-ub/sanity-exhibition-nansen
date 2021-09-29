@@ -46,7 +46,11 @@ export default function Hero(props) {
 
         {props?.tagline && (
           <Box>
-            <PortableTextBlock fontSize={['2xl', '3xl']} blocks={props.tagline} />
+            <PortableTextBlock
+              fontSize={['2xl', '3xl']}
+              alignText="center"
+              blocks={props.tagline}
+            />
           </Box>
         )}
       </Container>
