@@ -1,5 +1,4 @@
 import { Heading, Flex, Box, Icon, Image, Spacer } from '@chakra-ui/react'
-import { getNextSanityImage } from '../../lib/sanity.server'
 import PortableTextBlock from '../PT/PortableTextBlock'
 import { BsInfoCircle } from 'react-icons/bs'
 import { imageBuilder } from '../../lib/sanity'
@@ -43,7 +42,7 @@ export default function ItemView(props) {
             fontSize={{ base: 'sm', sm: 'sm', md: 'md', xl: 'md' }}
             fontWeight="200"
             mx="inherit"
-            maxW="sm"
+            maxW={['md', 'lg', 'lg', null]}
             blocks={description}
           />
         )}
@@ -64,7 +63,7 @@ export default function ItemView(props) {
               fontSize={{ base: 'xs', sm: 'xs', md: 'sm', xl: 'sm' }}
               mb="0"
               mx="0"
-              maxW="sm"
+              maxW={['md', 'md', 'lg', null]}
               blocks={source}
             />
           </Flex>
