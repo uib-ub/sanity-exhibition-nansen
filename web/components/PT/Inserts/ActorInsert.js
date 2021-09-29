@@ -12,7 +12,7 @@ export default function ActorInsert(props) {
   const { _id, label, shortDescription, memberOf } = props
 
   return (
-    <Container maxW={['xl', null, '2xl', null]} mb="5" px="0">
+    <Container maxW={['md', null, '2xl', null]} mb="5">
       <Flex>
         {/* {image && (
           <Box mr="4">

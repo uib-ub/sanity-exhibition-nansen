@@ -30,18 +30,17 @@ export default function SubStory(props) {
 
   return (
     <Container
-      maxW={['xl', null, '2xl', null]}
-      p="0"
+      maxW="full"
       my="10"
-      mx="auto"
+      centerContent
       borderTop="1px solid"
       borderBottom="1px solid"
       borderColor="red.200"
       color="gray.500"
     >
       <Flex pt="2" alignItems="baseline" justifyContent="baseline">
-        <Box mr="3">
-          <Icon as={ImEye} w={8} h={8} mt="-1" />
+        <Box mr="3" mt="-3">
+          <Icon as={ImEye} w={8} h={8} />
         </Box>
 
         {/*  <Box pt="2">
@@ -66,7 +65,7 @@ export default function SubStory(props) {
             alt={''}
           />
         )} */}
-        <Button colorScheme="blackAlpha" variant="link" onClick={onOpen} ml="4" mr={{ sm: 4 }}>
+        <Button variant="link" onClick={onOpen} ml="4" mr={{ sm: 4 }}>
           Les mer
         </Button>
       </Flex>

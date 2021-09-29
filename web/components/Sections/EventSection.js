@@ -15,13 +15,13 @@ export default function EventSection(props) {
   return (
     <Grid
       p="4"
-      maxW={['xl', null, '4xl', null]}
+      maxW={['md', null, '4xl', null]}
       mx="auto"
       templateColumns="auto auto"
       bg="yellow.300"
     >
       {image ? (
-        <Box mb="3" w="20em" position="relative">
+        <Box mb="3" w="40vw" position="relative">
           <Image
             alt={item.label || 'No label'}
             {...getNextSanityImage(image)}

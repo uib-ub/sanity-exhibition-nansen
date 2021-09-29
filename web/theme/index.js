@@ -42,6 +42,12 @@ const theme = extendTheme({
         borderBottom: 'solid 2px',
         borderColor: 'red.300',
       },
+      'main > div > div > p, main > div > div > h2, main > div > div > h3': {
+        px: '4',
+      },
+      'main > div > div > figure': {
+        px: { base: '4' },
+      },
     },
   },
 })

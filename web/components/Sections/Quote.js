@@ -7,7 +7,7 @@ export default function Quote(props) {
   }
 
   return (
-    <Box as="figure" maxWidth={['sm', 'lg', 'xl', null]} mx="auto" my="6" px={{ xs: 4, sm: 4 }}>
+    <Box as="figure" maxWidth={['sm', null, 'xl', null]} mx="auto" my="6" px={{ xs: 4, sm: 4 }}>
       <Box as="blockquote">
         <PortableTextBlock
           fontSize={['lg', null, '2xl', null]}

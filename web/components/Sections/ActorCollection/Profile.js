@@ -8,11 +8,11 @@ import { getNextSanityImage } from '../../../lib/sanity.server'
 
 export default function Profile({ data }) {
   return (
-    <>
+    <Container maxW={['md', null, '2xl', null]}>
       {data.map((item) => (
         <React.Fragment key={item.item._id}>
           {item.image && (
-            <Container maxW={['xl', '2xl', '4xl', '4xl']} mb="5" mt="26">
+            <Container maxW={['md', null, '2xl', null]} mb="5" mt="26" px="0">
               <Image {...getNextSanityImage(item.image)} alt={item.label.no} layout="intrinsic" />
             </Container>
           )}
@@ -20,21 +20,21 @@ export default function Profile({ data }) {
           <Heading
             id={kebabCase(item.label)}
             as="h3"
-            maxW={['xl', null, '2xl', null]}
+            maxW={['md', null, '2xl', null]}
             mx="auto"
-            fontSize={['xl', '2xl', '3xl', null]}
+            fontSize={['2xl', '2xl', '3xl', null]}
           >
             <Link href={`/id/${item.item._id}`}>{item.label}</Link>
           </Heading>
 
           {item.item?.shortDescription && (
-            <Text maxW={['xl', null, '2xl', null]} mx="auto">
+            <Text maxW={['xl', null, '2xl', null]} fontSize={['xl', '2xl', '3xl', null]} mx="auto">
               {item.item.shortDescription}
             </Text>
           )}
           <PortableTextBlock blocks={item.description} />
         </React.Fragment>
       ))}
-    </>
+    </Container>
   )
 }

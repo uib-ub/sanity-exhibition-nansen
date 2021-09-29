@@ -8,7 +8,6 @@ export default function ActorCollectionCards({ children }) {
   return (
     <Container
       maxW="94vw"
-      px="0"
       pt="4"
       borderTopWidth="thin"
       borderBottomWidth="thin"
