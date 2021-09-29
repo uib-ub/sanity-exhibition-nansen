@@ -120,7 +120,7 @@ export default function Header(props) {
         </Flex>
 
         <Button
-          aria-label="Skift til eller fra nattmodus"
+          aria-label="Skift mellom dagmodus eller nattmodus"
           display={{ base: 'none', md: 'inherit' }}
           px="0"
           ml="5"

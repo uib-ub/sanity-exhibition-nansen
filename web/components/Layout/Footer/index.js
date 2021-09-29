@@ -34,7 +34,11 @@ export default function Footer(props) {
       backgroundRepeat="no-repeat"
     >
       <Flex pl="5">
-        <Button variant="link" onClick={toggleColorMode}>
+        <Button
+          aria-label="Skift mellom dagmodus eller nattmodus"
+          variant="link"
+          onClick={toggleColorMode}
+        >
           {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
         </Button>
       </Flex>

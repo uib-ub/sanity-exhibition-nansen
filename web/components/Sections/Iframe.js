@@ -10,7 +10,13 @@ export default function Iframe(props) {
     <Container maxW={['xl', 'xl', 'xl', '2xl']} my="10">
       <Container maxW="full" backgroundColor="white" px="0" mb="4" position="relative">
         <AspectRatio ratio={4 / 3}>
-          <iframe src={props.url} allowFullScreen aria-hidden="false" tabIndex="0" />
+          <iframe
+            title={props.title ?? 'Iframe uten tittel'}
+            src={props.url}
+            allowFullScreen
+            aria-hidden="false"
+            tabIndex="0"
+          />
         </AspectRatio>
       </Container>
       <Caption title={props.title} />
