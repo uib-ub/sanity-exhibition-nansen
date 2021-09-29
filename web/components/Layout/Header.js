@@ -119,7 +119,13 @@ export default function Header(props) {
           </Menu>
         </Flex>
 
-        <Button display={{ base: 'none', md: 'inherit' }} px="0" ml="5" onClick={toggleColorMode}>
+        <Button
+          aria-label="Skift til eller fra nattmodus"
+          display={{ base: 'none', md: 'inherit' }}
+          px="0"
+          ml="5"
+          onClick={toggleColorMode}
+        >
           {colorMode === 'light' ? (
             <Icon as={NightIcon} w={16} h={16} />
           ) : (

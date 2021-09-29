@@ -22,7 +22,7 @@ export default function Publisher({ publishers }) {
         publishers.map((p) => (
           <Box key={p._id} m="4" maxW={['100px', null, '150px', null]}>
             <Link href={`/id/${p._id}`}>
-              <NextImage alt="" {...getNextSanityImage(p.image)} layout="intrinsic" />
+              <NextImage alt={p.label.no} {...getNextSanityImage(p.image)} layout="intrinsic" />
             </Link>
             {/* <Link href={`/id/${p._id}`}>{p.label.no}</Link> */}
           </Box>

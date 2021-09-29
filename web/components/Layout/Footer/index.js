@@ -1,5 +1,4 @@
 import { Button, Container, Flex, useColorMode, useColorModeValue } from '@chakra-ui/react'
-// import ActiveLink from '../Link/ActiveLink'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import RenderSections from '../../Sections/RenderSection'
 import License from '../../License'
@@ -8,18 +7,6 @@ import Publisher from './Publisher'
 // import { Image } from '../Image'
 
 // import footerBorder from '../../public/img/taakeheimen-footer.svg'
-
-/* const MenuItem = ({ children }) => (
-  <Text
-    fontSize={{ base: 'md', sm: 'md', md: 'xl', xl: 'xl' }}
-    mt="0"
-    mr={6}
-    mb="0"
-    display="block"
-  >
-    {children}
-  </Text>
-) */
 
 export default function Footer(props) {
   if (!props) {
