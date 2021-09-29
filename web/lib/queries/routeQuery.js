@@ -30,27 +30,21 @@ export const routeQuery = groq`
             }
           },
           _type == 'PageHeader' => @{
-            ...,
-            "palette": illustration.image.asset->.metadata.palette{
-              darkMuted,
-              darkVibrant,
-              dominant,
-              lightMuted,
-              vibrantMuted,
-              muted,
-              vibrant
-            }
+            ...
           },
-          _type == 'MiradorGallery' => @{
+          _type in ['MiradorGallery', 'Gallery'] => @{
             ...,
             items[] {
-              _id,
-              label,
-              view,
+              ...,
               "owner": manifestRef->.hasCurrentOwner[]->{
                 _id,
                 label
               },
+              "image": coalesce(
+                manifestRef->.image,
+                image,
+                manifestUrl
+              ),
               "manifest": coalesce(
                 manifestRef->.subjectOfManifest, 
                 manifestUrl,

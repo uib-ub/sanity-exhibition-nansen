@@ -21,6 +21,7 @@ import {
   IllustrationWithCaption,
   ExhibitionElement,
   ActorCollection,
+  Gallery,
 } from '../Sections'
 import ActorInsert from './Inserts/ActorInsert'
 import PlaceInsert from './Inserts/PlaceInsert'
@@ -142,6 +143,7 @@ export default function PortableTextBlock(props) {
       Iframe: (props) => <Iframe {...props.node} />,
       IllustrationWithCaption: (props) => <IllustrationWithCaption {...props.node} />,
       InstagramPost: (props) => <InstagramPost {...props.node} />,
+      Gallery: (props) => <Gallery {...props.node} />,
       MiradorGallery: (props) => <MiradorGallery {...props.node} />,
       PageHeader: (props) => <PageHeader {...props.node} />,
       Quote: (props) => <Quote {...props.node} />,
