@@ -1,3 +1,5 @@
+import { image } from '../../../props'
+
 export default {
   type: 'object',
   name: 'ItemView',
@@ -70,12 +72,7 @@ export default {
       titleEN: 'Canvas URL',
       type: 'url',
     },
-    {
-      name: 'image',
-      title: 'Illustrasjonsbilde',
-      titleEN: 'Illustration',
-      type: 'IllustrationWithCaption',
-    },
+    image,
     {
       name: 'manifestUrl',
       title: 'Manifest adresse',
