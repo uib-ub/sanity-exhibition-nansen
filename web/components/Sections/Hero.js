@@ -15,7 +15,7 @@ export default function Hero(props) {
   const image = props.illustration.image
 
   return (
-    <Container maxW="full">
+    <Container maxW="full" px="0">
       <Box
         borderColor="gray.800"
         borderWidth="20px"
