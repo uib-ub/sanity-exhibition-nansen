@@ -30,7 +30,7 @@ export default function SubStory(props) {
 
   return (
     <Container
-      maxW="full"
+      maxW={['xl', null, '2xl', null]}
       p="0"
       my="10"
       mx="auto"
@@ -39,7 +39,11 @@ export default function SubStory(props) {
       borderColor="red.200"
       color="gray.500"
     >
-      <Flex pt="2" alignItems="flex-end" justifyContent="flex-end">
+      <Flex pt="2" alignItems="baseline" justifyContent="baseline">
+        <Box mr="3">
+          <Icon as={ImEye} w={8} h={8} mt="-1" />
+        </Box>
+
         {/*  <Box pt="2">
           {label && (
             <Badge variant="solid" colorScheme="red">
@@ -51,7 +55,7 @@ export default function SubStory(props) {
           </Box> */}
 
         {tagline && (
-          <Box alignSelf="baseline" mr={{ xs: 6 }}>
+          <Box mr={{ xs: 6 }}>
             <PortableTextBlock noOfLines={1} fontSize={['md', 'lg']} blocks={tagline} />
           </Box>
         )}
@@ -62,15 +66,7 @@ export default function SubStory(props) {
             alt={''}
           />
         )} */}
-        <Button
-          alignSelf="baseline"
-          colorScheme="blackAlpha"
-          variant="link"
-          onClick={onOpen}
-          ml="4"
-          mr={{ sm: 4 }}
-          rightIcon={<Icon as={ImEye} w={8} h={8} />}
-        >
+        <Button colorScheme="blackAlpha" variant="link" onClick={onOpen} ml="4" mr={{ sm: 4 }}>
           Les mer
         </Button>
       </Flex>
