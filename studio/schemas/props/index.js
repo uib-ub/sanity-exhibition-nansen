@@ -209,6 +209,19 @@ export const label = {
     }
   },
 }
+export const sortLabel = {
+  name: 'sortLabel',
+  title: 'Invertert form (sortering)',
+  titleEN: 'Sort label',
+  // description: (<span>Tittel. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
+  // descriptionEN: (<span>Title. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
+  type: 'string',
+  options: {
+    semanticSanity: {
+      '@id': 'muna:sortLabel',
+    }
+  },
+}
 
 export const labelSingleton = {
   name: 'label',

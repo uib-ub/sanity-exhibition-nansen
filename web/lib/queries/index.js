@@ -21,7 +21,9 @@ export const actorsQuery = groq`
     "items": *[_type in ["Actor", "Group"]] | order(label, desc){ 
       _id,
       _type,
-      label,
+      "label":  {
+        "no": coalesce(sortLabel, label.no)
+      },
       hasType[]-> {
         _id,
         label
@@ -53,10 +55,12 @@ export const conceptsQuery = groq`
 
 export const registryQuery = groq`
   {
-    "items": *[_type in ["Concept", "ObjectType", "Actor", "Group"]] | order(label.no){ 
+    "items": *[_type in ["Concept", "ObjectType", "Actor", "Group"] && count(*[references(^._id)]) > 0] | order(label.no){ 
       _id,
       _type,
-      label,
+      "label":  {
+        "no": coalesce(sortLabel, label.no)
+      },
       "count": count(*[references(^._id)]),
     },
     ${siteSettings}

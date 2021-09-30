@@ -11,6 +11,7 @@ import {
   inDataset,
   homepage,
   shortDescription,
+  sortLabel,
 } from '../props'
 import { coalesceLabel, timespanAsString } from '../helpers'
 
@@ -49,6 +50,7 @@ export default {
     editorialState,
     accessState,
     label,
+    sortLabel,
     shortDescription,
     homepage,
     {
@@ -113,7 +115,8 @@ export default {
   ],
   preview: {
     select: {
-      title: 'label',
+      label: 'label',
+      sortLabel: 'sortLabel',
       type: 'hasType.0.label',
       bb: 'activityStream.0.timespan.0.beginOfTheBegin',
       eb: 'activityStream.0.timespan.0.endOfTheBegin',
@@ -123,10 +126,14 @@ export default {
       media: 'image',
       imported: 'wasOutputOf'
     },
-    prepare(selection) {
-      const { title, type, media, imported, bb, eb, date, be, ee } = selection
+    prepare(selection, viewOptions = {}) {
+      const { label, sortLabel, type, media, imported, bb, eb, date, be, ee } = selection
       const timespan = timespanAsString(bb, eb, date, be, ee, 'nb')
       const wasImported = imported ? `Importert fra ${imported.hasSender.label}` : ''
+
+      const title = viewOptions.ordering && viewOptions.ordering.by.field === 'sortLabel'
+        ? sortLabel ?? label
+        : label
 
       return {
         title: coalesceLabel(title),
@@ -135,4 +142,26 @@ export default {
       }
     },
   },
+  orderings: [
+    {
+      title: 'Navn, A-Å',
+      name: 'labelAsc',
+      by: [{ field: 'label.no', direction: 'asc' }],
+    },
+    {
+      title: 'Navn, Å-A',
+      name: 'labelDesc',
+      by: [{ field: 'label.no', direction: 'desc' }],
+    },
+    {
+      title: 'Invertert navn, A-Å',
+      name: 'sortLabelAsc',
+      by: [{ field: 'sortLabel', direction: 'asc' }],
+    },
+    {
+      title: 'Invertert navn, Å-A',
+      name: 'sortLabelDesc',
+      by: [{ field: 'sortLabel', direction: 'desc' }],
+    },
+  ],
 }

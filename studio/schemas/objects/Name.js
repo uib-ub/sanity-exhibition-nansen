@@ -20,6 +20,7 @@ export default {
       title: 'Type',
       titleEN: 'Type',
       type: 'reference',
+      validation: (Rule) => Rule.required(),
       to: [{ type: 'AppelationType' }],
       options: {
         semanticSanity: {
@@ -66,7 +67,7 @@ export default {
       const { title, type, lang } = selection
       return {
         title: coalesceLabel(title),
-        subtitle: `${type} ${lang ? 'på ' + coalesceLabel(lang) : ''}`,
+        subtitle: `${coalesceLabel(type)} ${lang ? 'på ' + coalesceLabel(lang) : ''}`,
       }
     },
   },
