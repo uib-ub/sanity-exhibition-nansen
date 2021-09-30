@@ -43,7 +43,7 @@ export default function Footer(props) {
         </Button>
       </Flex>
 
-      <Container maxW="4xl" px="4" pt={['12%', '8%', '6%', null]} centerContent>
+      <Container maxW="4xl" px="4" pt={['12%', '10%', '8%', null]} centerContent>
         {/* <Flex pb="0">
           <Spacer />
 
