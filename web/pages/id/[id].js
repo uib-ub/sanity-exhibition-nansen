@@ -51,7 +51,9 @@ export default function Document({ data, preview }) {
   return (
     <Layout preview={preview} site={page?.siteSettings}>
       <Head>
-        <title>{`${page?.item[0]?.label?.no || page?.item[0]?.label}`}</title>
+        <title>
+          {`${page?.item[0]?.label?.no || page?.item[0]?.label}`} - {page.siteSettings.title}
+        </title>
         <script type="application/ld+json">{JSON.stringify(page.item, null, 2)}</script>
       </Head>
 

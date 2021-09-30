@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { orderBy } from 'lodash'
 import { getEvents } from '../../lib/api'
 import Layout from '../../components/Layout'
@@ -7,6 +8,9 @@ import RenderMergedActivityStreamList from '../../components/ActivityStream/Merg
 export default function Events({ data, preview }) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
+      <Head>
+        <title>Hendelser - {data.siteSettings.title}</title>
+      </Head>
       <Container my="5" maxWidth="6xl">
         <Heading
           fontSize={['2xl', '3xl', '4xl', '5xl']}
