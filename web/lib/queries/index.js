@@ -90,7 +90,7 @@ export const frontpageQuery = groq`
             canvasUrl,
           },
         },
-        _type in ['SingleObject', 'EventSection'] && disabled != true => @{
+        _type == 'SingleObject' && disabled != true => @{
           ...,
           item-> {
             _id,
@@ -103,6 +103,19 @@ export const frontpageQuery = groq`
             canvasUrl,
           }
         },
+        _type == 'EventSection' && disabled != true => @{
+          ...,
+          item-> {
+            _id,
+            label,
+            timespan,
+            location,
+            referredToBy[] {
+              ...
+            },
+            image,
+          }
+        },
         _type == 'Grid' => @{
           ...,
           items[] {
@@ -111,14 +124,6 @@ export const frontpageQuery = groq`
           }
         }
       }
-    },
-    "latest": *[ _type == "HumanMadeObject"][0..10] {
-      _id,
-      label,
-      hasType[]-> {
-        ...
-      },
-      image,	
     },
     ${siteSettings}
   }
