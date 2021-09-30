@@ -13,7 +13,7 @@ export default function WrapperGrid({ children }) {
       borderColor="gray.200"
       gridGap={5}
       gridTemplateAreas={{ base: '"image" "metadata"', xl: '"image metadata"' }}
-      gridTemplateColumns={{ base: 'auto', xl: '10fr 3fr' }}
+      gridTemplateColumns={{ base: 'auto', lg: '10fr 3fr' }}
       gridTemplateRows="1fr auto"
       mx="auto"
       px="4"

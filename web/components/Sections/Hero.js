@@ -48,7 +48,7 @@ export default function Hero(props) {
           <Box>
             <PortableTextBlock
               fontSize={['2xl', '3xl']}
-              alignText="center"
+              textAlign="center"
               blocks={props.tagline}
             />
           </Box>

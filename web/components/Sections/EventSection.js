@@ -17,6 +17,7 @@ export default function EventSection(props) {
       p="4"
       maxW={['md', null, '4xl', null]}
       mx="auto"
+      my="10"
       templateColumns="auto auto"
       bg="yellow.300"
     >

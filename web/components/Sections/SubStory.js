@@ -30,7 +30,7 @@ export default function SubStory(props) {
 
   return (
     <Container
-      maxW="full"
+      maxW={['md', null, '2xl', null]}
       my="10"
       centerContent
       borderTop="1px solid"

@@ -61,7 +61,7 @@ export default function SingleLevelChart(props) {
           ]}
         />
       </Box>
-      <Container as="figcaption" px="0" maxW={['xl', null, '2xl', null]}>
+      <Container as="figcaption" maxW={['md', null, '2xl', null]}>
         <Caption title={label} content={caption} />
       </Container>
     </Wrapper>
