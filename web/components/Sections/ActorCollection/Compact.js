@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Heading, Flex, Text, Box } from '@chakra-ui/react'
+import { Container, Heading, Flex, Text, Box } from '@chakra-ui/react'
 import PortableTextBlock from '../../PT/PortableTextBlock'
 import { kebabCase } from 'lodash'
 import Link from '../../Link'
@@ -7,7 +7,7 @@ import { getNextSanityImage } from '../../../lib/sanity.server'
 
 export default function Compact({ data }) {
   return (
-    <>
+    <Container maxW={['md', null, '2xl', null]}>
       {data.map((item) => (
         <Flex key={item.item._id} p="4" my="5" bg="lightgray" direction="row">
           {item.image && (
@@ -43,6 +43,6 @@ export default function Compact({ data }) {
           </Box>
         </Flex>
       ))}
-    </>
+    </Container>
   )
 }
