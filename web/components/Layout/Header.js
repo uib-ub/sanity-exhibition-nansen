@@ -32,6 +32,7 @@ export default function Header(props) {
   const { colorMode, toggleColorMode } = useColorMode()
 
   const bg = useColorModeValue('white', 'gray.800')
+  const menuButtonText = useColorModeValue('gray.900', 'gray.100')
 
   const { data, ...rest } = props
   const { title, /* logo, */ mainNavigation, footer } = data
@@ -64,7 +65,7 @@ export default function Header(props) {
             <MenuButton
               as={Button}
               variant="link"
-              color="gray.900"
+              color={menuButtonText}
               /* fontWeight={{ base: 'normal' }} */
               textTransform="uppercase"
               rightIcon={<ChevronDownIcon />}

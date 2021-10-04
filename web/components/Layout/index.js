@@ -19,7 +19,12 @@ export default function Layout({ preview, children, site }) {
         {children}
       </Box>
 
-      <Footer {...site.footer} license={site.license} publisher={site.publisher} />
+      <Footer
+        {...site.footer}
+        license={site.license}
+        publisher={site.publisher}
+        mainNavigation={site.mainNavigation}
+      />
     </>
   )
 }
