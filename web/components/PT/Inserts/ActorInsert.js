@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Container, Box, Flex, Heading, HStack, Text } from '@chakra-ui/react'
+import { Container, Box, Flex, Heading, HStack, Text, useColorModeValue } from '@chakra-ui/react'
 import Link from '../../Link'
 import { getNextSanityImage } from '../../../lib/sanity.server'
 
@@ -8,6 +8,8 @@ export default function ActorInsert(props) {
     return null
   }
   /* console.log(props) */
+
+  const color = useColorModeValue('gray.600', 'gray.200')
 
   const { _id, label, shortDescription, memberOf } = props
 
@@ -44,7 +46,7 @@ export default function ActorInsert(props) {
                     height={36}
                   />
                 )}
-                <Heading fontSize={['lg', null, 'xl', null]} color="blackAlpha.800" display="block">
+                <Heading fontSize={['lg', null, 'xl', null]} color={color} display="block">
                   {org.label.no}
                 </Heading>
               </HStack>

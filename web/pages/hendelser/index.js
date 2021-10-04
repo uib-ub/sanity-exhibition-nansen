@@ -17,14 +17,18 @@ export default function Events({ data, preview }) {
           py="5"
           mb="5"
           borderBottom="solid 1px"
-          color="gray.600"
           borderColor="gray.300"
         >
           Hendelser
         </Heading>
 
         {data.items && (
-          <SimpleGrid w="full" columnGap="5" templateColumns={{ base: '1fr', md: 'auto 1fr' }}>
+          <SimpleGrid
+            w="full"
+            columnGap="5"
+            templateColumns={{ base: '1fr', md: 'auto 1fr' }}
+            fontSize={['xl', null, '2xl', null]}
+          >
             {' '}
             <RenderMergedActivityStreamList stream={data.items} />{' '}
           </SimpleGrid>

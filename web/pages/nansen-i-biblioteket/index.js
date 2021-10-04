@@ -19,7 +19,6 @@ export default function PhysicalExhibition({ data, preview }) {
           pb="5"
           mb="5"
           borderBottom="solid 1px"
-          color="gray.600"
           borderColor="gray.300"
           fontSize={['2xl', '3xl', '4xl', '5xl']}
         >

@@ -22,7 +22,6 @@ export default function Register({ data, preview }) {
           py="5"
           mb="5"
           borderBottom="solid 1px"
-          color="gray.600"
           borderColor="gray.300"
         >
           Register

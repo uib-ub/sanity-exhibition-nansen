@@ -137,16 +137,13 @@ export default function Card(props) {
               color={color}
               fontSize={['md', 'md', 'lg', 'lg']}
               blocks={description[0].body}
+              maxW="full"
+              mx="0"
             />
           )}
 
           {creation && creation[0].creators && (
-            <Text
-              fontSize={['xs', 'sm', 'sm', 'sm']}
-              color="gray.500"
-              fontFamily="Montserrat"
-              mb="1"
-            >
+            <Text fontSize={['xs', 'sm', 'sm', 'sm']} color={color} fontFamily="Montserrat" mb="1">
               {creation[0].creators
                 .filter((creator) => creator.name.no != 'Ukjent')
                 .map((creator, index) => (
@@ -159,7 +156,7 @@ export default function Card(props) {
           )}
 
           {creation && creation[0].timespan && (
-            <Box fontFamily="Montserrat" fontSize={['xs', 'sm', 'sm', 'sm']} color="gray.500">
+            <Box fontFamily="Montserrat" fontSize={['xs', 'sm', 'sm', 'sm']} color={color}>
               <Timespan timespan={creation[0].timespan} />
             </Box>
           )}
