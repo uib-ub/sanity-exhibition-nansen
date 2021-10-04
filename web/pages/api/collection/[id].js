@@ -1,10 +1,11 @@
 import { sanityClient, previewClient } from '../../../lib/sanity.server'
 const getClient = (preview) => (preview ? previewClient : sanityClient)
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH
 
 const domain = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : 'http://localhost:3000'
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH
 /* 
   Construct a IIIF Presentation v3 collection json
 */
@@ -28,13 +29,24 @@ export default async function handler(req, res) {
     const results = await getClient(id, preview).fetch(
       `
       *[_id == $id][0] {
-        "id": "${domain}/api/collection/" + _id,
+        "id": "${domain}${basePath}/api/collection/" + _id,
         "type": "Collection",
-        label,
+        "label": {
+          "no": [label.no]
+        },
         "items":*[_type == "HumanMadeObject" && ^._id in hasCurrentOwner[]._ref] {
           "id": coalesce(subjectOfManifest, "${domain}${basePath}/api/manifest/" + _id),
           "type": "Manifest",
-          label
+          "label": {
+            "no": [label.no]
+          },
+          "thumbnail": [
+            {
+              "id": image.asset->url + '?h=200',
+              "type": "Image",
+              "format": "image/jpeg"
+            }
+          ]
         }                
       }`,
       id,

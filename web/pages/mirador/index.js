@@ -8,11 +8,12 @@ const MiradorWithNoSSR = dynamic(() => import('../../components/MiradorViewer'),
 export default function Mirador({ data, preview }) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
-      <Container h="100vh" m="0" p="0" maxWidth="full">
+      <Container h="80vh" my="5" maxW="full">
         <MiradorWithNoSSR
+          height="100%"
           variant="catalog"
           workspaceControlPanel="true"
-          catalog="http://localhost:3000/api/collection"
+          catalog={`${process.env.NEXT_PUBLIC_BASE_PATH}/api/collection`}
         />
       </Container>
     </Layout>
