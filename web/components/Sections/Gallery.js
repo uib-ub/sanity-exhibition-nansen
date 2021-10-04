@@ -18,7 +18,7 @@ export default function Gallery(props) {
         mx="0"
         bg="blackAlpha.100"
         overflowX="scroll"
-        direction={{ base: 'column', sm: 'row' }}
+        direction={{ base: 'column', md: 'row' }}
         boxSizing="content-box"
       >
         {/* <pre>{JSON.stringify(props, null, 4)}</pre> */}

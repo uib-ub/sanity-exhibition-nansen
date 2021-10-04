@@ -11,7 +11,14 @@ export default function ItemView(props) {
   const { title, description, image, source } = props
 
   return (
-    <Box px="4" direction="column" position="relative" alignSelf="start" flex="0 0 auto">
+    <Box
+      px="4"
+      direction="column"
+      position="relative"
+      alignSelf="start"
+      flex="0 0 auto"
+      mb={[5, 0, null, null]}
+    >
       <Box>
         {image && (
           <Image
