@@ -21,7 +21,7 @@ function Footnotes({ blocks }) {
 
   return (
     <Container
-      maxWidth={['xl', null, 'xl', null]}
+      maxWidth={['md', null, 'xl', null]}
       borderTopColor="blackAlpha.300"
       borderTopWidth="1px"
       mt="10"
