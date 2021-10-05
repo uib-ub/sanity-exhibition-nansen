@@ -121,7 +121,7 @@ export default function Card(props) {
             mt="1"
             fontFamily="Montserrat"
             fontWeight="semibold"
-            as="h4"
+            as="h3"
             color={color}
             fontSize={['xs', 'sm', 'md', 'md']}
             lineHeight="tight"

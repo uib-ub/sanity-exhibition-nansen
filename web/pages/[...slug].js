@@ -3,7 +3,7 @@ import { usePreviewSubscription } from '../lib/sanity'
 import { routeQuery } from '../lib/queries/routeQuery'
 import { getClient } from '../lib/sanity.server'
 import { getRoutes } from '../lib/api'
-import { Container, Text } from '@chakra-ui/react'
+import { Container, Text, useColorModeValue } from '@chakra-ui/react'
 import Date from '../components/Date'
 import Layout from '../components/Layout'
 import Sections from '../components/Sections/Sections'
@@ -32,6 +32,8 @@ export default function Page({ data, preview }) {
     // The passed-down preview context determines whether this function does anything
     enabled: preview,
   })
+
+  const timestampColor = useColorModeValue('grey.700', 'grey.100')
 
   // Client-side uses the same query, so we may need to filter it down again
   const page = filterDataToSingleItem(previewData, preview)
@@ -71,8 +73,8 @@ export default function Page({ data, preview }) {
           mt="10"
           centerContent
         >
-          <Text mt="10" color="gray.500" fontSize="sm">
-            Oppdatert: <Date>{page?.route[0]?.page?._updatedAt}</Date>
+          <Text mt="10" color={timestampColor} fontSize="sm">
+            Oppdatert <Date>{page?.route[0]?.page?._updatedAt}</Date>
           </Text>
         </Container>
       </Container>

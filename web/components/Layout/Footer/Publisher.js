@@ -20,12 +20,12 @@ export default function Publisher({ publishers }) {
     <Flex maxW="xl" marginBottom={5}>
       <Box m="6" minW="100px" maxW={['100px', null, '150px', null]}>
         <a href="https://www.uib.no/75%C3%A5r">
-          <Image alt="" src={sytti} w="full" />
+          <Image alt="Universitetet i Bergen 75 år" src={sytti} w="full" />
         </a>
       </Box>
       <Box m="6" minW="100px" maxW={['100px', null, '150px', null]}>
         <a href="https://uib.no/ub">
-          <Image alt="" src={uib} w="full" />
+          <Image alt="Universitetet i Bergen" src={uib} w="full" />
         </a>
       </Box>
       <Box m="6" minW="100px" maxW={['100px', null, '150px', null]}>
@@ -34,7 +34,7 @@ export default function Publisher({ publishers }) {
             layout="responsive"
             width={100}
             height={100}
-            alt=""
+            alt="Arven etter Nansen"
             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/img/nansen-logo-legacy.png`}
             w="full"
           />

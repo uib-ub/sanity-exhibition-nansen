@@ -1,4 +1,4 @@
-import { Heading, Flex, Box, Icon, Image, Spacer } from '@chakra-ui/react'
+import { Heading, Flex, Box, Icon, Image, Spacer, useColorModeValue } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
 import { BsInfoCircle } from 'react-icons/bs'
 import { imageBuilder } from '../../lib/sanity'
@@ -9,6 +9,8 @@ export default function ItemView(props) {
   }
 
   const { title, description, image, source } = props
+
+  const sourceColor = useColorModeValue('grey.600', 'grey.200')
 
   return (
     <Box
@@ -59,7 +61,7 @@ export default function ItemView(props) {
 
         {source && (
           <Flex
-            color="gray.500"
+            color={sourceColor}
             fontSize={{ base: 'xs', sm: 'xs', md: 'sm', xl: 'sm' }}
             pb={{ base: '2', md: '0' }}
             mb="0"
@@ -67,7 +69,7 @@ export default function ItemView(props) {
           >
             <Icon as={BsInfoCircle} mr="2" mt="1" />
             <PortableTextBlock
-              color="gray.500"
+              color={sourceColor}
               fontSize={{ base: 'xs', sm: 'xs', md: 'sm', xl: 'sm' }}
               mb="0"
               mx="0"

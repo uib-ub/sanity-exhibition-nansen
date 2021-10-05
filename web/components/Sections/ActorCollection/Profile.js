@@ -13,7 +13,7 @@ export default function Profile({ data }) {
         <React.Fragment key={item.item._id}>
           {item.image && (
             <Container maxW={['md', null, '2xl', null]} mb="5" mt="26" px="0">
-              <Image {...getNextSanityImage(item.image)} alt={item.label.no} layout="intrinsic" />
+              <Image {...getNextSanityImage(item.image)} alt={item.label} layout="intrinsic" />
             </Container>
           )}
 

@@ -36,7 +36,7 @@ export default function SubStory(props) {
       borderTop="1px solid"
       borderBottom="1px solid"
       borderColor="red.200"
-      color="gray.500"
+      color="gray.700"
     >
       <Flex pt="2" alignItems="baseline" justifyContent="baseline">
         <Box mr="3" mt="-3">

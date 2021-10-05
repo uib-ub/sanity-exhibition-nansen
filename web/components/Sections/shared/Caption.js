@@ -1,4 +1,4 @@
-import { Flex, Heading, Spacer, Icon } from '@chakra-ui/react'
+import { Flex, Heading, Spacer, Icon, useColorModeValue } from '@chakra-ui/react'
 import { BsInfoCircle } from 'react-icons/bs'
 import PortableTextBlock from '../../PT/PortableTextBlock'
 import Source from '../Source'
@@ -7,6 +7,8 @@ export default function Caption(props) {
   if (!props) {
     return null
   }
+
+  const sourceColor = useColorModeValue('grey.600', 'grey.200')
 
   const { title, content, source, sourceItem } = props
 
@@ -38,14 +40,14 @@ export default function Caption(props) {
 
       {source && (
         <Flex
-          color="gray.500"
+          color={sourceColor}
           fontSize={{ base: 'xs', sm: 'xs', md: 'sm', xl: 'sm' }}
           pb={{ base: '2', md: '0' }}
           mb="0"
         >
           <Icon as={BsInfoCircle} mr="2" mt="1" />
           <PortableTextBlock
-            color="gray.500"
+            color={sourceColor}
             fontSize={{ base: 'xs', sm: 'xs', md: 'sm', xl: 'sm' }}
             mb="0"
             mx="0"

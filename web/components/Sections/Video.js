@@ -16,7 +16,11 @@ export default function Video(props) {
           width="1000px"
         /> */}
       <AspectRatio ratio={16 / 9} mb="3">
-        {url ? <iframe src={url} allowFullScreen /> : <Flex>Ingen videolenke</Flex>}
+        {url ? (
+          <iframe src={url} allowFullScreen title={title ?? 'Video uten tittel'} />
+        ) : (
+          <Flex>Ingen videolenke</Flex>
+        )}
       </AspectRatio>
       {title && <Caption title={title} />}
     </Container>
