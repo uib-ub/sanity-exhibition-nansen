@@ -1,3 +1,18 @@
+const securityHeaders = [
+  {
+    key: 'Permissions-Policy',
+    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  },
+  {
+    key: 'X-XSS-Protection',
+    value: '1; mode=block',
+  },
+  {
+    key: 'Content-Security-Policy-Report-Only',
+    value: `default-src 'self'; img-src * ; media-src * ; script-src 'self'`,
+  },
+]
+
 module.exports = {
   webpack(config) {
     config.module.rules.push({
@@ -16,6 +31,15 @@ module.exports = {
       },
     ]
   }, */
+  async headers() {
+    return [
+      {
+        // Apply these headers to all routes in your application.
+        source: '/(.*)',
+        headers: securityHeaders,
+      },
+    ]
+  },
   images: {
     domains: ['cdn.sanity.io'],
   },
