@@ -1,4 +1,4 @@
-import { Container, Heading, Image, useColorModeValue } from '@chakra-ui/react'
+import { Container, Heading, useColorModeValue } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function PageHeader(props) {
@@ -12,14 +12,20 @@ export default function PageHeader(props) {
   )
 
   return (
-    <Container centerContent pt="10" mb={['4', '8']} maxW="4xl">
-      <Heading fontSize={['2xl', '3xl', '4xl', '5xl']} textTransform="uppercase" mb="">
+    <Container
+      centerContent
+      pt="10"
+      pb={['12', null, '14', null]}
+      mb={['4', null, '8', null]}
+      maxW={['90vw', '90vw', '2xl', '3xl']}
+      backgroundImage={`url('${border}')`}
+      backgroundPosition="40% 100%"
+      backgroundRepeat="no-repeat"
+    >
+      <Heading fontSize={['2xl', '3xl', '4xl', '5xl', null]} textTransform="uppercase" mb="">
         {props.title}
       </Heading>
-
       {props?.subtitle && <PortableTextBlock textAlign="center" blocks={props.subtitle} />}
-
-      <Image mt={['1', null, '10', null]} src={border} alt="" />
     </Container>
   )
 }
