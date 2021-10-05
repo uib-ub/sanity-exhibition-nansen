@@ -2,6 +2,27 @@ import { groq } from 'next-sanity'
 import { siteSettings } from './fragments'
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH
 
+const actorCollection = `
+  _type == 'ActorCollection' => {
+    ...,
+    items[] {
+      "label": coalesce(title, item->label.no),
+      "description": coalesce(description, item->referredToBy[0].body),
+      "image": coalesce(image, item->image),
+      file,
+      item-> {
+        _id,
+        label,
+        shortDescription,
+        referredToBy[] {
+          ...
+        },
+        image
+      }
+    }
+  }
+`
+
 export const routeQuery = groq`
   {
     "route": *[ _type == "Route" && slug.current == $slug ] {
@@ -52,24 +73,7 @@ export const routeQuery = groq`
               canvasUrl,
             },
           },
-          _type == 'ActorCollection' => {
-            ...,
-            items[] {
-              "label": coalesce(title, item->label.no),
-              "description": coalesce(description, item->referredToBy[0].body),
-              "image": coalesce(image, item->image),
-              file,
-              item-> {
-                _id,
-                label,
-                shortDescription,
-                referredToBy[] {
-                  ...
-                },
-                image
-              }
-            }
-          },
+          ${actorCollection},
           _type == 'SingleObject' => @{
             ...,
             view,

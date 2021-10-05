@@ -1,8 +1,7 @@
-import { getClient, previewClient } from './sanity.server'
+import { getClient } from './sanity.server'
 import {
   actorsQuery,
   alertQuery,
-  conceptsQuery,
   registryQuery,
   frontpageQuery,
   idsQuery,
@@ -15,18 +14,6 @@ import {
   physicalExhibitionQuery,
 } from './queries'
 import { siteSettings } from './queries/fragments'
-
-/* const getUniques = (items) => {
-  const ids = new Set()
-  return items.filter((item) => {
-    if (ids.has(item._id ?? item._key)) {
-      return false
-    } else {
-      ids.add(item._id ?? item._key)
-      return true
-    }
-  })
-} */
 
 export async function getFrontpage(preview) {
   const data = await getClient(preview).fetch(frontpageQuery)
@@ -58,18 +45,6 @@ export async function getEvents(preview) {
   return activityStream
 }
 
-export async function getPreviewHumanMadeObjectByID(id) {
-  const data = await previewClient.fetch(
-    `*[_id == $id || slug.current == $id || page._id == $id][0] {
-      _id,
-      _type,
-      slug
-    }`,
-    { id },
-  )
-  return data
-}
-
 export async function getAllHumanMadeObjects(preview) {
   const data = await getClient(preview).fetch(humanMadeObjectsQuery)
   return data
@@ -77,11 +52,6 @@ export async function getAllHumanMadeObjects(preview) {
 
 export async function getAllActors(preview) {
   const data = await getClient(preview).fetch(actorsQuery)
-  return data
-}
-
-export async function getAllConcepts(preview) {
-  const data = await getClient(preview).fetch(conceptsQuery)
   return data
 }
 
