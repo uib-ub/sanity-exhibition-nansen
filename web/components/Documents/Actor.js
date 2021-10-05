@@ -5,6 +5,7 @@ import Cards from '../Cards'
 import RenderMergedActivityStreamList from '../ActivityStream/MergedActivityStreamList/RenderMergedActivityStreamList'
 import { getNextSanityImage } from '../../lib/sanity.server'
 import Members from '../Members'
+import Footnotes from '../Layout/Footnotes'
 
 export default function Actor(item) {
   if (!item) {
@@ -44,7 +45,10 @@ export default function Actor(item) {
           {item.referredToBy && (
             <Box maxWidth={['xl', null, '2xl', null]} my="10">
               {item.referredToBy?.map((ref) => (
-                <PortableTextBlock key={ref._key} blocks={ref.body} />
+                <>
+                  <PortableTextBlock key={ref._key} blocks={ref.body} />
+                  <Footnotes blocks={ref.body} />
+                </>
               ))}
             </Box>
           )}
