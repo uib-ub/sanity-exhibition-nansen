@@ -8,7 +8,7 @@ export default function Index({ data, preview }) {
   return (
     <Layout preview={preview} site={data.siteSettings}>
       <Head>{data?.siteSettings?.title && <title>{data.siteSettings.title}</title>}</Head>
-      <Container maxW="full">
+      <Container maxWidth="full" px="0">
         {data.frontpage.content && <RenderSections sections={data.frontpage.content} />}
       </Container>
     </Layout>

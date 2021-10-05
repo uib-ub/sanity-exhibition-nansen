@@ -15,10 +15,10 @@ export default function Hero(props) {
   const image = props.illustration.image
 
   return (
-    <Container maxW="full" px="0">
+    <Container maxW={['sm', '2xl', '4xl', '6xl']}>
       <Box
         borderColor="gray.800"
-        borderWidth="20px"
+        borderWidth="1px"
         mb="2"
         mt="4"
         maxW="full"
@@ -40,14 +40,18 @@ export default function Hero(props) {
           </Badge>
         )}
 
-        <Heading fontSize={['xl', '4xl', '4xl', '6xl']} textTransform="uppercase">
+        <Heading
+          fontSize={['xl', '4xl', '4xl', '6xl']}
+          textTransform="uppercase"
+          textAlign="center"
+        >
           {props.title}
         </Heading>
 
         {props?.tagline && (
           <Box>
             <PortableTextBlock
-              fontSize={['2xl', '3xl']}
+              fontSize={['xl', null, '2xl', '3xl']}
               textAlign="center"
               blocks={props.tagline}
             />
