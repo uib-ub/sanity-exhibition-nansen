@@ -23,8 +23,9 @@ export default function ItemView(props) {
         {image && (
           <Image
             maxH="50vh"
+            maxW="90vw"
             alt=""
-            src={imageBuilder.image(image).fit('crop').height(500).url()}
+            src={imageBuilder.image(image).fit('max').height(500).url()}
             fit="contain"
           />
         )}
@@ -48,7 +49,7 @@ export default function ItemView(props) {
           <PortableTextBlock
             fontSize={{ base: 'sm', sm: 'sm', md: 'md', xl: 'md' }}
             fontWeight="200"
-            mx="inherit"
+            mx="0"
             maxW={['md', 'lg', 'lg', null]}
             blocks={description}
           />
