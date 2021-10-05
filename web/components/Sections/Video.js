@@ -1,23 +1,24 @@
-import { AspectRatio, Container, Heading } from '@chakra-ui/react'
+import { AspectRatio, Container, Flex } from '@chakra-ui/react'
+import Caption from './shared/Caption'
 
 export default function Video(props) {
   if (!props || props.disabled === true) {
     return null
   }
 
+  const { title, url } = props
+
   return (
-    <>
-      <Heading fontSize="xl">{props.title}</Heading>
-      <Container maxW="2xl" position="relative">
-        {/* <ReactPlayer
+    <Container maxW="2xl" position="relative" my="10">
+      {/* <ReactPlayer
           url={props.url}
           controls="true"
           width="1000px"
         /> */}
-        <AspectRatio ratio={16 / 9}>
-          <iframe src={props.url} allowFullScreen />
-        </AspectRatio>
-      </Container>
-    </>
+      <AspectRatio ratio={16 / 9} mb="3">
+        {url ? <iframe src={url} allowFullScreen /> : <Flex>Ingen videolenke</Flex>}
+      </AspectRatio>
+      {title && <Caption title={title} />}
+    </Container>
   )
 }
