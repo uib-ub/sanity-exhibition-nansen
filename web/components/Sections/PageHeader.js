@@ -1,10 +1,15 @@
-import { Container, Heading, Image } from '@chakra-ui/react'
+import { Container, Heading, Image, useColorModeValue } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function PageHeader(props) {
   if (!props || props.disabled === true) {
     return null
   }
+
+  const border = useColorModeValue(
+    `${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-border/light.svg`,
+    `${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-border/dark.svg`,
+  )
 
   return (
     <Container centerContent pt="10" mb={['4', '8']} maxW="4xl">
@@ -14,11 +19,7 @@ export default function PageHeader(props) {
 
       {props?.subtitle && <PortableTextBlock textAlign="center" blocks={props.subtitle} />}
 
-      <Image
-        mt={['1', null, '10', null]}
-        src={`${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-border.svg`}
-        alt=""
-      />
+      <Image mt={['1', null, '10', null]} src={border} alt="" />
     </Container>
   )
 }

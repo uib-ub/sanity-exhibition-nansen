@@ -13,9 +13,6 @@ import License from '../../License'
 import React from 'react'
 import Publisher from './Publisher'
 import ActiveLink from '../../Link/ActiveLink'
-// import { Image } from '../Image'
-
-// import footerBorder from '../../public/img/taakeheimen-footer.svg'
 
 export default function Footer(props) {
   if (!props) {
@@ -24,6 +21,10 @@ export default function Footer(props) {
 
   const { colorMode, toggleColorMode } = useColorMode()
   const color = useColorModeValue('gray.500', 'gray.400')
+  const footer = useColorModeValue(
+    `${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer/light.svg`,
+    `${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer/dark.svg`,
+  )
 
   const { content, mainNavigation, navMenu, license, publisher } = props
 
@@ -38,7 +39,7 @@ export default function Footer(props) {
       px="0"
       zIndex="100"
       color={color}
-      backgroundImage={`url('${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer.svg')`}
+      backgroundImage={`url('${footer}')`}
       backgroundPosition={['50% 10%', '50% 8%', '50% 4%', null]}
       backgroundRepeat="no-repeat"
     >
