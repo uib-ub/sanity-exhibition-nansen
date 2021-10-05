@@ -22,7 +22,11 @@ export default function PageHeader(props) {
       backgroundPosition="40% 100%"
       backgroundRepeat="no-repeat"
     >
-      <Heading fontSize={['2xl', '3xl', '4xl', '5xl', null]} textTransform="uppercase" mb="">
+      <Heading
+        fontSize={['2xl', '3xl', '4xl', '5xl', null]}
+        textAlign="center"
+        textTransform="uppercase"
+      >
         {props.title}
       </Heading>
       {props?.subtitle && <PortableTextBlock textAlign="center" blocks={props.subtitle} />}
