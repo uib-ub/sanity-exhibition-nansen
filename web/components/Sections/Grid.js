@@ -13,7 +13,7 @@ export default function Hero(props) {
   const { items } = props
 
   return (
-    <Container px={[5, 5, 5, 0]} maxW={['sm', 'lg', '2xl', '6xl']} centerContent>
+    <Container px={[5, 5, 5, 0]} maxW={['sm', '2xl', '2xl', '6xl']} centerContent>
       <Grid
         templateColumns="1fr 1fr"
         maxW="4xl"

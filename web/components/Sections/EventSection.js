@@ -15,7 +15,7 @@ export default function EventSection(props) {
   const { label, item, description, image } = props
 
   return (
-    <Container px={[5, 5, 5, 0]} maxW={['sm', 'lg', '4xl', '6xl']} centerContent>
+    <Container px={[5, 5, 5, 0]} maxW={['sm', '2xl', '4xl', '6xl']} centerContent>
       <Grid maxW="4xl" mt="10" mb="28" templateColumns="1fr 1fr" gap={[5, null, 10, null]}>
         <Box position="relative">
           {image ? (
