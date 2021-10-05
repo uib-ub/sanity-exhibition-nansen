@@ -19,13 +19,13 @@ export default function ItemView(props) {
       position="relative"
       alignSelf="start"
       flex="0 0 auto"
-      mb={[5, 0, null, null]}
+      mb={[10, 0, null, null]}
     >
       <Box>
         {image && (
           <Image
             maxH="50vh"
-            maxW="90vw"
+            maxW={['100%', null, '90vw', null]}
             alt=""
             src={imageBuilder.image(image).fit('max').height(500).url()}
             fit="contain"
@@ -52,7 +52,7 @@ export default function ItemView(props) {
             fontSize={{ base: 'sm', sm: 'sm', md: 'md', xl: 'md' }}
             fontWeight="200"
             mx="0"
-            maxW={['md', 'lg', 'lg', null]}
+            maxW={['xs', 'lg', 'lg', null]}
             blocks={description}
           />
         )}
@@ -73,7 +73,7 @@ export default function ItemView(props) {
               fontSize={{ base: 'xs', sm: 'xs', md: 'sm', xl: 'sm' }}
               mb="0"
               mx="0"
-              maxW={['md', 'md', 'lg', null]}
+              maxW={['xs', 'md', 'lg', null]}
               blocks={source}
             />
           </Flex>

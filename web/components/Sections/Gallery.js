@@ -9,10 +9,9 @@ export default function Gallery(props) {
   const { items } = props
 
   return (
-    <Container maxW={['sm', 'lg', '100vw', null, null]} px="0">
+    <Container maxW={['100%', 'lg', '100vw', null, null]} px="0">
       <Flex
-        maxW="full"
-        px="12"
+        px={[4, 0, 12, null]}
         py="10"
         my="10"
         mx="0"
