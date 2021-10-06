@@ -15,7 +15,7 @@ export default function Hero(props) {
   const image = props.illustration.image
 
   return (
-    <Container maxW="full">
+    <Container maxW={['sm', '2xl', '4xl', '6xl']}>
       <Box
         borderColor="gray.800"
         borderWidth="1px"
