@@ -8,7 +8,7 @@ import { getNextSanityImage } from '../../../lib/sanity.server'
 
 export default function Profile({ data }) {
   return (
-    <Container maxW={['md', null, '2xl', null]}>
+    <Container maxW={['md', null, '2xl', null]} px="0">
       {data.map((item) => (
         <React.Fragment key={item.item._id}>
           {item.image && (
