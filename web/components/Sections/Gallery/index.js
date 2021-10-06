@@ -1,5 +1,6 @@
-import { Container, Flex } from '@chakra-ui/react'
+import { Container, Flex, Icon } from '@chakra-ui/react'
 import ItemView from './ItemView'
+import { BsArrowRight } from 'react-icons/bs'
 
 export default function Gallery(props) {
   if (!props || props.disabled === true) {
@@ -9,13 +10,21 @@ export default function Gallery(props) {
   const { items } = props
 
   return (
-    <Container maxW={['100%', 'lg', '100vw', null, null]} px="0">
+    <Container bg="blackAlpha.100" maxW={['100%', 'lg', '100vw', null, null]} px="0" my="10">
+      <Icon
+        as={BsArrowRight}
+        position="absolute"
+        right="3"
+        w={8}
+        h={8}
+        mt="2"
+        color="red.600"
+        display={['none', null, 'block', null]}
+      />
       <Flex
         px={[4, 0, 12, null]}
-        py="10"
-        my="10"
+        py="12"
         mx="0"
-        bg="blackAlpha.100"
         overflowX="scroll"
         direction={{ base: 'column', md: 'row' }}
         boxSizing="content-box"

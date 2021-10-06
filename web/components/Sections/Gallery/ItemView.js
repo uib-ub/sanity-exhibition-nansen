@@ -1,7 +1,7 @@
 import { Heading, Flex, Box, Icon, Image, Spacer, useColorModeValue } from '@chakra-ui/react'
-import PortableTextBlock from '../PT/PortableTextBlock'
+import PortableTextBlock from '../../PT/PortableTextBlock'
 import { BsInfoCircle } from 'react-icons/bs'
-import { imageBuilder } from '../../lib/sanity'
+import { imageBuilder } from '../../../lib/sanity'
 
 export default function ItemView(props) {
   if (!props || props.disabled === true) {
