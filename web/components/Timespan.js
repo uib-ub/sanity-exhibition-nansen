@@ -1,9 +1,6 @@
-import { Box } from '@chakra-ui/react'
-import PortableTextBlock from './PT/PortableTextBlock'
-
-const formatDate = (date) => {
-  return new Date(date).toLocaleDateString()
-}
+import { Box, Flex } from '@chakra-ui/react'
+// import PortableTextBlock from './PT/PortableTextBlock'
+import Date from './Date'
 
 export default function Timespan(props) {
   if (!props && props.timespan) {
@@ -15,21 +12,46 @@ export default function Timespan(props) {
   return (
     <Box {...rest}>
       {timespan.map((time) => (
-        <Box key={time._key}>
-          {time.date && formatDate(time.date)}
+        <Flex key={time._key}>
+          {time.date && <Date>{time.date}</Date>}
 
-          {time.beginOfTheBegin && formatDate(time.beginOfTheBegin)}
+          {!time.date && (time.beginOfTheBegin || time.endOfTheBegin) && (
+            <Flex direction="column">
+              {time.beginOfTheBegin && <Date>{time.beginOfTheBegin}</Date>}
 
-          {time.endOfTheBegin && formatDate(time.endOfTheBegin)}
+              {time.beginOfTheBegin && time.endOfTheBegin && (
+                <Box textAlign="center" color="gray.500" lineHeight="0.3">
+                  &nbsp;~&nbsp;
+                </Box>
+              )}
 
-          {time.beginOfTheBegin && time.endOfTheEnd && <span>&nbsp;~&nbsp;</span>}
+              {time.endOfTheBegin && <Date>{time.endOfTheBegin}</Date>}
+            </Flex>
+          )}
 
-          {time.beginOfTheEnd && formatDate(time.beginOfTheEnd)}
+          {(time.beginOfTheBegin || time.endOfTheBegin) &&
+            (time.beginOfTheEnd || time.endOfTheEnd) && (
+              <Box alignSelf="center" fontSize="2xl" px="1" color="gray.500" lineHeight="0.3">
+                &nbsp;~&nbsp;
+              </Box>
+            )}
 
-          {time.endOfTheEnd && formatDate(time.endOfTheEnd)}
+          {!time.date && (time.beginOfTheEnd || time.endOfTheEnd) && (
+            <Flex direction="column">
+              {time.beginOfTheEnd && <Date>{time.beginOfTheEnd}</Date>}
 
-          {time.description?.no && <PortableTextBlock blocks={time.description.no} />}
-        </Box>
+              {time.beginOfTheEnd && time.endOfTheEnd && (
+                <Box textAlign="center" color="gray.500" lineHeight="0.3">
+                  &nbsp;~&nbsp;
+                </Box>
+              )}
+
+              {time.endOfTheEnd && <Date>{time.endOfTheEnd}</Date>}
+            </Flex>
+          )}
+          {/* TODO: add popover with information about the timespan?
+          {time.description?.no && <PortableTextBlock blocks={time.description.no} />} */}
+        </Flex>
       ))}
     </Box>
   )

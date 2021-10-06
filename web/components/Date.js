@@ -1,12 +1,12 @@
-import { parseJSON, format } from 'date-fns'
-import { nb } from 'date-fns/locale'
+import { parseISO, format } from 'date-fns'
+import nb from 'date-fns/locale/nb'
 
 export default function Date({ children }) {
   if (!children) {
     return null
   }
 
-  const date = parseJSON(children)
+  const date = parseISO(children)
 
-  return <time dateTime={children}>{format(date, 'do LLLL yyyy', { locale: nb })}</time>
+  return <time dateTime={children}>{format(date, 'do LLL yyyy', { locale: nb })}</time>
 }
