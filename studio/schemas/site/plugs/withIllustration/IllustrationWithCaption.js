@@ -16,6 +16,20 @@ export default {
       type: 'boolean',
     },
     {
+      name: 'view',
+      title: 'Visningsvalg',
+      titleEN: 'View choice',
+      description: 'Velg om bildet skal vises i sin helhet eller dekke et område. "Vis hele bildet" er standard.',
+      type: 'string',
+      initialValue: 'contain',
+      options: {
+        list: [
+          { title: 'Vis hele bildet', value: 'contain' },
+          { title: 'Dekk områder (kan føre til beskjæring)', value: 'cover' },
+        ],
+      },
+    },
+    {
       name: 'title',
       title: 'Tittel',
       titleEN: 'Title',
@@ -48,7 +62,7 @@ export default {
       media: 'illustration',
       disabled: 'disabled',
     },
-    prepare({title, media, disabled}) {
+    prepare({ title, media, disabled }) {
       return {
         title: title,
         subtitle: `${disabled ? 'Avslått: ' : ''}Illustrasjon`,

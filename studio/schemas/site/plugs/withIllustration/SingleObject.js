@@ -16,6 +16,7 @@ export default {
       titleEN: 'View choice',
       description: 'Velg enkeltside-visning eller galleri med alle objektets bilder. Bokvisning er standard.',
       type: 'string',
+      initialValue: 'book',
       options: {
         list: [
           { title: 'Book', value: 'book' },
