@@ -10,11 +10,6 @@ export default function Video(props) {
 
   return (
     <Container maxW="2xl" position="relative" my="10">
-      {/* <ReactPlayer
-          url={props.url}
-          controls="true"
-          width="1000px"
-        /> */}
       <AspectRatio ratio={16 / 9} mb="3">
         {url ? (
           <iframe src={url} allowFullScreen title={title ?? 'Video uten tittel'} />
