@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { kebabCase } from 'lodash'
 import { getNextSanityImage } from '../../lib/sanity.server'
 import { Box, Container, Heading, Grid, Text } from '@chakra-ui/layout'
-import Link from '../Link'
+// import Link from '../Link'
 import PortableTextBlock from '../PT/PortableTextBlock'
 import Timespan from '../Timespan'
 // import Map from '../Map'
@@ -43,7 +43,8 @@ export default function EventSection(props) {
             maxW={['xl', null, 'xl', null]}
             fontSize={['xl', '2xl', '3xl', null]}
           >
-            <Link href={`/id/${item._id}`}>{item.label}</Link>
+            {item.label}
+            {/* <Link href={`/id/${item._id}`}>{item.label}</Link> */}
           </Heading>
 
           {item.timespan && (

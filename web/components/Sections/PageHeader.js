@@ -1,4 +1,6 @@
-import { Container, Heading, useColorModeValue } from '@chakra-ui/react'
+import { Container, Heading, /* Image, */ useColorModeValue } from '@chakra-ui/react'
+// import { imageBuilder } from '../../lib/sanity'
+
 import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function PageHeader(props) {
@@ -22,6 +24,16 @@ export default function PageHeader(props) {
       backgroundPosition="40% 100%"
       backgroundRepeat="no-repeat"
     >
+      {/* {props.illustration?.image && (
+        <Image
+          mb="5"
+          maxH="50vh"
+          justifyContent="end"
+          overflow="hidden"
+          src={imageBuilder.image(props.illustration?.image).width('800').fit('min').url()}
+          alt={''}
+        />
+      )} */}
       <Heading
         fontSize={['2xl', '3xl', '4xl', '5xl', null]}
         textAlign="center"
