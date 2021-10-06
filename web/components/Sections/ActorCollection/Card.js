@@ -3,49 +3,64 @@ import PortableTextBlock from '../../PT/PortableTextBlock'
 import { kebabCase } from 'lodash'
 import Link from '../../Link'
 import { imageBuilder } from '../../../lib/sanity'
+import Date from '../../Date'
 // import Image from 'next/image'
 // import { getNextSanityImage } from '../../../lib/sanity.server'
 
 export default function ActorCollectionCard({ data }) {
+  console.log(data[3].death?.timespan[0].date)
   return (
     <>
-      {data.map((item) => (
-        <Box maxW="xs" key={item.item._id} m="4">
-          {item.image && (
+      {data.map((card) => (
+        <Box maxW="xs" key={card.item._id} m="4">
+          {card.image && (
             <Box mb="3">
               <Image
                 mx="auto"
                 borderRadius="50%"
-                alt={item.label || 'No label'}
+                alt={card.label || 'No label'}
                 //{...getNextSanityImage(item.image)}
-                src={imageBuilder.image(item.image).width('200').height('250').fit('fill').url()}
+                src={imageBuilder.image(card.image).width('200').height('250').fit('fill').url()}
                 objectFit="contain"
               />
             </Box>
           )}
 
-          <Box px="3">
+          <Box px="3" textAlign="center">
             <Heading
-              id={kebabCase(item.label)}
+              id={kebabCase(card.label)}
               as="h3"
               maxW={['xl', null, 'xl', null]}
               mx="auto"
               fontSize={['xl', '2xl', '3xl', null]}
-              textAlign="center"
             >
-              <Link href={`/id/${item.item._id}`}>{item.label}</Link>
+              <Link href={`/id/${card.item._id}`}>{card.label}</Link>
             </Heading>
 
-            {item.item?.shortDescription && (
-              <Text maxW={['xl', null, 'xl', null]} mx="auto" textAlign="center">
-                {item.item.shortDescription}
+            <Text fontSize={['sm', 'lg', null, null]} my="0">
+              {card.item?.birth?.timespan[0]?.date ? (
+                <Date dateFormat="yyyy">{card.item.birth?.timespan[0].date}</Date>
+              ) : (
+                '    '
+              )}
+
+              {(card.item?.birth?.timespan[0]?.date || card.item?.death?.timespan[0]?.date) && (
+                <span>{' - '}</span>
+              )}
+
+              {card.item?.death?.timespan[0]?.date ? (
+                <Date dateFormat="yyyy">{card.item.death?.timespan[0].date}</Date>
+              ) : (
+                '    '
+              )}
+            </Text>
+
+            {card.item?.shortDescription && (
+              <Text maxW={['xl', null, 'xl', null]} fontSize={['sm', 'lg', null, null]} mx="auto">
+                {card.item.shortDescription}
               </Text>
             )}
-            <PortableTextBlock
-              fontSize={['sm', 'lg', null, null]}
-              textAlign="center"
-              blocks={item.description}
-            />
+            <PortableTextBlock fontSize={['sm', 'lg', null, null]} blocks={card.description} />
           </Box>
         </Box>
       ))}

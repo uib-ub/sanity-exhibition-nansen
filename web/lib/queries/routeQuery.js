@@ -3,7 +3,7 @@ import { siteSettings } from './fragments'
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH
 
 const actorCollection = `
-  _type == 'ActorCollection' => {
+  _type == 'ActorCollection' => @{
     ...,
     items[] {
       "label": coalesce(title, item->label.no),
@@ -14,6 +14,8 @@ const actorCollection = `
         _id,
         label,
         shortDescription,
+        "birth": activityStream[_type == "Birth"][0]{...},
+        "death": activityStream[_type == "Death"][0]{...},
         referredToBy[] {
           ...
         },
@@ -49,9 +51,6 @@ export const routeQuery = groq`
               label,
               image
             }
-          },
-          _type == 'PageHeader' => @{
-            ...
           },
           _type in ['MiradorGallery', 'Gallery'] => @{
             ...,
@@ -164,18 +163,6 @@ export const routeQuery = groq`
         },
         content[] {
           ...,
-          _type == 'PageHeader' => @{
-            ...,
-            "palette": illustration.image.asset->.metadata.palette{
-              darkMuted,
-              darkVibrant,
-              dominant,
-              lightMuted,
-              vibrantMuted,
-              muted,
-              vibrant
-            }
-          },
           _type == 'MiradorGallery' => @{
             ...,
             items[] {
@@ -212,26 +199,7 @@ export const routeQuery = groq`
               canvasUrl,
             }
           },
-          _type == 'ActorCollection' => @{
-            ...,
-            items[] {
-              ...,
-              _id,
-              title,
-              "label": coalesce(title, "test"),
-              shortDescription,
-              description,
-              item-> {
-                _id,
-                label,
-                shortDescription,
-                referredToBy[] {
-                  ...
-                },
-                image
-              }
-            }
-          },
+          ${actorCollection},
         }
       }
     },
