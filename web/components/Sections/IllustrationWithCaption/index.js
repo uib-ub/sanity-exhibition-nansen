@@ -10,7 +10,7 @@ export default function IllustrationWithCaption(props) {
   }
   const bg = useColorModeValue('blackAlpha.100', 'black')
 
-  const { title, content, illustration, source } = props
+  const { title, content, illustration, source, view } = props
 
   return (
     <WrapperGrid>
@@ -21,7 +21,7 @@ export default function IllustrationWithCaption(props) {
               alt=""
               {...getNextSanityImage(illustration.image)}
               layout="fill"
-              objectFit="contain"
+              objectFit={view ?? 'contain'}
             />
           )}
         </Box>
