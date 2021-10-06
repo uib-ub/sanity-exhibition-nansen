@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { Flex, Box, useColorModeValue } from '@chakra-ui/react'
-import Caption from './shared/Caption'
-import { getNextSanityImage } from '../../lib/sanity.server'
-import WrapperGrid from './WrapperGrid'
+import Caption from '../shared/Caption'
+import { getNextSanityImage } from '../../../lib/sanity.server'
+import WrapperGrid from '../WrapperGrid'
 
 export default function IllustrationWithCaption(props) {
   if ((!props && !props.illustration) || props.disabled === true) {
