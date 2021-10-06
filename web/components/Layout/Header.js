@@ -77,7 +77,7 @@ export default function Header(props) {
               as={List}
               styleType="lower-roman"
               spacing="1"
-              fontSize={['md', 'md', 'lg', 'lg']}
+              fontSize={['lg', 'lg', 'xl', '2xl']}
               zIndex="9999"
             >
               {mainNavigation?.items &&
@@ -110,6 +110,7 @@ export default function Header(props) {
                     display="list-item"
                     sx={{ listStyleType: 'disc' }}
                     key={item._key}
+                    fontSize={['md', 'md', 'lg', 'xl']}
                   >
                     <ActiveLink href={`/${item.route}`} activeClassName="active">
                       <a>{item.label}</a>
