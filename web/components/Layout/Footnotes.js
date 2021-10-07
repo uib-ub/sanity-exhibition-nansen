@@ -1,4 +1,4 @@
-import { Container } from '@chakra-ui/react'
+import { Container, OrderedList, ListItem } from '@chakra-ui/react'
 import React from 'react'
 import PortableTextBlock from '../PT/PortableTextBlock'
 
@@ -21,20 +21,20 @@ function Footnotes({ blocks }) {
 
   return (
     <Container
-      maxWidth={['md', null, 'xl', null]}
+      maxWidth={['sm', null, 'xl', null]}
       borderTopColor="blackAlpha.300"
       borderTopWidth="1px"
       mt="10"
       pt="10"
     >
-      <ol>
+      <OrderedList>
         {notes.map(({ _key, text }) => (
           // the _key is what markKey refers to in the main text component
-          <li id={`${_key}`} key={_key}>
+          <ListItem id={`${_key}`} key={_key}>
             <PortableTextBlock fontSize={['md', null, 'lg', null]} blocks={text} />
-          </li>
+          </ListItem>
         ))}
-      </ol>
+      </OrderedList>
     </Container>
   )
 }
