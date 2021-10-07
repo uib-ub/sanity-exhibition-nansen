@@ -21,6 +21,7 @@ export default function Footer(props) {
 
   const { colorMode, toggleColorMode } = useColorMode()
   const color = useColorModeValue('gray.500', 'gray.400')
+  const navColor = useColorModeValue('black', 'white')
   const footer = useColorModeValue(
     `${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer/light.svg`,
     `${process.env.NEXT_PUBLIC_BASE_PATH}/img/taakeheimen-footer/dark.svg`,
@@ -55,7 +56,13 @@ export default function Footer(props) {
 
       <Container maxW="2xl" px="4" pt={['12%', '10%', '8%', null]} centerContent>
         {mainNavigation?.items && (
-          <Flex fontSize={['xl', null, '2xl', null]} wrap="wrap" justify="center" mt="3">
+          <Flex
+            fontSize={['xl', null, '2xl', null]}
+            wrap="wrap"
+            justify="center"
+            mt="3"
+            color={navColor}
+          >
             {mainNavigation?.items &&
               mainNavigation.items.map((item) => (
                 <Box key={item._key} px="2">
@@ -68,7 +75,14 @@ export default function Footer(props) {
         )}
 
         {navMenu?.items && (
-          <Flex mb="5" fontSize={['lg', null, 'xl', null]} wrap="wrap" justify="center" mt="3">
+          <Flex
+            mb="8"
+            fontSize={['lg', null, 'xl', null]}
+            wrap="wrap"
+            justify="center"
+            mt="3"
+            color={navColor}
+          >
             {navMenu?.items &&
               navMenu.items.map((item) => (
                 <Box key={item._key} px="2">
