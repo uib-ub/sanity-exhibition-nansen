@@ -8,7 +8,7 @@ export default function Link({ href, children }) {
   const color = useColorModeValue('teal.700', 'gray.100')
 
   return (
-    <NextLink href={href} passHref>
+    <NextLink href={href} passHref prefetch={false}>
       <ChakraLink color={color}>{children}</ChakraLink>
     </NextLink>
   )
