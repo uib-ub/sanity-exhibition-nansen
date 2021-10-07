@@ -7,6 +7,7 @@ export default function Meta() {
   return (
     <React.Fragment>
       <Head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -30,8 +31,13 @@ export default function Meta() {
         <meta name="msapplication-TileColor" content="#000000" />
         <meta name="msapplication-config" content={`${basePath}/favicon/browserconfig.xml`} />
         <meta name="theme-color" content="#000" />
-        <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-        <meta name="description" content={'A statically generated blog example using Next.js.'} />
+        {/* <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} /> */}
+        <meta
+          name="description"
+          content={
+            'I 2021 feirer Universitetet i Bergen 75 år. Universitetet har imidlertid røtter helt tilbake til grunnleggelsen av Bergens Museum i 1825. Museet hadde flere eminente forskere, deriblant den unge Fridtjof Nansen, som skulle bety mye for Bergen og bergenserne.'
+          }
+        />
         {/* <meta property="og:image" content={HOME_OG_IMAGE_URL} /> */}
         <meta
           name="google-site-verification"

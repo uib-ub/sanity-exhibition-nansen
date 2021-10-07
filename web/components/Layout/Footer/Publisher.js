@@ -1,5 +1,5 @@
 import NextImage from 'next/image'
-import { Box, Flex, Image, useColorModeValue } from '@chakra-ui/react'
+import { Box, SimpleGrid, Image, useColorModeValue } from '@chakra-ui/react'
 
 export default function Publisher({ publishers }) {
   if (!publishers) {
@@ -17,18 +17,18 @@ export default function Publisher({ publishers }) {
   )
 
   return (
-    <Flex maxW="xl" marginBottom={5}>
-      <Box m="6" minW="100px" maxW={['100px', null, '150px', null]}>
+    <SimpleGrid columns={3} marginBottom={5}>
+      <Box m="6" minW="50px" maxW={['100px', null, '150px', null]}>
         <a href="https://www.uib.no/75%C3%A5r">
           <Image alt="Universitetet i Bergen 75 år" src={sytti} w="full" />
         </a>
       </Box>
-      <Box m="6" minW="100px" maxW={['100px', null, '150px', null]}>
+      <Box m="6" minW="50px" maxW={['100px', null, '150px', null]}>
         <a href="https://uib.no/ub">
           <Image alt="Universitetet i Bergen" src={uib} w="full" />
         </a>
       </Box>
-      <Box m="6" minW="100px" maxW={['100px', null, '150px', null]}>
+      <Box m="6" minW="50px" maxW={['100px', null, '150px', null]}>
         <a href="https://arvenetternansen.com">
           <NextImage
             layout="responsive"
@@ -36,7 +36,6 @@ export default function Publisher({ publishers }) {
             height={100}
             alt="Arven etter Nansen"
             src={`${process.env.NEXT_PUBLIC_BASE_PATH}/img/nansen-logo-legacy.png`}
-            w="full"
           />
         </a>
       </Box>
@@ -49,6 +48,6 @@ export default function Publisher({ publishers }) {
             <Link href={`/id/${p._id}`}>{p.label.no}</Link>
           </Box>
         ))} */}
-    </Flex>
+    </SimpleGrid>
   )
 }

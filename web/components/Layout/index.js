@@ -12,7 +12,7 @@ export default function Layout({ preview, children, site }) {
 
       <Header gridArea={{ base: 'header' }} data={{ ...site }} />
 
-      <Box as="main" gridArea="main" w="full">
+      <Box as="main" gridArea="main">
         {/* {loading ? (
           <h1>Loading...</h1>
         ) : null} */}

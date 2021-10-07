@@ -20,6 +20,9 @@ const theme = extendTheme({
   },
   styles: {
     global: {
+      /* '*': {
+        outline: 'auto',
+      }, */
       body: {
         margin: '0',
         padding: '0',
@@ -43,10 +46,10 @@ const theme = extendTheme({
         borderColor: 'red.300',
       },
       'main > div > div > p, main > div > div > h2, main > div > div > h3': {
-        px: { sm: '0' },
+        px: { base: 4, sm: 4, md: 0, lg: 0, xl: 0, '2xl': 0 },
       },
       'main > div > div > figure': {
-        px: { sm: '4' },
+        px: { base: 4, sm: 4, md: 0, lg: 0, xl: 0, '2xl': 0 },
       },
     },
   },

@@ -53,12 +53,12 @@ export default function Footer(props) {
         </Button>
       </Flex>
 
-      <Container maxW="4xl" px="4" pt={['12%', '10%', '8%', null]} centerContent>
+      <Container maxW="2xl" px="4" pt={['12%', '10%', '8%', null]} centerContent>
         {mainNavigation?.items && (
-          <Flex fontSize={['xl', null, '2xl', null]}>
+          <Flex fontSize={['xl', null, '2xl', null]} wrap="wrap" justify="center" mt="3">
             {mainNavigation?.items &&
               mainNavigation.items.map((item) => (
-                <Box key={item._key} p="3">
+                <Box key={item._key} px="2">
                   <ActiveLink href={`/${item.route}`} activeClassName="active">
                     <a>{item.label}</a>
                   </ActiveLink>
@@ -68,10 +68,10 @@ export default function Footer(props) {
         )}
 
         {navMenu?.items && (
-          <Flex mb="5" fontSize={['lg', null, 'xl', null]}>
+          <Flex mb="5" fontSize={['lg', null, 'xl', null]} wrap="wrap" justify="center" mt="3">
             {navMenu?.items &&
               navMenu.items.map((item) => (
-                <Box key={item._key} p="3">
+                <Box key={item._key} px="2">
                   <ActiveLink href={`/${item.route}`} activeClassName="active">
                     <a>{item.label}</a>
                   </ActiveLink>
