@@ -40,6 +40,7 @@
     "react-icons": "^4.1.0",
     "react-inlinesvg": "^2.2.2",
     "react-instagram-embed": "^2.0.1",
+    "react-intersection-observer": "^8.32.1",
     "react-map-gl": "^5.2.9",
     "react-roman": "^2.0.0",
     "react-twitter-embed": "^3.0.3"
