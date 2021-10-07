@@ -7,10 +7,10 @@ const securityHeaders = [
     key: 'X-XSS-Protection',
     value: '1; mode=block',
   },
-  {
+  /*   {
     key: 'Content-Security-Policy-Report-Only',
     value: `default-src 'self'; img-src * ; media-src * ; script-src 'self'`,
-  },
+  }, */
 ]
 
 module.exports = {
