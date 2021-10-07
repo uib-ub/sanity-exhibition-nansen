@@ -3,12 +3,12 @@ import Link from '../../Link'
 import Timespan from '../../Timespan'
 
 export default function Birth(props) {
-  // console.log(props)
+  console.log(JSON.stringify(props, null, 2))
   if (!props.broughtIntoLife) {
     return null
   }
 
-  const { broughtIntoLife, timespan } = props
+  const { broughtIntoLife, timespan, tookPlaceAt } = props
 
   return (
     <>
@@ -17,7 +17,7 @@ export default function Birth(props) {
         <Link href={`id/${broughtIntoLife._id}`}>
           {broughtIntoLife.label.no ?? 'Mangler norsk navn'}
         </Link>{' '}
-        blir født.
+        blir født{tookPlaceAt ? ` i ${tookPlaceAt[0].label.no}` : ''}.
       </Box>
     </>
   )

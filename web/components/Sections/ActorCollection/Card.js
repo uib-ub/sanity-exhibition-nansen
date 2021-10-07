@@ -38,18 +38,23 @@ export default function ActorCollectionCard({ data }) {
             </Heading>
 
             <Text fontSize={['sm', 'lg', null, null]} my="0">
-              {card.item?.birth?.timespan[0]?.date ? (
-                <Date dateFormat="yyyy">{card.item.birth?.timespan[0].date}</Date>
+              {card.item?.birth?.timespan[0] ? (
+                <Date dateFormat="yyyy">
+                  {card.item.birth?.timespan[0].date ??
+                    card.item.birth?.timespan[0].beginOfTheBegin}
+                </Date>
               ) : (
                 '    '
               )}
 
-              {(card.item?.birth?.timespan[0]?.date || card.item?.death?.timespan[0]?.date) && (
-                <span>{' - '}</span>
+              {(card.item?.birth?.timespan[0] || card.item?.death?.timespan[0]) && (
+                <span>{' – '}</span>
               )}
 
-              {card.item?.death?.timespan[0]?.date ? (
-                <Date dateFormat="yyyy">{card.item.death?.timespan[0].date}</Date>
+              {card.item?.death?.timespan[0] ? (
+                <Date dateFormat="yyyy">
+                  {card.item.death?.timespan[0].date ?? card.item.death?.timespan[0].endOfTheEnd}
+                </Date>
               ) : (
                 '    '
               )}

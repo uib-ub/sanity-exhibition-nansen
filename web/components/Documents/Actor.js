@@ -6,6 +6,7 @@ import RenderMergedActivityStreamList from '../ActivityStream/MergedActivityStre
 import { getNextSanityImage } from '../../lib/sanity.server'
 import Members from '../Members'
 import Footnotes from '../Layout/Footnotes'
+import Date from '../Date'
 
 export default function Actor(item) {
   if (!item) {
@@ -23,6 +24,26 @@ export default function Actor(item) {
               layout="responsive"
               objectFit="contain"
             />
+
+            <Text fontSize={['sm', 'lg', null, null]} my="2" textAlign="center" fontWeight="500">
+              {item.birth?.timespan[0] ? (
+                <Date dateFormat="yyyy">
+                  {item.birth?.timespan[0].date ?? item.birth?.timespan[0].beginOfTheBegin}
+                </Date>
+              ) : (
+                '    '
+              )}
+
+              {(item.birth?.timespan[0] || item.death?.timespan[0]) && <span>{' – '}</span>}
+
+              {item.death?.timespan[0] ? (
+                <Date dateFormat="yyyy">
+                  {item.death?.timespan[0].date ?? item.death?.timespan[0].endOfTheEnd}
+                </Date>
+              ) : (
+                '    '
+              )}
+            </Text>
           </Box>
         )}
 

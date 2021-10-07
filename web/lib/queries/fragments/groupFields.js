@@ -15,6 +15,8 @@ export const groupFields = groq`
   activityStream[]{
     ${activityStreamFields}
   },
+  "birth": activityStream[_type == "Birth"][0]{...},
+  "death": activityStream[_type == "Death"][0]{...},
   "hasMember": *[_type in ["Actor", "Group"] && references(^._id)]{ 
     _id,
     _type,

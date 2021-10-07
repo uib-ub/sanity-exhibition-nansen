@@ -21,7 +21,7 @@ export default function Timespan(props) {
 
               {time.beginOfTheBegin && time.endOfTheBegin && (
                 <Box textAlign="center" color="gray.500" lineHeight="0.3">
-                  &nbsp;~&nbsp;
+                  &nbsp;/&nbsp;
                 </Box>
               )}
 
@@ -32,7 +32,7 @@ export default function Timespan(props) {
           {(time.beginOfTheBegin || time.endOfTheBegin) &&
             (time.beginOfTheEnd || time.endOfTheEnd) && (
               <Box alignSelf="center" fontSize="2xl" px="1" color="gray.500" lineHeight="0.3">
-                &nbsp;~&nbsp;
+                &nbsp;–&nbsp;
               </Box>
             )}
 
@@ -42,7 +42,7 @@ export default function Timespan(props) {
 
               {time.beginOfTheEnd && time.endOfTheEnd && (
                 <Box textAlign="center" color="gray.500" lineHeight="0.3">
-                  &nbsp;~&nbsp;
+                  &nbsp;/&nbsp;
                 </Box>
               )}
 
