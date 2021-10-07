@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import { useInView } from 'react-intersection-observer'
-import { Flex, Grid } from '@chakra-ui/react'
+import { Flex, Grid, Skeleton } from '@chakra-ui/react'
 import Caption from './shared/Caption'
 
 const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), { ssr: false })
@@ -13,7 +13,7 @@ export default function MiradorGallery(props) {
 
   const { ref, inView } = useInView({
     root: null,
-    rootMargin: '0px',
+    rootMargin: '600px 0px',
     triggerOnce: true,
     threshold: 1.0,
   })
@@ -39,6 +39,8 @@ export default function MiradorGallery(props) {
         <MiradorWithNoSSR gridArea="image" variant="standard" manifests={items} />
       )}
       {!items && <Flex gridArea="image">Mangler manifest</Flex>}
+
+      {!inView && <Skeleton height="60vh" />}
 
       {inView && <Caption title={title} content={description} />}
     </Grid>

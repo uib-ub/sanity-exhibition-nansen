@@ -1,9 +1,11 @@
 import dynamic from 'next/dynamic'
 import { useInView } from 'react-intersection-observer'
-import { Flex, Grid } from '@chakra-ui/react'
+import { Flex, Grid, Skeleton } from '@chakra-ui/react'
 import Caption from './shared/Caption'
 
-const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), { ssr: false })
+const MiradorWithNoSSR = dynamic(() => import('../MiradorViewer'), {
+  ssr: false,
+})
 
 const SingleObject = (props) => {
   if ((!props && !props.item) || props.disabled === true) {
@@ -13,7 +15,7 @@ const SingleObject = (props) => {
 
   const { ref, inView } = useInView({
     root: null,
-    rootMargin: '200px 0px',
+    rootMargin: '600px 0px',
     triggerOnce: true,
     threshold: 1.0,
   })
@@ -48,6 +50,7 @@ const SingleObject = (props) => {
         />
       )}
       {!item.manifest && <Flex gridArea="image">Mangler manifest</Flex>}
+      {!inView && <Skeleton height="60vh" />}
 
       {inView && <Caption title={title} content={description} sourceItem={item} />}
     </Grid>
