@@ -3,7 +3,7 @@ import Link from '../../Link'
 import Timespan from '../../Timespan'
 
 export default function Birth(props) {
-  console.log(JSON.stringify(props, null, 2))
+  // console.log(JSON.stringify(props, null, 2))
   if (!props.broughtIntoLife) {
     return null
   }
