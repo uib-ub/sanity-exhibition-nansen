@@ -10,7 +10,13 @@ export default function Gallery(props) {
   const { items } = props
 
   return (
-    <Container bg="blackAlpha.100" maxW={['100%', 'lg', '100vw', null, null]} px="0" my="10">
+    <Container
+      display="grid"
+      bg="blackAlpha.100"
+      maxW={['100%', 'lg', '100vw', null, null]}
+      px="0"
+      my="10"
+    >
       <Icon
         as={BsArrowRight}
         position="absolute"
