@@ -8,7 +8,6 @@ import Date from '../../Date'
 // import { getNextSanityImage } from '../../../lib/sanity.server'
 
 export default function ActorCollectionCard({ data }) {
-  console.log(data[3].death?.timespan[0].date)
   return (
     <>
       {data.map((card) => (
