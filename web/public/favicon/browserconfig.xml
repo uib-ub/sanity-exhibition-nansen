@@ -3,7 +3,8 @@
     <msapplication>
         <tile>
             <square150x150logo src="/exhibition/nansen-og-bergenserne/favicon/mstile-150x150.png"/>
-            <TileColor>#da532c</TileColor>
+            <square310x310logo src="/exhibition/nansen-og-bergenserne/favicon/mstile-310x310.png"/>
+            <TileColor>#b91d47</TileColor>
         </tile>
     </msapplication>
 </browserconfig>
