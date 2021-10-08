@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import { usePreviewSubscription } from '../lib/sanity'
 import { routeQuery } from '../lib/queries/routeQuery'
 import { getClient } from '../lib/sanity.server'
@@ -9,6 +10,7 @@ import Layout from '../components/Layout'
 import Sections from '../components/Sections/Sections'
 import PortableTextBlock from '../components/PT/PortableTextBlock'
 import Footnotes from '../components/Layout/Footnotes'
+import { getOpenGraphImages } from '../lib/utils'
 // import TableOfContent from '../components/Layout/TableOfContent'
 
 /**
@@ -37,6 +39,11 @@ export default function Page({ data, preview }) {
 
   // Client-side uses the same query, so we may need to filter it down again
   const page = filterDataToSingleItem(previewData, preview)
+
+  const openGraphImages = getOpenGraphImages(
+    page?.route[0]?.page?.image,
+    page?.route[0]?.page?.label,
+  )
   // console.log(JSON.stringify(page, null, 2))
 
   // Notice the optional?.chaining conditionals wrapping every piece of content?
@@ -45,9 +52,26 @@ export default function Page({ data, preview }) {
   // It'll be completely blank when they start!
   return (
     <Layout preview={preview} site={page?.siteSettings}>
+      <NextSeo
+        title={`${page?.route[0]?.page?.label} - ${page?.siteSettings?.title}`}
+        description={page?.route[0]?.page?.excerpt ?? page?.siteSettings?.title}
+        canonical={`${process.env.NEXT_PUBLIC_DOMAIN}${process.env.NEXT_PUBLIC_BASE_PATH}/${page?.route[0].slug.current}`}
+        openGraph={{
+          url: `${process.env.NEXT_PUBLIC_DOMAIN}${process.env.NEXT_PUBLIC_BASE_PATH}/${page?.route[0].slug.current}`,
+          title: page?.route[0]?.page?.label,
+          description: page?.route[0]?.page?.excerpt,
+          images: openGraphImages,
+          site_name: page?.siteSettings?.title,
+        }}
+        twitter={{
+          handle: '@UiB_UB',
+          site: '@UiB_UB',
+          cardType: 'summary_large_image',
+        }}
+      />
       {/* <pre>{JSON.stringify(page, null, 2)}</pre> */}
       <Head>
-        <title>{page.route[0].page.label + ' - ' + page.siteSettings.title}</title>
+        <title>{page?.route[0]?.page?.label + ' - ' + page?.siteSettings?.title}</title>
       </Head>
 
       <Container maxWidth="full" px="0">

@@ -31,6 +31,7 @@ export const routeQuery = groq`
       ...,
       page->{
         ...,
+        "excerpt": pt::text(excerpt),
         navMenu->{
           ...,
           items[]{
