@@ -1,7 +1,7 @@
-import {FaMarker} from 'react-icons/fa'
+import { FaMarker } from 'react-icons/fa'
 import jsonata from 'jsonata'
-import {editorialState, accessState, label, language, labelSingleton, identifiedBy} from '../props'
-import {defaultFieldsets} from '../fieldsets'
+import { editorialState, accessState, label, language, labelSingleton, identifiedBy, image } from '../props'
+import { defaultFieldsets } from '../fieldsets'
 
 export default {
   name: 'LinguisticDocument',
@@ -57,7 +57,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'TextType'}],
+          to: [{ type: 'TextType' }],
         },
       ],
       validation: (Rule) => Rule.required(),
@@ -76,7 +76,7 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [{type: 'Concept'}],
+          to: [{ type: 'Concept' }],
         },
       ],
       options: {
@@ -134,23 +134,13 @@ export default {
         }
       },
     },
-    {
-      name: 'image',
-      title: 'Hovedbilde',
-      titleEN: 'Main image',
-      type: 'DigitalImageObject',
-      options: {
-        semanticSanity: {
-          "@type": "@json"
-        }
-      },
-    },
+    image,
     {
       name: 'documentedIn', // TODO: Fix
       title: 'Documented in',
       titleEN: 'Dokumentert i',
       type: 'array',
-      of: [{type: 'file'}],
+      of: [{ type: 'file' }],
       options: {
         semanticSanity: {
           exclude: true
@@ -165,7 +155,7 @@ export default {
       media: 'mainImage',
     },
     prepare(selection) {
-      const {title, blocks, media} = selection
+      const { title, blocks, media } = selection
       const expression = jsonata('nor[0]')
       const block = expression.evaluate(blocks)
 
@@ -173,9 +163,9 @@ export default {
         title: title,
         description: block
           ? block.children
-              .filter((child) => child._type === 'span')
-              .map((span) => span.text)
-              .join('')
+            .filter((child) => child._type === 'span')
+            .map((span) => span.text)
+            .join('')
           : 'No description',
         media: media,
       }
