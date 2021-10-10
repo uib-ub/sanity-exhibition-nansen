@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import { imageBuilder } from '../../lib/sanity'
 import { getAllActors } from '../../lib/api'
 import { Grid, Avatar, Box, Heading, Flex, Badge, Container } from '@chakra-ui/react'
@@ -6,27 +7,35 @@ import Layout from '../../components/Layout'
 import Link from '../../components/Link'
 import PortableTextBlock from '../../components/PT/PortableTextBlock'
 import { sortBy } from 'lodash'
+import { getOpenGraphImages } from '../../lib/utils'
 
 export default function Actors({ data, preview }) {
-  /* let actors = data.items.reduce((r, e) => {
-    // get first letter of name of current element
-    let group = e.label[0];
-    // if there is no property in accumulator with this letter create it
-    if(!r[group]) r[group] = {group, children: [e]}
-    // if there is push current element to children array for that letter
-    else r[group].children.push(e);
-    // return accumulator
-    return r;
-  }, {})
-  
-  // since data at this point is an object, to get array of values
-  // we use Object.values method
-  let result = Object.values(actors) */
-
   const sortedItems = sortBy(data.items, 'label.no')
-
+  const openGraphImages = getOpenGraphImages(
+    data?.siteSettings?.openGraph?.image,
+    data?.siteSettings?.title,
+  )
   return (
     <Layout preview={preview} site={data.siteSettings}>
+      <NextSeo
+        title="Aktører"
+        titleTemplate={`%s | ${data?.siteSettings?.title}`}
+        defaultTitle={data?.siteSettings?.title}
+        description={data?.siteSettings?.openGraph?.description}
+        canonical={`${process.env.NEXT_PUBLIC_DOMAIN}${process.env.NEXT_PUBLIC_BASE_PATH}/register`}
+        openGraph={{
+          url: `${process.env.NEXT_PUBLIC_DOMAIN}${process.env.NEXT_PUBLIC_BASE_PATH}/register`,
+          title: data?.siteSettings?.title,
+          description: data?.siteSettings?.openGraph?.description,
+          images: openGraphImages,
+          site_name: data?.siteSettings?.title,
+        }}
+        twitter={{
+          handle: '@UiB_UB',
+          site: '@UiB_UB',
+          cardType: 'summary_large_image',
+        }}
+      />
       <Head>
         <title>Aktører</title>
       </Head>

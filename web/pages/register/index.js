@@ -1,17 +1,41 @@
 import Head from 'next/head'
+import { NextSeo } from 'next-seo'
 import { getRegistry } from '../../lib/api'
 import Layout from '../../components/Layout'
 import { Badge, Heading, Container, List, ListItem, useColorModeValue } from '@chakra-ui/react'
 import Link from '../../components/Link'
 import { sortBy } from 'lodash'
+import { getOpenGraphImages } from '../../lib/utils'
 
 export default function Register({ data, preview }) {
   const tagColor = useColorModeValue('blackAlpha', 'red')
-
   const sortedItems = sortBy(data.items, 'label.no')
+  const openGraphImages = getOpenGraphImages(
+    data?.siteSettings?.openGraph?.image,
+    data?.siteSettings?.title,
+  )
 
   return (
     <Layout preview={preview} site={data.siteSettings}>
+      <NextSeo
+        title="Register"
+        titleTemplate={`%s | ${data?.siteSettings?.title}`}
+        defaultTitle={data?.siteSettings?.title}
+        description={data?.siteSettings?.openGraph?.description}
+        canonical={`${process.env.NEXT_PUBLIC_DOMAIN}${process.env.NEXT_PUBLIC_BASE_PATH}/register`}
+        openGraph={{
+          url: `${process.env.NEXT_PUBLIC_DOMAIN}${process.env.NEXT_PUBLIC_BASE_PATH}/register`,
+          title: data?.siteSettings?.title,
+          description: data?.siteSettings?.openGraph?.description,
+          images: openGraphImages,
+          site_name: data?.siteSettings?.title,
+        }}
+        twitter={{
+          handle: '@UiB_UB',
+          site: '@UiB_UB',
+          cardType: 'summary_large_image',
+        }}
+      />
       <Head>
         <title>Register - {data.siteSettings.title}</title>
       </Head>

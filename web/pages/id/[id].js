@@ -1,16 +1,18 @@
-import Layout from '../../components/Layout'
-import { getIdPaths, getType } from '../../lib/api'
 import Head from 'next/head'
-import RenderDocument from '../../components/Documents/RenderDocument'
 import { usePreviewSubscription } from '../../lib/sanity'
+import { getClient } from '../../lib/sanity.server'
+import { getIdPaths, getType } from '../../lib/api'
 import {
   groupFields,
   humanMadeObjectFields,
   pageFields,
   siteSettings,
 } from '../../lib/queries/fragments'
-import { getClient } from '../../lib/sanity.server'
 import { linguisticDocumentFields } from '../../lib/queries/fragments/linguisticDocumentFields'
+import { NextSeo } from 'next-seo'
+import Layout from '../../components/Layout'
+import RenderDocument from '../../components/Documents/RenderDocument'
+import { getOpenGraphImages } from '../../lib/utils'
 
 /**
  * Helper function to return the correct version of the document
@@ -43,6 +45,8 @@ export default function Document({ data, preview }) {
   const page = filterDataToSingleItem(previewData, preview)
   // console.log(JSON.stringify(page, null, 2))
 
+  const openGraphImages = getOpenGraphImages(page?.item[0]?.image, page?.item[0]?.label.no)
+
   // Notice the optional?.chaining conditionals wrapping every piece of content?
   // This is extremely important as you can't ever rely on a single field
   // of data existing when Editors are creating new documents.
@@ -50,6 +54,23 @@ export default function Document({ data, preview }) {
 
   return (
     <Layout preview={preview} site={page?.siteSettings}>
+      <NextSeo
+        title={`${page?.item[0]?.label.no} - ${page?.siteSettings?.title}`}
+        description={page?.item[0]?.excerpt}
+        canonical={`${process.env.NEXT_PUBLIC_DOMAIN}${process.env.NEXT_PUBLIC_BASE_PATH}/${page?.item[0]._id}`}
+        openGraph={{
+          url: `${process.env.NEXT_PUBLIC_DOMAIN}${process.env.NEXT_PUBLIC_BASE_PATH}/${page?.item[0]._id}`,
+          title: page?.item[0]?.label.no,
+          description: page?.item[0]?.excerpt,
+          images: openGraphImages,
+          site_name: page?.siteSettings?.title,
+        }}
+        twitter={{
+          handle: '@UiB_UB',
+          site: '@UiB_UB',
+          cardType: 'summary_large_image',
+        }}
+      />
       <Head>
         <title>
           {`${page?.item[0]?.label?.no || page?.item[0]?.label}`} - {page.siteSettings.title}

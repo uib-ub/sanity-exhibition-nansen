@@ -97,6 +97,7 @@ export const humanMadeObjectFields = groq`
       }
     }
   },
+  "excerpt": pt::text(referredToBy[0].body),
   referredToBy[] {
     ...,
     body[] {

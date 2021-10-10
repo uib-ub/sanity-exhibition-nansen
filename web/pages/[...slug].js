@@ -39,12 +39,12 @@ export default function Page({ data, preview }) {
 
   // Client-side uses the same query, so we may need to filter it down again
   const page = filterDataToSingleItem(previewData, preview)
+  // console.log(JSON.stringify(page, null, 2))
 
   const openGraphImages = getOpenGraphImages(
     page?.route[0]?.page?.image,
     page?.route[0]?.page?.label,
   )
-  // console.log(JSON.stringify(page, null, 2))
 
   // Notice the optional?.chaining conditionals wrapping every piece of content?
   // This is extremely important as you can't ever rely on a single field
@@ -53,8 +53,10 @@ export default function Page({ data, preview }) {
   return (
     <Layout preview={preview} site={page?.siteSettings}>
       <NextSeo
-        title={`${page?.route[0]?.page?.label} - ${page?.siteSettings?.title}`}
-        description={page?.route[0]?.page?.excerpt ?? page?.siteSettings?.title}
+        title={page?.route[0]?.page?.label}
+        titleTemplate={`%s | ${data?.siteSettings?.title}`}
+        defaultTitle={data?.siteSettings?.title}
+        description={page?.route[0]?.page?.excerpt}
         canonical={`${process.env.NEXT_PUBLIC_DOMAIN}${process.env.NEXT_PUBLIC_BASE_PATH}/${page?.route[0].slug.current}`}
         openGraph={{
           url: `${process.env.NEXT_PUBLIC_DOMAIN}${process.env.NEXT_PUBLIC_BASE_PATH}/${page?.route[0].slug.current}`,
