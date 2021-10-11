@@ -133,6 +133,7 @@ export default {
     { type: 'SingleLevelChart' },
     { type: 'Geojson' },
     { type: 'Quote' },
+    { type: 'Table' },
     { type: 'TimelineSection' },
     { type: 'TwoColumn' },
     { type: 'Video' },

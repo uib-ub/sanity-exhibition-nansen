@@ -10,5 +10,7 @@
   "@sanity/form-builder": "b38478227ba5e22c91981da4b53436df22e48ff25238a55a973ed620be5068aa",
   "graph-view": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
   "leaflet-input": "719f6bf672040fa5af3485f155f7da339033b564cc0978f1249c274ddd26a483",
-  "sanity-plugin-intl-input": "836769499d9d622e2bab7ec2729c2aa94d04e642f6f6352ce04e6dfc9f5f23cb"
+  "sanity-plugin-intl-input": "836769499d9d622e2bab7ec2729c2aa94d04e642f6f6352ce04e6dfc9f5f23cb",
+  "sanity-plugin-table": "e56785cc6cecbacf8ebe6bb99ffae32b973e233503c0714497ac7df3042863f1",
+  "table": "e56785cc6cecbacf8ebe6bb99ffae32b973e233503c0714497ac7df3042863f1"
 }

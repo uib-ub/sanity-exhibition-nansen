@@ -24,7 +24,8 @@
     "media",
     "dashboard-widget-vercel",
     "@seidhr/sanity-plugin-dashboard-widget-muna-docs",
-    "iframe-pane"
+    "iframe-pane",
+    "table"
   ],
   "env": {
     "development": {

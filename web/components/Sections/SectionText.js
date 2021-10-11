@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react'
+import { Container, Heading } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
 
 export default function SectionText(props) {
@@ -7,12 +7,12 @@ export default function SectionText(props) {
   }
 
   return (
-    <Box maxW={['lg', null, null, null, '2xl']}>
+    <Container maxW={['md', null, '2xl', null]}>
       {props?.title && <Heading fontSize="xl">{props.title}</Heading>}
 
       {props?.subtitle && <PortableTextBlock blocks={props.subtitle} />}
 
       <PortableTextBlock blocks={props.content} />
-    </Box>
+    </Container>
   )
 }
