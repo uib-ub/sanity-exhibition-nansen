@@ -27,12 +27,6 @@ export default {
       titleEN: 'Illustration',
       type: 'table',
     },
-    {
-      name: 'caption',
-      title: 'Tekst',
-      titleEN: 'Text',
-      type: 'simpleBlockContent',
-    },
   ],
   preview: {
     select: {

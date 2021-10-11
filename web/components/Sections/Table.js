@@ -11,7 +11,7 @@ export default function SectionText(props) {
   const body = data.rows.length > 1 ? data.rows.slice(1) : null
 
   return (
-    <Container maxW={['md', null, '2xl', null]} my="10" centerContent>
+    <Container maxW={['lg', null, '3xl', null]} my="10" overflowX="scroll" centerContent>
       <Table>
         {title && <TableCaption>{title}</TableCaption>}
 
