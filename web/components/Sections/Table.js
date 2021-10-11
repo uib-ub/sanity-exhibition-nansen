@@ -7,13 +7,11 @@ export default function SectionText(props) {
 
   const { title, data } = props
 
-  const head = data.rows[0].cells
+  const head = data.rows[0].cells ?? null
   const body = data.rows.length > 1 ? data.rows.slice(1) : null
 
-  console.log(head, body)
-
   return (
-    <Container maxW={['md', null, '2xl', null]} my="10">
+    <Container maxW={['md', null, '2xl', null]} my="10" centerContent>
       <Table>
         {title && <TableCaption>{title}</TableCaption>}
 

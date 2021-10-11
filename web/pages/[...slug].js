@@ -53,7 +53,7 @@ export default function Page({ data, preview }) {
   return (
     <Layout preview={preview} site={page?.siteSettings}>
       <NextSeo
-        title={page?.route[0]?.page?.label}
+        title={page?.route[0]?.page?.label ?? page?.route[0]?.page?.title}
         titleTemplate={`%s | ${data?.siteSettings?.title}`}
         defaultTitle={data?.siteSettings?.title}
         description={page?.route[0]?.page?.excerpt}
@@ -73,7 +73,10 @@ export default function Page({ data, preview }) {
       />
       {/* <pre>{JSON.stringify(page, null, 2)}</pre> */}
       <Head>
-        <title>{page?.route[0]?.page?.label + ' - ' + page?.siteSettings?.title}</title>
+        <title>
+          {`${page?.route[0]?.page?.label ?? page?.route[0]?.page?.title}
+           - ${page?.siteSettings?.title}`}
+        </title>
       </Head>
 
       <Container maxWidth="full" px="0">
@@ -122,7 +125,7 @@ export async function getStaticProps({ params, preview = false }) {
 
   // Helper function to reduce all returned documents down to just one
   const page = filterDataToSingleItem(data, preview)
-
+  console.log(JSON.stringify(page, null, 2))
   return {
     props: {
       // Pass down the "preview mode" boolean to the client-side
