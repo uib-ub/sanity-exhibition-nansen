@@ -30,7 +30,6 @@ export default function Footer(props) {
   )
 
   const { content, mainNavigation, navMenu, license, publisher } = props
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH
 
   return (
     <Container
@@ -110,9 +109,7 @@ export default function Footer(props) {
           {license && <License license={license} />}
           <Text fontSize="md" textAlign="center">
             Denne nettsiden benytter Informasjonskapsler.{' '}
-            <Link href={`${basePath}/informasjonskapsler`}>
-              Les mer om våre informasjonskapsler
-            </Link>
+            <Link href={`informasjonskapsler`}>Les mer om våre informasjonskapsler</Link>
           </Text>
         </Container>
       </Container>
