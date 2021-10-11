@@ -125,7 +125,7 @@ export async function getStaticProps({ params, preview = false }) {
 
   // Helper function to reduce all returned documents down to just one
   const page = filterDataToSingleItem(data, preview)
-  console.log(JSON.stringify(page, null, 2))
+
   return {
     props: {
       // Pass down the "preview mode" boolean to the client-side
