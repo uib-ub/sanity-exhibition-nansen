@@ -119,7 +119,6 @@ export default function PortableTextBlock(props) {
         )
       },
       footnote: ({ children, markKey }) => {
-        console.log(markKey)
         return (
           <span>
             {children}
