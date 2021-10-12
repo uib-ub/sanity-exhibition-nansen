@@ -108,7 +108,7 @@ export default function Footer(props) {
           {publisher && <Publisher publishers={publisher} />}
           {license && <License license={license} />}
           <Text fontSize="md" textAlign="center">
-            Denne nettsiden benytter Informasjonskapsler.{' '}
+            Denne nettsiden benytter informasjonskapsler.{' '}
             <Link href={`informasjonskapsler`}>Les mer om våre informasjonskapsler</Link>
           </Text>
         </Container>
