@@ -26,6 +26,7 @@ import {
 } from '../Sections'
 import ActorInsert from './Inserts/ActorInsert'
 import PlaceInsert from './Inserts/PlaceInsert'
+import { getFootnotesNumberArray } from '../../lib/utils'
 
 const BlockContent = require('@sanity/block-content-to-react')
 
@@ -44,6 +45,8 @@ export default function PortableTextBlock(props) {
     mx,
     ...rest
   } = props
+
+  const footnoteNumbers = getFootnotesNumberArray(props.blocks)
 
   const getFontSize = (level) => {
     switch (level) {
@@ -115,20 +118,23 @@ export default function PortableTextBlock(props) {
           <Link href={href}>{text}</Link>
         )
       },
-      footnote: ({ children, markKey }) => (
-        <span>
-          {children}
-          <sup>
-            {/* 
+      footnote: ({ children, markKey }) => {
+        console.log(markKey)
+        return (
+          <span>
+            {children}
+            <sup>
+              {/* 
               https://codesandbox.io/s/how-to-render-footnotes-in-portable-text-in-react-iupur?file=/src/index.js:254-650
               If you want numbers here, you can reuse the reduce function from Footnotes.js
               to e.g. an object with markKey as keys and the index as values.
               {[markKey]: index}. 
             */}
-            <a href={`#${markKey}`}>*</a>
-          </sup>
-        </span>
-      ),
+              <a href={`#${markKey}`}>{footnoteNumbers[markKey]}</a>
+            </sup>
+          </span>
+        )
+      },
     },
     types: {
       code: (props) => (
