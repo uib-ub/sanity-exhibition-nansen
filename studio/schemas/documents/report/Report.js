@@ -79,7 +79,7 @@ export default {
           <Link target="blank" href={'/desk/typer;reportType'}>
             ny rapporttype.
           </Link>{' '}
-          <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#classified-as'}>
+          <Link target="blank" href={'https://muna.xyz/docs/model/properties#classified-as'}>
             <BsFillQuestionCircleFill />
           </Link>
         </span>
@@ -92,7 +92,7 @@ export default {
           <Link target="blank" href={'/desk/typer;reportType'}>
             ny rapporttype.
           </Link>{' '}
-          <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#classified-as'}>
+          <Link target="blank" href={'https://muna.xyz/docs/model/properties#classified-as'}>
             <BsFillQuestionCircleFill />
           </Link>
         </span>
@@ -128,7 +128,7 @@ export default {
       description: (
         <span>
           Hendelser og aktiviteter relatert til rapporten.{' '}
-          <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#activity-stream'}>
+          <Link target="blank" href={'https://muna.xyz/docs/model/properties#activity-stream'}>
             <BsFillQuestionCircleFill />
           </Link>
         </span>
@@ -136,7 +136,7 @@ export default {
       descriptionEN: (
         <span>
           Events and activities connected to this object.{' '}
-          <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#activity-stream'}>
+          <Link target="blank" href={'https://muna.xyz/docs/model/properties#activity-stream'}>
             <BsFillQuestionCircleFill />
           </Link>
         </span>
@@ -178,7 +178,7 @@ export default {
           Bilder knyttet til rapporten som dokumentere det rapporten omhandler.{' '}
           <Link
             target="blank"
-            href={'https://docs.muna.xyz/docs/model/properties#documentation-images'}
+            href={'https://muna.xyz/docs/model/properties#documentation-images'}
           >
             <BsFillQuestionCircleFill />
           </Link>
@@ -189,7 +189,7 @@ export default {
           Images that documents the subject of the report.{' '}
           <Link
             target="blank"
-            href={'https://docs.muna.xyz/docs/model/properties#documentation-images'}
+            href={'https://muna.xyz/docs/model/properties#documentation-images'}
           >
             <BsFillQuestionCircleFill />
           </Link>
@@ -215,7 +215,7 @@ export default {
           Filer med utfyllende informasjon.{' '}
           <Link
             target="blank"
-            href={'https://docs.muna.xyz/docs/model/properties#documentation-files'}
+            href={'https://muna.xyz/docs/model/properties#documentation-files'}
           >
             <BsFillQuestionCircleFill />
           </Link>
@@ -226,7 +226,7 @@ export default {
           Files with additional information.{' '}
           <Link
             target="blank"
-            href={'https://docs.muna.xyz/docs/model/properties#documentation-files'}
+            href={'https://muna.xyz/docs/model/properties#documentation-files'}
           >
             <BsFillQuestionCircleFill />
           </Link>
@@ -250,7 +250,7 @@ export default {
         <span>
           Dersom det er flere selvstendige rapporter som inngår i en serie, legg til disse til her.
           Den overordene rapportens metadata bør reflektere at det er en samlepost.{' '}
-          <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#sub-report'}>
+          <Link target="blank" href={'https://muna.xyz/docs/model/properties#sub-report'}>
             <BsFillQuestionCircleFill />
           </Link>
         </span>
@@ -259,7 +259,7 @@ export default {
         <span>
           If there is several indepentent reports that forms part of a larger rapport these can be
           added here.{' '}
-          <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#sub-report'}>
+          <Link target="blank" href={'https://muna.xyz/docs/model/properties#sub-report'}>
             <BsFillQuestionCircleFill />
           </Link>
         </span>

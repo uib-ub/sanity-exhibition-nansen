@@ -50,7 +50,7 @@ export default {
           Bilder knyttet til rapporten som dokumentere det rapporten omhandler.{' '}
           <Link
             target="blank"
-            href={'https://docs.muna.xyz/docs/model/properties#documentation-images'}
+            href={'https://muna.xyz/docs/model/properties#documentation-images'}
           >
             <BsFillQuestionCircleFill />
           </Link>
@@ -61,7 +61,7 @@ export default {
           Images that documents the subject of the report.{' '}
           <Link
             target="blank"
-            href={'https://docs.muna.xyz/docs/model/properties#documentation-images'}
+            href={'https://muna.xyz/docs/model/properties#documentation-images'}
           >
             <BsFillQuestionCircleFill />
           </Link>

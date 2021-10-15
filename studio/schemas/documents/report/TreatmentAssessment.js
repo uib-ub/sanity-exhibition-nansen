@@ -1,8 +1,8 @@
 import React from 'react'
-import {Link} from 'part:@sanity/base/router'
-import {BsFillQuestionCircleFill} from 'react-icons/bs'
-import {timespan, referredToBy, carriedOutBy, tookPlaceAt} from '../../props'
-import {defaultFieldsets} from '../../fieldsets'
+import { Link } from 'part:@sanity/base/router'
+import { BsFillQuestionCircleFill } from 'react-icons/bs'
+import { timespan, referredToBy, carriedOutBy, tookPlaceAt } from '../../props'
+import { defaultFieldsets } from '../../fieldsets'
 
 export default {
   name: 'TreatmentAssessment',
@@ -30,7 +30,7 @@ export default {
           Bilder som dokumenterer behandlingsresultatet.{' '}
           <Link
             target="blank"
-            href={'https://docs.muna.xyz/docs/model/properties#documentation-images'}
+            href={'https://muna.xyz/docs/model/properties#documentation-images'}
           >
             <BsFillQuestionCircleFill />
           </Link>
@@ -41,7 +41,7 @@ export default {
           Images that documents the results of the treatment.{' '}
           <Link
             target="blank"
-            href={'https://docs.muna.xyz/docs/model/properties#documentation-images'}
+            href={'https://muna.xyz/docs/model/properties#documentation-images'}
           >
             <BsFillQuestionCircleFill />
           </Link>
@@ -49,7 +49,7 @@ export default {
       ),
       fieldset: 'documentation',
       type: 'array',
-      of: [{type: 'DigitalImageObject'}],
+      of: [{ type: 'DigitalImageObject' }],
       options: {
         layout: 'grid',
         semanticSanity: {
@@ -64,7 +64,7 @@ export default {
       date: 'productionDate',
     },
     prepare(selection) {
-      const {date} = selection
+      const { date } = selection
       return {
         title: `Vurdering av behandling${date ? ', datert ' + date : ''}`,
       }

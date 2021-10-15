@@ -62,7 +62,7 @@ export const file = {
   description: (
     <span>
       Last opp eller velg et bilde. Dette er bildet som brukes som forhåndsvisning.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#image'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#image'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -70,7 +70,7 @@ export const file = {
   descriptionEN: (
     <span>
       Upload or choose a image. This image will be used for previews.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#image'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#image'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -90,7 +90,7 @@ export const image = {
   description: (
     <span>
       Last opp eller velg et bilde. Dette er bildet som brukes som forhåndsvisning.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#image'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#image'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -98,7 +98,7 @@ export const image = {
   descriptionEN: (
     <span>
       Upload or choose a image. This image will be used for previews.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#image'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#image'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -140,7 +140,7 @@ export const subjectOfManifest = {
   description: (
     <span>
       Hovedmanifestet til objektet.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#main-representation'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#main-representation'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -148,7 +148,7 @@ export const subjectOfManifest = {
   descriptionEN: (
     <span>
       The main manifest of this object.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#main-representation'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#main-representation'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -165,7 +165,7 @@ export const preferredIdentifier = {
       identifikatorer kan registreres i <i>Identifiert av </i>.{' '}
       <Link
         target="blank"
-        href={'https://docs.muna.xyz/docs/model/properties#preferred-identifier'}
+        href={'https://muna.xyz/docs/model/properties#preferred-identifier'}
       >
         <BsFillQuestionCircleFill />
       </Link>
@@ -177,7 +177,7 @@ export const preferredIdentifier = {
       add to <i>identified by</i>.{' '}
       <Link
         target="blank"
-        href={'https://docs.muna.xyz/docs/model/properties#preferred-identifier'}
+        href={'https://muna.xyz/docs/model/properties#preferred-identifier'}
       >
         <BsFillQuestionCircleFill />
       </Link>
@@ -198,8 +198,8 @@ export const label = {
   name: 'label',
   title: 'Tittel',
   titleEN: 'Title',
-  // description: (<span>Tittel. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
-  // descriptionEN: (<span>Title. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
+  // description: (<span>Tittel. <Link target='blank' href={'https://muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
+  // descriptionEN: (<span>Title. <Link target='blank' href={'https://muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
   type: 'LocaleString',
   validation: (Rule) => Rule.required(),
   options: {
@@ -213,8 +213,8 @@ export const sortLabel = {
   name: 'sortLabel',
   title: 'Invertert form (sortering)',
   titleEN: 'Sort label',
-  // description: (<span>Tittel. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
-  // descriptionEN: (<span>Title. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
+  // description: (<span>Tittel. <Link target='blank' href={'https://muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
+  // descriptionEN: (<span>Title. <Link target='blank' href={'https://muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
   type: 'string',
   options: {
     semanticSanity: {
@@ -227,8 +227,8 @@ export const labelSingleton = {
   name: 'label',
   title: 'Tittel',
   titleEN: 'Title',
-  // description: (<span>Tittel. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
-  // descriptionEN: (<span>Title. <Link target='blank' href={'https://docs.muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
+  // description: (<span>Tittel. <Link target='blank' href={'https://muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
+  // descriptionEN: (<span>Title. <Link target='blank' href={'https://muna.xyz/docs/model/properties#label'}><BsFillQuestionCircleFill /></Link></span>),
   type: 'string',
   validation: (Rule) => Rule.required(),
   options: {
@@ -252,7 +252,7 @@ export const identifiedBy = {
   description: (
     <span>
       Gjeldende, alternative, eksterne eller ugyldige identifikatorer.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#identified-by'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#identified-by'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -260,7 +260,7 @@ export const identifiedBy = {
   descriptionEN: (
     <span>
       Current, alternative, external or invalid ifentifiers.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#identified-by'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#identified-by'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -308,7 +308,7 @@ export const subject = {
         nye emneord
       </Link>
       .{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#subject'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#subject'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -320,7 +320,7 @@ export const subject = {
         new subjects
       </Link>
       .{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#subject'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#subject'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -348,7 +348,7 @@ export const referredToBy = {
     <span>
       Objektet kan ha mange beskrivelser, korte og/eller lange. Tekstene kan types for ulike
       bruksformål.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#description'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#description'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -356,7 +356,7 @@ export const referredToBy = {
   descriptionEN: (
     <span>
       The object can have multiple descriptions of varying lengths and purposes.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#description'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#description'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -407,7 +407,7 @@ export const presentAt = {
   description: (
     <span>
       Dette objektet var tilstede ved en hendelse eller aktivitet.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#present-at'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#present-at'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -415,7 +415,7 @@ export const presentAt = {
   descriptionEN: (
     <span>
       This object was present at an event or activity.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#present-at'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#present-at'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -445,7 +445,7 @@ export const motivatedBy = {
   description: (
     <span>
       Dette objektet var tilstede ved en hendelse eller aktivitet.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#motivated-by'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#motivated-by'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -453,7 +453,7 @@ export const motivatedBy = {
   descriptionEN: (
     <span>
       This object was present at an event or activity.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#motivated-by'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#motivated-by'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -483,7 +483,7 @@ export const hasCurrentOwner = {
   description: (
     <span>
       Nåværende eier av dette objektet.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#current-owner'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#current-owner'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -491,7 +491,7 @@ export const hasCurrentOwner = {
   descriptionEN: (
     <span>
       Current owner of this object.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#current-owner'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#current-owner'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -522,7 +522,7 @@ export const hasFormerOrCurrentOwner = {
       Tidligere eller nåværende eier av dette objektet. Brukes også for usikkert eierskap.{' '}
       <Link
         target="blank"
-        href={'https://docs.muna.xyz/docs/model/properties#former-or-current-owner'}
+        href={'https://muna.xyz/docs/model/properties#former-or-current-owner'}
       >
         <BsFillQuestionCircleFill />
       </Link>
@@ -533,7 +533,7 @@ export const hasFormerOrCurrentOwner = {
       Former or current owner of this object. Also used for uncertain ownership.{' '}
       <Link
         target="blank"
-        href={'https://docs.muna.xyz/docs/model/properties#former-or-current-owner'}
+        href={'https://muna.xyz/docs/model/properties#former-or-current-owner'}
       >
         <BsFillQuestionCircleFill />
       </Link>
@@ -563,7 +563,7 @@ export const composedOf = {
   description: (
     <span>
       Andre identifiserte objekt som er en del av dette objektet.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#composed-of'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#composed-of'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -571,7 +571,7 @@ export const composedOf = {
   descriptionEN: (
     <span>
       Other identified madeObjects this object is composed of.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#composed-of'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#composed-of'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -609,7 +609,7 @@ export const subjectOf = {
   description: (
     <span>
       <strong>Eksperimentel:</strong> Tekster om dette objektet.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#subject-of'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#subject-of'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -618,7 +618,7 @@ export const subjectOf = {
     <span>
       <strong>Experimental:</strong> Texts that have this object as its main subject, both internal
       and other texts.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#subject-of'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#subject-of'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -645,7 +645,7 @@ export const depicts = {
   description: (
     <span>
       Avbildet på dette objektet.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#depicts'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#depicts'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -653,7 +653,7 @@ export const depicts = {
   descriptionEN: (
     <span>
       Depictions on this object.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#depicts'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#depicts'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -684,7 +684,7 @@ export const represents = {
   description: (
     <span>
       Hva dette motivet representerer.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#represents'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#represents'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -692,7 +692,7 @@ export const represents = {
   descriptionEN: (
     <span>
       What this visual image represents.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#represents'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#represents'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -723,7 +723,7 @@ export const showsVisualObject = {
   description: (
     <span>
       Motiv vist på dette objectet.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#shown-visual-item'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#shown-visual-item'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -731,7 +731,7 @@ export const showsVisualObject = {
   descriptionEN: (
     <span>
       Visual item shown on this object.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#shown-visual-item'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#shown-visual-item'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -753,7 +753,7 @@ export const carries = {
   description: (
     <span>
       Verk som er representert i dette objektet.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#carries'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#carries'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -761,7 +761,7 @@ export const carries = {
   descriptionEN: (
     <span>
       Work represented on this object.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#carries'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#carries'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -783,7 +783,7 @@ export const measuredBy = {
   description: (
     <span>
       <strong>Eksperimentel:</strong> Måling av objektet.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#measurement'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#measurement'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -791,7 +791,7 @@ export const measuredBy = {
   descriptionEN: (
     <span>
       <strong>Experimental:</strong> Measurment of the object.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#measurement'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#measurement'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -813,7 +813,7 @@ export const hasDimension = {
   description: (
     <span>
       <strong>Eksperimentel:</strong> Objektets dimension.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#dimension'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#dimension'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -821,7 +821,7 @@ export const hasDimension = {
   descriptionEN: (
     <span>
       <strong>Experimental:</strong> Dimension of the object.{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#dimension'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#dimension'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -847,7 +847,7 @@ export const consistsOf = {
         nytt material
       </Link>
       .{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#consists-of'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#consists-of'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -859,7 +859,7 @@ export const consistsOf = {
         new material
       </Link>
       .{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#consists-of'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#consists-of'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -892,7 +892,7 @@ export const usedGeneralTechnique = {
       .{' '}
       <Link
         target="blank"
-        href={'https://docs.muna.xyz/docs/model/properties#used-general-technique'}
+        href={'https://muna.xyz/docs/model/properties#used-general-technique'}
       >
         <BsFillQuestionCircleFill />
       </Link>
@@ -907,7 +907,7 @@ export const usedGeneralTechnique = {
       .{' '}
       <Link
         target="blank"
-        href={'https://docs.muna.xyz/docs/model/properties#used-general-technique'}
+        href={'https://muna.xyz/docs/model/properties#used-general-technique'}
       >
         <BsFillQuestionCircleFill />
       </Link>
@@ -941,7 +941,7 @@ export const usedSpecificTechnique = {
       .{' '}
       <Link
         target="blank"
-        href={'https://docs.muna.xyz/docs/model/properties#used-spesific-technique'}
+        href={'https://muna.xyz/docs/model/properties#used-spesific-technique'}
       >
         <BsFillQuestionCircleFill />
       </Link>
@@ -956,7 +956,7 @@ export const usedSpecificTechnique = {
       .{' '}
       <Link
         target="blank"
-        href={'https://docs.muna.xyz/docs/model/properties#used-spesific-technique'}
+        href={'https://muna.xyz/docs/model/properties#used-spesific-technique'}
       >
         <BsFillQuestionCircleFill />
       </Link>
@@ -983,7 +983,7 @@ export const usedObjectOfType = {
         ny objekttype
       </Link>
       .{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#used-object-of-type'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#used-object-of-type'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -995,7 +995,7 @@ export const usedObjectOfType = {
         new object type
       </Link>
       .{' '}
-      <Link target="blank" href={'https://docs.muna.xyz/docs/model/properties#used-object-of-type'}>
+      <Link target="blank" href={'https://muna.xyz/docs/model/properties#used-object-of-type'}>
         <BsFillQuestionCircleFill />
       </Link>
     </span>
@@ -1028,7 +1028,7 @@ export const usedSpecificObject = {
       .{' '}
       <Link
         target="blank"
-        href={'https://docs.muna.xyz/docs/model/properties#used-spesific-object'}
+        href={'https://muna.xyz/docs/model/properties#used-spesific-object'}
       >
         <BsFillQuestionCircleFill />
       </Link>
@@ -1043,7 +1043,7 @@ export const usedSpecificObject = {
       .{' '}
       <Link
         target="blank"
-        href={'https://docs.muna.xyz/docs/model/properties#used-spesific-object'}
+        href={'https://muna.xyz/docs/model/properties#used-spesific-object'}
       >
         <BsFillQuestionCircleFill />
       </Link>
