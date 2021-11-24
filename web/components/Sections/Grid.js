@@ -1,6 +1,5 @@
-import { romanize } from 'react-roman'
 import NextLink from 'next/link'
-import { Container, Grid, Box, Heading, LinkBox, LinkOverlay, Text } from '@chakra-ui/react'
+import { Container, Grid, Box, Heading, LinkBox, LinkOverlay } from '@chakra-ui/react'
 import PortableTextBlock from '../PT/PortableTextBlock'
 import Image from 'next/image'
 import { getNextSanityImage } from '../../lib/sanity.server'
@@ -22,9 +21,9 @@ export default function Hero(props) {
         gap={[5, null, 10, null]}
       >
         {items &&
-          items.map((item, index) => (
+          items.map((item) => (
             <LinkBox key={item._key} position="relative">
-              <Text
+              {/* <Text
                 display="block"
                 position="absolute"
                 bgColor="white"
@@ -32,7 +31,7 @@ export default function Hero(props) {
                 textTransform="lowercase"
               >
                 {romanize(index + 1)}.
-              </Text>
+              </Text> */}
               {item.illustration && (
                 <Image
                   alt=""

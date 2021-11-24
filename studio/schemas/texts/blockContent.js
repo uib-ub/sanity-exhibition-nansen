@@ -128,6 +128,7 @@ export default {
     { type: 'Gallery' },
     { type: 'SubStory' },
     { type: 'ActorCollection' },
+    { type: 'EventSection' },
     { type: 'InstagramPost' },
     { type: 'ImageCompare' },
     { type: 'SingleLevelChart' },

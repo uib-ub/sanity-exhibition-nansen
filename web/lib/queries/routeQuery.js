@@ -25,8 +25,74 @@ const actorCollection = `
   }
 `
 
+const subStory = `
+  _type == 'SubStory' => {
+    ...,
+    content[] {
+      ...,
+      _type == 'SingleObject' => {
+        ...,
+        item-> {
+          _id,
+          label,
+          "owner": hasCurrentOwner[]-> {
+            _id,
+            label
+          },
+          "manifest": coalesce(
+            subjectOfManifest, 
+            manifestUrl,
+            "${basePath}/api/manifest/" + _id
+          ),
+          canvasUrl,
+        }
+      },
+      _type == 'PageHeader' => {
+        ...,
+        "palette": illustration.image.asset->.metadata.palette{
+          ...
+        }
+      },
+      _type == 'MiradorGallery' => {
+        ...,
+        items[] {
+          ...,
+          "owner": manifestRef->.hasCurrentOwner[]->{
+            _id,
+            label
+          },
+          "manifest": coalesce(
+            manifestRef->.subjectOfManifest, 
+            manifestUrl,
+            "${basePath}/api/manifest/" + manifestRef->._id
+          ),
+          canvasUrl,
+        },
+      },
+      _type == 'SingleObject' => {
+        ...,
+        view,
+        item-> {
+          _id,
+          label,
+          "owner": hasCurrentOwner[]-> {
+            _id,
+            label
+          },
+          "manifest": coalesce(
+            subjectOfManifest, 
+            manifestUrl,
+            "${basePath}/api/manifest/" + _id
+          ),
+          canvasUrl,
+        }
+      },
+    }
+  }
+`
+
 export const routeQuery = groq`
-  {
+{
     "route": *[ _type == "Route" && slug.current == $slug ] {
       ...,
       page->{
@@ -51,6 +117,19 @@ export const routeQuery = groq`
               _id,
               label,
               image
+            }
+          },
+          _type == 'EventSection' && disabled != true => {
+            ...,
+            item-> {
+              _id,
+              label,
+              timespan,
+              location,
+              referredToBy[] {
+                ...
+              },
+              image,
             }
           },
           _type in ['MiradorGallery', 'Gallery'] => @{
@@ -92,78 +171,23 @@ export const routeQuery = groq`
               canvasUrl,
             }
           },
-          _type == 'SubStory' => {
-            ...,
-            content[] {
-              ...,
-              _type == 'SingleObject' => {
-                ...,
-                item-> {
-                  _id,
-                  label,
-                  "owner": hasCurrentOwner[]-> {
-                    _id,
-                    label
-                  },
-                  "manifest": coalesce(
-                    subjectOfManifest, 
-                    manifestUrl,
-                    "${basePath}/api/manifest/" + _id
-                  ),
-                  canvasUrl,
-                }
-              },
-              _type == 'PageHeader' => {
-                ...,
-                "palette": illustration.image.asset->.metadata.palette{
-                  darkMuted,
-                  darkVibrant,
-                  dominant,
-                  lightMuted,
-                  vibrantMuted,
-                  muted,
-                  vibrant
-                }
-              },
-              _type == 'MiradorGallery' => {
-                ...,
-                items[] {
-                  ...,
-                  "owner": manifestRef->.hasCurrentOwner[]->{
-                    _id,
-                    label
-                  },
-                  "manifest": coalesce(
-                    manifestRef->.subjectOfManifest, 
-                    manifestUrl,
-                    "${basePath}/api/manifest/" + manifestRef->._id
-                  ),
-                  canvasUrl,
-                },
-              },
-              _type == 'SingleObject' => {
-                ...,
-                view,
-                item-> {
-                  _id,
-                  label,
-                  "owner": hasCurrentOwner[]-> {
-                    _id,
-                    label
-                  },
-                  "manifest": coalesce(
-                    subjectOfManifest, 
-                    manifestUrl,
-                    "${basePath}/api/manifest/" + _id
-                  ),
-                  canvasUrl,
-                }
-              },
-            }
-          }
+          ${subStory}
         },
         content[] {
           ...,
+          _type == 'EventSection' && disabled != true => {
+            ...,
+            item-> {
+              _id,
+              label,
+              timespan,
+              location,
+              referredToBy[] {
+                ...
+              },
+              image,
+            }
+          },
           _type == 'MiradorGallery' => @{
             ...,
             items[] {

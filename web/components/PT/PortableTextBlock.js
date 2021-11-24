@@ -21,6 +21,7 @@ import {
   Video,
   IllustrationWithCaption,
   ExhibitionElement,
+  EventSection,
   ActorCollection,
   Gallery,
 } from '../Sections'
@@ -145,6 +146,7 @@ export default function PortableTextBlock(props) {
       ActorCollection: (props) => <ActorCollection {...props.node} />,
       BigText: (props) => <BigText {...props.node} />,
       ExhibitionElement: (props) => <ExhibitionElement {...props.node} />,
+      EventSection: (props) => <EventSection {...props.node} />,
       Hero: (props) => <Hero {...props.node} />,
       Iframe: (props) => <Iframe {...props.node} />,
       IllustrationWithCaption: (props) => <IllustrationWithCaption {...props.node} />,
