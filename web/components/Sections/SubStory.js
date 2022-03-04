@@ -38,8 +38,8 @@ export default function SubStory(props) {
       borderColor="red.200"
       color="gray.700"
     >
-      <Flex pt="2" alignItems="baseline" justifyContent="baseline">
-        <Box mr="3" mt="-3">
+      <Flex pt="2" alignItems="center" columnGap={3}>
+        <Box>
           <Icon as={ImEye} w={8} h={8} />
         </Box>
 
@@ -54,7 +54,7 @@ export default function SubStory(props) {
           </Box> */}
 
         {tagline && (
-          <Box mr={{ xs: 6 }}>
+          <Box>
             <PortableTextBlock noOfLines={1} fontSize={['md', 'lg']} blocks={tagline} />
           </Box>
         )}
@@ -65,8 +65,8 @@ export default function SubStory(props) {
             alt={''}
           />
         )} */}
-        <Button variant="link" onClick={onOpen} ml="4" mr={{ sm: 4 }}>
-          Les mer
+        <Button variant="link" size={'lg'} onClick={onOpen} alignSelf={'self-start'} mt={'2px'}>
+          les mer
         </Button>
       </Flex>
 
