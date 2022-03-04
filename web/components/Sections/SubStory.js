@@ -36,7 +36,6 @@ export default function SubStory(props) {
       borderTop="1px solid"
       borderBottom="1px solid"
       borderColor="red.200"
-      color="gray.700"
     >
       <Flex pt="2" alignItems="center" columnGap={3}>
         <Box>
