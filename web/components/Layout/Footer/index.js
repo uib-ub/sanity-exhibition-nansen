@@ -109,7 +109,7 @@ export default function Footer(props) {
           {license && <License license={license} />}
           <Text fontSize="md" textAlign="center">
             Denne nettsiden benytter informasjonskapsler.{' '}
-            <Link href={`${process.env.NEXT_PUBLIC_BASE_PATH}/informasjonskapsler`}>
+            <Link href={`/informasjonskapsler`}>
               Les mer om våre informasjonskapsler
             </Link>
           </Text>
